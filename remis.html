@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remis Rots and Tots, Polka Dots - Greenhaven Wiki</title>
+  <meta name="description" content="The buy / steal / defend minigame tucked inside Greenhaven's main menu. Six Rots, six-slot base, one rival that raids your most valuable banked Rot.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">MINIGAME</div>
+      <h1>Remis Rots and Tots, Polka Dots</h1>
+      <p class="lede">Open the Greenhaven main menu and pick <strong>Rots and Tots</strong>. A small, chunky, local-only buy / steal / defend challenge with the Remis cast. No server, no accounts, no payments - just you, a rival, and six silly creatures that print coins.</p>
+
+      <h2>The loop</h2>
+      <ol>
+        <li>You start with <strong>30 Tots</strong>, the minigame's money.</li>
+        <li>Walk up to a Rot standing on the market pads and press <code>E</code> to buy it - if you can cover its price.</li>
+        <li>Carry it home. Press <code>E</code> again on your base pad to bank it. A banked Rot prints <strong>income</strong> every second.</li>
+        <li>The rival walks a route to your base and grabs your most valuable banked Rot. Chase it down and press <code>Space</code> near them to bonk it loose.</li>
+        <li>Lock the door with <code>Q</code> for ten seconds of safety, on a twenty-five second recharge. Sell a dud with <code>X</code> for half its market price. Buy one of five income upgrades with <code>U</code> at your base.</li>
+      </ol>
+      <p>Build a six-slot collection. Bigger and sillier Rots print faster but cost more to buy and are worth more to lose.</p>
+
+      <h2>The Rot roster</h2>
+      <table>
+        <thead>
+          <tr><th>Rot</th><th>Rarity</th><th>Cost</th><th>Income</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Remi Rot</td><td>Common</td><td>20</td><td>2 / s</td></tr>
+          <tr><td>Polka Tot</td><td>Uncommon</td><td>55</td><td>5 / s</td></tr>
+          <tr><td>Dotty</td><td>Rare</td><td>130</td><td>12 / s</td></tr>
+          <tr><td>Sneaky</td><td>Rare</td><td>180</td><td>16 / s</td></tr>
+          <tr><td>Disco Dumpling</td><td>Epic</td><td>420</td><td>35 / s</td></tr>
+          <tr><td>King Tater</td><td>Legendary</td><td>1000</td><td>80 / s</td></tr>
+        </tbody>
+      </table>
+      <p>Every purchase replenishes the market pad with the next Rot in the catalog, so the shop never runs dry.</p>
+
+      <h2>Controls</h2>
+      <ul>
+        <li><code>WASD</code> or arrows - move. Slower when carrying.</li>
+        <li><code>E</code> - buy or steal the nearest eligible Rot, or bank the one you are carrying at your home pad.</li>
+        <li><code>Q</code> at home - lock the base for ten seconds. Twenty-five second recharge.</li>
+        <li><code>U</code> at home - buy the next income upgrade (five levels).</li>
+        <li><code>X</code> at home - sell your lowest-income banked Rot for half its market price.</li>
+        <li><code>Space</code> near the rival - stun them for three seconds and recover whatever they were carrying.</li>
+        <li><code>Esc</code> - back to the menu. Your local progress in the run resets.</li>
+      </ul>
+
+      <h2>What this is not</h2>
+      <ul>
+        <li><strong>Not online.</strong> There is no second player, no matchmaking, no shared world.</li>
+        <li><strong>Not a Roblox deployment.</strong> The goal is a "dope Steal a Brainrot clone" in feel, but the game is a native Bevy minigame inside Greenhaven - it never touches Roblox's runtime.</li>
+        <li><strong>No rebirth, saving, accounts or payments.</strong> A single local challenge you can pick up and put down. Closing the game keeps nothing.</li>
+      </ul>
+
+      <h2>Where the code lives</h2>
+      <p>The minigame has its own crate under <code>easter-eggs/remis-rots-and-tots/</code> with a scoped <code>AGENTS.md</code> for anyone working on it. It owns its rules and session state inside that crate; the Greenhaven client only mounts it from the menu. Nothing in this minigame writes to a world server, and nothing in the world writes to it.</p>
+
+      <h2>Why it is here</h2>
+      <p>Because a good, readable, chunky little buy / steal / defend loop is a fun thing to build and to play, and the Remis cast deserves a spot in the same world as the wanderers. The minigame keeps the Remis identity and original characters - it is not a re-skin of anyone else's game.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

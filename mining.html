@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mining - Greenhaven Wiki</title>
+  <meta name="description" content="Mining in Greenhaven: tile IDs, level gates, XP per mine, mine range and cooldown rules for all twenty rocks.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SKILL</div>
+      <h1>Mining</h1>
+      <p class="lede">Mine rocks for mining XP. The ladder climbs from rock and copper at level 1 to the diamond rock at level 90, with a granite boulder and a rock cluster along the way. Every rock on the shipping map never depletes - an author can give any node a respawn timer.</p>
+
+      <h2>The ladder</h2>
+      <p>Each rock is one map tile, and one shared registry - the same values in the online game, in Single player and in the painter - owns its level gate and its XP.</p>
+      <table>
+        <thead>
+          <tr><th>Rock</th><th>Tile ID</th><th>Level</th><th>XP per mine</th><th>Painter key</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rock</td>
+            <td>14</td>
+            <td>1</td>
+            <td>25</td>
+            <td>;</td>
+          </tr>
+          <tr>
+            <td>Copper rock</td>
+            <td>15</td>
+            <td>1</td>
+            <td>30</td>
+            <td>'</td>
+          </tr>
+          <tr>
+            <td>Tin rock</td>
+            <td>16</td>
+            <td>5</td>
+            <td>35</td>
+            <td>\</td>
+          </tr>
+          <tr>
+            <td>Iron rock</td>
+            <td>18</td>
+            <td>10</td>
+            <td>45</td>
+            <td>.</td>
+          </tr>
+          <tr>
+            <td>Coal rock</td>
+            <td>19</td>
+            <td>20</td>
+            <td>60</td>
+            <td>/</td>
+          </tr>
+          <tr>
+            <td>Silver rock</td>
+            <td>64</td>
+            <td>25</td>
+            <td>72</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Gold rock</td>
+            <td>33</td>
+            <td>30</td>
+            <td>85</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Ruby rock</td>
+            <td>17</td>
+            <td>40</td>
+            <td>115</td>
+            <td>,</td>
+          </tr>
+          <tr>
+            <td>Mithril rock</td>
+            <td>65</td>
+            <td>45</td>
+            <td>132</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Emerald rock</td>
+            <td>20</td>
+            <td>50</td>
+            <td>150</td>
+            <td>`</td>
+          </tr>
+          <tr>
+            <td>Topaz rock</td>
+            <td>68</td>
+            <td>55</td>
+            <td>168</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Sapphire rock</td>
+            <td>21</td>
+            <td>60</td>
+            <td>190</td>
+            <td>P</td>
+          </tr>
+          <tr>
+            <td>Adamantite rock</td>
+            <td>66</td>
+            <td>65</td>
+            <td>210</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Amethyst rock</td>
+            <td>23</td>
+            <td>70</td>
+            <td>235</td>
+            <td>U</td>
+          </tr>
+          <tr>
+            <td>Orichalcum rock</td>
+            <td>67</td>
+            <td>75</td>
+            <td>260</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Onyx rock</td>
+            <td>22</td>
+            <td>80</td>
+            <td>285</td>
+            <td>O</td>
+          </tr>
+          <tr>
+            <td>Opal rock</td>
+            <td>69</td>
+            <td>85</td>
+            <td>310</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Diamond rock</td>
+            <td>34</td>
+            <td>90</td>
+            <td>340</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Granite boulder</td>
+            <td>77</td>
+            <td>1</td>
+            <td>30</td>
+            <td>click swatch</td>
+          </tr>
+          <tr>
+            <td>Rock cluster</td>
+            <td>78</td>
+            <td>1</td>
+            <td>20</td>
+            <td>click swatch</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Total XP sets your level. Each step costs 50 more XP than the step before, so level 2 arrives at 50 total XP, level 10 at 2250, and level 90 at 200250. The <a href="/experience.html">Experience</a> page has the full curve and the threshold table.</p>
+
+      <h2>How to mine</h2>
+      <ul>
+        <li>Click a rock near you. You must stand within 1.75 tiles of the boulder, or the game answers "Walk closer to harvest."</li>
+        <li>One mine per second on the shipping map. Clicking faster gets "Still working." and no XP - that second is shared with every other instant node, so you cannot mine, chop and dig three times a second.</li>
+        <li>Below the rock's level gate you get "Need mining 40." (with that rock's number) and no XP.</li>
+        <li>A good mine reports "You mine the copper rock. +30 mining. +1 Copper ore" and your total is saved.</li>
+        <li>A depleted node refuses: "That node is empty for now.", and if another player just took the last fish or ore: "Someone got there first."</li>
+      </ul>
+      <p>Online play is checked by the world server; Single player applies the same shared mine rules locally. A mine drops the rock's stone, ore or gem into your Inventory (the ORES AND GEMS group), and the rock stays on the map. Map authors can turn any rock into a channel: a stand-still cast with a progress bar, a drop chance, and a respawn timer that empties the node between swings ("Harvest interrupted." if you walk off mid-cast). Sand and clay dig the same way - see <a href="/digging.html">Digging</a>.</p>
+
+      <h2>See the ladder in game</h2>
+      <p>Press <code>P</code> during play to open the Skills sheet. The Mining card shows your progress. Click it for the in-panel guide, read straight from the same registry the mine rules use.</p>
+
+      <h2>Painter shortcuts</h2>
+      <p>Placing rocks in the map painter? The ten classic rocks sit on one key each; the rest, including the granite boulder and the rock cluster, come from the Rocks group swatch:</p>
+      <ul>
+        <li>Rock <code>;</code>, Copper <code>'</code>, Tin <code>\</code>, Iron <code>.</code>, Coal <code>/</code></li>
+        <li>Ruby <code>,</code>, Emerald <code>`</code>, Sapphire <code>P</code>, Amethyst <code>U</code>, Onyx <code>O</code></li>
+        <li>Gold, silver, mithril, adamantite, orichalcum, topaz, opal, diamond, granite boulder, rock cluster: click the swatch in the Rocks group</li>
+      </ul>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

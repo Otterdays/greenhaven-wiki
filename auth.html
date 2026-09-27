@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accounts, Passwords and Sessions - Greenhaven Wiki</title>
+  <meta name="description" content="How a Greenhaven account is created, how a password is hashed, what a session token is, and what "Remember me" on the login card actually remembers.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SECURITY</div>
+      <h1>Accounts, Passwords and Sessions</h1>
+      <p class="lede">Creating an account takes a username and a password. Logging in takes the same two, plus a session token that lets the client come back without retyping. This is what each of those steps does and does not store.</p>
+
+      <h2>The account row</h2>
+      <p>An account in the world's database has five fields:</p>
+      <ul>
+        <li><strong>id.</strong> A short, opaque identifier. The row's primary key.</li>
+        <li><strong>username.</strong> Unique across every account on the same database. Case <em>sensitive</em> - "Otter" and "otter" are two different names, and the register and login cards both say so.</li>
+        <li><strong>password_hash.</strong> Not the password. A hash of the password, computed with Argon2id - a slow, memory-hard key-derivation function. A stolen database hands an attacker a hash, not a password, and Argon2 makes brute-forcing that hash expensive.</li>
+        <li><strong>created_at.</strong> When the row was written.</li>
+        <li><strong>last_login.</strong> When the account last signed in.</li>
+      </ul>
+
+      <h2>Register</h2>
+      <ol>
+        <li>The client sends the username and password to the world.</li>
+        <li>The world checks the username is not taken and both fields are the right shape.</li>
+        <li>The world hashes the password with Argon2id (a random salt per account). The plaintext is thrown away; only the hash is written.</li>
+        <li>The row is saved, a session token is minted, and the client signs in on the spot.</li>
+      </ol>
+
+      <h2>Login</h2>
+      <ol>
+        <li>The client sends the username and password.</li>
+        <li>The world looks up the row, recomputes Argon2id on the submitted password against the stored hash, and compares. A match means the password was correct.</li>
+        <li>On a match, the world mints a new session token and returns it. On a mismatch the world returns "wrong username or password" - never which one, so a probe cannot enumerate accounts.</li>
+      </ol>
+
+      <h2>The session token</h2>
+      <p>A session token is a long random string the world hands the client after a successful register or login. It is <em>not</em> the password. The client sends it on every subsequent join instead of the password, and the world matches it against the row that issued it. This means:</p>
+      <ul>
+        <li>The password crosses the wire once, on the first login, over TLS.</li>
+        <li>Every later join sends a token, not a password, so a stolen session cannot be traced back to a password.</li>
+        <li>A token can be revoked (logout, ban, admin action) without touching the password. The user does not have to pick a new one.</li>
+        <li>The <strong>Resume session</strong> path skips login entirely: send a still-valid token, get back into the world.</li>
+      </ul>
+
+      <h2>"Remember me", honestly</h2>
+      <p>The login card has a <strong>Remember me</strong> checkbox. It remembers the <em>username</em> on this device so you do not have to type it again. It never stores the password - you still have to type it once every time you come back, and the world still checks it. The only thing remembered is a name.</p>
+
+      <h2>Case-sensitive, both sides</h2>
+      <p>Username and password are case-sensitive. The world does not lower-case either before hashing. The register and login cards say "Usernames and passwords are case-sensitive" so a player learns this before typing, not after a failed login.</p>
+
+      <h2>What the world does not do</h2>
+      <ul>
+        <li>It never emails a password or a password hash.</li>
+        <li>It never logs a password to console.</li>
+        <li>It never returns which of username or password was wrong - the error is always the same string.</li>
+        <li>It never accepts plaintext "admin" or "root" backdoors - every login is checked the same way.</li>
+      </ul>
+
+      <h2>Bans and admin flags</h2>
+      <p>Two more flags ride on the account row - <code>is_admin</code> and the ban list. A ban reaches both the account and any character it owns, so a banned account cannot just create a new character. An admin flag is checked per command, so revoking one takes effect on the next thing the account tries to say.</p>
+
+      <h2>Where the flow lives</h2>
+      <p>The world owns every step of this - hashing, minting a session token, comparing, revoking. The client never hashes anything and never stores a password. See <a href="/admin-panel.html">The Admin Panel</a> for how a session ends up in a browser.</p>
+
+      <h2>Related</h2>
+      <p>The screens the account flow runs through are on <a href="/account.html">Accounts and Characters</a>. Cross-world locks and the character row live on <a href="/worlds.html">Worlds and Multi-world</a>. Admin moderation reaches in from <a href="/admin-panel.html">The Admin Panel</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stride - Greenhaven Wiki</title>
+  <meta name="description" content="Stride in Greenhaven: Shift sprint at 2x speed, Dust Lungs stamina, Warm Trail XP from fresh cells.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SKILL</div>
+      <h1>Stride</h1>
+      <p class="lede">Hold Shift while moving to sprint at twice walk speed. Breath (stamina) gates the run. Stride XP comes from fresh ground under your feet - the Dust Lungs / Warm Trail rule.</p>
+
+      <h2>How to sprint</h2>
+      <ul>
+        <li>Hold <code>Shift</code> (or gamepad <code>LB</code>) while moving with WASD, arrows, stick or D-pad.</li>
+        <li>Sprint speed is <code>2x</code> walk speed (walk is 4 tiles per second).</li>
+        <li>Breath drains while you sprint and regenerates while you walk or stand still.</li>
+        <li>When breath hits empty, you drop back to a normal walk until it recovers.</li>
+        <li>Dust puffs spawn behind you while a sprint is active (reduced motion turns them off).</li>
+      </ul>
+
+      <h2>Dust Lungs / Warm Trail</h2>
+      <p>Stride XP is not awarded for holding Shift in place. It is awarded when a sprint step enters a <strong>fresh</strong> map cell.</p>
+      <ul>
+        <li>Enter a cell you have not warmed recently: <code>+4</code> Stride XP, and that cell stays warm for <code>2.5</code> seconds.</li>
+        <li>Enter a warm cell again: half stamina cost, <strong>zero</strong> XP. Circling one tile does not farm levels.</li>
+        <li>Higher Stride level lengthens your breath pool and lowers drain a little.</li>
+      </ul>
+
+      <h2>The curve</h2>
+      <p>Stride uses its own curve: XP to next level = <code>40 x current level</code>. That is lighter than the woodcutting / mining <code>50 x level</code> curve. Cap is still 99. Total XP to reach a level is <code>20 x level x (level - 1)</code>.</p>
+      <table>
+        <thead>
+          <tr><th>Level</th><th>Total XP</th><th>XP to next</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>0</td><td>40</td></tr>
+          <tr><td>2</td><td>40</td><td>80</td></tr>
+          <tr><td>10</td><td>1800</td><td>400</td></tr>
+          <tr><td>20</td><td>7600</td><td>800</td></tr>
+          <tr><td>30</td><td>17400</td><td>1200</td></tr>
+          <tr><td>40</td><td>31200</td><td>1600</td></tr>
+          <tr><td>50</td><td>49000</td><td>2000</td></tr>
+          <tr><td>60</td><td>70800</td><td>2400</td></tr>
+          <tr><td>70</td><td>96600</td><td>2800</td></tr>
+          <tr><td>80</td><td>126400</td><td>3200</td></tr>
+          <tr><td>90</td><td>160200</td><td>3600</td></tr>
+          <tr><td>99</td><td>194040</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <p>The <a href="/experience.html">Experience</a> page covers the shared 50 x level curve used by Woodcutting and Mining.</p>
+
+      <h2>Where you see it</h2>
+      <ul>
+        <li>Unit frame: the second bar is breath (stamina), not mana.</li>
+        <li>Hint chip: <code>Shift</code> / Sprint.</li>
+        <li>Skills sheet (<code>P</code>): the Stride card shows level, XP into the level, fill bar and total XP.</li>
+      </ul>
+
+      <h2>Saved or not</h2>
+      <p>Online play saves <code>stride_xp</code> with your character. Breath itself is session-only and refills on join. Single player keeps Stride XP in memory only and drops it when you return to the menu.</p>
+      <p>Online: the world server owns sprint motion, breath and Stride XP. Single player runs the same shared rules locally.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

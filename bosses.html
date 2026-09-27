@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bosses - Greenhaven Wiki</title>
+  <meta name="description" content="Three named bosses live in the creature registry today: the Thornmother, the Wyvern and the Barrow King. Stats, feel, and what makes each a fight you bring friends to.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">CONTENT</div>
+      <h1>Bosses</h1>
+      <p class="lede">Three bosses ship in the creature registry today. The map painter groups them under <strong>Bosses</strong> so a builder can find them fast, and the world reads the same stat rows it reads for any other mob. Nothing a boss does is a code path - it is one stat sheet with a bigger number on it.</p>
+
+      <h2>Thornmother</h2>
+      <p>A huge crowned linden matron with a heart-core of light. She is the first boss authored for Greenhaven, painted on the humanoid creature template at a bigger scale so she reads as a landmark tile.</p>
+      <ul>
+        <li>Slow, plant-style walk cycle with a swaying crown.</li>
+        <li>Thorns, burls, lashes and a heart-core all visible from the front.</li>
+        <li>Aggressive - she closes when a wanderer steps into her aggro radius.</li>
+      </ul>
+      <p>She sits on the same registry as every other hostile mob, so her stats live beside the bandit and the wyvern, and a builder can drop her anywhere. Placing her is a placement choice, not a code change.</p>
+
+      <h2>Wyvern</h2>
+      <p>A sky drake, level 18, that never lands. Every frame is airborne over a ground shadow, and its flap cycle (glide, up, half down, full down) is authored so both the idle clip and the walk clip flap. The Forge rig has no wings, so the wyvern got its own hand-painted 40 x 32 sheet.</p>
+      <ul>
+        <li><strong>Scale 1.6</strong> - a size between a wolf and a boss.</li>
+        <li><strong>Aggressive</strong>, melee style.</li>
+        <li>Never stands still. A wyvern that reaches its leash range walks back the same way every other mob does, but with a wingbeat.</li>
+      </ul>
+
+      <h2>The Barrow King</h2>
+      <p>A crowned lich that floats. The biggest stat line in the mob sheet and the boss the game's design is pointed at today.</p>
+      <table>
+        <thead>
+          <tr><th>Stat</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Level</td><td>40</td></tr>
+          <tr><td>Health</td><td>3,200</td></tr>
+          <tr><td>Attack</td><td>80</td></tr>
+          <tr><td>Strength</td><td>95</td></tr>
+          <tr><td>Defence</td><td>70</td></tr>
+          <tr><td>Armour</td><td>14</td></tr>
+          <tr><td>Attack range</td><td>6 tiles</td></tr>
+          <tr><td>Style</td><td>Magic</td></tr>
+          <tr><td>Leash range</td><td>24 tiles</td></tr>
+          <tr><td>Respawn</td><td>2,700 seconds (45 minutes)</td></tr>
+          <tr><td>XP</td><td>18,000</td></tr>
+        </tbody>
+      </table>
+      <p>He floats on a ground shadow - no feet, a hem of tatters that fades into soul-fire. Ribcage open with a light inside, iron pauldrons, gold crown, a soul-orb staff, and two soul wisps that swing a quarter turn per pose. Every one of those details is authored art on the same sheet the client draws.</p>
+      <p>A 45-minute respawn is the whole message of the stat sheet: this is a fight you bring friends to, and one you do not try again five minutes after a wipe.</p>
+
+      <h2>How a boss is added</h2>
+      <p>A new boss is one row in the creature registry, one row in the mob-stats sheet, and one hand-authored sprite sheet on the shared template. The map painter's Bosses group reads from the same registry, so a new boss appears in the picker automatically. The client and the world read the same numbers.</p>
+
+      <h2>Where they live in the world</h2>
+      <p>None of the three bosses ship placed on the shipping map today. A builder who wants a boss standing in a barrow, on a hill, or in a thicket places it in the map painter and the world runs it from the same stat row everyone else does.</p>
+
+      <h2>Related</h2>
+      <p>Combat rules live on <a href="/combat.html">Combat</a>. The full creature and mob registry lives on <a href="/creatures.html">Creatures and Mobs</a>. How a builder places a boss is on <a href="/map-maker.html">The Map Painter</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

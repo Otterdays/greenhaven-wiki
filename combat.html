@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Combat - Greenhaven Wiki</title>
+  <meta name="description" content="Combat in Greenhaven: the six combat skills, the classic long XP curve, attack styles, punch and slash moves, and what is still being built.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SKILL</div>
+      <h1>Combat</h1>
+      <p class="lede">Six combat skills - HEALTH, Attack, Strength, Defence, Archery and Wizardry - train off their own long curve. Swing with the attack key or click a mob, and pick a style to decide what a landed hit trains.</p>
+
+      <h2>The six skills</h2>
+      <ul>
+        <li><strong>HEALTH</strong> (Hitpoints): how much damage you can take. A fresh character starts at level 10, and every hit you land feeds it a little.</li>
+        <li><strong>Attack</strong>: accuracy. Higher Attack lands more of your swings.</li>
+        <li><strong>Strength</strong>: damage. Higher Strength raises your max hit.</li>
+        <li><strong>Defence</strong>: hardiness. Higher Defence makes you harder to hit.</li>
+        <li><strong>Archery</strong>: bows and thrown weapons - accuracy and damage at range.</li>
+        <li><strong>Wizardry</strong>: staves and spells - accuracy and damage with magic.</li>
+      </ul>
+
+      <h2>The curve</h2>
+      <p>Combat skills do not use the gathering <code>50 x current level</code> curve. They use the classic long curve: reaching level 2 costs 83 XP, level 10 costs 1154, and level 99 costs 13,034,431 total. Cap is 99, like every skill.</p>
+      <table>
+        <thead>
+          <tr><th>Level</th><th>Total XP</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>0</td></tr>
+          <tr><td>2</td><td>83</td></tr>
+          <tr><td>10</td><td>1154</td></tr>
+          <tr><td>20</td><td>4470</td></tr>
+          <tr><td>30</td><td>13363</td></tr>
+          <tr><td>50</td><td>101333</td></tr>
+          <tr><td>70</td><td>737450</td></tr>
+          <tr><td>99</td><td>13034431</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Combat level and total level</h2>
+      <p>Your <strong>combat level</strong> is a separate reading: a quarter of Defence and HEALTH, plus a third of your best fighting line (Attack + Strength, or 1.5x Archery, or 1.5x Wizardry). A fresh character reads combat level 3. All six combat skills also count toward your <a href="/experience.html">total level</a>, so a fresh character reads 20 overall.</p>
+
+      <h2>How to fight</h2>
+      <ul>
+        <li>Press the attack key (default <code>Q</code>, rebindable under Settings, Controls) to swing whatever is in your weapon hand, facing the way you are turned.</li>
+        <li>Or left-click a living mob within reach - your move's reach plus a little slack - to swing at it.</li>
+        <li>Bare hands throw a <strong>punch</strong>: impact a tenth of a second in, one per second, 1 tile of reach. Clicking up to that pace lands more hits; mashing never stacks.</li>
+        <li>A blade <strong>slashes</strong>: a beat slower (one every 1.2 s), a little more reach (1.25 tiles), and it hits somewhat harder than a fist.</li>
+        <li>A landed hit does from 1 up to your max hit. Max hit comes from Strength and the weapon's power; chance to land comes from Attack against the target's Defence and armour.</li>
+      </ul>
+
+      <h2>Attack styles</h2>
+      <p>Pick a style on the Skills tab; it is saved with your character and applies a small hidden boost while you fight that way.</p>
+      <ul>
+        <li><strong>Accurate</strong>: land more hits (+3 Attack), trains Attack.</li>
+        <li><strong>Aggressive</strong>: hit harder (+3 Strength), trains Strength.</li>
+        <li><strong>Defensive</strong>: harder to hit (+3 Defence), trains Defence.</li>
+        <li><strong>Controlled</strong>: a bit of everything (+1 Attack, Strength and Defence), splits XP across all three.</li>
+      </ul>
+      <p>Every landed hit also pays a third of its main share into HEALTH: 4 XP per point of damage to the style's skill, and 1 more per point to HEALTH. Bows and staves offer only Accurate and Defensive today.</p>
+
+      <h2>What is in hand</h2>
+      <p>What you fight as comes from the weapon slot on the <a href="/smithing.html">Equipment tab</a>: an empty hand or a plain item fights Unarmed. The candy cane sword (so far only from an admin's <code>/give</code>) is a Blade - the fun one: it lands hits a little easier than a fist and swings for a beat longer between hits.</p>
+
+      <h2>Where it stands</h2>
+      <p>Combat is young, and this page describes what ships today. Swings, styles, levels and XP are in; mobs take damage, show a health bar and respawn. But each player's game keeps its own copy of a mob's health - the world does not decide hits yet - and combat XP is paid in Single player only, because the online world owns skills and world-side hits are not live. Others see your swing online. Expect this section to change.</p>
+
+      <h2>Saved or not</h2>
+      <p>Online play saves your six combat XP pools and your chosen style with your character. Single player keeps them in memory only.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

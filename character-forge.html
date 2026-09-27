@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Character Forge - Greenhaven Wiki</title>
+  <meta name="description" content="The Character Forge is the model maker's part-based character editor: build a character and its actions, or hand an agent a CLI to inspect frames and detail layers.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">TOOL</div>
+      <h1>Character Forge</h1>
+      <p class="lede">Every character in Greenhaven - the wanderer, the jester, the wildlife, the mobs, the pet - comes out of the Character Forge inside the model maker. It composes a character from parts, then bakes it into the sprite sheet the game loads.</p>
+
+      <h2>What it builds</h2>
+      <ul>
+        <li><strong>A sprite sheet.</strong> The Forge outputs one JSON sheet per character: frames, palettes and pose indexes the game client reads directly.</li>
+        <li><strong>Every action.</strong> Idle, walk, run, blink, chop, mine, cast, swing - each is a pose on the same sheet. The player sheet today carries <strong>48 frames</strong>: idle, four walk directions, four run directions, an authored blink, and swing poses.</li>
+        <li><strong>Walk styles.</strong> A walk is a clip, not a rule - the Forge bakes a per-character gait so a cow does not walk like a jester.</li>
+      </ul>
+
+      <h2>How you build one</h2>
+      <p>The Forge is part-based. Pick a body plan, then snap on hair, face, torso, arms, legs, held items, and any overlay (a <a href="/capes.html">cape</a> or a piece of <a href="/equipment.html">worn gear</a>). Every part carries its own palette, so a new colour is one field, not a repaint. A layout pass keeps the preview in view while you edit, and a "My characters" list remembers what you authored.</p>
+
+      <h2>Describe it</h2>
+      <p>There is a text path: type a short description - "an old historian with a green hood and a bent staff" - and the Forge picks a body plan, applies parts and colours, and gives you a starting point to tune by hand. It is not a black box: what it chose is what appears in the parts, so you can un-pick any of it.</p>
+
+      <h2>The command line</h2>
+      <p>The same editor is scriptable, so an agent or a build job can drive it without opening a browser. The CLI speaks plain words: <code>presets</code>, <code>random</code>, <code>mood</code>, <code>set</code>, <code>save-spec</code>, plus a <code>--new-kind</code> that mints a fresh character (registry row + sheet + palette) in one call. Two inspection modes help a script see what it drew:</p>
+      <ul>
+        <li><strong>Detail layer.</strong> Overlay the part boundaries on the frame so a script can verify a hat sits where the code says.</li>
+        <li><strong>Frame inspection.</strong> Dump one frame's pixels as a legend so a script can assert a shape without opening an image.</li>
+      </ul>
+
+      <h2>How a sheet gets into the game</h2>
+      <p>The Forge writes a JSON sheet into <code>assets/models/</code>. One command ("Add to game") registers the character: the shared creature registry, the mob-stats sheet (only if the new thing is a fight), the map painter's palette, and the atlas colour all take a row from the same spec. A new hostile mob is one row in each file, plus its sheet.</p>
+
+      <h2>Where the gear overlays come from</h2>
+      <p>Every wearable also has a gear sheet at <code>assets/models/gear/&lt;item&gt;.json</code>, fit to the player sheet by the same Forge pipeline. When the player character changes shape, refit the pieces so a helm still sits on the head and a platebody still covers the torso.</p>
+
+      <h2>Related</h2>
+      <p>See <a href="/equipment.html">Equipment</a> and <a href="/capes.html">Capes</a> for what the sheets draw, and <a href="/creatures.html">Creatures and Mobs</a> for the registry a sheet registers into. See the <a href="/gallery.html">Gallery</a> for the player previews the Forge exports.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

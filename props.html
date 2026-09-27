@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signs, Chests and Campfires - Greenhaven Wiki</title>
+  <meta name="description" content="Three small placeables that carry per-cell authorship: a wooden signpost with readable text, a storage chest with a usable toggle, and a campfire with a size.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Signs, Chests and Campfires</h1>
+      <p class="lede">Three tiles break the rule that a tile id fully describes a cell. Each carries per-cell authorship in a sidecar map on the world file, so the same tile can say something different in two places.</p>
+
+      <h2>Signs</h2>
+      <p>The wooden signpost (tile 63) is blocked scenery you can click. Its text lives in a per-cell sidecar keyed "x,y", so two signs on the same map can read differently.</p>
+      <ul>
+        <li><strong>Text.</strong> Up to 120 printable ASCII characters (newlines allowed). Anything else refuses the save - so an em dash or a curly quote cannot slip in.</li>
+        <li><strong>Clickable.</strong> On by default. Off means the signpost is visible but the click does nothing.</li>
+        <li><strong>Readable.</strong> On by default. Off shows the fixed line "The letters have worn away." instead of the authored text - a way to hide a lore note behind a clue, or age a sign out.</li>
+      </ul>
+      <p>A sign is a hint, not a quest log. It never runs code, and it never moves.</p>
+
+      <h2>Storage chests</h2>
+      <p>The chest (tile 79) is blocked scenery with one usable toggle in a per-cell sidecar. A chest with <code>usable: true</code> opens on click; a chest with <code>usable: false</code> is decoration.</p>
+      <ul>
+        <li><strong>Not a shared bank.</strong> A chest is authored scenery, not a player's inventory on the wall. There is no per-player chest contents today.</li>
+        <li><strong>Usable by default.</strong> If a cell has no sidecar entry, the chest is clickable. An author has to say so explicitly to turn it off.</li>
+      </ul>
+
+      <h2>Campfires</h2>
+      <p>The campfire (tile 12) is blocked scenery with a per-cell <strong>size</strong> sidecar. Three sizes let an author pick a small cook fire, a commons hearth, or a big ceremonial blaze from the same tile.</p>
+      <ul>
+        <li><strong>Not a station.</strong> A campfire does not cook or craft today - the anvil and furnace are the stations. A campfire is light, smoke and mood.</li>
+        <li><strong>Click to see, not to use.</strong> A click reports what the fire is; nothing else happens.</li>
+      </ul>
+
+      <h2>The sidecar pattern</h2>
+      <p>Every one of these tiles is a "family tile plus per-cell metadata" pair. The tile decides the art, the collision and the click test; the sidecar decides what that one cell says, holds or does. This is what lets a map painter stamp a hundred signposts and let an author write a different line on each one without inventing a hundred tile ids.</p>
+
+      <h2>Related</h2>
+      <p>The full tile list and the twelve families live on the <a href="/terrain.html">Terrain and Tiles</a> page. Nodes on rocks, trees and fishing spots use the same sidecar trick - see <a href="/mining.html">Mining</a>, <a href="/woodcutting.html">Woodcutting</a> and <a href="/fishing.html">Fishing</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

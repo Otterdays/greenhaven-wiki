@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Change Look (Transmog) - Greenhaven Wiki</title>
+  <meta name="description" content="Change how a worn piece looks without changing what it is. The look is stored on the same field as the worn piece, so nothing about your armour or your stats moves.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1.4 9.6 6h4.7L10.6 9.1 12.2 14 8 11.2 3.8 14l1.6-4.9L1.7 6h4.7z"/></svg></span> GREENHAVEN <small>WIKI</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Change Look (Transmog)</h1>
+      <p class="lede">Every wearable you own has a look. Change Look lets you borrow one look for a slot you are filling with something else - your platebody under a festive jumper, your bronze helm under a Santa hat - without touching the armour numbers, the recipes, or the item you actually wore.</p>
+
+      <h2>How to try it</h2>
+      <ul>
+        <li>Open the Skills sheet with <code>P</code> and go to the Equipment tab.</li>
+        <li>A filled slot shows the piece you are wearing and a <strong>Change look</strong> button.</li>
+        <li>Press it once to cycle to the next look you own for that slot. Keep pressing and it walks back to <em>your own look</em> (the one that shows the piece you actually put there).</li>
+        <li>A good change says "You change how it looks." - the notice is the same one every viewer hears.</li>
+      </ul>
+
+      <h2>What can be a look</h2>
+      <p>Only something you own can lend its look. That means it is either in your bag or already worn in that slot on your body. You cannot borrow a look for a piece you do not have - the world checks on every change, so a client that lies gets a plain refusal. Two slots are excluded: the <strong>Back</strong> slot (a cape's look is the cape's own field) and the <strong>Tool</strong> slot (a skilling tool is not worn, only held).</p>
+
+      <h2>Look, not stats</h2>
+      <p>A look never moves a number. Armour total, weapon accuracy and power, held recipe bonus, skill requirement - none of that follows the look. Only what you see changes, and every other player sees the same look because the world owns it. The <em>real</em> worn piece stays in your Equipment slot; the look is a display choice, drawn on top.</p>
+
+      <h2>Where it is stored</h2>
+      <p>A look is stored in the same <code>Skills.equipped</code> map that already holds your worn gear, under a key that starts with <code>look:</code>. Because the map is a JSON blob, no database migration is needed to add Change Look - an existing save simply had no look keys, and reads as "no look, show the piece you actually put there." A save with a look key reads as "paint this other piece over the one in the slot."</p>
+      <p>If you take the real piece off, the look goes with it: a look only shows while something is worn in its slot.</p>
+
+      <h2>The list on the wire</h2>
+      <p>Every snapshot a client receives carries the shown gear (the real worn list, with each chosen look drawn in place) - not the raw worn map. So a viewer sees a wanderer's platebody with the jumper on top, in the same place, without knowing anything about the underlying look field.</p>
+
+      <h2>The registry fingerprint</h2>
+      <p>An item's look, icon and rules come from a data file - the shared item registry - that both the client and the world load. If your copy and the world's copy have drifted (a modded or half-updated build), the world sends its registry fingerprint on join and the client says "different items" instead of pretending to name pieces it cannot see. You can still walk; you just do not see a stale tooltip on a piece that changed since your build.</p>
+
+      <h2>How it fits</h2>
+      <p>Change Look lives beside <a href="/equipment.html">Equipment</a>. Every look you can borrow is a piece you own; the pieces you can own come from <a href="/smithing.html">Smithing</a> or an admin gift (see <a href="/seasonal.html">Seasonal Content</a> for the festive set). The overlays a look paints with are authored in the <a href="/gear-forge.html">Gear Forge</a>. Worn layers - which piece paints over which - live on <a href="/layers.html">Worn Gear Layers</a>.</p>
+
+      <h2>Saved or not</h2>
+      <p>Your chosen look rides on the character save. Log out with the platebody wearing a festive jumper's look, come back tomorrow, and the jumper still paints on top.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

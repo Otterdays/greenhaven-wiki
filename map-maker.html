@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Map Painter - Greenhaven Wiki</title>
+  <meta name="description" content="The twelve painter tools, the tile palette, the resource-node panel, and how a painted map becomes what the world loads.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">TOOL</div>
+      <h1>The Map Painter</h1>
+      <p class="lede">Every map you can walk in Greenhaven was made in the map painter. It is one tool with twelve modes, a palette of 120 tiles, and a set of per-cell sidecars that let a tile say something different on every cell.</p>
+
+      <h2>The twelve tools</h2>
+      <table>
+        <thead>
+          <tr><th>Key</th><th>Tool</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>H</td><td>Hand</td><td>Drag the view, click a cell to inspect, press R to swap a bench or a ramp's rise direction.</td></tr>
+          <tr><td>B</td><td>Brush</td><td>Paint the selected tile wherever the cursor goes. A click-and-drag paints a run.</td></tr>
+          <tr><td>F</td><td>Fill</td><td>Flood a region with the selected tile, matching neighbours only.</td></tr>
+          <tr><td>R</td><td>Rect</td><td>Drag a rectangle and paint the inside in one pass.</td></tr>
+          <tr><td>I</td><td>Eyedropper</td><td>Pick a cell and the palette jumps to the tile you clicked.</td></tr>
+          <tr><td>S</td><td>Spawn</td><td>Set where a fresh wanderer lands. One cell per map.</td></tr>
+          <tr><td>D</td><td>Respawn</td><td>Set where a wanderer returns after death. Falls back to Spawn when unset.</td></tr>
+          <tr><td>N</td><td>NPC</td><td>Drop a character from the registry: the jester, a merchant, a wild boar, a wyvern, the Barrow King.</td></tr>
+          <tr><td>E</td><td>Raise</td><td>Lift or lower a cell's height (0 to <code>MAX_HEIGHT</code>, which is 3). Press E again to leave raise mode.</td></tr>
+          <tr><td>T</td><td>Resource node</td><td>Tune one cell's tree, rock, sand, clay or fishing-spot node: level, XP, chance, batch, harvest seconds, respawn seconds, or turn it into pure scenery.</td></tr>
+          <tr><td>A</td><td>Scatter</td><td>Sprinkle flowers, reeds, cattails or ground clutter in a natural-looking pattern over a painted region.</td></tr>
+          <tr><td>Z</td><td>Stamp</td><td>Drop a pre-authored stamp - a whole tree cluster, a cottage, a stone ring - in one click. The ghost shows the exact art that will land.</td></tr>
+        </tbody>
+      </table>
+      <p>Any single-press tool toggles back to Hand when its key is pressed a second time.</p>
+
+      <h2>The palette</h2>
+      <p>Every tile the game can place lives in a grouped sidebar: Grass and path, Water, Wood, Cobblestone build, Wood floors, Crafted grounds, Flowers, Trees, Rocks, Fences and hedges, Camp and market props, Festive props, and a Home and Green pack. The palette is the same order the shared tile registry uses, so a wiki page and the painter read the same row.</p>
+
+      <h2>The resource node panel</h2>
+      <p>Every harvestable tile - tree, rock, sand, clay, fishing spot - carries a "family tile plus a per-cell override" pair. The Resource node tool (key T) opens a panel that shows the tile's defaults and lets you override any subset. A field you do not touch stays at the family default, so an author tunes the one number they care about and the rest of the file does not churn. Turn a node off entirely with a checkbox to make it pure scenery - the game then answers "This node is turned off."</p>
+
+      <h2>Signs, chests and campfires</h2>
+      <p>The painter's Hand tool also edits the three sidecar tiles. Click a signpost and a text panel opens (up to 120 ASCII characters, newlines allowed). Click a chest and a single "usable" toggle appears. Click a campfire and the size picker cycles. Full rules live on <a href="/props.html">Signs, Chests and Campfires</a>.</p>
+
+      <h2>How a painted map becomes the world's map</h2>
+      <p>The painter writes the same JSON a world reads at boot: tiles, height map, spawn, respawn, characters, nodes, signs, chests and campfire sizes. The tool has one export path and one import path so a file the painter saves is byte-for-byte the file the world loads. There is no separate "publish" step - a map that paints is a map that ships.</p>
+
+      <h2>Related</h2>
+      <p>See <a href="/terrain.html">Terrain and Tiles</a> for the tile families and their link rules. See <a href="/mining.html">Mining</a>, <a href="/woodcutting.html">Woodcutting</a>, <a href="/fishing.html">Fishing</a> and <a href="/digging.html">Digging</a> for what the resource-node panel can tune. See <a href="/npcs.html">NPCs and Shops</a> for the character the NPC tool drops.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

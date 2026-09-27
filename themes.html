@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theme Packs - Greenhaven Wiki</title>
+  <meta name="description" content="Fifty-nine theme packs dress every developer tool and the wiki. This page lists them by group and explains the contrast gate that keeps every pair readable.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Theme Packs</h1>
+      <p class="lede">Fifty-nine colour packs sit behind the theme picker on every developer tool, the launch panel, the wiki and the public porch site. The picker is the same control everywhere - one shared file, one storage key, one cross-tab sync.</p>
+
+      <h2>How the picker works</h2>
+      <ul>
+        <li><strong>Auto</strong> follows your OS dark / light setting.</li>
+        <li><strong>Filter</strong> narrows the panel by name. It re-seats roving keyboard focus so the active option stays tabbable, and announces how many packs are visible.</li>
+        <li><strong>Type-to-jump</strong> finds the first pack whose label starts with what you type.</li>
+        <li><strong>Cross-tab sync.</strong> Pick a pack in the wiki and the map painter, the launch panel and the model maker all switch on the same tick.</li>
+      </ul>
+
+      <h2>The base packs</h2>
+      <p>Eleven packs sit outside any game series - the everyday palette every tool defaults into.</p>
+      <ul>
+        <li><strong>Meadow</strong> (default) and <strong>Day</strong> - the game's own green and parchment pair.</li>
+        <li><strong>Dusk</strong> - warm amber on deep brown.</li>
+        <li><strong>Dock</strong>, <strong>Tide</strong>, <strong>Mist</strong>, <strong>Cloud</strong>, <strong>Reed</strong> - five cool waterside looks.</li>
+        <li><strong>Birch</strong>, <strong>Ember</strong>, <strong>Stone</strong> - bark, fire and grey.</li>
+      </ul>
+
+      <h2>Game packs</h2>
+      <p>The other forty-eight are grouped by the game or world that inspired them. Every one is a full colour set: background, panel, ink, accent, focus, line - not just a swap of the accent. The panel groups them so a section only disappears when every pack inside it is filtered out.</p>
+      <table>
+        <thead>
+          <tr><th>Section</th><th>Some packs in it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Guild Wars 1</td><td>Ascalon, Searing, Kryta</td></tr>
+          <tr><td>Minecraft</td><td>Minecraft, Nether, The End</td></tr>
+          <tr><td>Flyff</td><td>Flyff, Darkon</td></tr>
+          <tr><td>Old School RuneScape</td><td>Giants Foundry, Draynor</td></tr>
+          <tr><td>Biomes</td><td>Duckmere, Willowmere, Poppyfield, Gorse, Rosewood</td></tr>
+          <tr><td>Night skies</td><td>Nether, End, and a small set of dark-mode packs</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The contrast gate</h2>
+      <p>Every theme pack runs through an automated contrast test on the pairs the tools actually paint: the accent ink on the accent fill, ink on background, ink on panel, and the strong ink on the active tile. The test measures the tightest ratio in the shipped stylesheets and refuses a pack that falls under WCAG AA. A contrast report mode prints the tightest pairs across all fifty-nine packs, always green, so a designer can see where a pair is close without failing the build.</p>
+
+      <h2>How a pack is defined</h2>
+      <p>One <code>html[data-theme="&lt;id&gt;"]</code> block in the shared theme sheet, and one matching row in the picker's <code>THEMES</code> array. Both files live in the same folder so the id and the colours cannot drift. A new pack appends - never renumber, because a saved theme is stored by id.</p>
+
+      <h2>Where you can pick a theme</h2>
+      <p>The theme picker shows on every tool page, the launch panel, the map painter, the atlas, the model maker, the cursor maker, the music maker and every wiki page (including this one). The public porch site does not carry a picker - it always ships on Meadow.</p>
+
+      <h2>Related</h2>
+      <p>The picker control lives beside <a href="/settings.html">Settings</a> in feel but is stored per browser, not per install. Every pack repaints the wiki, so a screenshot on the <a href="/gallery.html">Gallery</a> reflects whichever pack you have active.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

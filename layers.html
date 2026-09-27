@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Worn Gear Layers - Greenhaven Wiki</title>
+  <meta name="description" content="Every piece of gear a wanderer wears or holds paints on top of the body in one fixed order. This page walks the twenty-layer stack.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">RENDERING</div>
+      <h1>Worn Gear Layers</h1>
+      <p class="lede">A wanderer can wear a helm, a platebody, platelegs, boots, gloves, a cape and a weapon at the same time. All of them paint over the same body in one fixed order, from the back-most layer to the front-most. That order is the <strong>layers</strong> list.</p>
+
+      <h2>Why a fixed order matters</h2>
+      <p>A piece of gear is one sprite drawn over the body's current frame. If a cape drew on top of a helm, the helm's crown would vanish. If a platebody drew under the legs, a belt would disappear behind a plate skirt. The order decides who wins a pixel - and it needs to be one list, not a per-item rule, so two wearables never disagree at runtime.</p>
+
+      <h2>The twenty layers</h2>
+      <p>The list is <code>EquipSlot::LAYERS</code> in the shared crate. The client paints pieces in that order, first to last, so the last one covers what came before:</p>
+      <ol>
+        <li><strong>Back</strong> - a cape. Sits behind the whole body.</li>
+        <li><strong>Legs</strong> - platelegs, trousers.</li>
+        <li><strong>Feet</strong> - boots, sandals.</li>
+        <li><strong>Chest</strong> - platebody, jumper.</li>
+        <li><strong>Waist</strong> - a belt.</li>
+        <li><strong>Wrists</strong> - bracers.</li>
+        <li><strong>Hands</strong> - gloves.</li>
+        <li><strong>Shoulders</strong> - pauldrons.</li>
+        <li><strong>Neck</strong> - a necklace.</li>
+        <li><strong>Face</strong> - spectacles, a mask.</li>
+        <li><strong>Head</strong> - a helm, a hat.</li>
+        <li><strong>Earring</strong></li>
+        <li><strong>Ring L</strong></li>
+        <li><strong>Ring R</strong></li>
+        <li><strong>Trinket</strong></li>
+        <li><strong>Pouch</strong></li>
+        <li><strong>Ammo</strong></li>
+        <li><strong>Off-hand</strong> - a shield.</li>
+        <li><strong>Tool</strong> (Skilling) - a held hammer or axe.</li>
+        <li><strong>Weapon</strong> - the last and top-most layer, so a sword always reads in the hand.</li>
+      </ol>
+
+      <h2>How a piece rides the body</h2>
+      <p>Every worn overlay is frame-aligned to the character sheet it dresses. When the body changes frame - walking, running, swinging, blinking, crouching - the piece reads the same frame index on its own sheet and paints there. That is why a helm follows a head turn without any per-pose code, and why a platebody stays over the torso mid-stride.</p>
+
+      <h2>Held swings paint the same way</h2>
+      <p>The weapon and tool slots paint on top of every armour piece. When a wanderer swings, the swing clip and the held overlay share the same frame index, so the sword stays in the hand all the way through a slash and the axe head points where it should on a hack. There is no separate animation for a weapon - the piece rides the arm.</p>
+
+      <h2>What the cape slot is not</h2>
+      <p>The <strong>Back</strong> slot is reserved for the cape system, not this layer list's <code>EQUIPMENT</code> rows. A cape rides its own field on <code>Skills::cape</code> and every snapshot, so it stays visible even on a build with no <code>EQUIPMENT</code> row for the cape. The layer order still paints it behind everything - that is the whole point.</p>
+
+      <h2>Adding a new slot later</h2>
+      <p>The list can grow. A new layer appends where it should paint in the stack (say, Wings under the Back, or Face Overlay above the helm), one new <code>EquipSlot</code> variant, one new <code>LAYERS</code> position, and the paper doll grows a matching box. Existing saves are untouched - a slot nobody has worn is simply empty.</p>
+
+      <h2>Related</h2>
+      <p>Wearing and taking off is on <a href="/equipment.html">Equipment</a>. Capes and their own field are on <a href="/capes.html">Capes</a>. Held overlay art is authored in <a href="/gear-forge.html">Gear Forge</a>; the body the piece rides is authored in <a href="/character-forge.html">Character Forge</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

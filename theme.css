@@ -1,0 +1,3141 @@
+/* Shared tool chrome. Tokens only; pages keep layout CSS.
+   Default = meadow dark. html[data-theme=…] swaps the pack. */
+:root,
+html[data-theme="default"] {
+  color-scheme: dark;
+  --bg: #101716;
+  --header: #17201b;
+  --panel: #18211d;
+  --workspace: #111916;
+  --canvas: #101813;
+  --dot: #344032;
+  --ink: #dce4df;
+  --ink-strong: #ecf0df;
+  --muted: #8e9e91;
+  --muted-accent: #98b181;
+  --line: #2c3931;
+  --btn: #222d28;
+  --btn-hover: #344338;
+  --card: #1b271f;
+  --tile-active: #2a3926;
+  --accent: #c4dd93;
+  --accent-ink: #253520;
+  --accent-hover: #d7ecb0;
+  --accent-soft: #d2e3a1;
+  --focus: #d4e7a0;
+  --input: #111a15;
+  --toolbar: #1a251e;
+  --badge: #263525;
+  --tool-active: #34432c;
+  --shadow: #0007;
+  --scroll: #43554a;
+  --inset: #162318;
+  --state-ok: #1f3224;
+  --state-wait: #2c2c18;
+  --state-bad: #2a1c1a;
+  --play-btn: #2d5a34;
+  --pill-on: #16301c;
+  --pill-bad: #2a1614;
+  --off: #6a7a6a;
+  --off-border: #4a5a4a;
+  --gold: #d4c07a;
+  --warn: #c45c4a;
+  --meadow: #c4dd93;
+  --log: #101a13;
+  --check-a: #36463d;
+  --check-b: #29382f;
+  --backdrop: #101716cc;
+}
+
+/* Day: warm parchment (existing light). */
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f3efe4;
+  --header: #ebe6d6;
+  --panel: #f7f3e8;
+  --workspace: #e8e2d0;
+  --canvas: #ddd6c4;
+  --dot: #c4bb9e;
+  --ink: #2c3428;
+  --ink-strong: #1c2218;
+  --muted: #5c6658;
+  --muted-accent: #4a6a38;
+  --line: #c9c0a8;
+  --btn: #e4dcc8;
+  --btn-hover: #d4ccb4;
+  --card: #efe9d8;
+  --tile-active: #d4e4b8;
+  --accent: #4a6e32;
+  --accent-ink: #f4f8ea;
+  --accent-hover: #547a3b;
+  --accent-soft: #3d5c2a;
+  --focus: #4a6e32;
+  --input: #fffdf6;
+  --toolbar: #e6dfcc;
+  --badge: #dce8c8;
+  --tool-active: #c8dca0;
+  --shadow: #3a302028;
+  --scroll: #a89e82;
+  --inset: #e4eee0;
+  --state-ok: #d8ebd4;
+  --state-wait: #f0ebc8;
+  --state-bad: #f0d8d4;
+  --play-btn: #5a8a48;
+  --pill-on: #d0e8d4;
+  --pill-bad: #f0d4d0;
+  --off: #7a7a70;
+  --off-border: #b0a890;
+  --gold: #8a7020;
+  --warn: #a83828;
+  --meadow: #4a7a3c;
+  --log: #f4f0e4;
+  --check-a: #d4ccb4;
+  --check-b: #c4bca4;
+  --backdrop: #3a302066;
+}
+
+/* Dusk: late sun through canopy. */
+html[data-theme="dusk"] {
+  color-scheme: dark;
+  --bg: #18140f;
+  --header: #221c15;
+  --panel: #241e16;
+  --workspace: #1a1510;
+  --canvas: #16120e;
+  --dot: #4a3c2c;
+  --ink: #f0e4d0;
+  --ink-strong: #f8f0e0;
+  --muted: #a89878;
+  --muted-accent: #c8a868;
+  --line: #3c3224;
+  --btn: #2e261c;
+  --btn-hover: #433628;
+  --card: #2a2218;
+  --tile-active: #3e3220;
+  --accent: #e8b86a;
+  --accent-ink: #2a1c0c;
+  --accent-hover: #f0c888;
+  --accent-soft: #d4a858;
+  --focus: #e8c888;
+  --input: #14100c;
+  --toolbar: #262018;
+  --badge: #3a2e1c;
+  --tool-active: #4a3a24;
+  --shadow: #0008;
+  --scroll: #6a5840;
+  --inset: #22180e;
+  --state-ok: #2a3220;
+  --state-wait: #3a3018;
+  --state-bad: #3a1c14;
+  --play-btn: #6a4a28;
+  --pill-on: #2a2414;
+  --pill-bad: #3a1814;
+  --off: #8a7a60;
+  --off-border: #5a4a38;
+  --gold: #e0c070;
+  --warn: #d06048;
+  --meadow: #c8a868;
+  --log: #14100c;
+  --check-a: #4a3c2c;
+  --check-b: #3a3024;
+  --backdrop: #18140fcc;
+}
+
+/* Dock: lake water / fishing pier. */
+html[data-theme="dock"] {
+  color-scheme: dark;
+  --bg: #0e161a;
+  --header: #142026;
+  --panel: #152228;
+  --workspace: #10181c;
+  --canvas: #0c1418;
+  --dot: #2e4450;
+  --ink: #d8e8ec;
+  --ink-strong: #eef6f8;
+  --muted: #7a98a4;
+  --muted-accent: #6ab0c0;
+  --line: #243840;
+  --btn: #1c2c34;
+  --btn-hover: #2a4050;
+  --card: #1a2a32;
+  --tile-active: #243848;
+  --accent: #7ec4d4;
+  --accent-ink: #0e242c;
+  --accent-hover: #98d4e0;
+  --accent-soft: #68b0c0;
+  --focus: #90d0dc;
+  --input: #0c1418;
+  --toolbar: #182830;
+  --badge: #1e3440;
+  --tool-active: #284858;
+  --shadow: #0008;
+  --scroll: #4a6878;
+  --inset: #122028;
+  --state-ok: #1a3228;
+  --state-wait: #2c3020;
+  --state-bad: #2a1c1c;
+  --play-btn: #2a5870;
+  --pill-on: #143028;
+  --pill-bad: #2a1818;
+  --off: #6a8490;
+  --off-border: #3a5460;
+  --gold: #c8b878;
+  --warn: #d06858;
+  --meadow: #6ab898;
+  --log: #0c1418;
+  --check-a: #2e4450;
+  --check-b: #243840;
+  --backdrop: #0e161acc;
+}
+
+/* Birch: cool pale bark / silver-green. */
+html[data-theme="birch"] {
+  color-scheme: light;
+  --bg: #e6ebe8;
+  --header: #dce4de;
+  --panel: #eef2ef;
+  --workspace: #d8e0da;
+  --canvas: #cfd8d2;
+  --dot: #a8b8b0;
+  --ink: #1e2a24;
+  --ink-strong: #121a16;
+  --muted: #4e6058;
+  --muted-accent: #2e6a52;
+  --line: #b4c4bc;
+  --btn: #d4ddd6;
+  --btn-hover: #c4d0c8;
+  --card: #e4ebe6;
+  --tile-active: #c0d8cc;
+  --accent: #2e6a52;
+  --accent-ink: #f0f8f4;
+  --accent-hover: #387c61;
+  --accent-soft: #245844;
+  --focus: #2e6a52;
+  --input: #f8faf8;
+  --toolbar: #d8e2dc;
+  --badge: #cce0d4;
+  --tool-active: #b0d0c0;
+  --shadow: #1a282020;
+  --scroll: #8a9e94;
+  --inset: #d8ece0;
+  --state-ok: #d0e8d8;
+  --state-wait: #e8e4c8;
+  --state-bad: #ecd8d4;
+  --play-btn: #3a7a60;
+  --pill-on: #c8e4d4;
+  --pill-bad: #ecd4d0;
+  --off: #6a7a72;
+  --off-border: #98a8a0;
+  --gold: #7a6820;
+  --warn: #a84030;
+  --meadow: #3a7a58;
+  --log: #eef2ef;
+  --check-a: #c4d0c8;
+  --check-b: #b4c4bc;
+  --backdrop: #1a282044;
+}
+
+/* Ember: campfire night. */
+html[data-theme="ember"] {
+  color-scheme: dark;
+  --bg: #140e0c;
+  --header: #1e1410;
+  --panel: #201612;
+  --workspace: #16100e;
+  --canvas: #120c0a;
+  --dot: #4a3028;
+  --ink: #f0d8c8;
+  --ink-strong: #f8e8dc;
+  --muted: #a88878;
+  --muted-accent: #d08050;
+  --line: #3c2820;
+  --btn: #2a1c18;
+  --btn-hover: #3e2a22;
+  --card: #261a16;
+  --tile-active: #3e2820;
+  --accent: #e07840;
+  --accent-ink: #221008;
+  --accent-hover: #f09058;
+  --accent-soft: #c86838;
+  --focus: #f0a070;
+  --input: #100c0a;
+  --toolbar: #221814;
+  --badge: #3a241c;
+  --tool-active: #4a3024;
+  --shadow: #0009;
+  --scroll: #6a4838;
+  --inset: #241610;
+  --state-ok: #24301c;
+  --state-wait: #3a2c14;
+  --state-bad: #3a1814;
+  --play-btn: #6a3828;
+  --pill-on: #2a2014;
+  --pill-bad: #3a1612;
+  --off: #8a7060;
+  --off-border: #5a4038;
+  --gold: #e0b060;
+  --warn: #e05040;
+  --meadow: #c88850;
+  --log: #100c0a;
+  --check-a: #4a3028;
+  --check-b: #3c2820;
+  --backdrop: #140e0ccc;
+}
+
+/* Mist: soft fog, muted sage. */
+html[data-theme="mist"] {
+  color-scheme: dark;
+  --bg: #161a18;
+  --header: #1c2220;
+  --panel: #1e2622;
+  --workspace: #181c1a;
+  --canvas: #141816;
+  --dot: #3a4840;
+  --ink: #c8d4cc;
+  --ink-strong: #e0e8e2;
+  --muted: #82958b;
+  --muted-accent: #8aaca0;
+  --line: #2e3a34;
+  --btn: #242c28;
+  --btn-hover: #343e38;
+  --card: #222a26;
+  --tile-active: #2e3c34;
+  --accent: #a8c8b8;
+  --accent-ink: #1a2820;
+  --accent-hover: #c0dcc8;
+  --accent-soft: #90b8a4;
+  --focus: #b8d4c4;
+  --input: #121614;
+  --toolbar: #1e2622;
+  --badge: #283430;
+  --tool-active: #344840;
+  --shadow: #0007;
+  --scroll: #4a5c54;
+  --inset: #1a2420;
+  --state-ok: #1e3228;
+  --state-wait: #2c2c20;
+  --state-bad: #2a1e1c;
+  --play-btn: #3a5a48;
+  --pill-on: #1c3028;
+  --pill-bad: #2a1a18;
+  --off: #6a7a72;
+  --off-border: #4a5a52;
+  --gold: #c8b878;
+  --warn: #c06050;
+  --meadow: #90b8a4;
+  --log: #121614;
+  --check-a: #3a4840;
+  --check-b: #2e3a34;
+  --backdrop: #161a18cc;
+}
+
+/* Cloud: cool quiet gray light. */
+html[data-theme="cloud"] {
+  color-scheme: light;
+  --bg: #e8ecef;
+  --header: #e0e5e9;
+  --panel: #eef1f4;
+  --workspace: #d8dde2;
+  --canvas: #cfd5db;
+  --dot: #b0b8c0;
+  --ink: #2a3238;
+  --ink-strong: #1a2024;
+  --muted: #576169;
+  --muted-accent: #486575;
+  --line: #c0c8d0;
+  --btn: #dde2e7;
+  --btn-hover: #cdd4da;
+  --card: #e6eaee;
+  --tile-active: #d0dce4;
+  --accent: #4a7088;
+  --accent-ink: #f2f6f8;
+  --accent-hover: #4d748c;
+  --accent-soft: #3a5c70;
+  --focus: #4a7088;
+  --input: #f7f9fb;
+  --toolbar: #e2e7eb;
+  --badge: #d4e0e8;
+  --tool-active: #c0d0dc;
+  --shadow: #2a303840;
+  --scroll: #98a2aa;
+  --inset: #dde8ee;
+  --state-ok: #d4e4dc;
+  --state-wait: #e8e4d4;
+  --state-bad: #ecd8d4;
+  --play-btn: #4a7888;
+  --pill-on: #d0e4dc;
+  --pill-bad: #ecd4d0;
+  --off: #787e84;
+  --off-border: #a8b0b8;
+  --gold: #7a6a38;
+  --warn: #a84838;
+  --meadow: #5a8890;
+  --log: #eef2f4;
+  --check-a: #cdd4da;
+  --check-b: #bdc4ca;
+  --backdrop: #2a303866;
+}
+
+/* Reed: soft sage, low contrast light. */
+html[data-theme="reed"] {
+  color-scheme: light;
+  --bg: #e4ebe4;
+  --header: #dae3da;
+  --panel: #ebf0eb;
+  --workspace: #d2dbd2;
+  --canvas: #c8d2c8;
+  --dot: #a8b8a8;
+  --ink: #2a342c;
+  --ink-strong: #1a221c;
+  --muted: #536155;
+  --muted-accent: #45674b;
+  --line: #b8c4b8;
+  --btn: #d8e0d8;
+  --btn-hover: #c8d2c8;
+  --card: #e2e8e2;
+  --tile-active: #c8dcc8;
+  --accent: #4a7854;
+  --accent-ink: #f2f8f2;
+  --accent-hover: #4c7a56;
+  --accent-soft: #3a6044;
+  --focus: #4a7854;
+  --input: #f4f8f4;
+  --toolbar: #dce4dc;
+  --badge: #d0e0d0;
+  --tool-active: #b8d0b8;
+  --shadow: #28302838;
+  --scroll: #98a898;
+  --inset: #d8e8d8;
+  --state-ok: #d0e4d0;
+  --state-wait: #e4e4cc;
+  --state-bad: #e8d4d0;
+  --play-btn: #4a8058;
+  --pill-on: #cce4cc;
+  --pill-bad: #e8d0cc;
+  --off: #748074;
+  --off-border: #a8b4a8;
+  --gold: #7a6c30;
+  --warn: #a84838;
+  --meadow: #588860;
+  --log: #eef4ee;
+  --check-a: #c8d2c8;
+  --check-b: #b8c4b8;
+  --backdrop: #28302866;
+}
+
+/* Stone: quiet charcoal, low chroma. */
+html[data-theme="stone"] {
+  color-scheme: dark;
+  --bg: #17191b;
+  --header: #1d2023;
+  --panel: #212528;
+  --workspace: #191b1e;
+  --canvas: #141618;
+  --dot: #3a4046;
+  --ink: #c8ced4;
+  --ink-strong: #e4e8ec;
+  --muted: #889097;
+  --muted-accent: #8a9aaa;
+  --line: #30363c;
+  --btn: #262a2e;
+  --btn-hover: #343a40;
+  --card: #23272b;
+  --tile-active: #303840;
+  --accent: #a0b0c0;
+  --accent-ink: #1a2026;
+  --accent-hover: #b8c8d4;
+  --accent-soft: #8898a8;
+  --focus: #b0c0d0;
+  --input: #121416;
+  --toolbar: #1e2226;
+  --badge: #2a3036;
+  --tool-active: #384048;
+  --shadow: #0008;
+  --scroll: #4a525a;
+  --inset: #1c2226;
+  --state-ok: #1e2a24;
+  --state-wait: #2a2a20;
+  --state-bad: #2a1e1c;
+  --play-btn: #3a4a58;
+  --pill-on: #1c282e;
+  --pill-bad: #2a1a18;
+  --off: #6a7278;
+  --off-border: #4a5258;
+  --gold: #c0b070;
+  --warn: #c06050;
+  --meadow: #8898a0;
+  --log: #121416;
+  --check-a: #3a4046;
+  --check-b: #2e343a;
+  --backdrop: #17191bcc;
+}
+
+/* Tide: pale seafoam, quiet water. */
+html[data-theme="tide"] {
+  color-scheme: light;
+  --bg: #e2ecec;
+  --header: #d8e6e6;
+  --panel: #e8f0f0;
+  --workspace: #d0dede;
+  --canvas: #c4d4d4;
+  --dot: #a0b8b8;
+  --ink: #243436;
+  --ink-strong: #142224;
+  --muted: #4b6363;
+  --muted-accent: #356768;
+  --line: #b0c8c8;
+  --btn: #d4e4e4;
+  --btn-hover: #c4d6d6;
+  --card: #dfeaea;
+  --tile-active: #c0dcdc;
+  --accent: #2e6868;
+  --accent-ink: #f0f8f8;
+  --accent-hover: #377a7a;
+  --accent-soft: #265858;
+  --focus: #2e6868;
+  --input: #f4fafa;
+  --toolbar: #dae8e8;
+  --badge: #c8e0e0;
+  --tool-active: #b0d4d4;
+  --shadow: #20303040;
+  --scroll: #90a8a8;
+  --inset: #d0e8e8;
+  --state-ok: #cce4dc;
+  --state-wait: #e4e4d0;
+  --state-bad: #e8d4d0;
+  --play-btn: #3a8880;
+  --pill-on: #c8e4e0;
+  --pill-bad: #e8d0cc;
+  --off: #708080;
+  --off-border: #a0b8b8;
+  --gold: #7a6c30;
+  --warn: #a84838;
+  --meadow: #4a8880;
+  --log: #eef6f6;
+  --check-a: #c4d6d6;
+  --check-b: #b4c8c8;
+  --backdrop: #20303066;
+}
+
+/* Ascalon: Guild Wars 1 - slate stone, gold trim, deep green. */
+html[data-theme="ascalon"] {
+  color-scheme: dark;
+  --bg: #171a1c;
+  --header: #1f2427;
+  --panel: #232a2d;
+  --workspace: #191d1f;
+  --canvas: #141719;
+  --dot: #3c4648;
+  --ink: #dbe0da;
+  --ink-strong: #eef1e8;
+  --muted: #8e9894;
+  --muted-accent: #c2ac66;
+  --line: #333c3e;
+  --btn: #262d30;
+  --btn-hover: #374043;
+  --card: #212729;
+  --tile-active: #343f3c;
+  --accent: #d8b45a;
+  --accent-ink: #241c0a;
+  --accent-hover: #e8c878;
+  --accent-soft: #c2a24e;
+  --focus: #e2c274;
+  --input: #121617;
+  --toolbar: #1d2225;
+  --badge: #2c3630;
+  --tool-active: #3a453c;
+  --shadow: #0008;
+  --scroll: #4a5450;
+  --inset: #1a2320;
+  --state-ok: #223427;
+  --state-wait: #34301c;
+  --state-bad: #352019;
+  --play-btn: #4a5c33;
+  --pill-on: #1c2e22;
+  --pill-bad: #2e1915;
+  --off: #6e7a74;
+  --off-border: #4a5450;
+  --gold: #d8b45a;
+  --warn: #c65a48;
+  --meadow: #8aa86a;
+  --log: #121617;
+  --check-a: #3c4648;
+  --check-b: #2e3638;
+  --backdrop: #171a1ccc;
+}
+
+/* Minecraft: blocky inventory gray, grass green. */
+html[data-theme="minecraft"] {
+  color-scheme: light;
+  --bg: #c9c9c9;
+  --header: #bdbdbd;
+  --panel: #d4d4d4;
+  --workspace: #c0c0c0;
+  --canvas: #b4b4b4;
+  --dot: #a0a0a0;
+  --ink: #2b2b2b;
+  --ink-strong: #171717;
+  --muted: #4b4b4b;
+  --muted-accent: #34532a;
+  --line: #9c9c9c;
+  --btn: #c2c2c2;
+  --btn-hover: #b0b0b0;
+  --card: #d0d0d0;
+  --tile-active: #a8c890;
+  --accent: #4f9a34;
+  --accent-ink: #171717;
+  --accent-hover: #5cae3c;
+  --accent-soft: #3f7a28;
+  --focus: #457a31;
+  --input: #e6e6e6;
+  --toolbar: #c4c4c4;
+  --badge: #b6d0a4;
+  --tool-active: #93b87c;
+  --shadow: #2a2a2a36;
+  --scroll: #909090;
+  --inset: #cfe0c0;
+  --state-ok: #c2dcb0;
+  --state-wait: #e0d8a8;
+  --state-bad: #e0bcb4;
+  --play-btn: #5a9a3c;
+  --pill-on: #bcd8a8;
+  --pill-bad: #e2c2ba;
+  --off: #7a7a70;
+  --off-border: #a0a096;
+  --gold: #8a7020;
+  --warn: #a83828;
+  --meadow: #4f9a34;
+  --log: #dcdcdc;
+  --check-a: #b0b0b0;
+  --check-b: #a0a0a0;
+  --backdrop: #2a2a2a66;
+}
+
+/* Flyff: bright anime sky, cloud white, soft cyan. */
+html[data-theme="flyff"] {
+  color-scheme: light;
+  --bg: #e9f2fb;
+  --header: #dfeaf8;
+  --panel: #f2f7fd;
+  --workspace: #dbe8f6;
+  --canvas: #d0e0f2;
+  --dot: #b4c8e2;
+  --ink: #26303c;
+  --ink-strong: #161f2a;
+  --muted: #566374;
+  --muted-accent: #2c6495;
+  --line: #bacce0;
+  --btn: #dce8f6;
+  --btn-hover: #cbdcf0;
+  --card: #e6f0fb;
+  --tile-active: #c4dcf4;
+  --accent: #246ea6;
+  --accent-ink: #f2f9ff;
+  --accent-hover: #2775b1;
+  --accent-soft: #1d5f90;
+  --focus: #246ea6;
+  --input: #f7fbff;
+  --toolbar: #dce8f6;
+  --badge: #cae0f4;
+  --tool-active: #b2d2ee;
+  --shadow: #2440644a;
+  --scroll: #9db4cc;
+  --inset: #d4e6f8;
+  --state-ok: #cce4dc;
+  --state-wait: #e8e6cc;
+  --state-bad: #f0d8d4;
+  --play-btn: #3a86c0;
+  --pill-on: #c8e0f2;
+  --pill-bad: #f0d6d2;
+  --off: #748296;
+  --off-border: #a6b6cc;
+  --gold: #7a6a30;
+  --warn: #a84838;
+  --meadow: #246ea6;
+  --log: #f2f7fd;
+  --check-a: #cbdcf0;
+  --check-b: #bacce0;
+  --backdrop: #2440645c;
+}
+
+/* Maple: cheerful warm amber cream. */
+html[data-theme="maple"] {
+  color-scheme: light;
+  --bg: #f6ede0;
+  --header: #efe3d2;
+  --panel: #faf3e8;
+  --workspace: #ece0cd;
+  --canvas: #e2d4be;
+  --dot: #cbb894;
+  --ink: #3a2f22;
+  --ink-strong: #241d12;
+  --muted: #6e5f48;
+  --muted-accent: #835726;
+  --line: #d6c4a4;
+  --btn: #eaddc6;
+  --btn-hover: #dccdb2;
+  --card: #f2e8d6;
+  --tile-active: #f0dcb0;
+  --accent: #e08a2e;
+  --accent-ink: #3a2208;
+  --accent-hover: #f09c40;
+  --accent-soft: #c87820;
+  --focus: #b57a29;
+  --input: #fffaf0;
+  --toolbar: #ede0cb;
+  --badge: #f2dca8;
+  --tool-active: #e6c88a;
+  --shadow: #4a382048;
+  --scroll: #b8a482;
+  --inset: #f4e4c4;
+  --state-ok: #d8e4c4;
+  --state-wait: #f0e4bc;
+  --state-bad: #f0d4c8;
+  --play-btn: #d9822e;
+  --pill-on: #dce8c4;
+  --pill-bad: #f0d0c4;
+  --off: #8a7a62;
+  --off-border: #b8a888;
+  --gold: #b8820a;
+  --warn: #a83828;
+  --meadow: #7a9a3a;
+  --log: #faf3e8;
+  --check-a: #dccdb2;
+  --check-b: #cbb898;
+  --backdrop: #4a382044;
+}
+
+/* Aros: dark fantasy, teal-cast stone and cyan magic. */
+html[data-theme="aros"] {
+  color-scheme: dark;
+  --bg: #121418;
+  --header: #191d24;
+  --panel: #1d222a;
+  --workspace: #14171c;
+  --canvas: #101317;
+  --dot: #33404c;
+  --ink: #d2dae2;
+  --ink-strong: #e8eef4;
+  --muted: #7e8a98;
+  --muted-accent: #4fc2c2;
+  --line: #2b333d;
+  --btn: #20262e;
+  --btn-hover: #2f3742;
+  --card: #1c222a;
+  --tile-active: #2b3a44;
+  --accent: #46c0bd;
+  --accent-ink: #0c2224;
+  --accent-hover: #5cd4d0;
+  --accent-soft: #3aa4a2;
+  --focus: #5cd4d0;
+  --input: #0e1116;
+  --toolbar: #1a1f26;
+  --badge: #24333a;
+  --tool-active: #2f4a4c;
+  --shadow: #0009;
+  --scroll: #43525c;
+  --inset: #152028;
+  --state-ok: #1d3330;
+  --state-wait: #2e2a1c;
+  --state-bad: #331c22;
+  --play-btn: #2a6a68;
+  --pill-on: #16302e;
+  --pill-bad: #2c171d;
+  --off: #66727e;
+  --off-border: #434e58;
+  --gold: #c8b06a;
+  --warn: #cf5a6a;
+  --meadow: #46a0a4;
+  --log: #0e1116;
+  --check-a: #33404c;
+  --check-b: #2b333d;
+  --backdrop: #121418cc;
+}
+
+/* Arcade: retro neon magenta on deep indigo. */
+html[data-theme="arcade"] {
+  color-scheme: dark;
+  --bg: #14101f;
+  --header: #1b1630;
+  --panel: #1f1836;
+  --workspace: #17122a;
+  --canvas: #120e20;
+  --dot: #3a2c58;
+  --ink: #e6dcf4;
+  --ink-strong: #f4ecff;
+  --muted: #9688b4;
+  --muted-accent: #d46ae0;
+  --line: #322858;
+  --btn: #241b40;
+  --btn-hover: #35275c;
+  --card: #201938;
+  --tile-active: #3a2a5e;
+  --accent: #e05ac8;
+  --accent-ink: #2a0a26;
+  --accent-hover: #f06cd8;
+  --accent-soft: #c44ab0;
+  --focus: #56e0e0;
+  --input: #100c1c;
+  --toolbar: #1c1632;
+  --badge: #33244e;
+  --tool-active: #45306a;
+  --shadow: #0009;
+  --scroll: #544080;
+  --inset: #241a3c;
+  --state-ok: #1e3a34;
+  --state-wait: #3a2e18;
+  --state-bad: #3c1830;
+  --play-btn: #7a3aa0;
+  --pill-on: #1c3630;
+  --pill-bad: #3a1430;
+  --off: #7a6e94;
+  --off-border: #4c3e70;
+  --gold: #e0c060;
+  --warn: #e0557a;
+  --meadow: #56e0c0;
+  --log: #100c1c;
+  --check-a: #3a2c58;
+  --check-b: #322858;
+  --backdrop: #14101fcc;
+}
+
+/* Grove: deep forest floor, mossy green. */
+html[data-theme="grove"] {
+  color-scheme: dark;
+  --bg: #0f1510;
+  --header: #151d16;
+  --panel: #182119;
+  --workspace: #111813;
+  --canvas: #0d130e;
+  --dot: #2e3f2c;
+  --ink: #d4e2d0;
+  --ink-strong: #e8f2e2;
+  --muted: #809278;
+  --muted-accent: #93b878;
+  --line: #283428;
+  --btn: #1c261c;
+  --btn-hover: #2b3a28;
+  --card: #18211a;
+  --tile-active: #2a3c26;
+  --accent: #8fbf5a;
+  --accent-ink: #16240c;
+  --accent-hover: #a2d06c;
+  --accent-soft: #7aa84a;
+  --focus: #a2d06c;
+  --input: #0c110c;
+  --toolbar: #161f16;
+  --badge: #253420;
+  --tool-active: #33472a;
+  --shadow: #0007;
+  --scroll: #415238;
+  --inset: #14210f;
+  --state-ok: #1e3320;
+  --state-wait: #2c2e18;
+  --state-bad: #2c1c18;
+  --play-btn: #3a6a30;
+  --pill-on: #173220;
+  --pill-bad: #2a1714;
+  --off: #6a7a62;
+  --off-border: #455440;
+  --gold: #c8b060;
+  --warn: #c25a48;
+  --meadow: #8fbf5a;
+  --log: #0c110c;
+  --check-a: #2e3f2c;
+  --check-b: #283428;
+  --backdrop: #0f1510cc;
+}
+
+/* Frost: icy pale blue, cold and quiet. */
+html[data-theme="frost"] {
+  color-scheme: light;
+  --bg: #eaf2f7;
+  --header: #dfeaf2;
+  --panel: #f1f7fb;
+  --workspace: #d8e6ef;
+  --canvas: #ccdeea;
+  --dot: #adc4d4;
+  --ink: #22303a;
+  --ink-strong: #14202a;
+  --muted: #526775;
+  --muted-accent: #336581;
+  --line: #b8cedc;
+  --btn: #dae8f0;
+  --btn-hover: #c8dce8;
+  --card: #e6f0f6;
+  --tile-active: #c0dcec;
+  --accent: #246a8c;
+  --accent-ink: #f0f8fc;
+  --accent-hover: #2a779e;
+  --accent-soft: #1e5a78;
+  --focus: #246a8c;
+  --input: #f7fbfd;
+  --toolbar: #dceaf2;
+  --badge: #c6e0ec;
+  --tool-active: #aed2e4;
+  --shadow: #20384848;
+  --scroll: #98b2c2;
+  --inset: #d2e8f2;
+  --state-ok: #cce4dc;
+  --state-wait: #e6e4cc;
+  --state-bad: #eed6d2;
+  --play-btn: #3a86a8;
+  --pill-on: #c8e4ec;
+  --pill-bad: #eed4d0;
+  --off: #728494;
+  --off-border: #a4b8c6;
+  --gold: #7a6c30;
+  --warn: #a84838;
+  --meadow: #246a8c;
+  --log: #f1f7fb;
+  --check-a: #c8dce8;
+  --check-b: #b8cedc;
+  --backdrop: #2038485c;
+}
+
+/* Searing: Guild Wars 1 post-Searing - ash sky, ember red. */
+html[data-theme="searing"] {
+  color-scheme: dark;
+  --bg: #1a1010;
+  --header: #241616;
+  --panel: #2a1a18;
+  --workspace: #1c1211;
+  --canvas: #170e0d;
+  --dot: #4a2f28;
+  --ink: #f0d8cc;
+  --ink-strong: #f8e8dc;
+  --muted: #a88878;
+  --muted-accent: #e08a5a;
+  --line: #3c2620;
+  --btn: #2c1c18;
+  --btn-hover: #3f2a22;
+  --card: #281a16;
+  --tile-active: #412a20;
+  --accent: #e07a3a;
+  --accent-ink: #2a1206;
+  --accent-hover: #f08c50;
+  --accent-soft: #c86838;
+  --focus: #f0a070;
+  --input: #150d0b;
+  --toolbar: #221512;
+  --badge: #3c241c;
+  --tool-active: #4c2f24;
+  --shadow: #0009;
+  --scroll: #6a4034;
+  --inset: #26160f;
+  --state-ok: #2a3018;
+  --state-wait: #3c2c14;
+  --state-bad: #3c1814;
+  --play-btn: #7a3820;
+  --pill-on: #2c2012;
+  --pill-bad: #3c1612;
+  --off: #8a7060;
+  --off-border: #5a3f38;
+  --gold: #e0a850;
+  --warn: #e05040;
+  --meadow: #c08050;
+  --log: #150d0b;
+  --check-a: #4a2f28;
+  --check-b: #3c2620;
+  --backdrop: #1a1010cc;
+}
+
+/* Nether: Minecraft Nether - dark maroon, rust red. */
+html[data-theme="nether"] {
+  color-scheme: dark;
+  --bg: #1a0e0c;
+  --header: #24120f;
+  --panel: #2a150f;
+  --workspace: #1c100c;
+  --canvas: #160b09;
+  --dot: #4a2820;
+  --ink: #f0ccc0;
+  --ink-strong: #f8ded2;
+  --muted: #a87c6c;
+  --muted-accent: #d6765a;
+  --line: #3c2018;
+  --btn: #2c1712;
+  --btn-hover: #40211a;
+  --card: #281510;
+  --tile-active: #3f231a;
+  --accent: #d0502e;
+  --accent-ink: #1a0804;
+  --accent-hover: #e06440;
+  --accent-soft: #b8452a;
+  --focus: #e06a44;
+  --input: #150a08;
+  --toolbar: #22110d;
+  --badge: #3a221a;
+  --tool-active: #4a2a20;
+  --shadow: #0009;
+  --scroll: #6a3a2c;
+  --inset: #27130d;
+  --state-ok: #263016;
+  --state-wait: #3a2a12;
+  --state-bad: #3e1612;
+  --play-btn: #7a2e1c;
+  --pill-on: #2a1e10;
+  --pill-bad: #3e1410;
+  --off: #8a6858;
+  --off-border: #5a3a30;
+  --gold: #d49a3c;
+  --warn: #e04838;
+  --meadow: #a86a3a;
+  --log: #150a08;
+  --check-a: #4a2820;
+  --check-b: #3c2018;
+  --backdrop: #1a0e0ccc;
+}
+
+/* Darkon: Flyff - night violet, arcane purple. */
+html[data-theme="darkon"] {
+  color-scheme: dark;
+  --bg: #150f22;
+  --header: #1e1730;
+  --panel: #221a38;
+  --workspace: #18122a;
+  --canvas: #130e20;
+  --dot: #3c3060;
+  --ink: #ddd0f2;
+  --ink-strong: #efe6ff;
+  --muted: #9080b4;
+  --muted-accent: #b090e0;
+  --line: #302650;
+  --btn: #241b3c;
+  --btn-hover: #352858;
+  --card: #201838;
+  --tile-active: #382a5c;
+  --accent: #a878e0;
+  --accent-ink: #1e0e2e;
+  --accent-hover: #bc90f0;
+  --accent-soft: #9068c8;
+  --focus: #c0a0f0;
+  --input: #100c1a;
+  --toolbar: #1c1532;
+  --badge: #332650;
+  --tool-active: #45346a;
+  --shadow: #0009;
+  --scroll: #504074;
+  --inset: #241a3c;
+  --state-ok: #1e3230;
+  --state-wait: #32301a;
+  --state-bad: #38182a;
+  --play-btn: #5a3a90;
+  --pill-on: #1e2a3a;
+  --pill-bad: #381430;
+  --off: #7a6e94;
+  --off-border: #4c3e6a;
+  --gold: #d8b860;
+  --warn: #d85a70;
+  --meadow: #7a8ad0;
+  --log: #100c1a;
+  --check-a: #3c3060;
+  --check-b: #302650;
+  --backdrop: #150f22cc;
+}
+
+/* Ellinia: MapleStory magic tree - mossy green, forest shade. */
+html[data-theme="ellinia"] {
+  color-scheme: dark;
+  --bg: #131a1a;
+  --header: #1a2422;
+  --panel: #1e2a26;
+  --workspace: #16201e;
+  --canvas: #111918;
+  --dot: #35483f;
+  --ink: #d2e2d4;
+  --ink-strong: #e8f4e8;
+  --muted: #88a08e;
+  --muted-accent: #9ac06a;
+  --line: #2a3a34;
+  --btn: #1e2c28;
+  --btn-hover: #2c4038;
+  --card: #1a2622;
+  --tile-active: #2c4036;
+  --accent: #7fc25a;
+  --accent-ink: #16240e;
+  --accent-hover: #92d46c;
+  --accent-soft: #6aa848;
+  --focus: #92d46c;
+  --input: #0f1414;
+  --toolbar: #182220;
+  --badge: #2a3c2c;
+  --tool-active: #364a34;
+  --shadow: #0007;
+  --scroll: #44564a;
+  --inset: #182622;
+  --state-ok: #203626;
+  --state-wait: #30301a;
+  --state-bad: #30201e;
+  --play-btn: #3a6a3a;
+  --pill-on: #1a3222;
+  --pill-bad: #2c1a18;
+  --off: #6c7e70;
+  --off-border: #48584c;
+  --gold: #c8b060;
+  --warn: #c25a48;
+  --meadow: #7fc25a;
+  --log: #0f1414;
+  --check-a: #35483f;
+  --check-b: #2a3a34;
+  --backdrop: #131a1acc;
+}
+
+/* Henesys: MapleStory spring town - leafy green, sunny. */
+html[data-theme="henesys"] {
+  color-scheme: light;
+  --bg: #eef4e6;
+  --header: #e4edda;
+  --panel: #f4f8ee;
+  --workspace: #dfe9d4;
+  --canvas: #d4e0c6;
+  --dot: #b4c4a0;
+  --ink: #2c341f;
+  --ink-strong: #1c2214;
+  --muted: #5f6b48;
+  --muted-accent: #426827;
+  --line: #c2ceac;
+  --btn: #dde7ce;
+  --btn-hover: #ccd8b8;
+  --card: #e8f0dc;
+  --tile-active: #ccdfa8;
+  --accent: #5aa02e;
+  --accent-ink: #1c2214;
+  --accent-hover: #68b238;
+  --accent-soft: #48861f;
+  --focus: #57982d;
+  --input: #fafcf4;
+  --toolbar: #e2ecd6;
+  --badge: #cfe2ac;
+  --tool-active: #b8d48c;
+  --shadow: #34402a44;
+  --scroll: #9aaa84;
+  --inset: #d8ecc0;
+  --state-ok: #cde4b8;
+  --state-wait: #ece6c0;
+  --state-bad: #f0d8cc;
+  --play-btn: #5aa02e;
+  --pill-on: #cce4b0;
+  --pill-bad: #f0d4c6;
+  --off: #7c8a68;
+  --off-border: #a8b890;
+  --gold: #8a7a20;
+  --warn: #a84828;
+  --meadow: #5aa02e;
+  --log: #f4f8ee;
+  --check-a: #ccd8b8;
+  --check-b: #c2ceac;
+  --backdrop: #34402a4c;
+}
+
+/* Slate: cool neutral gray, low chroma. */
+html[data-theme="slate"] {
+  color-scheme: dark;
+  --bg: #171a1d;
+  --header: #1d2126;
+  --panel: #22272c;
+  --workspace: #191d21;
+  --canvas: #14181b;
+  --dot: #343c44;
+  --ink: #ccd4dc;
+  --ink-strong: #e6ecf2;
+  --muted: #869099;
+  --muted-accent: #9aacbc;
+  --line: #2e353c;
+  --btn: #242a2f;
+  --btn-hover: #333b42;
+  --card: #20252a;
+  --tile-active: #2f3941;
+  --accent: #8fb0cc;
+  --accent-ink: #141c24;
+  --accent-hover: #a6c4dc;
+  --accent-soft: #7a9cb8;
+  --focus: #a6c4dc;
+  --input: #121619;
+  --toolbar: #1d2227;
+  --badge: #28333c;
+  --tool-active: #35424c;
+  --shadow: #0008;
+  --scroll: #46525c;
+  --inset: #1a2026;
+  --state-ok: #1e2e2a;
+  --state-wait: #2e2c1c;
+  --state-bad: #2e1e1c;
+  --play-btn: #3a5468;
+  --pill-on: #1a2a30;
+  --pill-bad: #2a1816;
+  --off: #6c7882;
+  --off-border: #495460;
+  --gold: #c0ab6c;
+  --warn: #c06050;
+  --meadow: #8fb0b8;
+  --log: #121619;
+  --check-a: #343c44;
+  --check-b: #2e353c;
+  --backdrop: #171a1dcc;
+}
+
+/* Plum: deep violet, soft magenta. */
+html[data-theme="plum"] {
+  color-scheme: dark;
+  --bg: #180f18;
+  --header: #221523;
+  --panel: #28192a;
+  --workspace: #1b111c;
+  --canvas: #150d16;
+  --dot: #452a46;
+  --ink: #ecdcee;
+  --ink-strong: #f8ecfa;
+  --muted: #a284a8;
+  --muted-accent: #c884c8;
+  --line: #3a2540;
+  --btn: #2a1a2c;
+  --btn-hover: #3d2740;
+  --card: #261828;
+  --tile-active: #3c2640;
+  --accent: #c46ac0;
+  --accent-ink: #280e28;
+  --accent-hover: #d882d4;
+  --accent-soft: #a854a4;
+  --focus: #d882d4;
+  --input: #130c14;
+  --toolbar: #201422;
+  --badge: #372444;
+  --tool-active: #472e50;
+  --shadow: #0009;
+  --scroll: #5e3e60;
+  --inset: #241528;
+  --state-ok: #23301f;
+  --state-wait: #322a18;
+  --state-bad: #381a28;
+  --play-btn: #7a2e6a;
+  --pill-on: #2c1a2e;
+  --pill-bad: #38141f;
+  --off: #86708c;
+  --off-border: #54405a;
+  --gold: #d8b070;
+  --warn: #d8557a;
+  --meadow: #b070b8;
+  --log: #130c14;
+  --check-a: #452a46;
+  --check-b: #3a2540;
+  --backdrop: #180f18cc;
+}
+
+/* Mint: fresh mint, cool green light. */
+html[data-theme="mint"] {
+  color-scheme: light;
+  --bg: #eaf5ef;
+  --header: #ddeee6;
+  --panel: #f1faf5;
+  --workspace: #d7eae0;
+  --canvas: #cbe2d6;
+  --dot: #a8c8b8;
+  --ink: #1f342c;
+  --ink-strong: #12231c;
+  --muted: #4e6a5e;
+  --muted-accent: #266c53;
+  --line: #b4d0c2;
+  --btn: #d8eae0;
+  --btn-hover: #c6e0d2;
+  --card: #e4f2ea;
+  --tile-active: #bce0cc;
+  --accent: #23a074;
+  --accent-ink: #12231c;
+  --accent-hover: #2cb884;
+  --accent-soft: #1c825c;
+  --focus: #239c71;
+  --input: #f8fffb;
+  --toolbar: #dcece2;
+  --badge: #c6e4d4;
+  --tool-active: #a8d8c0;
+  --shadow: #1a342a40;
+  --scroll: #8caa9a;
+  --inset: #cfeade;
+  --state-ok: #c2e4d0;
+  --state-wait: #e4e4c2;
+  --state-bad: #eed4cc;
+  --play-btn: #23a074;
+  --pill-on: #c2e4d0;
+  --pill-bad: #eed2cc;
+  --off: #6e8478;
+  --off-border: #a0bcae;
+  --gold: #7a6c20;
+  --warn: #a83828;
+  --meadow: #23a074;
+  --log: #f1faf5;
+  --check-a: #c6e0d2;
+  --check-b: #b4d0c2;
+  --backdrop: #1a342a4c;
+}
+
+/* Sakura: pink blossom, soft warm light. */
+html[data-theme="sakura"] {
+  color-scheme: light;
+  --bg: #f9eef2;
+  --header: #f2e2e8;
+  --panel: #fdf5f8;
+  --workspace: #eedbe2;
+  --canvas: #e6cfd8;
+  --dot: #ccb0bc;
+  --ink: #3a2830;
+  --ink-strong: #24161d;
+  --muted: #6e5660;
+  --muted-accent: #854761;
+  --line: #dcc2cc;
+  --btn: #efdbe2;
+  --btn-hover: #e3cad4;
+  --card: #f7e6ec;
+  --tile-active: #f0c8d8;
+  --accent: #d85a90;
+  --accent-ink: #3a0e22;
+  --accent-hover: #e870a0;
+  --accent-soft: #c04880;
+  --focus: #d85a90;
+  --input: #fffafc;
+  --toolbar: #f2e0e8;
+  --badge: #f0cad8;
+  --tool-active: #e6aec6;
+  --shadow: #40242e44;
+  --scroll: #b898a4;
+  --inset: #f8dce6;
+  --state-ok: #d8e4cc;
+  --state-wait: #eee4c8;
+  --state-bad: #f0d2d0;
+  --play-btn: #d85a90;
+  --pill-on: #ecd0dc;
+  --pill-bad: #f0d0d0;
+  --off: #8a6e78;
+  --off-border: #b8a0aa;
+  --gold: #a8742a;
+  --warn: #a84838;
+  --meadow: #7aa04a;
+  --log: #fdf5f8;
+  --check-a: #e3cad4;
+  --check-b: #dcc2cc;
+  --backdrop: #40242e44;
+}
+
+/* Noir: high-contrast monochrome black. */
+html[data-theme="noir"] {
+  color-scheme: dark;
+  --bg: #0a0a0b;
+  --header: #121214;
+  --panel: #161618;
+  --workspace: #0d0d0f;
+  --canvas: #08080a;
+  --dot: #2c2c30;
+  --ink: #e8e8ea;
+  --ink-strong: #ffffff;
+  --muted: #8a8a90;
+  --muted-accent: #b0b0b8;
+  --line: #242428;
+  --btn: #1a1a1d;
+  --btn-hover: #26262a;
+  --card: #171719;
+  --tile-active: #2a2a30;
+  --accent: #e8e8ea;
+  --accent-ink: #101012;
+  --accent-hover: #ffffff;
+  --accent-soft: #cccccf;
+  --focus: #ffffff;
+  --input: #0c0c0e;
+  --toolbar: #141416;
+  --badge: #242428;
+  --tool-active: #303036;
+  --shadow: #000a;
+  --scroll: #3c3c42;
+  --inset: #131315;
+  --state-ok: #1c241e;
+  --state-wait: #26261a;
+  --state-bad: #261a1a;
+  --play-btn: #3a3a40;
+  --pill-on: #1a1e1c;
+  --pill-bad: #241616;
+  --off: #6c6c72;
+  --off-border: #3e3e44;
+  --gold: #cccccc;
+  --warn: #d06060;
+  --meadow: #b0b0b8;
+  --log: #0c0c0e;
+  --check-a: #2c2c30;
+  --check-b: #242428;
+  --backdrop: #0a0a0bdd;
+}
+
+/* Kryta: Guild Wars 1 - soft green fields, warm gold. */
+html[data-theme="kryta"] {
+  color-scheme: dark;
+  --bg: #141a16;
+  --header: #1c2420;
+  --panel: #212a24;
+  --workspace: #171e1a;
+  --canvas: #121816;
+  --dot: #3a4840;
+  --ink: #d8e4d6;
+  --ink-strong: #eef4ea;
+  --muted: #8a9a8c;
+  --muted-accent: #c4a84a;
+  --line: #2e3a34;
+  --btn: #24302a;
+  --btn-hover: #35443c;
+  --card: #1e2822;
+  --tile-active: #344838;
+  --accent: #c4a84a;
+  --accent-ink: #241c08;
+  --accent-hover: #d8bc60;
+  --accent-soft: #a8903c;
+  --focus: #d8bc60;
+  --input: #101612;
+  --toolbar: #1a221e;
+  --badge: #2a3a2c;
+  --tool-active: #3a4e38;
+  --shadow: #0008;
+  --scroll: #4a5a50;
+  --inset: #1a2620;
+  --state-ok: #223428;
+  --state-wait: #34301c;
+  --state-bad: #34201c;
+  --play-btn: #4a6a38;
+  --pill-on: #1c3022;
+  --pill-bad: #2e1a16;
+  --off: #6e7e72;
+  --off-border: #4a5a50;
+  --gold: #c4a84a;
+  --warn: #c45a48;
+  --meadow: #8aaa68;
+  --log: #101612;
+  --check-a: #3a4840;
+  --check-b: #2e3832;
+  --backdrop: #141a16cc;
+}
+
+/* The End: Minecraft - void black, chorus purple. */
+html[data-theme="end"] {
+  color-scheme: dark;
+  --bg: #0e0c14;
+  --header: #16121c;
+  --panel: #1a1624;
+  --workspace: #120e1a;
+  --canvas: #0a0810;
+  --dot: #2e2840;
+  --ink: #e0d4f0;
+  --ink-strong: #f4eefc;
+  --muted: #8a80a0;
+  --muted-accent: #b070e0;
+  --line: #2a2438;
+  --btn: #1e1a2a;
+  --btn-hover: #2e2840;
+  --card: #1a1622;
+  --tile-active: #342850;
+  --accent: #b070e0;
+  --accent-ink: #1a0c28;
+  --accent-hover: #c488f0;
+  --accent-soft: #9060c0;
+  --focus: #c488f0;
+  --input: #0a0810;
+  --toolbar: #14101c;
+  --badge: #2a2040;
+  --tool-active: #3a2e58;
+  --shadow: #000a;
+  --scroll: #403858;
+  --inset: #161022;
+  --state-ok: #1e2a28;
+  --state-wait: #2e2a1c;
+  --state-bad: #2e1a22;
+  --play-btn: #5a3a88;
+  --pill-on: #1e1830;
+  --pill-bad: #28141c;
+  --off: #6e6680;
+  --off-border: #403858;
+  --gold: #c8b070;
+  --warn: #d06080;
+  --meadow: #9070c0;
+  --log: #0a0810;
+  --check-a: #2e2840;
+  --check-b: #221c34;
+  --backdrop: #0e0c14dd;
+}
+
+/* Madrigal: Flyff - pastoral greens under soft sky. */
+html[data-theme="madrigal"] {
+  color-scheme: light;
+  --bg: #eef6ec;
+  --header: #e4f0e2;
+  --panel: #f4faf2;
+  --workspace: #e2ecd8;
+  --canvas: #d6e4cc;
+  --dot: #b8c8b0;
+  --ink: #243428;
+  --ink-strong: #142018;
+  --muted: #596c5b;
+  --muted-accent: #2c6c4a;
+  --line: #c0d0bc;
+  --btn: #dde8d8;
+  --btn-hover: #c8d8c4;
+  --card: #e8f2e4;
+  --tile-active: #c4e0bc;
+  --accent: #3a9a6a;
+  --accent-ink: #142018;
+  --accent-hover: #48b07c;
+  --accent-soft: #2e7a52;
+  --focus: #3a9a6a;
+  --input: #f8fcf6;
+  --toolbar: #e2ecd8;
+  --badge: #cce4c8;
+  --tool-active: #a8d0a4;
+  --shadow: #2a382828;
+  --scroll: #98a890;
+  --inset: #d8ecd4;
+  --state-ok: #d0e8d0;
+  --state-wait: #ece8c8;
+  --state-bad: #ecd8d4;
+  --play-btn: #4a9a60;
+  --pill-on: #c8e4cc;
+  --pill-bad: #ecd0cc;
+  --off: #708070;
+  --off-border: #a0b0a0;
+  --gold: #8a7020;
+  --warn: #a83828;
+  --meadow: #3a9a6a;
+  --log: #f2f8f0;
+  --check-a: #c8d8c4;
+  --check-b: #b4c8b0;
+  --backdrop: #2a382844;
+}
+
+/* Ludibrium: MapleStory - candy pink, toy pastel. */
+html[data-theme="ludibrium"] {
+  color-scheme: light;
+  --bg: #f4eef8;
+  --header: #ece4f2;
+  --panel: #f8f2fc;
+  --workspace: #e8e0f0;
+  --canvas: #ddd4e8;
+  --dot: #c4b8d0;
+  --ink: #342838;
+  --ink-strong: #221820;
+  --muted: #6e5c72;
+  --muted-accent: #8f3a72;
+  --line: #d0c4dc;
+  --btn: #e8dff0;
+  --btn-hover: #d8cce4;
+  --card: #f0e8f6;
+  --tile-active: #e8c8e0;
+  --accent: #d060a8;
+  --accent-ink: #221820;
+  --accent-hover: #e078bc;
+  --accent-soft: #b04088;
+  --focus: #d060a8;
+  --input: #fcf8fe;
+  --toolbar: #ebe4f2;
+  --badge: #ecc8e4;
+  --tool-active: #d8a8d0;
+  --shadow: #38283828;
+  --scroll: #a890b0;
+  --inset: #ecd8ec;
+  --state-ok: #d8e8d8;
+  --state-wait: #f0e8c8;
+  --state-bad: #f0d4dc;
+  --play-btn: #c05098;
+  --pill-on: #e8d0e8;
+  --pill-bad: #f0d0d8;
+  --off: #807088;
+  --off-border: #b0a0b8;
+  --gold: #a07028;
+  --warn: #b03848;
+  --meadow: #d060a8;
+  --log: #f8f4fc;
+  --check-a: #d8cce4;
+  --check-b: #c8bcd8;
+  --backdrop: #38283844;
+}
+
+/* Seaport: Curse of Aros - deep harbor teal. */
+html[data-theme="seaport"] {
+  color-scheme: dark;
+  --bg: #0e161c;
+  --header: #162028;
+  --panel: #1a2630;
+  --workspace: #121a22;
+  --canvas: #0c141a;
+  --dot: #2e404c;
+  --ink: #d0e4ec;
+  --ink-strong: #e8f4f8;
+  --muted: #7a909c;
+  --muted-accent: #42abd1;
+  --line: #283848;
+  --btn: #1e2c36;
+  --btn-hover: #2e4050;
+  --card: #182430;
+  --tile-active: #2a4454;
+  --accent: #3aa8d0;
+  --accent-ink: #0a1c28;
+  --accent-hover: #50c0e4;
+  --accent-soft: #2e88a8;
+  --focus: #50c0e4;
+  --input: #0a1218;
+  --toolbar: #162028;
+  --badge: #243844;
+  --tool-active: #2e5060;
+  --shadow: #0009;
+  --scroll: #405868;
+  --inset: #152430;
+  --state-ok: #1a3430;
+  --state-wait: #2e2a1c;
+  --state-bad: #301c24;
+  --play-btn: #2a7088;
+  --pill-on: #143038;
+  --pill-bad: #2c171d;
+  --off: #66808c;
+  --off-border: #405060;
+  --gold: #c8b06a;
+  --warn: #cf5a6a;
+  --meadow: #3aa0b0;
+  --log: #0a1218;
+  --check-a: #2e404c;
+  --check-b: #243440;
+  --backdrop: #0e161ccc;
+}
+
+/* Lantern: warm amber village night. */
+html[data-theme="lantern"] {
+  color-scheme: dark;
+  --bg: #16120e;
+  --header: #221c16;
+  --panel: #2a221a;
+  --workspace: #1a1510;
+  --canvas: #120e0a;
+  --dot: #4a3c2c;
+  --ink: #f0e0cc;
+  --ink-strong: #fff4e4;
+  --muted: #a09078;
+  --muted-accent: #e0a040;
+  --line: #3a3024;
+  --btn: #2a2218;
+  --btn-hover: #3c3224;
+  --card: #241c16;
+  --tile-active: #4a3824;
+  --accent: #e0a040;
+  --accent-ink: #241808;
+  --accent-hover: #f0b858;
+  --accent-soft: #c08830;
+  --focus: #f0b858;
+  --input: #100c08;
+  --toolbar: #1e1812;
+  --badge: #3c3020;
+  --tool-active: #504028;
+  --shadow: #0009;
+  --scroll: #5a4a38;
+  --inset: #241c14;
+  --state-ok: #24301c;
+  --state-wait: #34301c;
+  --state-bad: #341c18;
+  --play-btn: #8a6028;
+  --pill-on: #2a2418;
+  --pill-bad: #2c1814;
+  --off: #807060;
+  --off-border: #5a4a38;
+  --gold: #e0a040;
+  --warn: #c85040;
+  --meadow: #c09040;
+  --log: #100c08;
+  --check-a: #4a3c2c;
+  --check-b: #3a3024;
+  --backdrop: #16120ecc;
+}
+
+/* Moss: deep forest undergrowth. */
+html[data-theme="moss"] {
+  color-scheme: dark;
+  --bg: #101612;
+  --header: #18201a;
+  --panel: #1c2620;
+  --workspace: #141a16;
+  --canvas: #0e1410;
+  --dot: #344838;
+  --ink: #d0e0cc;
+  --ink-strong: #e8f4e4;
+  --muted: #7e9480;
+  --muted-accent: #8bb072;
+  --line: #2a3a30;
+  --btn: #1e2a22;
+  --btn-hover: #2e4034;
+  --card: #1a241e;
+  --tile-active: #2e4834;
+  --accent: #6a9a48;
+  --accent-ink: #14200c;
+  --accent-hover: #7eb058;
+  --accent-soft: #568038;
+  --focus: #7eb058;
+  --input: #0c120e;
+  --toolbar: #161e18;
+  --badge: #284028;
+  --tool-active: #365038;
+  --shadow: #0008;
+  --scroll: #445848;
+  --inset: #18241c;
+  --state-ok: #1e3224;
+  --state-wait: #2e2e1a;
+  --state-bad: #2e1c1a;
+  --play-btn: #3a6a38;
+  --pill-on: #1a3020;
+  --pill-bad: #2a1816;
+  --off: #6c8070;
+  --off-border: #485848;
+  --gold: #c0b060;
+  --warn: #c05040;
+  --meadow: #6a9a48;
+  --log: #0c120e;
+  --check-a: #344838;
+  --check-b: #28382c;
+  --backdrop: #101612cc;
+}
+
+/* Honey: warm golden parchment. */
+html[data-theme="honey"] {
+  color-scheme: light;
+  --bg: #f6efd8;
+  --header: #eee4c8;
+  --panel: #faf4e4;
+  --workspace: #ece2c4;
+  --canvas: #e0d4b0;
+  --dot: #c8b890;
+  --ink: #3a3018;
+  --ink-strong: #241e0c;
+  --muted: #70633f;
+  --muted-accent: #825218;
+  --line: #d4c49c;
+  --btn: #ebe0c4;
+  --btn-hover: #dccfb0;
+  --card: #f2e8d0;
+  --tile-active: #e8d090;
+  --accent: #c07820;
+  --accent-ink: #241e0c;
+  --accent-hover: #d89030;
+  --accent-soft: #a06018;
+  --focus: #c07820;
+  --input: #fffaf0;
+  --toolbar: #ece4c8;
+  --badge: #e8d8a0;
+  --tool-active: #d8c078;
+  --shadow: #3a301828;
+  --scroll: #b0a078;
+  --inset: #eee0b8;
+  --state-ok: #dce8c8;
+  --state-wait: #f0e8b0;
+  --state-bad: #f0d8c8;
+  --play-btn: #b07028;
+  --pill-on: #e4d8a8;
+  --pill-bad: #f0d0c0;
+  --off: #807858;
+  --off-border: #b0a078;
+  --gold: #c07820;
+  --warn: #a83828;
+  --meadow: #a08030;
+  --log: #faf4e4;
+  --check-a: #dccfb0;
+  --check-b: #ccbf98;
+  --backdrop: #3a301844;
+}
+
+/* Copper: oxidized bronze night. */
+html[data-theme="copper"] {
+  color-scheme: dark;
+  --bg: #161210;
+  --header: #221a16;
+  --panel: #2a201a;
+  --workspace: #1a1410;
+  --canvas: #120e0c;
+  --dot: #4a382c;
+  --ink: #ecd8c8;
+  --ink-strong: #fff0e4;
+  --muted: #a08878;
+  --muted-accent: #ce8857;
+  --line: #3a2c24;
+  --btn: #2a2018;
+  --btn-hover: #3c3024;
+  --card: #241c16;
+  --tile-active: #4a3428;
+  --accent: #c87840;
+  --accent-ink: #241408;
+  --accent-hover: #e09058;
+  --accent-soft: #a86030;
+  --focus: #e09058;
+  --input: #100c0a;
+  --toolbar: #1e1612;
+  --badge: #3c2c20;
+  --tool-active: #504030;
+  --shadow: #0009;
+  --scroll: #5a4838;
+  --inset: #241810;
+  --state-ok: #24301c;
+  --state-wait: #34301c;
+  --state-bad: #341c18;
+  --play-btn: #8a5030;
+  --pill-on: #2a2018;
+  --pill-bad: #2c1814;
+  --off: #807060;
+  --off-border: #5a4838;
+  --gold: #d09050;
+  --warn: #c85040;
+  --meadow: #a87848;
+  --log: #100c0a;
+  --check-a: #4a382c;
+  --check-b: #3a2c24;
+  --backdrop: #161210cc;
+}
+
+/* Pearl: cool soft gray-blue day. */
+html[data-theme="pearl"] {
+  color-scheme: light;
+  --bg: #eef2f4;
+  --header: #e4eaee;
+  --panel: #f4f7f9;
+  --workspace: #e0e6ea;
+  --canvas: #d4dce2;
+  --dot: #b8c4cc;
+  --ink: #2a3238;
+  --ink-strong: #181e22;
+  --muted: #5a676f;
+  --muted-accent: #456574;
+  --line: #c4ced4;
+  --btn: #e2e8ec;
+  --btn-hover: #d0d8de;
+  --card: #eaeff2;
+  --tile-active: #c8dce4;
+  --accent: #6a8898;
+  --accent-ink: #0c1418;
+  --accent-hover: #7e9cac;
+  --accent-soft: #4a7080;
+  --focus: #6a8898;
+  --input: #fafcfe;
+  --toolbar: #e4eaee;
+  --badge: #d0e0e8;
+  --tool-active: #b0c8d4;
+  --shadow: #28303828;
+  --scroll: #98a8b0;
+  --inset: #d8e8ec;
+  --state-ok: #d0e4d8;
+  --state-wait: #ece8c8;
+  --state-bad: #ecd8d4;
+  --play-btn: #5a8090;
+  --pill-on: #d0e0e4;
+  --pill-bad: #ecd0cc;
+  --off: #708088;
+  --off-border: #a0b0b8;
+  --gold: #8a7020;
+  --warn: #a83828;
+  --meadow: #6a8898;
+  --log: #f4f7f9;
+  --check-a: #d0d8de;
+  --check-b: #c0c8d0;
+  --backdrop: #28303844;
+}
+
+/* Clay: soft earth terracotta day. */
+html[data-theme="clay"] {
+  color-scheme: light;
+  --bg: #f0e6dc;
+  --header: #e8dcd0;
+  --panel: #f6ece4;
+  --workspace: #e4d8cc;
+  --canvas: #d8caba;
+  --dot: #c0b0a0;
+  --ink: #3a2c24;
+  --ink-strong: #241810;
+  --muted: #6d5b4b;
+  --muted-accent: #8a4830;
+  --line: #d0c0b0;
+  --btn: #e6d8cc;
+  --btn-hover: #d6c6b8;
+  --card: #eee2d6;
+  --tile-active: #e0c8b0;
+  --accent: #a06040;
+  --accent-ink: #fff8f0;
+  --accent-hover: #a16141;
+  --accent-soft: #8a4830;
+  --focus: #a06040;
+  --input: #faf4ee;
+  --toolbar: #e8dcd0;
+  --badge: #e0d0c0;
+  --tool-active: #d0b8a0;
+  --shadow: #38281828;
+  --scroll: #a89080;
+  --inset: #ead8c8;
+  --state-ok: #dce8d0;
+  --state-wait: #ece4c0;
+  --state-bad: #f0d4cc;
+  --play-btn: #906040;
+  --pill-on: #e0d0c0;
+  --pill-bad: #f0d0c8;
+  --off: #807060;
+  --off-border: #b0a090;
+  --gold: #8a6020;
+  --warn: #a83828;
+  --meadow: #a07048;
+  --log: #f6ece4;
+  --check-a: #d6c6b8;
+  --check-b: #c6b6a8;
+  --backdrop: #38281844;
+}
+
+/* Porch: evening lamplight on warm wood (Greenhaven home). */
+html[data-theme="porch"] {
+  color-scheme: dark;
+  --bg: #17120e;
+  --header: #1f1913;
+  --panel: #221b15;
+  --workspace: #1a1510;
+  --canvas: #1d1712;
+  --dot: #3a2f24;
+  --ink: #f0e2cf;
+  --ink-strong: #f8eedd;
+  --muted: #b09a80;
+  --muted-accent: #d8a860;
+  --line: #372c22;
+  --btn: #2d241b;
+  --btn-hover: #3b2f23;
+  --card: #26201a;
+  --tile-active: #3a2e1c;
+  --accent: #e0a860;
+  --accent-ink: #2a1408;
+  --accent-hover: #eebb78;
+  --accent-soft: #c08a44;
+  --focus: #e0a860;
+  --input: #14100c;
+  --toolbar: #241d16;
+  --badge: #33291d;
+  --tool-active: #3f3223;
+  --shadow: #0000008c;
+  --scroll: #55452f;
+  --inset: #1c1610;
+  --state-ok: #23331f;
+  --state-wait: #36301a;
+  --state-bad: #38211c;
+  --play-btn: #3f5a2c;
+  --pill-on: #243020;
+  --pill-bad: #35201c;
+  --off: #7d6f5c;
+  --off-border: #574a3a;
+  --gold: #d8b46a;
+  --warn: #cf6a4a;
+  --meadow: #b9c98a;
+  --log: #15110d;
+  --check-a: #2a2318;
+  --check-b: #221c14;
+  --backdrop: #17120ecc;
+}
+
+/* Lantern Woods: moss under hanging lanterns (Greenhaven night). */
+html[data-theme="lanternwoods"] {
+  color-scheme: dark;
+  --bg: #12170f;
+  --header: #1a2116;
+  --panel: #1c2418;
+  --workspace: #151b12;
+  --canvas: #171e14;
+  --dot: #2f3c2a;
+  --ink: #dfe6d4;
+  --ink-strong: #eef4e4;
+  --muted: #9caa8e;
+  --muted-accent: #cbd47a;
+  --line: #2c3826;
+  --btn: #26301f;
+  --btn-hover: #33402a;
+  --card: #1f2a1b;
+  --tile-active: #35432a;
+  --accent: #d0b050;
+  --accent-ink: #1c2410;
+  --accent-hover: #e0c468;
+  --accent-soft: #a8863a;
+  --focus: #d0b050;
+  --input: #10150e;
+  --toolbar: #1d2618;
+  --badge: #29321f;
+  --tool-active: #3a4a2c;
+  --shadow: #0000008c;
+  --scroll: #46553a;
+  --inset: #161d12;
+  --state-ok: #22331e;
+  --state-wait: #34311a;
+  --state-bad: #36211b;
+  --play-btn: #3d5a2e;
+  --pill-on: #24311f;
+  --pill-bad: #34201b;
+  --off: #71806a;
+  --off-border: #4c5a44;
+  --gold: #d4bc74;
+  --warn: #c46048;
+  --meadow: #a8c470;
+  --log: #10150e;
+  --check-a: #25301e;
+  --check-b: #1e2818;
+  --backdrop: #12170fcc;
+}
+
+/* Moss Light: bright sunlit clearing (Greenhaven day). */
+html[data-theme="mosslight"] {
+  color-scheme: light;
+  --bg: #eef3e4;
+  --header: #e4ecd6;
+  --panel: #f4f8ea;
+  --workspace: #dfe7d0;
+  --canvas: #d6e0c6;
+  --dot: #b6c49e;
+  --ink: #22301c;
+  --ink-strong: #14200f;
+  --muted: #5a6b4c;
+  --muted-accent: #3b692b;
+  --line: #c8d4b2;
+  --btn: #dde6cc;
+  --btn-hover: #cdd9b8;
+  --card: #e8efdb;
+  --tile-active: #c6dca4;
+  --accent: #3d6e2c;
+  --accent-ink: #f2f7ea;
+  --accent-hover: #467b33;
+  --accent-soft: #2c511f;
+  --focus: #3d6e2c;
+  --input: #f8fbf2;
+  --toolbar: #e0e9d0;
+  --badge: #d0e0b4;
+  --tool-active: #b4cc90;
+  --shadow: #22301c28;
+  --scroll: #90a678;
+  --inset: #d8e4c4;
+  --state-ok: #cfe2bc;
+  --state-wait: #ece8c0;
+  --state-bad: #ecd4c8;
+  --play-btn: #4a7a34;
+  --pill-on: #d2e2bc;
+  --pill-bad: #ecd2c6;
+  --off: #78866c;
+  --off-border: #a6b498;
+  --gold: #86701e;
+  --warn: #a03a28;
+  --meadow: #3d6e2c;
+  --log: #f4f8ea;
+  --check-a: #cdd9b8;
+  --check-b: #bccbab;
+  --backdrop: #22301c44;
+}
+
+/* Fairy Village: cool mint water and pale stone (Greenhaven village). */
+html[data-theme="fairyvillage"] {
+  color-scheme: light;
+  --bg: #eff6f2;
+  --header: #e4eee9;
+  --panel: #f6fbf8;
+  --workspace: #e0eae6;
+  --canvas: #d6e4de;
+  --dot: #b2c8c0;
+  --ink: #243028;
+  --ink-strong: #14201a;
+  --muted: #556b63;
+  --muted-accent: #2d6d5f;
+  --line: #c6d8d2;
+  --btn: #dfeae5;
+  --btn-hover: #cfe0d9;
+  --card: #e9f2ee;
+  --tile-active: #c2e0d4;
+  --accent: #3f9a8a;
+  --accent-ink: #0f2320;
+  --accent-hover: #4caca0;
+  --accent-soft: #2c7466;
+  --focus: #3f9a8a;
+  --input: #f8fdfb;
+  --toolbar: #e2ece8;
+  --badge: #cce6de;
+  --tool-active: #aad8cc;
+  --shadow: #24302828;
+  --scroll: #8aaca2;
+  --inset: #d8eae4;
+  --state-ok: #cfe6d8;
+  --state-wait: #ecead0;
+  --state-bad: #ecd6d0;
+  --play-btn: #3d8a78;
+  --pill-on: #d0e8de;
+  --pill-bad: #ecd4ce;
+  --off: #6e8680;
+  --off-border: #9ab4ae;
+  --gold: #887428;
+  --warn: #a8412e;
+  --meadow: #3f9a8a;
+  --log: #f6fbf8;
+  --check-a: #cfe0d9;
+  --check-b: #bfd2ca;
+  --backdrop: #24302844;
+}
+
+/* Winter: cold pale daylight, blue shadow. */
+html[data-theme="winter"] {
+  color-scheme: light;
+  --bg: #eef2f6;
+  --header: #e2e9f0;
+  --panel: #f5f8fb;
+  --workspace: #dde5ec;
+  --canvas: #d2dbe4;
+  --dot: #b0bcc8;
+  --ink: #28303a;
+  --ink-strong: #18202a;
+  --muted: #596672;
+  --muted-accent: #43607a;
+  --line: #c4d0da;
+  --btn: #dfe7ee;
+  --btn-hover: #cfd9e2;
+  --card: #eaf0f5;
+  --tile-active: #c4d8e8;
+  --accent: #5a7488;
+  --accent-ink: #f7fbfd;
+  --accent-hover: #5b7589;
+  --accent-soft: #405a6e;
+  --focus: #5a7488;
+  --input: #fafcfe;
+  --toolbar: #e2e9f0;
+  --badge: #d2e2ee;
+  --tool-active: #b4cadc;
+  --shadow: #28303828;
+  --scroll: #92a4b2;
+  --inset: #d8e4ee;
+  --state-ok: #d2e4dc;
+  --state-wait: #eae8cc;
+  --state-bad: #e8d6d2;
+  --play-btn: #4e7288;
+  --pill-on: #d2e2ea;
+  --pill-bad: #e8d2ce;
+  --off: #728494;
+  --off-border: #a2b2c0;
+  --gold: #86701e;
+  --warn: #a4382a;
+  --meadow: #5a7488;
+  --log: #f5f8fb;
+  --check-a: #cfd9e2;
+  --check-b: #bfcbd6;
+  --backdrop: #28303844;
+}
+
+/* Sandstone: sun-baked warm stone. */
+html[data-theme="sandstone"] {
+  color-scheme: light;
+  --bg: #f2e8d8;
+  --header: #ead9c4;
+  --panel: #f8f0e2;
+  --workspace: #ecdfc8;
+  --canvas: #e2d2b8;
+  --dot: #c6b294;
+  --ink: #3a2e1e;
+  --ink-strong: #26100a;
+  --muted: #6f5c46;
+  --muted-accent: #6f4520;
+  --line: #d8c6a8;
+  --btn: #e8dbc4;
+  --btn-hover: #dccdb2;
+  --card: #eee3ce;
+  --tile-active: #dcc094;
+  --accent: #8a5c2e;
+  --accent-ink: #fdf6ea;
+  --accent-hover: #956635;
+  --accent-soft: #6f4520;
+  --focus: #8a5c2e;
+  --input: #fbf6ec;
+  --toolbar: #ecdfc8;
+  --badge: #e2d0ae;
+  --tool-active: #cdae82;
+  --shadow: #3a2e1e28;
+  --scroll: #b09a78;
+  --inset: #e6d6ba;
+  --state-ok: #dce0c0;
+  --state-wait: #eee0b4;
+  --state-bad: #ecd0c0;
+  --play-btn: #7a5228;
+  --pill-on: #e0dcc2;
+  --pill-bad: #eccfc0;
+  --off: #8c7a62;
+  --off-border: #b8a488;
+  --gold: #8a6420;
+  --warn: #a43e28;
+  --meadow: #8a5c2e;
+  --log: #f8f0e2;
+  --check-a: #dccdb2;
+  --check-b: #ccbc9e;
+  --backdrop: #3a2e1e44;
+}
+
+/* Aurora: cold night sky with green fire. */
+html[data-theme="aurora"] {
+  color-scheme: dark;
+  --bg: #0c1218;
+  --header: #141c24;
+  --panel: #161f28;
+  --workspace: #101720;
+  --canvas: #121a22;
+  --dot: #263640;
+  --ink: #d8e6ea;
+  --ink-strong: #eaf6f8;
+  --muted: #8aa0a8;
+  --muted-accent: #5abfa4;
+  --line: #24323a;
+  --btn: #1d2a32;
+  --btn-hover: #273842;
+  --card: #18232a;
+  --tile-active: #1f3a34;
+  --accent: #4ad0b0;
+  --accent-ink: #08201a;
+  --accent-hover: #62e0c2;
+  --accent-soft: #2e9c82;
+  --focus: #4ad0b0;
+  --input: #0a1014;
+  --toolbar: #16222a;
+  --badge: #1e3038;
+  --tool-active: #2a4a44;
+  --shadow: #0000008c;
+  --scroll: #3a5258;
+  --inset: #101a20;
+  --state-ok: #1a3028;
+  --state-wait: #2e2c1c;
+  --state-bad: #33201f;
+  --play-btn: #2c6354;
+  --pill-on: #1b322a;
+  --pill-bad: #33211f;
+  --off: #6a8084;
+  --off-border: #46585e;
+  --gold: #c8b070;
+  --warn: #cc6a5a;
+  --meadow: #7ac0a0;
+  --log: #0a1014;
+  --check-a: #1c2a32;
+  --check-b: #16232a;
+  --backdrop: #0c1218cc;
+}
+
+/* Pond: still dark water at dusk. */
+html[data-theme="pond"] {
+  color-scheme: dark;
+  --bg: #0e1816;
+  --header: #16221f;
+  --panel: #182422;
+  --workspace: #121d1a;
+  --canvas: #14201d;
+  --dot: #294039;
+  --ink: #d2e4dc;
+  --ink-strong: #e6f2ec;
+  --muted: #86a096;
+  --muted-accent: #62b498;
+  --line: #243630;
+  --btn: #1e2f2a;
+  --btn-hover: #294038;
+  --card: #1a2825;
+  --tile-active: #24413a;
+  --accent: #4aa088;
+  --accent-ink: #06201a;
+  --accent-hover: #5cb29a;
+  --accent-soft: #2f7c68;
+  --focus: #4aa088;
+  --input: #0b1412;
+  --toolbar: #172422;
+  --badge: #213531;
+  --tool-active: #2c4a42;
+  --shadow: #0000008c;
+  --scroll: #3b554c;
+  --inset: #131f1c;
+  --state-ok: #1c3228;
+  --state-wait: #2f2d1b;
+  --state-bad: #34211e;
+  --play-btn: #2d6552;
+  --pill-on: #1d3329;
+  --pill-bad: #34211d;
+  --off: #6b837a;
+  --off-border: #465c54;
+  --gold: #c4ae6c;
+  --warn: #c76a52;
+  --meadow: #7cbf9a;
+  --log: #0b1412;
+  --check-a: #1d2f2a;
+  --check-b: #172723;
+  --backdrop: #0e1816cc;
+}
+
+/* Deepwood: the old-growth oak belt south-east of the square - cold green shade, fern floor. */
+html[data-theme="deepwood"] {
+  color-scheme: dark;
+  --bg: #0d1410;
+  --header: #141d16;
+  --panel: #18221a;
+  --workspace: #101811;
+  --canvas: #0a110c;
+  --dot: #2f4530;
+  --ink: #cfe0cf;
+  --ink-strong: #e7f3e3;
+  --muted: #83988a;
+  --muted-accent: #9dbf78;
+  --line: #263828;
+  --btn: #1b271e;
+  --btn-hover: #2a3c2c;
+  --card: #17211a;
+  --tile-active: #2b4230;
+  --accent: #8fb46a;
+  --accent-ink: #14200c;
+  --accent-hover: #a2c47c;
+  --accent-soft: #6f9550;
+  --focus: #a2c47c;
+  --input: #0a100b;
+  --toolbar: #141d16;
+  --badge: #274026;
+  --tool-active: #33512f;
+  --shadow: #0008;
+  --scroll: #40563f;
+  --inset: #16211a;
+  --state-ok: #1c3020;
+  --state-wait: #2d2d18;
+  --state-bad: #2d1b18;
+  --play-btn: #3d6a38;
+  --pill-on: #18301c;
+  --pill-bad: #281614;
+  --off: #6b8170;
+  --off-border: #44573f;
+  --gold: #c2b264;
+  --warn: #c25342;
+  --meadow: #8fb46a;
+  --log: #0a100b;
+  --check-a: #2f4530;
+  --check-b: #253726;
+  --backdrop: #0d1410cc;
+}
+
+/* Shoreline: the river mouth and the spring pond shore - pale sand, shallow teal water. */
+html[data-theme="shoreline"] {
+  color-scheme: light;
+  --bg: #eaf0ee;
+  --header: #dde7e6;
+  --panel: #f0f4f3;
+  --workspace: #d9e4e4;
+  --canvas: #cfdcdb;
+  --dot: #a8bcbb;
+  --ink: #20302e;
+  --ink-strong: #10201e;
+  --muted: #4e6260;
+  --muted-accent: #2b676f;
+  --line: #b6c8c6;
+  --btn: #dfeae9;
+  --btn-hover: #cfe0df;
+  --card: #e6eeec;
+  --tile-active: #c6dedd;
+  --accent: #2e7a84;
+  --accent-ink: #f2fbfb;
+  --accent-hover: #26666f;
+  --accent-soft: #1f545c;
+  --focus: #2e7a84;
+  --input: #f7fbfa;
+  --toolbar: #e2ecea;
+  --badge: #cfe2e0;
+  --tool-active: #b4d6d5;
+  --shadow: #20303040;
+  --scroll: #94b0ae;
+  --inset: #d5e6e5;
+  --state-ok: #cfe6dc;
+  --state-wait: #e6e6d2;
+  --state-bad: #ead6d0;
+  --play-btn: #2f8890;
+  --pill-on: #cce6e2;
+  --pill-bad: #e8d2cc;
+  --off: #6e8280;
+  --off-border: #a8bcbb;
+  --gold: #7c6c34;
+  --warn: #a54a38;
+  --meadow: #4a9090;
+  --log: #f0f6f5;
+  --check-a: #cfe0df;
+  --check-b: #bfd2d1;
+  --backdrop: #20302e66;
+}
+
+/* Quarry: the rock-cut shelf - cold chiselled stone with rust dust on the edges. */
+html[data-theme="quarry"] {
+  color-scheme: dark;
+  --bg: #151617;
+  --header: #1d1e20;
+  --panel: #212325;
+  --workspace: #191a1b;
+  --canvas: #131415;
+  --dot: #3a3d40;
+  --ink: #dfe2e4;
+  --ink-strong: #f0f2f4;
+  --muted: #9aa0a4;
+  --muted-accent: #c28f62;
+  --line: #33363a;
+  --btn: #26282b;
+  --btn-hover: #33363a;
+  --card: #1f2123;
+  --tile-active: #35302a;
+  --accent: #c08a5a;
+  --accent-ink: #1d1409;
+  --accent-hover: #d19a68;
+  --accent-soft: #a06f45;
+  --focus: #d19a68;
+  --input: #101112;
+  --toolbar: #1c1d1f;
+  --badge: #3a3026;
+  --tool-active: #443a2e;
+  --shadow: #0009;
+  --scroll: #4c5054;
+  --inset: #1a1b1d;
+  --state-ok: #22321f;
+  --state-wait: #332f1c;
+  --state-bad: #34201d;
+  --play-btn: #8a5a34;
+  --pill-on: #24301f;
+  --pill-bad: #301c19;
+  --off: #7e8286;
+  --off-border: #4c5054;
+  --gold: #cfa95c;
+  --warn: #cf6048;
+  --meadow: #8a9a72;
+  --log: #101112;
+  --check-a: #3a3d40;
+  --check-b: #2e3134;
+  --backdrop: #151617cc;
+}
+
+/* Orchard: the apple corner of the village - blossom cream, leaf green, cider amber. */
+html[data-theme="orchard"] {
+  color-scheme: light;
+  --bg: #f4efe0;
+  --header: #ece5cf;
+  --panel: #f8f4e8;
+  --workspace: #e9e2cc;
+  --canvas: #ded6bd;
+  --dot: #bcab84;
+  --ink: #332c18;
+  --ink-strong: #211a0c;
+  --muted: #5f5738;
+  --muted-accent: #71581d;
+  --line: #d2c6a2;
+  --btn: #ece4cc;
+  --btn-hover: #e0d6ba;
+  --card: #f2ecd9;
+  --tile-active: #dfd2ac;
+  --accent: #7a5e1e;
+  --accent-ink: #faf3df;
+  --accent-hover: #6a5119;
+  --accent-soft: #5b4515;
+  --focus: #7a5e1e;
+  --input: #fbf7ea;
+  --toolbar: #eee7d2;
+  --badge: #e2d3aa;
+  --tool-active: #d6c49a;
+  --shadow: #40301040;
+  --scroll: #b6a882;
+  --inset: #e8e0c8;
+  --state-ok: #d8e4c8;
+  --state-wait: #eae4c8;
+  --state-bad: #ecd8d0;
+  --play-btn: #8a6c2a;
+  --pill-on: #d8e6cc;
+  --pill-bad: #ecd6cc;
+  --off: #8a8064;
+  --off-border: #bcab84;
+  --gold: #8a6c14;
+  --warn: #a8482c;
+  --meadow: #6e8a3a;
+  --log: #f8f4e8;
+  --check-a: #e0d6ba;
+  --check-b: #d2c6a2;
+  --backdrop: #332c1866;
+}
+
+/* Duckmere: the wide waterfowl pond - deep marsh water, straw reeds at the edge. */
+html[data-theme="duckmere"] {
+  color-scheme: dark;
+  --bg: #0e1512;
+  --header: #161e19;
+  --panel: #1a231d;
+  --workspace: #131b16;
+  --canvas: #0f1713;
+  --dot: #2f4438;
+  --ink: #d2ddd2;
+  --ink-strong: #eaf3e8;
+  --muted: #8b9c90;
+  --muted-accent: #b9a35d;
+  --line: #29382e;
+  --btn: #1d2820;
+  --btn-hover: #2b3a2f;
+  --card: #18221b;
+  --tile-active: #2d4332;
+  --accent: #cdb35e;
+  --accent-ink: #1c1606;
+  --accent-hover: #b79c48;
+  --accent-soft: #8f7a35;
+  --focus: #d9c477;
+  --input: #101810;
+  --toolbar: #161e19;
+  --badge: #2c3a22;
+  --tool-active: #3a4a2c;
+  --shadow: #0008;
+  --scroll: #3f5245;
+  --inset: #17211a;
+  --state-ok: #1e3226;
+  --state-wait: #2f2e1a;
+  --state-bad: #2f1c1a;
+  --play-btn: #3f6a3c;
+  --pill-on: #1b3122;
+  --pill-bad: #291815;
+  --off: #6f8274;
+  --off-border: #45584a;
+  --gold: #cdb35e;
+  --warn: #cb5f46;
+  --meadow: #8fb46a;
+  --log: #101810;
+  --check-a: #2f4438;
+  --check-b: #27382d;
+  --backdrop: #0e1512cc;
+}
+
+/* Willowmere: the lullaby hour - pale lavender mist over deep willow indigo. */
+html[data-theme="willowmere"] {
+  color-scheme: light;
+  --bg: #eeeef6;
+  --header: #e3e3ef;
+  --panel: #f4f4fa;
+  --workspace: #dee0ec;
+  --canvas: #d4d7e6;
+  --dot: #b6bacd;
+  --ink: #2c2e3c;
+  --ink-strong: #1c1e2a;
+  --muted: #5e6172;
+  --muted-accent: #4a4d8a;
+  --line: #c9ccdd;
+  --btn: #e6e7f2;
+  --btn-hover: #dcdeeb;
+  --card: #ebebf5;
+  --tile-active: #d8daee;
+  --accent: #4b4f96;
+  --accent-ink: #f3f3fb;
+  --accent-hover: #41458a;
+  --accent-soft: #33376e;
+  --focus: #4b4f96;
+  --input: #f8f8fd;
+  --toolbar: #e8e9f3;
+  --badge: #dbdcef;
+  --tool-active: #cbcfe8;
+  --shadow: #28284040;
+  --scroll: #a9adc4;
+  --inset: #e2e4f0;
+  --state-ok: #d6e8dc;
+  --state-wait: #ecead2;
+  --state-bad: #eee0e0;
+  --play-btn: #5a5fae;
+  --pill-on: #d8ddf0;
+  --pill-bad: #e8d8dc;
+  --off: #7d8096;
+  --off-border: #b6bacd;
+  --gold: #8a6f1e;
+  --warn: #a8443a;
+  --meadow: #7e9a5a;
+  --log: #f8f8fd;
+  --check-a: #dcdeeb;
+  --check-b: #cfd3e6;
+  --backdrop: #2c2e3c66;
+}
+
+/* Poppyfield: chalk village ground, red poppies scattered through the litter. */
+html[data-theme="poppyfield"] {
+  color-scheme: light;
+  --bg: #f4efe6;
+  --header: #ece5d8;
+  --panel: #faf6ef;
+  --workspace: #e9e1d2;
+  --canvas: #ded4c2;
+  --dot: #c2b39a;
+  --ink: #33291f;
+  --ink-strong: #221a12;
+  --muted: #6b5f4f;
+  --muted-accent: #a8352f;
+  --line: #ddd0bb;
+  --btn: #efe7d9;
+  --btn-hover: #e5dbc9;
+  --card: #f2ece0;
+  --tile-active: #f0d8ce;
+  --accent: #b4323f;
+  --accent-ink: #fdf3ef;
+  --accent-hover: #9c2a36;
+  --accent-soft: #7d2129;
+  --focus: #b4323f;
+  --input: #fbf7f0;
+  --toolbar: #f0e9dc;
+  --badge: #f2d8d2;
+  --tool-active: #eec9c2;
+  --shadow: #40282040;
+  --scroll: #c4ae94;
+  --inset: #efe4d4;
+  --state-ok: #d9e6c8;
+  --state-wait: #f0e2c0;
+  --state-bad: #f2d4ce;
+  --play-btn: #b4323f;
+  --pill-on: #d9e7cf;
+  --pill-bad: #f2d6d0;
+  --off: #8d7f6d;
+  --off-border: #c2b39a;
+  --gold: #8a6c14;
+  --warn: #a8352f;
+  --meadow: #6e8a3a;
+  --log: #fbf7f0;
+  --check-a: #e5dbc9;
+  --check-b: #d8ccb6;
+  --backdrop: #33291f66;
+}
+
+/* Gorse: heath grey-green under bright yellow furze on a dry summer bank. */
+html[data-theme="gorse"] {
+  color-scheme: light;
+  --bg: #eceee4;
+  --header: #e0e3d6;
+  --panel: #f3f5ea;
+  --workspace: #dbdfd0;
+  --canvas: #cfd4c3;
+  --dot: #adb4a0;
+  --ink: #2a2f24;
+  --ink-strong: #1a1f14;
+  --muted: #59604f;
+  --muted-accent: #705c0e;
+  --line: #c8cfbd;
+  --btn: #e3e7d8;
+  --btn-hover: #d7dcc9;
+  --card: #eaeee0;
+  --tile-active: #dee3c2;
+  --accent: #e3bc33;
+  --accent-ink: #241d04;
+  --accent-hover: #c9a52a;
+  --accent-soft: #8f7411;
+  --focus: #8f7411;
+  --input: #f8faf0;
+  --toolbar: #e5e9da;
+  --badge: #e8e2b8;
+  --tool-active: #ddd39a;
+  --shadow: #28302040;
+  --scroll: #a8b09a;
+  --inset: #dfe4d4;
+  --state-ok: #d2e4c4;
+  --state-wait: #efe6bd;
+  --state-bad: #e9d4cc;
+  --play-btn: #b3922a;
+  --pill-on: #d6e6c6;
+  --pill-bad: #e6d2ca;
+  --off: #7c8474;
+  --off-border: #adb4a0;
+  --gold: #8f7411;
+  --warn: #a5492f;
+  --meadow: #6e8a3a;
+  --log: #f8faf0;
+  --check-a: #d7dcc9;
+  --check-b: #c8cfbd;
+  --backdrop: #2a2f2466;
+}
+
+/* Rosewood: oxblood heartwood and pale blush - the dark warm pack the set lacked. */
+html[data-theme="rosewood"] {
+  color-scheme: dark;
+  --bg: #171012;
+  --header: #1f1619;
+  --panel: #241a1e;
+  --workspace: #1c1416;
+  --canvas: #181112;
+  --dot: #442f33;
+  --ink: #e6d3d2;
+  --ink-strong: #f4e6e4;
+  --muted: #a08684;
+  --muted-accent: #e08a94;
+  --line: #3a2629;
+  --btn: #2b1f22;
+  --btn-hover: #3b2b2f;
+  --card: #251a1d;
+  --tile-active: #3d2528;
+  --accent: #c95f6d;
+  --accent-ink: #1a0d10;
+  --accent-hover: #da7a87;
+  --accent-soft: #9c4552;
+  --focus: #d3707d;
+  --input: #140e10;
+  --toolbar: #1f1619;
+  --badge: #402528;
+  --tool-active: #552f34;
+  --shadow: #0009;
+  --scroll: #55403f;
+  --inset: #1f1518;
+  --state-ok: #26331f;
+  --state-wait: #332a18;
+  --state-bad: #3a1e1c;
+  --play-btn: #8a3a44;
+  --pill-on: #26331f;
+  --pill-bad: #3a1e1c;
+  --off: #8a7070;
+  --off-border: #55403f;
+  --gold: #d8a860;
+  --warn: #d8543f;
+  --meadow: #a8b07a;
+  --log: #140e10;
+  --check-a: #442f33;
+  --check-b: #38262a;
+  --backdrop: #171012cc;
+}
+
+/* Giants' Foundry: Old School RuneScape forge iron and ember. */
+html[data-theme="giantsfoundry"] {
+  color-scheme: dark;
+  --bg: #180f0a;
+  --header: #211610;
+  --panel: #241a13;
+  --workspace: #1c130d;
+  --canvas: #1f1510;
+  --dot: #3e2a20;
+  --ink: #f0dcd0;
+  --ink-strong: #f8e8de;
+  --muted: #ab9084;
+  --muted-accent: #e08a4a;
+  --line: #382419;
+  --btn: #2e2018;
+  --btn-hover: #3d2b1f;
+  --card: #271b14;
+  --tile-active: #402a1c;
+  --accent: #e07840;
+  --accent-ink: #1e0c04;
+  --accent-hover: #ee8c56;
+  --accent-soft: #b85c2c;
+  --focus: #e07840;
+  --input: #150d08;
+  --toolbar: #251a13;
+  --badge: #35241a;
+  --tool-active: #46301f;
+  --shadow: #0000008c;
+  --scroll: #58402f;
+  --inset: #1d140e;
+  --state-ok: #26311d;
+  --state-wait: #372d17;
+  --state-bad: #3a1e18;
+  --play-btn: #4a5a2c;
+  --pill-on: #27301d;
+  --pill-bad: #381d17;
+  --off: #7e6a5c;
+  --off-border: #564438;
+  --gold: #d8ae5c;
+  --warn: #d05a3e;
+  --meadow: #a8b878;
+  --log: #150d08;
+  --check-a: #2c1f17;
+  --check-b: #241811;
+  --backdrop: #180f0acc;
+}
+
+/* Draynor: Old School RuneScape river town, soft daylight. */
+html[data-theme="draynor"] {
+  color-scheme: light;
+  --bg: #eaf0e6;
+  --header: #dde8db;
+  --panel: #f2f7f0;
+  --workspace: #d8e4d8;
+  --canvas: #cfe0da;
+  --dot: #aec4c0;
+  --ink: #26302a;
+  --ink-strong: #16211c;
+  --muted: #556660;
+  --muted-accent: #3c6478;
+  --line: #c4d6d2;
+  --btn: #dae6e2;
+  --btn-hover: #c8dad6;
+  --card: #e6efe8;
+  --tile-active: #bcd6d4;
+  --accent: #3c6a7a;
+  --accent-ink: #f7fbfd;
+  --accent-hover: #4a7a8a;
+  --accent-soft: #2e5462;
+  --focus: #3c6a7a;
+  --input: #f6fbf8;
+  --toolbar: #dce8e4;
+  --badge: #c8dee0;
+  --tool-active: #a8c6c8;
+  --shadow: #26302a28;
+  --scroll: #8ca8a6;
+  --inset: #d2e4e0;
+  --state-ok: #cce4d4;
+  --state-wait: #eae8c8;
+  --state-bad: #e8d4cc;
+  --play-btn: #3c6a7a;
+  --pill-on: #cce2d8;
+  --pill-bad: #e8d0c8;
+  --off: #6e8480;
+  --off-border: #9ab2ae;
+  --gold: #846e1e;
+  --warn: #a23c2a;
+  --meadow: #3c6a7a;
+  --log: #f2f7f0;
+  --check-a: #c8dad6;
+  --check-b: #b8ccc8;
+  --backdrop: #26302a44;
+}
+
+/* Theme control: header switch + grouped pack panel.
+   The packs above swap every token; this block styles the control itself. */
+.gh-theme {
+  position: relative;
+  flex: none;
+  margin-left: 6px;
+  z-index: 40;
+}
+
+.gh-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font: 10px/1 "DM Sans", "Segoe UI", system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  background: var(--btn);
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  flex: none;
+  white-space: nowrap;
+}
+.gh-theme-toggle:hover { background: var(--btn-hover); }
+.gh-theme-toggle.is-auto { border-style: dashed; }
+.gh-theme-toggle .gh-theme-swatch { width: 12px; height: 12px; border-radius: 3px; }
+.gh-theme-toggle-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.gh-theme-toggle:focus-visible,
+.gh-theme-option:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.gh-theme-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: min(560px, calc(100vw - 24px));
+  max-height: min(640px, calc(100vh - 48px));
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel, var(--header));
+  box-shadow: 0 10px 28px #00000055;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gh-theme-panel[hidden] { display: none !important; }
+
+/* The panel is the scroller, so the title and the filter row ride at its top together. The
+   negative margin cancels the panel's own 10px padding and the wrapper supplies it again, so the
+   row looks exactly where it did before and only moves when the packs scroll under it. */
+.gh-theme-panel-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: -10px -10px 0;
+  padding: 10px 10px 8px;
+  background: var(--panel, var(--header));
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.gh-theme-panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.gh-theme-panel-title {
+  font: 700 10px/1 "Space Grotesk", "DM Sans", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted, var(--ink));
+}
+
+.gh-theme-panel-hint {
+  font: 9px/1 "DM Sans", "Segoe UI", system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  color: var(--muted, var(--ink));
+}
+
+/* Pack filter: one row under the panel title. Colour comes from the tokens only - the
+   hint used to dim itself with opacity, which cost it contrast on the light packs. */
+.gh-theme-filter {
+  width: 100%;
+  margin: 0;
+  padding: 6px 8px;
+  font: 11px/1.2 "DM Sans", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--input, var(--btn));
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+.gh-theme-filter::placeholder { color: var(--muted); opacity: 1; }
+.gh-theme-filter:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+/* Announced, not seen: the applied pack is spoken to screen readers here. */
+.gh-theme-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.gh-theme-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gh-theme-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gh-theme-group-label {
+  font: 700 9px/1 "Space Grotesk", "DM Sans", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, var(--ink));
+}
+
+.gh-theme-subgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 8px;
+  border-left: 2px solid var(--line);
+}
+
+.gh-theme-subgroup-label {
+  font: 700 9px/1 "Space Grotesk", "DM Sans", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-accent, var(--muted, var(--ink)));
+}
+
+.gh-theme-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.gh-theme-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin: 0;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--btn);
+  color: var(--ink);
+  font: 11px/1.1 "DM Sans", "Segoe UI", system-ui, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.gh-theme-option:hover { background: var(--btn-hover); }
+.gh-theme-option.is-active {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+  background: var(--tile-active, var(--btn-hover));
+}
+.gh-theme-option--auto { grid-column: 1 / -1; }
+
+/* Every rule above sets display, which outranks the browser's [hidden] default: without
+   these, filtering the panel would hide nothing. */
+.gh-theme-option[hidden],
+.gh-theme-group[hidden],
+.gh-theme-subgroup[hidden] {
+  display: none;
+}
+
+/* Touch pointers get a real target; the pointer device cannot hover an 11px row. */
+@media (pointer: coarse) {
+  .gh-theme-option { min-height: 40px; }
+  .gh-theme-filter { min-height: 40px; }
+}
+
+.gh-theme-swatch {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid #00000044;
+  background:
+    radial-gradient(circle at 78% 22%, var(--swatch-ink, #fff) 0 20%, transparent 22%),
+    linear-gradient(135deg, var(--swatch-accent) 0 42%, transparent 42%),
+    var(--swatch-bg);
+}
+.gh-theme-swatch--auto {
+  /* theme.js passes the two packs Auto can paint; the literals are only the pre-paint fallback. */
+  background: linear-gradient(135deg, var(--swatch-auto-dark, #101716) 0 50%, var(--swatch-auto-light, #f3efe4) 50% 100%);
+  border-color: #0003;
+  box-shadow: inset 0 0 0 1px #ffffff22;
+}
+
+.gh-theme-option-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Smooth pack switch: short-lived transition window when the View Transitions
+   API is unavailable. Disabled entirely for reduced-motion users. */
+html.gh-theme-anim,
+html.gh-theme-anim *,
+html.gh-theme-anim *::before,
+html.gh-theme-anim *::after {
+  transition:
+    background-color 0.28s ease,
+    border-color 0.28s ease,
+    color 0.28s ease,
+    fill 0.28s ease,
+    stroke 0.28s ease,
+    box-shadow 0.28s ease !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.gh-theme-anim,
+  html.gh-theme-anim *,
+  html.gh-theme-anim *::before,
+  html.gh-theme-anim *::after { transition: none !important; }
+}
+
+.gh-chrome-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex: none;
+  min-width: 0;
+}
+
+.gh-tool-rail {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 32;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+.gh-tool-rail-dash {
+  width: 12px;
+  height: 2px;
+  flex: none;
+  background:
+    repeating-linear-gradient(
+      to right,
+      var(--accent) 0 3px,
+      transparent 3px 6px
+    );
+  opacity: 0.55;
+  pointer-events: none;
+}
+.gh-tool-rail a {
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--muted);
+  text-decoration: none;
+}
+.gh-tool-rail a svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+.gh-tool-rail a svg circle { fill: currentColor; stroke: none; }
+.gh-tool-rail a[href="/"] svg { fill: currentColor; stroke: none; }
+.gh-tool-rail a:hover {
+  color: var(--ink-strong);
+  border-color: var(--accent);
+  background: var(--tile-active);
+}
+.gh-tool-rail a[aria-current="page"] {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.gh-tool-rail a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+@media (max-width: 680px) {
+  .gh-tool-rail a { width: 24px; height: 24px; }
+  .gh-tool-rail-dash { width: 8px; }
+}
+
+/* Brand cluster + tool jump dropdown — shared by all maker pages. */
+.brand-cluster{display:flex;align-items:center;gap:4px;min-width:0}
+.tool-jump{position:relative}
+.tool-jump summary{
+  list-style:none;
+  cursor:pointer;
+  font-size:8px;
+  letter-spacing:1.2px;
+  color:var(--muted);
+  border-left:1px solid var(--line);
+  padding:2px 8px 2px 10px;
+  margin-left:4px;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  user-select:none;
+}
+.tool-jump summary::-webkit-details-marker{display:none}
+.tool-jump summary::after{content:" ▾";font-size:10px}
+.tool-jump nav{
+  position:absolute;
+  left:0;
+  top:calc(100% + 8px);
+  z-index:40;
+  min-width:200px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding:6px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:6px;
+  box-shadow:0 12px 32px var(--shadow);
+}
+.tool-jump nav a{
+  color:var(--ink);
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:4px;
+  font-size:12px;
+  letter-spacing:0;
+  font-family:'DM Sans',sans-serif;
+  font-weight:500;
+  text-transform:none;
+}
+.tool-jump nav a:hover{background:var(--btn-hover)}
+.tool-jump nav a[aria-current=page]{background:var(--tile-active);color:var(--ink-strong);font-weight:700;box-shadow:inset 0 0 0 1px var(--accent)}
+.hub-launch-link{font-size:11px;color:var(--muted);text-decoration:none;margin-left:12px;padding:4px 8px;border:1px solid var(--line);border-radius:4px;transition:color .15s,border-color .15s}
+.hub-launch-link:hover{color:var(--ink);border-color:var(--accent)}

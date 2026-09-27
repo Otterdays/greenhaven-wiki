@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NPCs and Shops - Greenhaven Wiki</title>
+  <meta name="description" content="NPCs and shops in Greenhaven: talking, branching dialogue, buying and selling sand and clay, and what a map author sets on a merchant.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>NPCs and Shops</h1>
+      <p class="lede">Characters placed on a map can talk and can trade. Talking opens a branching conversation; trading opens a merchant counter that buys and sells by the unit.</p>
+
+      <h2>Talking to an NPC</h2>
+      <ul>
+        <li>Walk up to a talkable character and click it. A card opens with the character's picture, name and either the greeting line or a short inspect panel.</li>
+        <li>A conversation is a tree of nodes. Node zero is the greeting; every option either moves you to another node or ends the chat. Every line caps at 240 characters and every option label at 48; each node offers up to 4 options, and a single conversation tops out at 24 nodes.</li>
+        <li>Names are up to 24 characters. If the author left the name empty, the character shows the kind label (for example "Merchant").</li>
+      </ul>
+
+      <h2>Shops</h2>
+      <p>A shop row is opened from an option marked "opens the shop" - not from a special talk. The shop counter draws one row per good with two prices and a stock line.</p>
+      <table>
+        <thead>
+          <tr><th>Field</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Buy price</td><td>Coins the merchant charges one unit. 0 = not for sale.</td></tr>
+          <tr><td>Sell price</td><td>Coins the merchant pays one unit. 0 = not bought.</td></tr>
+          <tr><td>Infinite</td><td>On by default. Off means the row counts down for this server session.</td></tr>
+          <tr><td>Stock</td><td>Starting units when infinite is off. Ten by default; up to 9,999.</td></tr>
+        </tbody>
+      </table>
+      <p>A shop offers up to eight rows. A price cannot exceed 100,000 coins. Reach to trade is 2 tiles from the merchant's saved cell - a hair wider than a harvest reach.</p>
+
+      <h2>What merchants trade today</h2>
+      <p>Two goods exist in the shared registry: <strong>Sand</strong> and <strong>Clay</strong>. Both are dug up from the ground (see <a href="/digging.html">Digging</a>), so a merchant that buys one is a place to convert a shift with the spade into coin. The goods live in dedicated counters on your character sheet, not in your Inventory.</p>
+
+      <h2>How a trade works</h2>
+      <ol>
+        <li>Walk within <strong>2 tiles</strong> of the merchant's saved cell (a hair wider than a harvest reach), and click them.</li>
+        <li>Choose the option on their dialogue that opens the shop. The client sends a <strong>shop open</strong> ask, and the world answers with the merchant's current rows and remaining stock.</li>
+        <li>The counter draws one row per good: the buy price, the sell price, and how many the merchant has left (or an infinity sign for a row set to infinite). A row at <strong>0 buy</strong> is not for sale; a row at <strong>0 sell</strong> is not bought.</li>
+        <li>Press <strong>Buy</strong> or <strong>Sell</strong>. The client asks and the world answers with the same two things on every transaction: a `Skills` update (your coins and your sand / clay counters both moved) and a plain <strong>Notice</strong> line - "You buy 1 sand for 12 coins." or "Not enough coins."</li>
+        <li>A row that is not infinite counts down for this server session. When it hits zero the button greys until the world restarts. Infinite rows never change - the merchant always has another crate.</li>
+      </ol>
+
+      <h2>Where the coins go</h2>
+      <p>Selling puts coins in your bag (see <a href="/coins.html">Coins</a>); buying takes them out. Your bag cap is checked before a sell, so a merchant will not pay you into a pile on the floor. Your sand and clay counters never cap - a shift with a spade always has somewhere to put the outcome, though a merchant who does not buy a good will not pay for it.</p>
+
+      <h2>The character kinds</h2>
+      <p>Anything the painter can drop is a "character kind" from the shared registry. Talkable, walkable, and shop-capable kinds include the Merchant, the Historian and King Bramblejaw the Great. Wildlife (ducks, swans, butterflies, fireflies, ladybugs and more) can be placed but has no shop or dialogue by default. Hostile mobs (goblin, skeleton, zombie, troll, wyvern, the Barrow King, Thornmother and the rest) can be <a href="/combat.html">fought</a> but do not trade.</p>
+
+      <h2>Authoring a shop</h2>
+      <p>In the map painter (key <code>N</code> for the NPC tool): drop a character, open its inspector, and give it a name, a dialogue tree, and a shop. Options marked "opens the shop" launch the counter; unmarked options either branch to another node or close the chat. Stock, prices and infinite/counted mode are per-row.</p>
+
+      <h2>Saved or not</h2>
+      <p>Your coins and your sand and clay counts ride on the character save. Merchant stock is per-server-session: a counted shop refills to its authored default when the world restarts, and the shop does not remember what it sold you. Conversation state (which node you were on) is not saved - every close starts back at the greeting.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

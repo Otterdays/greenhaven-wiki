@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terrain and Tiles - Greenhaven Wiki</title>
+  <meta name="description" content="Every tile in Greenhaven belongs to a family. This page walks the twelve families, what each one means for walking and joining, and the height map a map author can paint.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Terrain and Tiles</h1>
+      <p class="lede">Every tile in Greenhaven has an id from 0 to <code>MAX_TILE</code> (currently 119). Ids never renumber - a new tile is appended. Twelve families decide what each one looks like, whether you can walk on it, and which neighbours it joins.</p>
+
+      <h2>The map itself</h2>
+      <p>A map is a grid of one byte per cell, plus a matching height map, plus a handful of sidecars: nodes, signs, chests and campfires. A fresh map is bounded by <code>MAX_DIM</code> on each side so a hostile client cannot send a huge one.</p>
+
+      <h2>Height</h2>
+      <p>Every cell has a height from 0 to <code>MAX_HEIGHT</code> (3). Walking from a lower tile to a higher tile that is not a ramp is refused; ramps (tile 24) let a foot cross a one-step edge. The height also lifts the sprite, so a taller cliff face reads as a wall from the ground.</p>
+
+      <h2>The twelve families</h2>
+      <table>
+        <thead>
+          <tr><th>Family</th><th>Tiles</th><th>Walkable</th><th>Joins neighbours</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Grass and path</td><td>Meadow, dirt path, sand, moss carpet, leafy soil</td><td>yes</td><td>no</td></tr>
+          <tr><td>Water</td><td>Water (2), fishing spot (6), reeds, cattails, water lily, duckweed, lotus</td><td>no (except water-bird characters that float)</td><td>yes - one shared shore join</td></tr>
+          <tr><td>Wood</td><td>Boardwalk (7), dock (8), corduroy (9)</td><td>yes</td><td>yes - one shared deck join</td></tr>
+          <tr><td>Cobblestone build</td><td>Cobblestone wall (37), doorway (38), archway (39), paving (43)</td><td>wall blocks; doorway, arch and paving walk</td><td>walls, doorways and arches share one link mask</td></tr>
+          <tr><td>Wood floors</td><td>Wood plank (40), wood board (41), interior floor (42)</td><td>yes</td><td>yes - one interior floor join</td></tr>
+          <tr><td>Crafted grounds</td><td>Timber paving, pale plank, knotty plank, weathered decking, mossy planks, charred planks, gravel path, brick paving, flagstone, dressed stone, mossy cobblestone, ruin flagstone</td><td>yes</td><td>yes - the wood six join each other; the stone six join each other; the two families never cross</td></tr>
+          <tr><td>Flowers</td><td>Daisy, lily, dandelion, rose, lavender, poppy</td><td>yes (walk-through)</td><td>no (pure scatter)</td></tr>
+          <tr><td>Trees</td><td>English oak, young oak, white birch, pine, maple, ancient oak, yew, willow, redwood, silverwood, elderwood</td><td>no</td><td>no (single-cell props)</td></tr>
+          <tr><td>Rocks</td><td>All twenty rock tiles (see <a href="/mining.html">Mining</a>)</td><td>no</td><td>no</td></tr>
+          <tr><td>Fences and hedges</td><td>Picket fence (80), stone fence (81), open gate (82), closed gate (83), hedge (84)</td><td>only the open gate</td><td>fences, gates and walls share one link; hedge is its own</td></tr>
+          <tr><td>Camp and market props</td><td>Campfire, benches, firewood, stump, well, stalls, crates, handcart, hay, rain barrel, potted plant, notice board, sundial, anvil, woodpile, mailbox, fountain, picnic table, birdhouse, spinning wheel, lamp post, water trough, scarecrow, gravestone, training dummy, furnace, chest, sign</td><td>no (blocked scenery)</td><td>no</td></tr>
+          <tr><td>Festive props</td><td>Christmas tree, snowman, gift pile, candy cane post, sleigh, gingerbread house</td><td>no (blocked scenery)</td><td>no</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Join families</h2>
+      <p>Four families carry a "link" rule: the client looks at the four neighbours of a tile and picks a shape (run, corner, T, cross, end cap) that stitches the tile into a line. This is what makes a curved cobblestone wall or a straight picket fence paint itself without an author drawing every corner. The four link families are:</p>
+      <ul>
+        <li><strong>Wall link</strong> - cobblestone wall, doorway and archway.</li>
+        <li><strong>Fence link</strong> - picket fence, stone fence, open gate, closed gate. The two looks share one link, so a line may mix freely.</li>
+        <li><strong>Hedge link</strong> - the hedge row on its own. It never merges with a fence.</li>
+        <li><strong>Water and wood joins</strong> - shore edges and deck edges pick their art from the same 4-neighbour mask.</li>
+      </ul>
+
+      <h2>What is walkable</h2>
+      <p>Everything in a "walkable" row above lets a foot through. Blocked tiles - trees, rocks, all props, walls, closed gates, hedges, fences - stop you at the tile edge with the shared <code>RADIUS</code> (0.24 tiles). Water is blocked to a wanderer, but every water-bird character (duck, swan, duckling, swanling, fowl) walks on it - the client and the world share the water family for exactly that test.</p>
+
+      <h2>The full range today</h2>
+      <p>Tile 0 through tile 119, and the highest placeable is the gingerbread house (119). Tiles 120 and up are reserved - a new prop or a new family appends there, never renumbers an old one.</p>
+
+      <h2>Where a tile's meaning is set</h2>
+      <p>All twelve families are one shared file the world, the client, the map painter and the atlas read from the same place. That is why the wiki's tile IDs match what the painter shows and what the world enforces.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

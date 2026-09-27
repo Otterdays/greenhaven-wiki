@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where the River Bends - Greenhaven Wiki</title>
+  <meta name="description" content="The shipping map is a 250 x 250 world called Where the River Bends. This is a walking tour of its districts and what you can do in each.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">CONTENT</div>
+      <h1>Where the River Bends</h1>
+      <p class="lede">The map a wanderer boots into is <strong>Where the River Bends</strong>: a 250 x 250 world the painter made, with a hamlet on the river bend, a waking trail, a mossy glade, a dock, and a scatter of hills and forest. It is the shape a fresh player learns first.</p>
+
+      <h2>The shape of the map</h2>
+      <p>The world is 250 tiles on each side. That is 62,500 cells in total - large enough to hold a hamlet, a lake, a river, three forest patches and open meadow, small enough that a fresh wanderer can cross it in a couple of minutes at a sprint. Every cell has one tile id, one height (0 to 3), and - if it carries a resource node or an authored prop - one sidecar row.</p>
+
+      <h2>Spawn</h2>
+      <p>A new character lands on the waking trail, at the map's authored spawn. The trail is a walkable path that runs from the spawn towards the hamlet. It is the first thing a wanderer sees, and it is authored to look inviting: soft grass, a scattering of flowers, no trees blocking the line of sight, a first <strong>young oak</strong> within a couple of tiles to teach the chop.</p>
+
+      <h2>The hamlet</h2>
+      <p>The river bend carries a small village: a market square, a commons with a notice board and a sundial, a few cottages with cobblestone walls and wood-plank floors, and a blacksmith's corner. Every prop is one tile from the market and home packs documented on <a href="/props-packs.html">Prop Packs</a>. The blacksmith has the shipping map's <strong>anvil</strong> (tile 101) and a <strong>furnace</strong> (tile 113) beside it, which is where a fresh miner smelts their first bronze.</p>
+
+      <h2>The dock and the water</h2>
+      <p>A short pier of dock tiles reaches out over the river. Beside it, a stretch of boardwalk runs along the shore. The water itself is the shared water family: a wanderer cannot walk into it, but every duck, swan and fowl character floats on it and turns to face where it swims. A line of <a href="/fishing.html">fishing spot</a> tiles (6) sits on the shore so a minnow is one click from the dock.</p>
+
+      <h2>The mossy glade</h2>
+      <p>South of the hamlet the ground turns to moss carpet and leafy soil. A stand of pines and an ancient oak or two; a scatter of daisies, lilies, lavender and poppy; a firewood stack near a fallen stump seat; a waltz of music under the trees (the <a href="/music.html">Mosslight Waltz</a>). Every tree here is a real cuttable one, not scenery.</p>
+
+      <h2>The hills</h2>
+      <p>The north edge lifts to height 1 and 2 with a scattering of <a href="/terrain.html">ramps</a> (tile 24) as the only walkable ways up. Rocks cluster on the top shelf - <a href="/mining.html">copper</a>, <a href="/mining.html">tin</a>, then iron a little further along. A training dummy stands on the highest spot; the Wyvern and the Barrow King can be placed nearby by a builder who wants an end-game encounter on this map.</p>
+
+      <h2>Sand and clay</h2>
+      <p>The shore by the lake carries patches of <a href="/digging.html">sand</a> (walkable, dig for 5 XP) and mounds of <a href="/digging.html">clay</a> (blocked, dig for 8 XP). Merchant NPCs in the hamlet buy both, so a shift with a spade turns into coins.</p>
+
+      <h2>Signs and lore</h2>
+      <p>Along the waking trail and around the commons, a scatter of <a href="/props.html">signposts</a> (tile 63) hold the world's lore in short 120-character lines. A few have their <em>readable</em> flag turned off and say only "The letters have worn away." - a hint that the author is holding something back.</p>
+
+      <h2>The music</h2>
+      <p>Every district reads one of the six shipped songs. The hamlet loops <strong>Menu Greenhaven</strong> in the day and <strong>Lanterns at Dusk</strong> as the world's sun goes down. The river plays <strong>Where the River Bends</strong>, the map's namesake. The glade carries <strong>Mosslight Waltz</strong>, and the hills go quiet with <strong>Willowmere Lullaby</strong>. The <strong>opening</strong> score plays once, on the arrival sequence, and then hands the world over.</p>
+
+      <h2>What is not there</h2>
+      <p>As of this writing, no bosses are placed. No mobs are placed on the shipping map either - the seeded hostile set (giant rats, wild boars, wolves, bandits, wyverns, the Barrow King) waits on any map a builder adds them to. The shipping world today is a peaceful place to learn the skills and take the first bronze bar out of the furnace.</p>
+
+      <h2>Related</h2>
+      <p>The tile families the map is painted from live on <a href="/terrain.html">Terrain and Tiles</a>. How a builder changes the shipping map (or paints a new one) is on <a href="/map-maker.html">The Map Painter</a>. Every skill the world exercises lives under its own page in the sidebar.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

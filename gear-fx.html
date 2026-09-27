@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gear Effects - Greenhaven Wiki</title>
+  <meta name="description" content="Some pieces of gear glow, throw sparks, trail a colour on a swing, or puff dust when they land. Every one of those effects is a row on a shared file the client reloads live.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1.4 9.6 6h4.7L10.6 9.1 12.2 14 8 11.2 3.8 14l1.6-4.9L1.7 6h4.7z"/></svg></span> GREENHAVEN <small>WIKI</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Gear Effects</h1>
+      <p class="lede">A piece of gear can glow, leave a coloured swing trail, throw sparks or dust when it hits, or pop on impact. Every one of those effects is authored as data in the Gear Forge and shipped as one shared file the client reloads live - no restart between "add glow" and "see glow in game."</p>
+
+      <h2>The five effect kinds</h2>
+      <ul>
+        <li><strong>Glow.</strong> The piece carries a soft colour aura on the sprite itself. A glowing sword is obvious at a glance; a glowing cape is obvious from behind.</li>
+        <li><strong>Swing trail.</strong> When the piece swings, the arc it paints has the piece's colour. A bronze axe throws a warm brown streak; a candy cane sword throws a red-white one.</li>
+        <li><strong>Hit pop.</strong> The impact frame of a landed swing carries a small pop - a brief burst at the point the strike connected.</li>
+        <li><strong>Hit sparks.</strong> Little motes fly off on impact. A blunt weapon throws dust, an axe throws bark chips, a blade throws sparks, a magic weapon throws glowing points.</li>
+        <li><strong>Dust.</strong> A soft ground puff - the shape a digging tool makes on impact, or a mace on stone.</li>
+      </ul>
+
+      <h2>Where the file lives</h2>
+      <p>Every effect a piece carries is one entry in a shared <code>assets/gear-fx.json</code>. The client reads the file once at boot and again whenever it changes on disk - the same live-reload path that repaints gear overlays, so an author saves in the Gear Forge and the running game picks the effect up within a second. The file has a version field and one row per item id; the Gear Forge writes both.</p>
+
+      <h2>The Gear Forge's Effects panel</h2>
+      <p>Inside the Gear Forge, an <strong>Effects</strong> panel is where a designer picks the kinds and colours for one piece. Every choice is a colour swatch, a slider, or a checkbox - no typing JSON. The panel shows the current effect for the item you have selected, and the same <strong>Ghost of saved</strong> overlay the rest of the Forge uses fades out the last saved look so a change is obvious. The <strong>Before / after</strong> dialog shows the previous render and the new one next to each other.</p>
+
+      <h2>Per-frame touch-ups</h2>
+      <p>Some effects want a hand tweak on one frame of the swing. A <strong>Touch up this frame</strong> button opens the small overlay for the exact pose the preview is on, and the Forge checks on save that no stale touch-up is left behind on a frame the item no longer has. The touch-up rides the body's frame index, so the swing animation is what carries the effect - not a separate timeline.</p>
+
+      <h2>Glowing gear in the client</h2>
+      <p>The world snapshot for a wandering character is a name, a position, and a worn-gear list. Every viewer's client reads the same effects file, so a piece that glows on the wearer glows on every remote viewer too. Nothing about the effect is on the wire - only the item id is, and the effect comes from a shared file the same way an icon does.</p>
+
+      <h2>Weapon icon turns with the arm</h2>
+      <p>The weapon icon in the swing clip and the held overlay are on the same frame index. When the arm lifts, the weapon lifts with it. When the arm points behind the body - the far side of a swing - the held weapon draws behind the character sprite too, so a sword never floats in front of a body that is turned away.</p>
+
+      <h2>Engraved and glowing trims</h2>
+      <p>The Gear Forge's <strong>trims</strong> now include an engraved (a small pattern on the head of a weapon) and a glowing (a rim light on the head or the haunches of an armour piece) variant. Both are the same parts library, snapped in the same synthesiser - just with an effect riding the resulting item.</p>
+
+      <h2>Related</h2>
+      <p>The <a href="/gear-forge.html">Gear Forge</a> is where effects are authored. Worn piece layer order (what paints over what) is on <a href="/layers.html">Worn Gear Layers</a>. Live reload of every authored look is on <a href="/gear-forge.html">Gear Forge &gt; Live reload and Try on in game</a>. How a swing clip carries the strike is on <a href="/combat.html">Combat</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

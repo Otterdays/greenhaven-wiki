@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Atlas - Greenhaven Wiki</title>
+  <meta name="description" content="The Live atlas is a read-only map of a running world. It paints the shipping tile grid, the depletion state of every resource node, and a dot for every player walking around right now.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">TOOL</div>
+      <h1>Live Atlas</h1>
+      <p class="lede">A running world can be read. The atlas is a browser window that shows the world's map the way the world sees it right now - tiles, tree and rock depletion, and a small marker for every wanderer walking around.</p>
+
+      <h2>What you see</h2>
+      <ul>
+        <li><strong>The tile grid.</strong> One cell per map tile, painted in the atlas's one-colour-per-family palette. A meadow is green, a dock is warm wood, a fishing spot is blue, a fence is a stone grey. Every family has its own colour so a whole map reads at a glance.</li>
+        <li><strong>Height shading.</strong> A cell's height tints the flat family colour, so a stepped hillside shows its steps.</li>
+        <li><strong>Depletion.</strong> A resource node a player has just harvested goes dark until its respawn timer runs out. The atlas is the fastest way to see which nodes are on cooldown across the whole world.</li>
+        <li><strong>Player dots.</strong> One marker per online character, in their walking position. A crowded hamlet is obvious; a lonely hermit at the far dock is obvious too.</li>
+      </ul>
+
+      <h2>Read only</h2>
+      <p>The atlas has no editing controls. It asks the running world for its current map and player list, and paints what it hears. Nothing it shows is a copy that can drift - it is the same snapshot the client renders from. If the world moves a tree, the atlas moves it on the next refresh.</p>
+
+      <h2>How it is different from the map painter</h2>
+      <ul>
+        <li><strong>Map painter</strong> is where a map is made. Full edit tools, a tile palette, resource-node overrides, character placement. It works on files.</li>
+        <li><strong>Live atlas</strong> is where a running world is watched. No tools, no edit, one view. It works on the live snapshot from a world that is up and joined.</li>
+        <li>Both share the same tile-family sheet, so a tile's colour is the same in both.</li>
+      </ul>
+
+      <h2>Where it fits</h2>
+      <p>The atlas lives beside the map painter in the same developer tool. Its header reaches back to the World tools hub, the painter and the launch panel. Anyone working on a map flips between the two: paint a change, restart the world, look at the atlas to see the change is live.</p>
+
+      <h2>Related</h2>
+      <p>The map a running world reads is a JSON file the painter exports. That contract lives on <a href="/map-maker.html">The Map Painter</a>. The tile families the atlas paints by live on <a href="/terrain.html">Terrain and Tiles</a>. The node depletion it dims lives on <a href="/mining.html">Mining</a>, <a href="/woodcutting.html">Woodcutting</a> and <a href="/fishing.html">Fishing</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

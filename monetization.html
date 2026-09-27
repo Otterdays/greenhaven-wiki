@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monetization and the Crystal Store - Greenhaven Wiki</title>
+  <meta name="description" content="How Greenhaven pays for hosting: two wallets, three crystal packs, one honest DEBUG flag, and the seam a payment provider plugs into. No pay-to-win.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Monetization and the Crystal Store</h1>
+      <p class="lede">Greenhaven is Early Development and free to play. There is a store behind the Pause menu - it is reachable today, but DEBUG is on, so nothing costs real money yet. This page is the honest shape of the plan.</p>
+
+      <h2>Two wallets</h2>
+      <ul>
+        <li><strong>Coins</strong> are earned in the world (mining, fishing, trading, admin gifts). See <a href="/coins.html">Coins</a>. A coin never leaves the world for a store window.</li>
+        <li><strong>Crystals</strong> are the premium wallet. They are only reachable from the store, and they only pay for cosmetics.</li>
+      </ul>
+      <p>Every cape either takes coins (one - the Emerald at 250) or takes crystals. Nothing else in the game does.</p>
+
+      <h2>The three crystal packs</h2>
+      <table>
+        <thead>
+          <tr><th>Pack</th><th>Crystals</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Handful</td><td>100</td></tr>
+          <tr><td>Pouch</td><td>550</td></tr>
+          <tr><td>Coffer</td><td>1200</td></tr>
+        </tbody>
+      </table>
+      <p>A clean ladder - no bundle is a bad-value trap. Their money prices are hidden while DEBUG is on; a real price only shows once a payment provider is wired.</p>
+
+      <h2>What DEBUG means</h2>
+      <p>Two flags run the store. <strong>Enabled</strong> makes the store reachable and premium capes buyable. <strong>DEBUG</strong> makes every crystal action cost nothing: a top-up grants crystals with no charge, every price tag on a crystal product reads "DEBUG" instead of a number, and the world writes a loud DEBUG line so an operator cannot mistake a debug build for a live one.</p>
+      <p>DEBUG is <strong>on</strong> today. Both flags are true. That is deliberate - the whole buy / wear loop needs to be playable and testable in game before a payment provider is connected, and a debug build must never be pointed at real players expecting revenue.</p>
+      <p>Turning DEBUG off is not "just a flag". Before any real money is charged, three things must exist:</p>
+      <ol>
+        <li>A verified payment-provider webhook that replaces the DEBUG grant.</li>
+        <li>Legal cover: terms, refunds, regional rules.</li>
+        <li>Anti-fraud: chargebacks, stolen cards, refunds clawing crystals back.</li>
+      </ol>
+
+      <h2>The top-up seam</h2>
+      <p>The client sends a "top up" message naming a pack. Today the world treats that as a free grant and logs a DEBUG line. That handler is the seam: a payment provider takes the same call and returns a webhook, and the world only grants crystals after the provider confirms a real charge. The client's message and the world's answer are already shaped for that swap.</p>
+
+      <h2>What this store will not do</h2>
+      <ul>
+        <li><strong>No pay-to-win.</strong> Crystals buy cosmetics. No XP, no gear advantage, no skill shortcut.</li>
+        <li><strong>No locked gameplay.</strong> Every skill, mob and area is reachable without spending.</li>
+        <li><strong>No real-money trading.</strong> Crystals are not a currency a player can hand to another player.</li>
+        <li><strong>No loot boxes.</strong> Every purchase is a named, visible item at a named cost.</li>
+        <li><strong>No shop-wall on a new player.</strong> One cape is always earnable in game with coins, so a fresh wanderer can own something from the store without touching a real wallet.</li>
+      </ul>
+
+      <h2>What DEBUG does not mean</h2>
+      <p>DEBUG does not zero the shop's own costs. A cape still deducts its coin or crystal price from your wallet on purchase. "Free" means "you got the crystals for free from the debug grant", not "the cape is free". The catalog's prices are real prices; only the top-up is fake money today.</p>
+
+      <h2>Where the code lives</h2>
+      <p>The two flags, the wallet fields, the cape rows, and the crystal-pack rows all live in the shared crate. The world reads them to validate every sale; the client reads them to paint every price. One source, no drift.</p>
+
+      <h2>Related</h2>
+      <p>The cape catalog itself lives on <a href="/capes.html">Capes</a>. The earn-in-world path for coins lives on <a href="/coins.html">Coins</a>. Purchases, wearable states, and the paper doll sit on <a href="/equipment.html">Equipment</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

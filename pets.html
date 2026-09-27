@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pets - Greenhaven Wiki</title>
+  <meta name="description" content="Pets in Greenhaven: the first pet (Rudolph), the 30 x level pet curve, the harvest and combat XP share, hold slots, and how a pet follows its owner.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Pets</h1>
+      <p class="lede">A pet is a small companion that follows you, learns alongside you, and carries a few things. Today there is one: Rudolph, a red-nosed reindeer.</p>
+
+      <h2>Rudolph</h2>
+      <ul>
+        <li><strong>Fetches coins</strong> lying near you.</li>
+        <li><strong>Butts your foes</strong> - joins the mob you are fighting.</li>
+        <li><strong>Carries a small pack</strong> - four distinct item stacks.</li>
+        <li>Trots at <strong>4.5 tiles per second</strong> when catching up, and speeds up the further behind it falls.</li>
+      </ul>
+      <p>Rudolph is <em>gift-only</em> today: no pet is a starter, and the way to get one is an admin handing it to you with <code>/give &lt;you&gt; rudolph</code> (or the panel's give form). See <a href="/chat.html">Chat and Commands</a>.</p>
+
+      <h2>Levels</h2>
+      <p>Pets run on their own short curve, so they climb faster than your skills early. XP to next level = <code>30 x current level</code>. The pet cap is <strong>level 50</strong>, well below the 99 a player can reach.</p>
+
+      <h2>How a pet learns</h2>
+      <ul>
+        <li><strong>Harvest share.</strong> Every completed chop, mine, cast or dig feeds the active pet a tenth of your XP, rounded up. Even a 1 xp dig trains.</li>
+        <li><strong>Combat share.</strong> Every hit you land pays the pet 4 XP per point of damage, matching the health split on the <a href="/combat.html">Combat</a> page.</li>
+      </ul>
+      <p>The world owns the pet XP pool, so it grows the same online and in Single player.</p>
+
+      <h2>Where a pet stands</h2>
+      <p>A summoned pet appears just behind and beside its owner, and never blocks movement or collides with anybody. Its position rides on the world snapshot so every viewer sees it trotting after the same player.</p>
+
+      <h2>Adding a pet later</h2>
+      <p>A new pet is one row in the shared pet registry plus a creature-registry sheet named by that row. Ids are persisted in saves and on the wire, so a pet is appended, never renumbered.</p>
+
+      <h2>Saved or not</h2>
+      <p>Online: pet XP, held items and ownership ride on the character save. Single player keeps them in memory only.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

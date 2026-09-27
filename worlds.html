@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Worlds and Multi-world - Greenhaven Wiki</title>
+  <meta name="description" content="Greenhaven runs as many worlds as an operator wants. Each has its own map, its own players, and its own world id - but every world shares one account table and one character table.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">INFRASTRUCTURE</div>
+      <h1>Worlds and Multi-world</h1>
+      <p class="lede">A world is one running copy of the game: a map, a set of players walking it, and a set of rules the world owns. Greenhaven can run many worlds on one database, and every world shares the accounts and characters that live there.</p>
+
+      <h2>What one world is</h2>
+      <ul>
+        <li><strong>A world id.</strong> A short name that ties a running process to the data it owns. Two worlds with the same id would fight for the same rows, so an operator picks one id per world and never reuses it.</li>
+        <li><strong>A map.</strong> A JSON file the world loads on boot: tiles, height, spawn, respawn, characters, resource nodes, signs, chests, campfires. A world does not paint its map at runtime - it ships one.</li>
+        <li><strong>Its own players.</strong> A wanderer can stand in exactly one world at a time. The player table a world holds is the players currently walking on it.</li>
+        <li><strong>Its own nodes.</strong> When a rock depletes on world A, the depleted state is world A's - a copy of that rock on world B stays full.</li>
+      </ul>
+
+      <h2>What all worlds share</h2>
+      <p>The database is one shared store with a world id on the rows that differ per world. Characters, accounts, guilds, friends, and the admin flag are shared. Every character row carries the id of the world it is currently on, and one world at a time can hold the lock on a character's save.</p>
+
+      <h2>The lock and the autosave</h2>
+      <ul>
+        <li><strong>current_world.</strong> The world a character is walking now, or the empty string when they are logged out.</li>
+        <li><strong>locked_by_world.</strong> Which world holds the write lock right now. A world that finds its own id in that column knows it can save; a world that finds somebody else's id knows to stand down.</li>
+        <li><strong>save_version.</strong> A monotonically increasing integer. Every save bumps it; a save that arrives with the wrong version is refused rather than stomping a newer row. This is optimistic locking - the world that wrote last wins, and any other world sees the mismatch and stops.</li>
+        <li><strong>last_heartbeat.</strong> A timestamp written every tick, so a world that stops heartbeating is visibly stale. Another world can take over a character whose last heartbeat is far enough behind.</li>
+      </ul>
+
+      <h2>How a character moves between worlds</h2>
+      <p>The picker on the menu lists every world an operator exposes. Choosing a different world from the one you are on releases the current world's lock, and the new world takes the character row by loading its last saved state. A cross-world admin action (a <code>/give</code> from an operator in world A to a player standing on world B) reaches world B through a notify channel world B is listening on; world B applies the gift and writes the row.</p>
+
+      <h2>Resource nodes and world state</h2>
+      <p>A depleted tree, a mine that has run out, or a fishing spot on cooldown is per world - the row keys are <code>(world_id, map, x, y)</code>. Two worlds running the same map file do not share a node state. A world restart returns every depleted node to whatever its respawn timer said it should be, and nothing else changes.</p>
+
+      <h2>Guilds and friends</h2>
+      <p>Guild membership and friend lists ride on the shared account and character rows, so a guild is <em>cross-world</em>: every character on the guild roster is visible from any world, and a chat line a player sends is tagged with the guild they belong to in either. Players on different worlds do not see each other walk - that is what a world is for.</p>
+
+      <h2>One binary, many worlds</h2>
+      <p>The world server binary is the same everywhere. What makes a world a world is its id, the map it loads, and the operator's config for what other worlds it should notify. That is why an update ships once as a new build and every running world picks it up on its next restart.</p>
+
+      <h2>Related</h2>
+      <p>Character saves and what a <code>save_version</code> conflict means in a console line is on <a href="/account.html">Accounts and Characters</a>. Cross-world admin gifts live on <a href="/chat.html">Chat and Commands</a>. The map a world loads is documented on <a href="/map-maker.html">The Map Painter</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

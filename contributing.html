@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contributing to the Wiki - Greenhaven Wiki</title>
+  <meta name="description" content="How every page on this wiki is written: the source of truth, the ASCII rule, the one-list chrome, and the tests that keep every number honest.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">CONTRIBUTING</div>
+      <h1>Contributing to the Wiki</h1>
+      <p class="lede">This wiki is a small static site in the same pattern as the public porch site: plain HTML, one shared stylesheet, one tiny script, root-absolute links. No build step, no npm, no external fonts, no external scripts. Every number on a page is checked against the game's own source.</p>
+
+      <h2>Source of truth</h2>
+      <p>Every skill, item, tile, recipe, style and constant the wiki mentions lives in one file: <code>server-architecture/crates/shared/src/lib.rs</code> (with the mob sheet in <code>assets/mob-stats.json</code> and the creature registry in <code>assets/creatures.json</code>). The world, the client, the painter and the panel all read that file. So must a wiki page.</p>
+      <p>When the shared file changes, the wiki page and the test pin must move in the same change. A page that lags a registry is worse than no page at all - it teaches the wrong number.</p>
+
+      <h2>The one-list chrome</h2>
+      <p>Every page in this folder is registered in exactly one place: the <code>PAGES</code> array at the top of <code>site.js</code>. That list drives the brand jump dropdown and the centred icon rail. Add a page to <code>PAGES</code> and a matching <code>{href, match, label, icon}</code> row, add a small inline-SVG icon to <code>ICONS</code> keyed by that name, add a card to <code>index.html</code>, and the whole chrome updates. A wiki test walks every <code>*.html</code> on disk and refuses the change if any page is missing from <code>PAGES</code>.</p>
+
+      <h2>ASCII only, always</h2>
+      <p>The game's native Bevy font carries no glyph past printable ASCII (U+0020 to U+007E). Every page here follows the same rule so the wiki text can be pasted straight into the client without becoming a rectangle. That means:</p>
+      <ul>
+        <li>Straight quotes, not curly.</li>
+        <li>A hyphen <code>-</code> for a dash.</li>
+        <li>Three dots <code>...</code> for an ellipsis.</li>
+        <li><code>(c)</code> for the copyright symbol.</li>
+        <li><code>/</code> for a slash separator; <code>|</code> for a pipe.</li>
+        <li><strong>No Unicode glyphs as icons.</strong> Every icon on this site is inline SVG. A test walks every page, CSS and JS byte-for-byte and refuses a file that contains a code point outside ASCII.</li>
+      </ul>
+
+      <h2>Root-absolute links only</h2>
+      <p>Pages link with <code>/woodcutting.html</code>, not <code>woodcutting.html</code>. The site is served from a site root, and a hosted copy must keep working when it moves from a subfolder to a domain root. The same rule applies to images: <code>/assets/foo.png</code>.</p>
+
+      <h2>Images live in this folder</h2>
+      <p>Every <code>&lt;img&gt;</code> must load from <code>/assets/</code> inside this folder. A wiki test walks every page, extracts every <code>src</code>, and asserts the file exists on disk. If you want to show a new piece of art, copy it into <code>assets/</code> first, then reference it. This is what lets the wiki be dropped onto any static host and still show its own pictures.</p>
+
+      <h2>What not to document</h2>
+      <p>Do not name launch scripts, local ports, environment variables, file paths inside the repo, or anything else about how the developer tools run. Those are for the game's internal design notes. This wiki is for players and builders, so it talks about what the game does, not what a developer's build folder is called.</p>
+
+      <h2>Writing for players</h2>
+      <p>Use plain language. "The health bar now shows HP and MP" reads better than "the <code>vitals_bar</code> widget accepts a label param". Group by what a player sees, not by what file changed. Developer-only tools (map painter, character forge, model maker) each get their own page.</p>
+
+      <h2>The tests</h2>
+      <p>Run the wiki contract from the repo root:</p>
+      <pre><code>node --test greenhaven-wiki/tests/wiki.test.mjs</code></pre>
+      <p>The suite checks that every page exists, that every page appears in the chrome, that every table matches the shared registry, that every image resolves on disk, that every page loads the shared theme before its own styles, and that every page stays ASCII-only and free of external URLs. A failing test is a real drift: fix the page or the pin in the same change that moves the source.</p>
+
+      <h2>Editing an existing page</h2>
+      <ol>
+        <li>Find the number in the shared file, not in a page.</li>
+        <li>Change the page and the test pin in the same commit. If the shared file changes, that commit is the one that ships.</li>
+        <li>Add a "how a rule works" line - never just the number. A wiki reader wants the shape of the system, not a table row.</li>
+        <li>Cross-link to related pages. The <a href="/">hub</a> is short; every page reaches one or two neighbours.</li>
+      </ol>
+
+      <h2>Where to send a change</h2>
+      <p>This wiki is part of the game repository. The pages live in the <code>greenhaven-wiki/</code> folder of the same repo as the game code, so a page change and the code change it describes land in one commit. There is no second wiki checkout, no separate repository to push, and no pointer to bump.</p>
+
+      <h2>Have an idea?</h2>
+      <p>If a system you play with has no page, that page is the change. Start with the source of truth, add one page, register it in <code>PAGES</code>, add a card to the hub, and pin the numbers in <code>tests/wiki.test.mjs</code>. Small pages are welcome; a good page can be five lines long.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

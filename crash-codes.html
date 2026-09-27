@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crash Codes - Greenhaven Wiki</title>
+  <meta name="description" content="When the client cannot start or dies mid-game it now shows a short code and a fix to try, and writes the full report to greenhaven-panic.txt. This is every code and what it means.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">TROUBLESHOOTING</div>
+      <h1>Crash Codes</h1>
+      <p class="lede">Greenhaven is a windowed build with no console behind it, so a startup failure used to close the game without a word. Every way the client can now die shows a short <code>GH-xxx</code> code, one fix to try, and a full report file to send back.</p>
+
+      <h2>How a crash reads</h2>
+      <p>A crash opens a small Windows message box with:</p>
+      <ul>
+        <li>A one-line title ("Greenhaven closed: No usable graphics driver (GH-101)").</li>
+        <li>The one fix to try first.</li>
+        <li>The error code, the game version, and the OS / CPU family.</li>
+        <li>The first line of the underlying error, trimmed to 300 characters so a leaked path or a token cannot be shown whole.</li>
+        <li>Where the full report was saved.</li>
+      </ul>
+      <p>The whole message is copyable with <code>Ctrl+C</code>. A player can read the code out over voice chat and a developer knows what to look at.</p>
+
+      <h2>Every code</h2>
+      <table>
+        <thead>
+          <tr><th>Code</th><th>Title</th><th>Try first</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GH-101</td><td>No usable graphics driver</td><td>Update the graphics driver from the NVIDIA, AMD or Intel website, then restart the PC. Remote Desktop and virtual machines often have no 3D support.</td></tr>
+          <tr><td>GH-201</td><td>Game files are missing</td><td>Reinstall Greenhaven. If antivirus quarantined a file, restore it and allow the game.</td></tr>
+          <tr><td>GH-202</td><td>The game folder cannot be written</td><td>Install into your own user folder (the installer default), or allow Greenhaven in Windows Security &gt; Ransomware protection &gt; Controlled folder access.</td></tr>
+          <tr><td>GH-301</td><td>Out of memory</td><td>Close other programs and try again.</td></tr>
+          <tr><td>GH-401</td><td>Sound device problem</td><td>Plug in or enable a speaker or headset, or update the sound driver.</td></tr>
+          <tr><td>GH-501</td><td>Network setup failed</td><td>Check the internet connection and that antivirus is not blocking Greenhaven.</td></tr>
+          <tr><td>GH-999</td><td>Unexpected error</td><td>Send <code>greenhaven-panic.txt</code> from the game folder to the developer.</td></tr>
+          <tr><td>GH-901</td><td>Crashed inside a driver (access violation)</td><td>Same hint as GH-101 - a fault below Rust is almost always the graphics driver.</td></tr>
+          <tr><td>GH-902</td><td>This CPU is missing a required instruction</td><td>The PC's processor is too old for this build. Tell the developer the CPU model.</td></tr>
+          <tr><td>GH-903</td><td>Stack overflow</td><td>Send the report file - a stack overflow is always a bug.</td></tr>
+          <tr><td>GH-904</td><td>Out of memory (native)</td><td>Same hint as GH-301.</td></tr>
+          <tr><td>GH-900</td><td>Native crash</td><td>Send the report file.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The 1xx-9xx shape</h2>
+      <p>Codes are grouped by hundred so a player can tell the shape from the number alone:</p>
+      <ul>
+        <li><strong>1xx</strong> - graphics</li>
+        <li><strong>2xx</strong> - files and folder permissions</li>
+        <li><strong>3xx</strong> - memory</li>
+        <li><strong>4xx</strong> - audio</li>
+        <li><strong>5xx</strong> - network</li>
+        <li><strong>9xx</strong> - native faults (a crash below Rust, usually inside a driver) and a fallback for anything unexpected</li>
+      </ul>
+      <p>Codes are stable strings, never renumbered. A new cause adds a row; a retired cause keeps its code so an older report file still reads.</p>
+
+      <h2>How a cause is picked</h2>
+      <p>A panic message is classified by a small ordered table of keywords: "gpu", "vulkan", "wgpu" and friends mean graphics; "out of memory" means memory; "access is denied" or "read-only" means folder access; "no such file" means files; "cpal", "rodio" and "audio" mean sound; "rustls", "tls" and "tokio" mean network. Order matters - a message that names both a file and the GPU is still a GPU problem. Nothing that is not on the list matches, so an unknown panic lands on GH-999 and the report is what the developer reads.</p>
+      <p>A native Windows exception (an access violation, a bad instruction, a stack overflow) is caught below Rust and mapped to a GH-90x code. A driver crash on one machine looks like the same code as one on another.</p>
+
+      <h2>The report file</h2>
+      <p>The full panic message, the version, the OS, and a backtrace are written next to the game as <code>greenhaven-panic.txt</code>. That file is what to attach to a bug report. It is a text file with no formatting, so it survives email and pastes into an issue cleanly.</p>
+
+      <h2>Related</h2>
+      <p>The version number a crash line names is the same one the login screen checks, described on <a href="/account.html">Accounts and Characters</a>. Every thing the client can load from the world is wired through the flow on <a href="/auth.html">Accounts, Passwords and Sessions</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

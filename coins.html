@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coins - Greenhaven Wiki</title>
+  <meta name="description" content="Coins in Greenhaven: the coin bag, the five tiers (Bronze to Diamond), dropping and picking up piles, and what each rule protects against.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Coins</h1>
+      <p class="lede">Coins live in their own bag, not in an item slot. The bag holds up to 100,000,000 coins, and the coin you see stands for how full it is: Bronze to Diamond.</p>
+
+      <h2>The coin bag</h2>
+      <ul>
+        <li>A fresh character starts with <strong>100</strong> coins (the <em>starter coins</em>).</li>
+        <li>Hard cap: <strong>100,000,000</strong>. A pickup that would pass the cap is refused and the pile stays on the ground.</li>
+        <li>The bag lives beside your items, never inside them, so it cannot be knocked out of your Inventory.</li>
+      </ul>
+
+      <h2>The five tiers</h2>
+      <p>The amount in your bag decides the colour of the coin drawn on the sheet and the tier name shown under it. Tiers follow the bands the operator set; there is no gap after Silver.</p>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Amount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bronze</td><td>1 - 9,999 (and 0: an empty bag is still Bronze)</td></tr>
+          <tr><td>Silver</td><td>10,000 - 100,000</td></tr>
+          <tr><td>Gold</td><td>100,001 - 1,000,000</td></tr>
+          <tr><td>Platinum</td><td>1,000,001 - 10,000,000</td></tr>
+          <tr><td>Diamond</td><td>10,000,001 - 100,000,000</td></tr>
+        </tbody>
+      </table>
+      <p>Amount labels group thousands: "1,250" not "1250".</p>
+
+      <h2>Where the coin bag lives</h2>
+      <p>The Inventory tab of the Skills sheet (<code>P</code>) opens with a coin card: the tier's coin, the amount in tier colour, the tier name, and five buttons - <strong>Drop 1</strong>, <strong>10</strong>, <strong>100</strong>, <strong>1,000</strong>, <strong>all</strong>. Buttons you cannot cover are greyed and the reason is in the tooltip.</p>
+
+      <h2>Coins on the ground</h2>
+      <p>A dropped pile is three coins lying flat with a small stack shadow. Everyone in the world sees the same piles. The rules below are what keeps a drop honest.</p>
+      <ul>
+        <li><strong>Reach.</strong> Click a pile within 1.5 tiles of your feet to pick it up. Too far says so; no auto-vacuum.</li>
+        <li><strong>The dropper waits.</strong> If you dropped it, your own pile refuses your click for <strong>2 seconds</strong>. Anyone else may take it at once. Without the wait, a drop meant for a friend would snap back to your own bag.</li>
+        <li><strong>Whole or nothing.</strong> A pile is one amount; you either take it all or leave it.</li>
+        <li><strong>Piles fade.</strong> An untaken pile disappears after <strong>3 minutes</strong>, so the ground never silts up. The world caps its live pile list; a drop past the cap is refused instead of evicting somebody else's coins.</li>
+        <li><strong>Piles are not saved.</strong> Like merchant stock, they only exist while the world runs. A restart returns every coin that was lying on the ground to whoever dropped it.</li>
+      </ul>
+      <p>A good pickup reports "You pick up 1,000 coins." and the tier name updates on the sheet instantly if the bag crossed a band.</p>
+
+      <h2>Coins and the store</h2>
+      <p>Coins are the earn-in-world currency. The <a href="/capes.html">cape shop</a> keeps one coin cape (<strong>Emerald Cape</strong> at 250 coins) so a fresh player can always clothe themselves without touching the premium path. Other capes charge <em>Crystals</em>, a separate wallet you cannot pick up off the ground. See <a href="/capes.html">Capes</a>.</p>
+
+      <h2>Admin gifts</h2>
+      <p>An admin can hand you coins from the panel or in game with <code>/give &lt;you&gt; coins &lt;amount&gt;</code> (up to 10,000 per call). The gift obeys the same cap - it will not push you past 100,000,000.</p>
+
+      <h2>Saved or not</h2>
+      <p>Online: your bag is saved with your character. Single player: the bag lives in memory and resets to <strong>100</strong> the next time you enter a map.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

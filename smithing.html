@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smithing - Greenhaven Wiki</title>
+  <meta name="description" content="Smithing in Greenhaven: the furnace and anvil stations, the bronze recipe ladder, tools, XP per make and the refusal texts.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SKILL</div>
+      <h1>Smithing</h1>
+      <p class="lede">Smelt ore into bars at a furnace and smith bars into armour at an anvil. Five makes start the ladder, from a bronze bar at level 1 to a bronze platebody at level 7.</p>
+
+      <h2>Stations</h2>
+      <p>A station is just a tile on the map - no setup, no per-map configuration. Stand within 1.75 tiles (the same reach as any resource node) and click it to open the station menu, which lists every recipe that station knows.</p>
+      <ul>
+        <li><strong>Furnace</strong> (tile 113): smelts. "You smelt a Bronze bar."</li>
+        <li><strong>Anvil</strong> (tile 101): smiths. "You smith a Bronze helm."</li>
+      </ul>
+
+      <h2>The ladder</h2>
+      <p>One shared recipe list - the same rows in the online game, in Single player and in the painter - owns every make's station, level gate, XP and inputs.</p>
+      <table>
+        <thead>
+          <tr><th>Make</th><th>Station</th><th>Level</th><th>XP per make</th><th>Inputs</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bronze bar</td>
+            <td>Furnace</td>
+            <td>1</td>
+            <td>20</td>
+            <td>1 copper ore + 1 tin ore</td>
+          </tr>
+          <tr>
+            <td>Hammer</td>
+            <td>Furnace</td>
+            <td>1</td>
+            <td>25</td>
+            <td>1 bronze bar + 1 young oak log</td>
+          </tr>
+          <tr>
+            <td>Bronze helm</td>
+            <td>Anvil</td>
+            <td>1</td>
+            <td>30</td>
+            <td>1 bronze bar, hammer in bag</td>
+          </tr>
+          <tr>
+            <td>Bronze platelegs</td>
+            <td>Anvil</td>
+            <td>4</td>
+            <td>90</td>
+            <td>3 bronze bars, hammer in bag</td>
+          </tr>
+          <tr>
+            <td>Bronze platebody</td>
+            <td>Anvil</td>
+            <td>7</td>
+            <td>150</td>
+            <td>5 bronze bars, hammer in bag</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>A make is all or nothing: every input leaves the bag at once, and the output and the XP arrive together. The anvil pieces need a hammer carried in the bag - it is a tool, never worn.</p>
+
+      <h2>What the game says</h2>
+      <ul>
+        <li>Too far from the station: "Step closer to the furnace." (or the anvil).</li>
+        <li>Below the level gate: "Need smithing 4." (with that recipe's number).</li>
+        <li>Missing the tool: "You need a hammer."</li>
+        <li>Short on materials: "Need 3 bronze bar (you have 1)."</li>
+      </ul>
+
+      <h2>Wearing what you make</h2>
+      <p>Open the Skills sheet with <code>P</code> and go to the Inventory: bronze pieces get a Wear button, and the Equipment tab shows the twenty paper-doll slots and your armour total. A worn piece draws on the avatar - helm, platebody and platelegs each show their own art - and Take off returns it to the bag. Swapping a slot is one click and nothing is ever lost.</p>
+
+      <h2>The XP curve</h2>
+      <p>Smithing runs on the same <code>50 x current level</code> curve as Woodcutting, Mining and Fishing, cap 99, and your Smithing level counts toward your total level. The <a href="/experience.html">Experience</a> page has the full curve.</p>
+
+      <h2>Saved or not</h2>
+      <p>Online play saves your smithing XP and what you wear with your character. Single player keeps both in memory only and drops them when you return to the menu.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

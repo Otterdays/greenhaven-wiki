@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wood, Ramps and Height - Greenhaven Wiki</title>
+  <meta name="description" content="The three bridge tiles, the ramp, and the four-step height map a wanderer can actually walk on. How a deck joins and how a rise rotates.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">TERRAIN</div>
+      <h1>Wood, Ramps and Height</h1>
+      <p class="lede">Three bridge tiles carry a wanderer across water. The ramp tile carries them up a one-step hill. Every tile has a height from 0 to 3, and the height map is what makes a dock meet a shore without a ladder.</p>
+
+      <h2>The wood family</h2>
+      <p>Three walkable tiles make up the wood family, and they share one deck join so a shore can flow into a pier without a visible seam.</p>
+      <table>
+        <thead>
+          <tr><th>Tile</th><th>ID</th><th>Feel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Boardwalk</td><td>7</td><td>A planked path over water. Wide, and the join you use for a long deck.</td></tr>
+          <tr><td>Dock</td><td>8</td><td>A pier-side walk with visible posts. Reads as the edge of a boardwalk.</td></tr>
+          <tr><td>Corduroy</td><td>9</td><td>Log-track over a bog. A rough road, laid on wet ground.</td></tr>
+        </tbody>
+      </table>
+      <p>The painter looks at the four neighbours of each wood tile and picks the deck art that stitches them. A boardwalk next to a boardwalk becomes one continuous plank. A boardwalk beside a dock picks an edge piece. The client reads the same rule at runtime, so a builder never has to place the corner themselves.</p>
+
+      <h2>The ramp</h2>
+      <p>Ramp (tile 24) is the only tile that lets a wanderer cross a one-step edge without a jump. It rises from the base height to base + 1 in a fixed direction.</p>
+      <ul>
+        <li><strong>Four directions</strong> east, south, west, north. The painter's <code>R</code> key rotates the rise in place.</li>
+        <li>A ramp is walkable. A cell one step taller without a ramp is a wall - you stop at the edge.</li>
+        <li>The client picks the correct visual from the ramp's stored direction, so a line of four ramps facing north reads as a four-step staircase going up.</li>
+      </ul>
+
+      <h2>Height</h2>
+      <p>Every cell in a map has a <strong>height</strong> from 0 to <code>MAX_HEIGHT</code>, which is 3. The height is a second grid beside the tile grid. A cell is not taller than 3 - that is the whole ceiling of the world. Three is enough for a hill, a wall on a keep, or a stepped pyramid. Four would need a fifth tier of ramp art, and three is what the world ships.</p>
+      <p>The <strong>Raise</strong> tool in the map painter (key <code>E</code>) lets a builder lift or drop a cell one step at a time. Press <code>E</code> again to leave raise mode.</p>
+
+      <h2>Walking on height</h2>
+      <p>The client and the world share one rule: a wanderer can step into a neighbour cell only if that cell's height is the same or exactly one step higher with a ramp facing the walk direction. Every other difference blocks. A wanderer cannot jump - there is no jump key today.</p>
+
+      <h2>Height and the sprite</h2>
+      <p>A taller cell lifts the sprite drawn on it. A wanderer at the top of a hill paints slightly above their feet-line on a lower tile, and their shadow stays on the ground. This is what makes a hill read as a hill from the top-down view - not just a colour change.</p>
+
+      <h2>The water family</h2>
+      <p>The three shore tiles water (2), fishing spot (6) and the reed family share one shore join. A boardwalk over the top of the shore paints the deck plank running into the water; a dock at the edge paints a post going down. The rule is the same "look at the four neighbours" trick as the wood family.</p>
+
+      <h2>Related</h2>
+      <p>See <a href="/terrain.html">Terrain and Tiles</a> for every tile family and what it means for walking. See <a href="/map-maker.html">The Map Painter</a> for the Raise tool and the join preview.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

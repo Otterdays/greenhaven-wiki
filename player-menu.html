@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Player Menu - Greenhaven Wiki</title>
+  <meta name="description" content="Right-click a wanderer to open a small popup: whisper them, or add (or remove) them as a friend. The same menu opens from a row in the friends panel.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1.4 9.6 6h4.7L10.6 9.1 12.2 14 8 11.2 3.8 14l1.6-4.9L1.7 6h4.7z"/></svg></span> GREENHAVEN <small>WIKI</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SOCIAL</div>
+      <h1>The Player Menu</h1>
+      <p class="lede">Every wanderer in the world is one right-click from a short menu. The same popup opens from a row in the friends panel, so you can start a whisper or make a friend from wherever is closer to hand.</p>
+
+      <h2>How to open it</h2>
+      <ul>
+        <li><strong>Right-click a player figure.</strong> The hit box matches the drawn avatar (about 24 x 36 pixels), so you aim at the character, not a rectangle around them.</li>
+        <li><strong>Click a row in the friends panel</strong> (press <code>F</code> to open it). The same popup appears, on that row.</li>
+      </ul>
+      <p>The menu is a light popup, not a modal - the world keeps walking, and the menu just steps aside whenever another panel (chat, the guild board, or your own pause menu) takes over the screen.</p>
+
+      <h2>What is on it</h2>
+      <table>
+        <thead>
+          <tr><th>Button</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Whisper</td><td>Opens the chat compose line with <code>/w &lt;name&gt; </code> already typed. A whisper is one line, private to you and the target - the rest of the world does not see it. The button hides when the target is offline (they are not <em>reachable</em>).</td></tr>
+          <tr><td>Add friend</td><td>Puts the character on your friend list. The list has one entry per account, capped at 100 (see <a href="/friends.html">Friends</a>).</td></tr>
+          <tr><td>Remove friend</td><td>Takes them back off the list. The button replaces <em>Add friend</em> on anyone already on it.</td></tr>
+        </tbody>
+      </table>
+      <p>The menu never offers a real-money trade, a party, or a follow - those systems are not shipped. Whisper, add, remove. That is what a right-click buys you today.</p>
+
+      <h2>Adding is one-way</h2>
+      <p>When you <strong>Add friend</strong>, the world writes it straight to your list - there is no accept or decline step, and no notification to the other player. Requests are not built yet. If you want someone to add you back, that part is on them.</p>
+
+      <h2>Where the popup fits on screen</h2>
+      <p>The menu is kept inside the window on every screen size. If a row (or a wanderer) sits close to the right edge, the popup opens to its left instead of clipping.</p>
+
+      <h2>The friends panel</h2>
+      <p>Press <code>F</code> online to open the friends panel. A green dot means the friend is online right now; grey means offline, and offline names dim. The panel scrolls past the first twelve rows with the mouse wheel, and a footer tells you where you are - "1-12 of 30", or a note that the list is empty. Every row click opens the same menu described above.</p>
+      <p><code>F</code> is a fixed bind, like <code>Tab</code>, and it is not on the rebindable controls list. It does nothing in single player, because there is no one to add.</p>
+
+      <h2>Adding a button later</h2>
+      <p>Any new row on this menu is one new client-side action and one new wire message that the world already validates. The popup is designed to grow - inspect a player, request a party, view their guild - as those systems land.</p>
+
+      <h2>Related</h2>
+      <p>Friend list rules, caps, and the live-presence repaint are on <a href="/friends.html">Friends</a>. The chat compose line and the whisper command are on <a href="/chat.html">Chat and Commands</a>. The <a href="/guilds.html">Guild Board</a> uses a similar modal shape.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

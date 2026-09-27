@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First Person - Greenhaven Wiki</title>
+  <meta name="description" content="Press F5 to switch the world to a first-person view: mouse look, a living sky, real proportions, and a smooth turn. Session-only - it is a presentation choice, not a save field.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">VIEW</div>
+      <h1>First Person</h1>
+      <p class="lede">Press <code>F5</code> to stand inside Greenhaven instead of looking down at it. The same world, the same tiles, the same characters - just from eye height, with a mouse that turns your head.</p>
+
+      <h2>How to open it</h2>
+      <ul>
+        <li>Keyboard: press <code>F5</code>. F5 is on purpose - a rebindable slot only ever holds an A-Z letter, so nothing else can steal the view toggle.</li>
+        <li>Gamepad: the East button (the right-side face button). If you rebound Confirm, Back or Pause onto East, that rebound wins and F5 keyboard is the only toggle.</li>
+      </ul>
+      <p>Press it again to return to the top-down view. The world keeps walking, mining, chopping and fighting through the switch.</p>
+
+      <h2>Looking around</h2>
+      <ul>
+        <li><strong>Mouse:</strong> move it left and right to turn (yaw), up and down to look over a wall or into a dip (pitch).</li>
+        <li><strong>Right stick:</strong> pushes yaw and pitch at a rate you can hold. Full tilt turns faster than a slow drag.</li>
+        <li><strong>Smooth eye:</strong> turning is eased, so the world does not snap between frames. A flick of the mouse settles over a fraction of a second.</li>
+      </ul>
+
+      <h2>True proportions</h2>
+      <p>The horizontal field of view follows the window aspect, so a wide window shows more world sideways without stretching it. Walls and doorways look like themselves at any window size - the old fixed projection squashed everything wide and made a brick path read as a runway.</p>
+
+      <h2>The sky is alive</h2>
+      <p>Above the horizon the game paints sky every frame: sun, drifting cloud banks, distant pixel ridges, and a scatter of star motes. The sun and the ridges stay pinned to a world position, so the sky turns with you - you can pick a mountain and walk toward it. A soft vignette sits at the edges so the frame reads like a view, not a viewport.</p>
+
+      <h2>Reduced motion</h2>
+      <p>If you have motion reduction on, the clouds and the star motes hold still. The world keeps walking and swinging - only the sky goes quiet.</p>
+
+      <h2>What you still see</h2>
+      <p>The first-person view draws the same tiles as the top-down view: cobblestone walls read as walls, trees stand as silhouettes (not blocks), water stays at the horizon where it should. Every other player, mob, <a href="/pets.html">pet</a> and dropped <a href="/coins.html">coin pile</a> is a billboard in the same world. Look up and you see a mountain; look down and you see your own boots and any <a href="/equipment.html">worn gear</a> you carry.</p>
+
+      <h2>Not a save field</h2>
+      <p>The view choice is session-only. Log out and log back in and the world starts in top-down. This is on purpose: the view is a presentation choice, and the server does not need to know how you like to see it.</p>
+
+      <h2>Where the numbers come from</h2>
+      <p>All twelve tile families - the same tile ids you can read about on <a href="/terrain.html">Terrain and Tiles</a> - decide how a wall, a fence or a tree is drawn at eye height. The shared rules never fork; only the camera does.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

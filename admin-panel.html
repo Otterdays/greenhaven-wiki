@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Admin Panel - Greenhaven Wiki</title>
+  <meta name="description" content="The Greenhaven Panel is a browser admin surface for a running world. It searches characters, gives and takes items, capes, pets, coins and crystals, kicks and bans, and shows the audit log.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">TOOL</div>
+      <h1>The Admin Panel</h1>
+      <p class="lede">Every world runs with a companion panel: a small browser page an operator uses to search characters, hand out or take back items, capes, pets, coins and crystals, moderate players, and read the audit log. Same data the world sees, no database query required.</p>
+
+      <h2>Search and inspect</h2>
+      <p>A search bar finds any character by name - online or not. Picking a name opens the inspector drawer. The drawer shows:</p>
+      <ul>
+        <li>Status chips (online, admin, guilded).</li>
+        <li>Every skill tile with level, XP into the level, and total XP. Wallets with quick +100, +1k and clear buttons.</li>
+        <li>Twenty equipment slots and what is worn in each, taken off or swapped live.</li>
+        <li>Owned cape swatches with a Worn marker; click one to wear it or take it.</li>
+        <li>Pet cards, one per owned pet: level bar, held items, and Give / Take away buttons.</li>
+        <li>Inventory rows with +1, -1 and all quick actions.</li>
+      </ul>
+
+      <h2>Give and take</h2>
+      <p>The Give-or-take box is one control. Pick a target with a filterable picker grouped as Currency / Items - family / Capes / Pets, choose 1 / 10 / 100 / 1000 as a quick amount, and press Give or Take. The button behind it is the same admin action the world's in-game <code>/give</code> command reaches, so nothing the panel can do is hidden from a player-side admin.</p>
+      <ul>
+        <li>Give a coin or crystal stack, an item, a cape, or a pet.</li>
+        <li>Take the same back. A taken cape comes off; a taken pet goes home and its pack returns to the bag. Wallets never dip below zero.</li>
+        <li>Every gift is audited - who gave what to whom, and how much.</li>
+      </ul>
+
+      <h2>Admin flags</h2>
+      <p>An account is admin only when a flag on its row says so. The panel's <strong>Make admin</strong> toggle flips that flag on any character from the Inspect view. The world re-reads the flag on every admin command, so a revocation takes effect the next time the account talks, not the next time they log in.</p>
+
+      <h2>Moderation</h2>
+      <p>From the same inspector an operator can kick a player from the world, teleport them to another position, or ban the account. Bans reach the character row and the account row, so a banned account cannot just log in on another character.</p>
+
+      <h2>Recent admin actions</h2>
+      <p>The panel lists the last set of give / take / grant / revoke / kick / ban actions with a timestamp and the reason, so a second operator can see what has changed recently without opening a log file.</p>
+
+      <h2>Relationship to in-game commands</h2>
+      <p>An admin in the world itself can type <code>/give &lt;player&gt; &lt;item&gt; [amount]</code> for the same effect, or <code>/take</code> to reverse it. The panel adds a picker for the item and a wallet tile for the coins, but the underlying call is one endpoint. Nothing the panel can do is beyond what an in-game admin can do by typing.</p>
+
+      <h2>Read-only surfaces</h2>
+      <p>Apart from the inspector, the panel shows a live player table (name, total level, ping, coins, worn gear), a world-status card (which map is loaded, how many players are walking, current world time), and a services card (which worlds the same host runs). None of those are admin-only - the panel is a browser page an operator uses, not a public site.</p>
+
+      <h2>Related</h2>
+      <p>Wallets and the coin / crystal split live on <a href="/coins.html">Coins</a> and <a href="/capes.html">Capes</a>. The in-game command the panel shares a call with is on <a href="/chat.html">Chat and Commands</a>. Pets the panel gives and takes are on <a href="/pets.html">Pets</a>.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

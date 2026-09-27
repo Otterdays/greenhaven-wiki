@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings - Greenhaven Wiki</title>
+  <meta name="description" content="Every setting in Greenhaven, tab by tab: Video, Audio, Controls, Interface and Game. What each one does, what its default is, and how a safe reset keeps you honest.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Settings</h1>
+      <p class="lede">Settings live behind the <code>Esc</code> menu on five tabs. Everything here is saved per install, not per character - the world does not care what resolution you run.</p>
+
+      <h2>Video</h2>
+      <ul>
+        <li><strong>Window mode:</strong> Windowed, Borderless fullscreen, or Exclusive fullscreen. <code>Alt+Enter</code> toggles to fullscreen only when Alt went down within 1.5 seconds - a stale Alt from an Alt-Tab does not hijack Enter.</li>
+        <li><strong>Resolution:</strong> Auto (75% of the primary monitor) or one of the fixed presets starting at 1280 x 720. A smaller choice fits a laptop; a bigger one fills an external.</li>
+        <li><strong>FPS cap:</strong> Off (uncapped), 30, 60, 120, 144 or 240. Off is the default.</li>
+        <li><strong>VSync:</strong> Off, Adaptive, or On. Adaptive is the default where the driver supports it.</li>
+        <li><strong>Background mode:</strong> how the client behaves when the window loses focus. The safe default keeps the world running.</li>
+      </ul>
+
+      <h2>Audio</h2>
+      <ul>
+        <li><strong>Master volume.</strong> One rail for everything.</li>
+        <li><strong>Music volume.</strong> Ships at 100. See <a href="/music.html">Music and Audio</a> for what plays.</li>
+        <li><strong>SFX volume.</strong> Everything that is not music: menu blips, cast tones, footfalls. Ships at 100.</li>
+        <li><strong>Mute.</strong> One toggle for the whole install.</li>
+        <li><strong>Mute when unfocused.</strong> Off by default. Turn it on and the world goes silent the moment you Alt-Tab out.</li>
+      </ul>
+
+      <h2>Controls</h2>
+      <ul>
+        <li><strong>Twelve rebindable keyboard slots</strong> - movement (Up, Down, Left, Right), Sprint, Crouch, Attack, Interact, Chat, Skills, Inventory and Menu. Every slot only ever holds an A-Z letter. F5 is deliberately outside this pool so no rebind can steal the <a href="/first-person.html">first-person</a> toggle.</li>
+        <li><strong>Cursor size.</strong> A scale on the custom in-game cursor (Normal keeps the asset size). The Twig Ladybug preview on the <a href="/gallery.html">Gallery</a> shows one of the shipped cursors.</li>
+        <li><strong>Gamepad.</strong> The East button toggles first person; the D-pad and left stick both move; LB sprints. Rebinding the three face buttons changes which physical button East maps to.</li>
+      </ul>
+
+      <h2>Interface</h2>
+      <ul>
+        <li><strong>Minimap corner.</strong> Top right by default; any of the four corners works.</li>
+        <li><strong>Tags.</strong> Show or hide the name tag above other players, or just your own. The tag carries the character's name and total level. See <a href="/experience.html">Experience</a>.</li>
+        <li><strong>Reduced motion.</strong> On: dust motes, sparkles, cloud drift and the level-up sweep hold still. The world keeps walking.</li>
+      </ul>
+
+      <h2>Game</h2>
+      <ul>
+        <li><strong>First-person look settings.</strong> Turn and pitch sensitivity, and a smooth-eye toggle. Numbers live here; the view itself is on the <a href="/first-person.html">First Person</a> page.</li>
+      </ul>
+
+      <h2>Safe reset</h2>
+      <p>Reset does not clear your save or your account. It restores the shipped defaults for every setting on this page and reloads the window - a way to unstick a resolution you cannot see, or a rebind you cannot undo.</p>
+
+      <h2>Saved or not</h2>
+      <p>Settings are stored per install, not per character. Log into a different account on the same device and your settings carry over; log into your account on a different device and your settings do not.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

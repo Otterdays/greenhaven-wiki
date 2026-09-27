@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gear Forge - Greenhaven Wiki</title>
+  <meta name="description" content="The Gear Forge is the item authoring tool. Every icon, held overlay and worn piece in Greenhaven is a data row the Forge paints - no code, no JSON, one click to make a new axe, sword or hammer.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">TOOL</div>
+      <h1>Gear Forge</h1>
+      <p class="lede">The Gear Forge turns an item from a set of pixels into data. It lives beside the map painter and the model maker. Open it, pick a shape, snap parts together, dress a character, and every icon, held overlay and worn sheet the game reads comes out the same click.</p>
+
+      <h2>What the Forge paints</h2>
+      <p>Every item in the game has one or more of three looks, and the Forge authors all three:</p>
+      <ul>
+        <li><strong>Icon.</strong> A 16 x 16 sprite from the shared item-icon sheet. It appears in the Inventory, the map painter's Items panel, the panel inspector and every tooltip.</li>
+        <li><strong>Held.</strong> The piece a wanderer carries in their hand - the axe you swing, the sword you point at a mob, the hammer you take to the anvil. One overlay sheet per item, frame-aligned with the player so it follows walk, run, swing, kneel and blink.</li>
+        <li><strong>Worn.</strong> The piece a wanderer wears on their body - a helm on the head, a plate on the chest, a cape on the back. One overlay sheet per piece, snapped to the body's frame index so it never drifts.</li>
+      </ul>
+
+      <h2>Items are data</h2>
+      <p>Before the Gear Forge an item's look was hand-painted pixel art in a script. Now it is a row in a table. The Forge reads that table to paint a preview and writes that table on Save. The world, the client, the painter and the panel all read the same data - one source, no drift.</p>
+
+      <h2>The parts library</h2>
+      <p>Weapons and tools are made of parts that snap together, socket to socket. The library ships today:</p>
+      <table>
+        <thead>
+          <tr><th>Kind</th><th>Count</th><th>Examples</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hafts</td><td>4</td><td>Short, long, iron, wrapped grip. Held at their end.</td></tr>
+          <tr><td>Heads</td><td>8</td><td>Axe bit, broad axe, pick, spike pick, hammer, mace, short blade, long blade. Each names the item kinds it is <em>for</em>.</td></tr>
+          <tr><td>Pommels</td><td>2</td><td>Knob, gem. Hang under the haft's bottom.</td></tr>
+        </tbody>
+      </table>
+      <p>Every part in the library is paintable in the Forge GUI. Adding a new part is one row in <code>assets/gear/parts.json</code> - the moment it is on the sheet, the Forge offers it. No new code, no rebuild.</p>
+
+      <h2>The synthesiser</h2>
+      <p>The Forge has a small item-generating dialog: <strong>describe it</strong> in plain words ("a bronze axe with a gemmed top"), or pick kind, tier, trim, gem and size by hand. A seeded PRNG turns the style into a small gallery of up to 24 distinct candidates, each with its own icon, and each one already snapped from parts. Same seed, same style, same items. Nothing is hidden or random on the player's side; it is only a fast way to see options.</p>
+      <ul>
+        <li><strong>Kinds</strong> - axe, pickaxe, hammer, mace, sword.</li>
+        <li><strong>Tiers</strong> - a bronze-to-adamantite ladder the shared item palette already knows.</li>
+        <li><strong>Gems</strong> - ruby, sapphire, emerald, amethyst, topaz, diamond.</li>
+        <li><strong>Trims</strong> - plain, banded, gemmed. A banding brightens the head; a gem takes the chosen gem colour.</li>
+      </ul>
+      <p>A candidate can be used <strong>as this item's look</strong> (with or without a new icon), or turned into a brand new item via <em>Make a new item from it...</em> which opens the New item panel pre-filled.</p>
+
+      <h2>Dressing any humanoid</h2>
+      <p>Every wearable piece fits any humanoid character the game ships - player, goblin, skeleton, zombie, troll, cow, merchant, king and the rest. Pick a character in the Forge, click the piece you want, and the preview paints it on the body in every pose. Colour roles (body, shade, trim, and an optional stripe) come from a small palette, so one item is one set of roles and every character can wear it in a different mix of inks.</p>
+
+      <h2>Items show up in swings</h2>
+      <p>When a wanderer swings an axe or a sword, the same held art the Forge painted rides the swing clip. The strike pose and the held overlay are on the same frame index, so the sword stays in the hand all the way through a slash, and the axe head points where it should on a hack.</p>
+
+      <h2>The rules are still data</h2>
+      <p>Under the Forge, every item is one row in the shared items registry, plus optional rows for equipment, weapons and tools. The Forge's <strong>Item rules</strong> panel edits those rows without a text box: pick the weapon class, set accuracy and power (a slider each), tick "also a skilling tool", and the item's <code>kindEntry</code> rule is honoured everywhere. New rows append; ids never renumber.</p>
+
+      <h2>Where the output goes</h2>
+      <ul>
+        <li>Item data - the shared registry, one row per item.</li>
+        <li>Icon - one cell on the shared item-icon sheet.</li>
+        <li>Held overlay - <code>assets/models/gear/&lt;item&gt;.json</code>, one per item that is held.</li>
+        <li>Worn overlay - <code>assets/models/gear/&lt;item&gt;.json</code>, one per item that is worn.</li>
+      </ul>
+      <p>The client, the world, the map painter and the panel read all four from one place. Save in the Forge and every tool sees the change the next time it loads.</p>
+
+      <h2>Checks and one-click fixes</h2>
+      <p>The Forge has a lint engine with thirteen rules and a <strong>Checks</strong> panel that runs them live. Each finding shows beside the item that caused it as a small amber badge; <strong>Show</strong> scrolls to the problem and <strong>Fix</strong> applies the one-click repair when one exists. The rules cover off-canvas pixels, missing sockets, unlinked inks, an unused gem colour, and a body-change guard. Checks advise; they never block Save - a shipped look is sometimes on purpose.</p>
+
+      <h2>Review gear</h2>
+      <p>When a body changes shape (a new silhouette, a wider plate, a new held cut), the Forge opens a before / after / diff dialog with a small contact sheet of every pose the piece rides in. Accept the review and the new goldens take it; step through each item and the diff so a stray pixel is caught before the tool writes.</p>
+
+      <h2>Goldens that follow saves</h2>
+      <p>An item look has a golden - a small recorded snapshot of the pixels the tool painted - and every save moves exactly the goldens that item touched. The whole suite goes green again the moment you save a change, so a Gear Forge edit never leaves a red test behind on purpose.</p>
+
+      <h2>Live reload and Try on in game</h2>
+      <p>A running client checks once a second for a changed gear sheet, a changed item-icon file, or a new <code>try-on</code> request. When one appears the game repaints the affected sprite in place - no restart, no reload of the world. Press <strong>Try on in game</strong> in the Forge and the Freeroam character you are looking at picks up the piece within a second; <strong>Take off</strong> puts it back. Item-rule changes (accuracy, power, skills) still want a restart - only the looks hot-reload.</p>
+
+      <h2>Forge a set</h2>
+      <p>Once one tier is right, <strong>Forge a set</strong> remakes a whole set in a different tier in one dialog. Names, scaled armour, power and accuracy, harder recipes, ingredients that follow the set, and icons recoloured through a small palette the designer can tune. New colours you introduce join the shared icon palette. What used to be an axe at bronze comes out as an axe at iron, steel, silver, or adamantite - same art path, one save per tier.</p>
+
+      <h2>Effects, engraved and glowing</h2>
+      <p>The <strong>Effects</strong> panel picks what a piece does when it swings: a colour trail on the arc, a hit pop, sparks, a soft dust, or a glow on the sprite itself. Every effect is one row on a shared <code>assets/gear-fx.json</code>; the client reloads the file live, so an effect change is on screen within a second of Save. Two <strong>trims</strong> exist for the head of a weapon: an engraved pattern on the blade, or a rim light on the haunches. See <a href="/gear-fx.html">Gear Effects</a>.</p>
+
+      <h2>Per-frame touch-ups and ghosts</h2>
+      <p><strong>Touch up this frame</strong> opens the small overlay for the exact pose the preview is on, and the tool checks on save that no stale touch-up is left behind on a frame the item no longer has. <strong>Ghost of saved</strong> paints the last save as a transparent overlay so a change reads at a glance, and <strong>Before / after</strong> puts the previous render next to the new one on the same pose.</p>
+
+      <h2>Delete, bring back, and the small-pieces rule</h2>
+      <p>The Gear Forge can delete an item and bring it back later - the row keeps its id, only its look and rules are hidden while deleted. One lint rule guards small pieces (gloves, a belt, a mask, an amulet, an earring): a piece that paints nothing over a body frame is flagged so it never ships as a phantom wearable.</p>
+
+      <h2>An item preview in the panel</h2>
+      <p>The <a href="/admin-panel.html">Admin Panel</a>'s Give box shows a small preview of any item you are about to hand out - the icon at real size and, when the item is worn, a preview of it drawn on the character it fits. An operator sees what they are about to give.</p>
+
+      <h2>The registry fingerprint</h2>
+      <p>Both the client and the world read the same items file. On join the world sends its <strong>registry fingerprint</strong> - a short hash of every registry row - and a client whose file differs says so instead of pretending to name pieces it cannot see. Same fingerprint, same items on both sides; different, an honest "the world knows items I do not" notice.</p>
+
+      <h2>Related</h2>
+      <p>Wearing and holding is documented on <a href="/equipment.html">Equipment</a>. The recipes that consume what you make live on <a href="/smithing.html">Smithing</a>. See also <a href="/character-forge.html">Character Forge</a> - the sister tool that paints the bodies the Gear Forge dresses - and <a href="/gui-first.html">The GUI-first Law</a> for why the Forge is a GUI at all.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

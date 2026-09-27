@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Floors, Walls and Crafted Grounds - Greenhaven Wiki</title>
+  <meta name="description" content="Every floor, wall, paving and crafted-ground tile a builder can lay. How the interior-floor join stitches a room, how a wall link picks a corner, and where the twelve crafted grounds fit.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">BUILDING BLOCKS</div>
+      <h1>Floors, Walls and Crafted Grounds</h1>
+      <p class="lede">Twenty-two tiles build a house, a courtyard or a path. Every one is a "family tile plus a four-neighbour join" - paint them and the corners pick themselves.</p>
+
+      <h2>The cobblestone build family</h2>
+      <p>The four cobblestone tiles are the classic building pieces. Three of them carry the wall shape (wall, doorway, archway) and share one <strong>wall-link</strong> rule.</p>
+      <ul>
+        <li><strong>Cobblestone wall</strong> (37) - blocks movement.</li>
+        <li><strong>Cobblestone doorway</strong> (38) - the wall with a walk-through gap.</li>
+        <li><strong>Cobblestone archway</strong> (39) - the wall with an open top, walkable.</li>
+        <li><strong>Cobblestone paving</strong> (43) - a floor tile, walks like grass.</li>
+      </ul>
+      <p>The wall-link rule looks at the four neighbours of a wall cell and picks the right piece: run, corner, T, cross, or end cap. Paint a wall one cell at a time and every corner appears without you placing it. The doorway and the archway share the same link, so a doorway can sit in the middle of a wall and the wall will stitch on both sides.</p>
+
+      <h2>Interior floors</h2>
+      <p>Three walkable floors fit inside a building. They share one <strong>floor-join</strong> so an interior room does not paint a visible seam between plank and paving.</p>
+      <ul>
+        <li><strong>Wood plank floor</strong> (40) - a wide plank deck.</li>
+        <li><strong>Wood board floor</strong> (41) - a narrower interior board.</li>
+        <li><strong>Interior floor</strong> (42) - the plain inside tile a cottage defaults to.</li>
+      </ul>
+
+      <h2>Crafted grounds</h2>
+      <p>Twelve ground tiles split into two families of six. Any one in a family joins every other one in the same family; the two families never cross.</p>
+      <table>
+        <thead>
+          <tr><th>Wood grounds (51-56)</th><th>Stone grounds (57-62)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Timber paving</td><td>Gravel path</td></tr>
+          <tr><td>Pale plank floor</td><td>Brick paving</td></tr>
+          <tr><td>Knotty plank floor</td><td>Flagstone paving</td></tr>
+          <tr><td>Weathered decking</td><td>Dressed stone</td></tr>
+          <tr><td>Mossy planks</td><td>Mossy cobblestone</td></tr>
+          <tr><td>Charred planks</td><td>Ruin flagstone</td></tr>
+        </tbody>
+      </table>
+      <p>A wood ground and a stone ground meet at a hard edge - the painter drops a curb so the two do not look half-painted into each other. Within a family, the neighbours blend.</p>
+
+      <h2>Fences and hedges</h2>
+      <p>The village fence family joins each other the way the walls do. Two looks share one link so a builder can mix picket and stone freely:</p>
+      <ul>
+        <li><strong>Picket fence</strong> (80)</li>
+        <li><strong>Low stone fence</strong> (81)</li>
+        <li><strong>Open gate</strong> (82) - walkable, joins the fence on both sides like a doorway.</li>
+        <li><strong>Closed gate</strong> (83) - same frame, bars down, blocks movement. Needs fence on two opposite sides.</li>
+      </ul>
+      <p>The <strong>hedge</strong> (84) is a separate link family. A hedge never merges into a fence line, so a hedge row can sit behind a fence without one eating the other.</p>
+
+      <h2>Adding a new floor or wall later</h2>
+      <p>A new wall is one more tile in the wall-link family - the corner picker already knows how to stitch it. A new ground family (a fourth family of six, say) is one more <code>is_&hellip;_ground</code> predicate and one more set of curb rules where it meets every existing family. The join contract scales; the tile grid does not have to change.</p>
+
+      <h2>Related</h2>
+      <p>See <a href="/terrain.html">Terrain and Tiles</a> for all twelve tile families. See <a href="/props-packs.html">Prop Packs</a> for what fills the room once you have framed it.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

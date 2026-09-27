@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The GUI-first Law - Greenhaven Wiki</title>
+  <meta name="description" content="Greenhaven's rule for every content tool: if it cannot be done in the GUI, it is not done. No JSON editing, no scripts, no code access for a builder.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">POLICY</div>
+      <h1>The GUI-first Law</h1>
+      <p class="lede">Every content workflow in Greenhaven must be fully usable from a GUI. A builder never opens a text file, a terminal, a code editor or a doc to make or ship content. If a capability has no GUI, it is not done.</p>
+
+      <h2>The rule in one line</h2>
+      <p>People make content by clicking. Scripts are engines behind buttons. Nothing in a content pipeline is a "you have to edit the JSON" step.</p>
+
+      <h2>What that rules out</h2>
+      <ul>
+        <li>No raw JSON text boxes in any tool. If a value can be edited, it is a slider, a picker, a checkbox or a plain-word input.</li>
+        <li>No "run this script to build the map / item / character". Every build is a button the tool offers.</li>
+        <li>No "read this doc to understand the file format before you can add a row". If the tool needs it, the tool shows it.</li>
+        <li>No "open the code to add a new kind". Adding a kind is a data row, and a data row has a New button.</li>
+        <li>No error codes. Errors speak plain words beside the control that caused them.</li>
+      </ul>
+
+      <h2>What is still fine</h2>
+      <ul>
+        <li>Typing a name, a description, or a "make me a bronze axe with a gem top" line into a text field. That is a normal GUI input.</li>
+        <li>Command-line helpers for developers who want them - the CLI is an <em>additional</em> path, never the only one.</li>
+        <li>Config files for installs (ports, tokens, world IDs). Those are not content.</li>
+      </ul>
+
+      <h2>Where the law is enforced</h2>
+      <p>The rule lives in the operator-facing docs on the game side (a project-wide rule and a checklist for each tool). On the wiki side it shapes what a page can promise: if the wiki tells a builder "edit this file to add a new rot", and there is no GUI for it, the wiki is documenting unfinished work and the tool owes a GUI.</p>
+
+      <h2>Which tools follow it</h2>
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Map painter</td><td>GUI-first. Every tile, prop, character and resource-node override has a picker or a slider.</td></tr>
+          <tr><td>Model maker / Character Forge</td><td>GUI-first. Parts, colours and pose editing all live in the tool; a CLI sits alongside, never instead.</td></tr>
+          <tr><td>Gear Forge</td><td>GUI-first. Every icon, held and worn look is painted by the tool; the item data row it writes is invisible to the builder.</td></tr>
+          <tr><td>Music maker</td><td>In progress. The workshop script is still the only path; a GUI panel is the open next step.</td></tr>
+          <tr><td>Cursor maker</td><td>GUI-first.</td></tr>
+          <tr><td>Launch panel</td><td>Not a content tool - it is install plumbing, so the rule does not apply.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Why it exists</h2>
+      <p>A greenhaven build should feel like making a build. A tool that needs a text editor at one step is a tool that loses the person in front of it at that step. Keeping the content path clickable is what makes a small team (or one operator) able to move fast without a codebase open.</p>
+
+      <h2>Related</h2>
+      <p>See <a href="/gear-forge.html">Gear Forge</a> and <a href="/character-forge.html">Character Forge</a> for how the rule shaped two of the newest tools. See <a href="/map-maker.html">The Map Painter</a> for the tile-editing side.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

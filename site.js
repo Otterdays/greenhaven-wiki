@@ -1,0 +1,528 @@
+// [TRACE: DOCS/SCRATCHPAD.md] Wiki chrome: brand jump dropdown + a row of labelled icon shelves, built
+// from one PAGES list so a new article registers in a single place. Same class contract as
+// developers/map-maker/dist/tools-jump.js (.brand-cluster, .tool-jump, .gh-tool-rail), so the shared
+// rail styles in developers/theme/theme.css apply here too. Icons are inline SVG paths: these pages
+// stay ASCII-only, so no Unicode glyph may be used as an icon.
+//
+// This wiki is private for now, so the header also carries the sibling Greenhaven pages (tools hub,
+// map painter, live atlas, launch panel). Their host comes from location.hostname, never
+// a hardcoded loopback literal, so a copy running on another host still reaches its neighbours on the
+// default local band. Flip SIBLINGS to an empty list to make the pages publish-ready again.
+(function () {
+  const ICONS = {
+    home: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg>',
+    news: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.6 3.4h8.8v9.2H3.8a1.2 1.2 0 0 1-1.2-1.2z"/><path d="M11.4 6h2v5.4a1.2 1.2 0 0 1-2.4 0"/><path d="M4.6 5.8h4.8M4.6 8h4.8M4.6 10.2h3"/></svg>',
+    woodcutting: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6 4.7 6.5h1.6L3.1 11.1h4.2v3.3h1.4v-3.3h4.2L9.7 6.5h1.6z"/></svg>',
+    mining: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 12.8 8 3.2l4.8 9.6H3.2z"/><path d="M5.6 10.4h4.8"/></svg>',
+    fishing: '<svg viewBox="0 0 16 16" aria-hidden="true"><ellipse cx="7" cy="8" rx="4.6" ry="3.2"/><path d="M11.2 8 14.4 5.6v4.8z"/><circle cx="5.2" cy="7.2" r="0.9"/></svg>',
+    stride: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 12.4 6.8 3.6h2.4L12.8 12.4h-2.2l-.7-1.8H6.1l-.7 1.8z"/><path d="M6.6 8.8h2.8"/></svg>',
+    experience: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 13.6h12.2"/><path d="M2.8 11.4 6.4 7.8l2.4 2.4 4.6-4.8"/><path d="M10.6 5.2h3.2v3.2"/></svg>',
+    smithing: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 14V8a4 4 0 0 1 8 0v6"/><path d="M2.6 14h3.2M10.2 14h3.2"/></svg>',
+    combat: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3.2 11.6 11.2M13 3.2 4.4 11.2"/><path d="M2 9.6 6.4 14M14 9.6 9.6 14"/></svg>',
+    digging: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h8v4a4 4 0 0 1-8 0z"/><path d="M8 11v3"/><path d="M6 14h4"/></svg>',
+    equipment: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4h8l1 8H3z"/><path d="M6 4V2.6a2 2 0 0 1 4 0V4"/></svg>',
+    coins: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.4"/><circle cx="8" cy="8" r="3"/><path d="M8 5v6"/></svg>',
+    npcs: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.4" r="2.2"/><path d="M3.4 13c.7-2.5 2.4-3.8 4.6-3.8s3.9 1.3 4.6 3.8"/></svg>',
+    capes: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h6l1.6 9.4a2 2 0 0 1-1.1 2.2L8 12.4l-3.5 2.2a2 2 0 0 1-1.1-2.2z"/><path d="M5 3a3 3 0 0 0 6 0"/></svg>',
+    chat: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.6 3.4h10.8v7H9.4L6.4 13.4v-3H2.6z"/><path d="M5 6h6M5 8.2h4"/></svg>',
+    guilds: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 3 4v4.2c0 2.5 2 4.4 5 5.6 3-1.2 5-3.1 5-5.6V4z"/><path d="M6.4 8.2 7.6 9.4l2.8-3"/></svg>',
+    friends: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6" cy="5.6" r="2.1"/><path d="M2.4 13.2c.6-2.4 1.9-3.6 3.6-3.6s3 1.2 3.6 3.6"/><circle cx="11.6" cy="6.4" r="1.6"/><path d="M10.8 10.1c1.5.1 2.6 1.3 3.1 3.3"/></svg>',
+    pets: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="4.4" cy="6" r="1.4"/><circle cx="11.6" cy="6" r="1.4"/><circle cx="2.4" cy="9.4" r="1.4"/><circle cx="13.6" cy="9.4" r="1.4"/><path d="M8 8.4c-1.8 0-3.2 1.6-3.2 3.2S6.2 14 8 14s3.2-.8-1.8 3.2S9.8 8.4 8 8.4z" transform="translate(0 -2.2)"/></svg>',
+    crouch: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="4" r="1.6"/><path d="M8 5.6v3.4M5.6 13.4 8 9l2.4 4.4M5.6 8.4 8 6.8l2.4 1.6"/></svg>',
+    creatures: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 12c0-3 2-5.4 5-5.4s5 2.4 5 5.4"/><circle cx="6" cy="8" r="0.7"/><circle cx="10" cy="8" r="0.7"/><path d="M5.4 4.6 4 2.4M10.6 4.6 12 2.4"/></svg>',
+    gallery: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.2" width="12" height="9.6" rx="1"/><path d="M2.4 11 5.6 8l2 2 2.8-3 3.2 4"/><circle cx="11" cy="6" r="0.9"/></svg>',
+    seasonal: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8 11 6h-1.8L12.4 9.8H3.6L6.8 6H5z"/><path d="M7.2 9.8h1.6v2.6a0.8 0.8 0 0 1-1.6 0z"/></svg>',
+    items: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.6 5.4 8 2.6l5.4 2.8v5.4L8 13.6l-5.4-2.8z"/><path d="M2.6 5.4 8 8.2l5.4-2.8M8 8.2v5.4"/></svg>',
+    forge: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3h10l-1.4 5.4a3 3 0 0 1-2.8 2.2H7.2a3 3 0 0 1-2.8-2.2z"/><path d="M6.4 12.4h3.2v1.4h-3.2z"/></svg>',
+    terrain: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 12 5 7l3 3 2-2 4 4z"/><path d="M2 14h12"/></svg>',
+    props: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v6"/><path d="M4 3h8v4H4z"/><path d="M3 13h10v-3l-5-2-5 2z"/></svg>',
+    firstperson: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.4" r="2.4"/><path d="M3.4 13.6c.7-2.6 2.4-4 4.6-4s3.9 1.4 4.6 4"/></svg>',
+    account: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3.4" width="12" height="9.2" rx="1"/><circle cx="6" cy="7.4" r="1.4"/><path d="M3.6 11.4c.5-1.2 1.3-1.8 2.4-1.8s1.9.6 2.4 1.8"/><path d="M10 6.8h3M10 9h3"/></svg>',
+    settings: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2.4"/><path d="M8 1.8v2M8 12.2v2M14.2 8h-2M3.8 8h-2M12.3 3.7l-1.4 1.4M5.1 11l-1.4 1.4M12.3 12.3l-1.4-1.4M5.1 5.1 3.7 3.7"/></svg>',
+    music: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 12V3.6l6-1.4v8"/><circle cx="4.4" cy="12" r="1.6"/><circle cx="10.4" cy="10.4" r="1.6"/></svg>',
+    painter: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11.4 2.4 13.6 4.6 6 12.2 3 13l.8-3z"/><path d="M2 14.4h6"/></svg>',
+    crash: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.2" y="4.8" width="5.6" height="8.2" rx="2.8"/><path d="M6.4 4.6 8 6.2l1.6-1.6M8 6.2v6.8"/><path d="M5.2 7.4 2.4 6.2M5.2 9.6H2.2M5.2 11.8 2.4 13M10.8 7.4l2.8-1.2M10.8 9.6h3M10.8 11.8 13.6 13"/></svg>',
+    contributing: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.6h6.4l2.4 2.4v8.4H4z"/><path d="M6.2 7h5M6.2 9.2h5M6.2 11.4h3"/></svg>',
+    themes: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.4a5.6 5.6 0 0 0 0 11.2c1 0 1.6-.6 1.6-1.4 0-.4-.2-.7-.4-1-.2-.3-.4-.6-.4-1 0-.8.6-1.4 1.4-1.4h1.2c1.6 0 2.6-1 2.6-2.6 0-2.4-2.6-3.8-6-3.8z"/><circle cx="5" cy="7" r="0.9"/><circle cx="8" cy="5" r="0.9"/><circle cx="11" cy="7" r="0.9"/></svg>',
+    wakeup: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.4 11.4h11.2"/><path d="M5.4 11.4 8 4.6l2.6 6.8"/><path d="M6.8 6.4c1.4-1 2.8-1 4.2 0"/><path d="M11.6 3.6 12.8 2.4M13.6 5.6h1.4M11.6 7.6l1.2 1.2"/></svg>',
+    cursors: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.4 12 8.4l-3.2.6 1.8 3.6-1.6.8-1.8-3.6-2.8 2.2z"/></svg>',
+    remis: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6" cy="6" r="1.4"/><circle cx="10" cy="6" r="1.4"/><circle cx="4" cy="9.6" r="1.4"/><circle cx="12" cy="9.6" r="1.4"/><path d="M8 4v8"/></svg>',
+    monetization: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.4 10.4 6.4l4 1.4-2.6 3.4v3.4H4.2v-3.4L1.6 7.8l4-1.4z"/><path d="M6 10.4a2 2 0 0 0 4 0"/></svg>',
+    packs: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.4" y="5.6" width="11.2" height="7.8" rx="0.6"/><path d="M2.4 8.2h11.2M8 5.6v7.8"/><path d="M5.6 5.6 4 3.2h2.6zM10.4 5.6 12 3.2H9.4z"/></svg>',
+    wood: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h12M2 9h12M2 12h12"/><path d="M4 4v10M12 4v10"/></svg>',
+    floors: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="0.6"/><path d="M2 6h12M2 10h12M6 2v12M10 2v12"/></svg>',
+    gearforge: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11 2.4 13.6 5 12 6.6 9.4 4z"/><path d="M9.4 4 4.6 8.8l-1.2 3.8 3.8-1.2z"/></svg>',
+    guifirst: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2.6" width="12" height="10.8" rx="0.8"/><path d="M2 6h12"/><path d="M5 8.8h6M5 11h4"/></svg>',
+    adminpanel: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.6 4.6h10.8M2.6 11.4h10.8"/><circle cx="6" cy="4.6" r="1.7"/><circle cx="10.6" cy="11.4" r="1.7"/></svg>',
+    bosses: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.4 12 4 6l4 2.4L12 6l1.6 6z"/><path d="M6.4 12 8 8.4l1.6 3.6"/></svg>',
+    layers: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.4 13.6 5.4 8 8.4 2.4 5.4z"/><path d="M2.4 8.4 8 11.4l5.6-3"/><path d="M2.4 11.4 8 14.4l5.6-3"/></svg>',
+    worlds: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.8"/><ellipse cx="8" cy="8" rx="2.6" ry="5.8"/><path d="M2.4 6h11.2M2.4 10h11.2"/></svg>',
+    shippingmap: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.4 6.4 5.6 9.6 3.4 14 5.6v7l-4.4-2.2-3.2 2.2L2 10.4z"/><path d="M6.4 5.6v7M9.6 3.4v7"/></svg>',
+    auth: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.4" y="7" width="9.2" height="6.6" rx="1"/><path d="M5.4 7V4.8a2.6 2.6 0 0 1 5.2 0V7"/><circle cx="8" cy="10.4" r="0.8"/></svg>',
+    hub: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.4 7.6 8 2.8l5.6 4.8"/><path d="M4 6.4v7h8v-7"/><path d="M6.8 13.4v-3.2h2.4v3.2"/></svg>',
+    map: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.8" y="1.8" width="5.4" height="5.4" rx="0.6"/><rect x="8.8" y="1.8" width="5.4" height="5.4" rx="0.6"/><rect x="1.8" y="8.8" width="5.4" height="5.4" rx="0.6"/><rect x="8.8" y="8.8" width="5.4" height="5.4" rx="0.6"/></svg>',
+    atlas: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.4"/><ellipse cx="8" cy="8" rx="2.2" ry="5.4"/><path d="M2.6 8h10.8"/></svg>',
+    panel: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.6 4.6h10.8M2.6 11.4h10.8"/><circle cx="6" cy="4.6" r="1.7"/><circle cx="10.6" cy="11.4" r="1.7"/></svg>',
+    transmog: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4h8l1 8H3z"/><path d="M6 4V2.6a2 2 0 0 1 4 0V4"/><path d="M11 10.4c1.5 0 2.4 1 2.4 2.2S12.5 14.8 11 14.8"/></svg>',
+    gearfx: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.4 12.6 12 4"/><path d="M8.4 2.4 9.6 4.6l2.2 1.2-2.2 1.2L8.4 9.2 7.2 7 5 5.8l2.2-1.2z"/><path d="M12.4 10.4 13.6 12.6l-1.2-.4-.4-1.2.4-1.2 1.2-.4z"/></svg>',
+    playermenu: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.4 12 8.4l-3.2.6 1.8 3.6-1.6.8-1.8-3.6-2.8 2.2z"/><rect x="8.4" y="2.4" width="6" height="5.4" rx="0.8"/></svg>',
+    playersheet: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2.6" width="12" height="10.8" rx="0.8"/><path d="M2 6h12"/><path d="M4.8 3.6h1M7.4 3.6h1M4.8 8.4h6.4M4.8 10.6h4"/></svg>',
+  };
+  const PAGES = [
+    {href: '/', match: /^\/(index\.html)?$/, label: 'Wiki home', icon: 'home', group: 'home'},
+    {href: '/news.html', match: /^\/news\.html$/, label: 'The Hearth Post', icon: 'news', group: 'home'},
+    {href: '/woodcutting.html', match: /^\/woodcutting\.html$/, label: 'Woodcutting', icon: 'woodcutting', group: 'skills'},
+    {href: '/mining.html', match: /^\/mining\.html$/, label: 'Mining', icon: 'mining', group: 'skills'},
+    {href: '/fishing.html', match: /^\/fishing\.html$/, label: 'Fishing', icon: 'fishing', group: 'skills'},
+    {href: '/smithing.html', match: /^\/smithing\.html$/, label: 'Smithing', icon: 'smithing', group: 'skills'},
+    {href: '/combat.html', match: /^\/combat\.html$/, label: 'Combat', icon: 'combat', group: 'skills'},
+    {href: '/digging.html', match: /^\/digging\.html$/, label: 'Digging', icon: 'digging', group: 'skills'},
+    {href: '/equipment.html', match: /^\/equipment\.html$/, label: 'Equipment', icon: 'equipment', group: 'gear'},
+    {href: '/capes.html', match: /^\/capes\.html$/, label: 'Capes', icon: 'capes', group: 'gear'},
+    {href: '/coins.html', match: /^\/coins\.html$/, label: 'Coins', icon: 'coins', group: 'gear'},
+    {href: '/npcs.html', match: /^\/npcs\.html$/, label: 'NPCs and Shops', icon: 'npcs', group: 'folk'},
+    {href: '/creatures.html', match: /^\/creatures\.html$/, label: 'Creatures', icon: 'creatures', group: 'folk'},
+    {href: '/pets.html', match: /^\/pets\.html$/, label: 'Pets', icon: 'pets', group: 'folk'},
+    {href: '/crouch.html', match: /^\/crouch\.html$/, label: 'Crouch', icon: 'crouch', group: 'world'},
+    {href: '/chat.html', match: /^\/chat\.html$/, label: 'Chat', icon: 'chat', group: 'folk'},
+    {href: '/guilds.html', match: /^\/guilds\.html$/, label: 'Guilds', icon: 'guilds', group: 'folk'},
+    {href: '/friends.html', match: /^\/friends\.html$/, label: 'Friends', icon: 'friends', group: 'folk'},
+    {href: '/player-menu.html', match: /^\/player-menu\.html$/, label: 'Player Menu', icon: 'playermenu', group: 'folk'},
+    {href: '/player-sheet.html', match: /^\/player-sheet\.html$/, label: 'Player Sheet', icon: 'playersheet', group: 'world'},
+    {href: '/items.html', match: /^\/items\.html$/, label: 'Items', icon: 'items', group: 'gear'},
+    {href: '/seasonal.html', match: /^\/seasonal\.html$/, label: 'Seasonal', icon: 'seasonal', group: 'world'},
+    {href: '/character-forge.html', match: /^\/character-forge\.html$/, label: 'Character Forge', icon: 'forge', group: 'making'},
+    {href: '/gallery.html', match: /^\/gallery\.html$/, label: 'Gallery', icon: 'gallery', group: 'making'},
+    {href: '/terrain.html', match: /^\/terrain\.html$/, label: 'Terrain', icon: 'terrain', group: 'world'},
+    {href: '/props.html', match: /^\/props\.html$/, label: 'Signs and Chests', icon: 'props', group: 'world'},
+    {href: '/first-person.html', match: /^\/first-person\.html$/, label: 'First Person', icon: 'firstperson', group: 'world'},
+    {href: '/account.html', match: /^\/account\.html$/, label: 'Accounts', icon: 'account', group: 'backstage'},
+    {href: '/settings.html', match: /^\/settings\.html$/, label: 'Settings', icon: 'settings', group: 'backstage'},
+    {href: '/music.html', match: /^\/music\.html$/, label: 'Music', icon: 'music', group: 'making'},
+    {href: '/map-maker.html', match: /^\/map-maker\.html$/, label: 'Map Painter', icon: 'painter', group: 'making'},
+    {href: '/contributing.html', match: /^\/contributing\.html$/, label: 'Contributing', icon: 'contributing', group: 'making'},
+    {href: '/crash-codes.html', match: /^\/crash-codes\.html$/, label: 'Crash Codes', icon: 'crash', group: 'backstage'},
+    {href: '/themes.html', match: /^\/themes\.html$/, label: 'Theme Packs', icon: 'themes', group: 'making'},
+    {href: '/wake-up.html', match: /^\/wake-up\.html$/, label: 'Wake-Up', icon: 'wakeup', group: 'world'},
+    {href: '/cursors.html', match: /^\/cursors\.html$/, label: 'Cursors', icon: 'cursors', group: 'making'},
+    {href: '/remis.html', match: /^\/remis\.html$/, label: 'Rots and Tots', icon: 'remis', group: 'world'},
+    {href: '/monetization.html', match: /^\/monetization\.html$/, label: 'Crystal Store', icon: 'monetization', group: 'gear'},
+    {href: '/props-packs.html', match: /^\/props-packs\.html$/, label: 'Prop Packs', icon: 'packs', group: 'world'},
+    {href: '/wood-and-ramps.html', match: /^\/wood-and-ramps\.html$/, label: 'Wood and Ramps', icon: 'wood', group: 'world'},
+    {href: '/atlas.html', match: /^\/atlas\.html$/, label: 'Live Atlas', icon: 'atlas', group: 'making'},
+    {href: '/floors-and-walls.html', match: /^\/floors-and-walls\.html$/, label: 'Floors and Walls', icon: 'floors', group: 'world'},
+    {href: '/gear-forge.html', match: /^\/gear-forge\.html$/, label: 'Gear Forge', icon: 'gearforge', group: 'gear'},
+    {href: '/gui-first.html', match: /^\/gui-first\.html$/, label: 'GUI-first Law', icon: 'guifirst', group: 'making'},
+    {href: '/admin-panel.html', match: /^\/admin-panel\.html$/, label: 'Admin Panel', icon: 'adminpanel', group: 'backstage'},
+    {href: '/bosses.html', match: /^\/bosses\.html$/, label: 'Bosses', icon: 'bosses', group: 'folk'},
+    {href: '/layers.html', match: /^\/layers\.html$/, label: 'Gear Layers', icon: 'layers', group: 'gear'},
+    {href: '/transmog.html', match: /^\/transmog\.html$/, label: 'Change Look', icon: 'transmog', group: 'gear'},
+    {href: '/gear-fx.html', match: /^\/gear-fx\.html$/, label: 'Gear Effects', icon: 'gearfx', group: 'gear'},
+    {href: '/worlds.html', match: /^\/worlds\.html$/, label: 'Worlds', icon: 'worlds', group: 'world'},
+    {href: '/shipping-map.html', match: /^\/shipping-map\.html$/, label: 'The Shipping Map', icon: 'shippingmap', group: 'world'},
+    {href: '/auth.html', match: /^\/auth\.html$/, label: 'Accounts and Passwords', icon: 'auth', group: 'backstage'},
+    {href: '/stride.html', match: /^\/stride\.html$/, label: 'Stride', icon: 'stride', group: 'skills'},
+    {href: '/experience.html', match: /^\/experience\.html$/, label: 'Experience', icon: 'experience', group: 'skills'},
+  ];
+  // Shelf order and the friendly name each shelf wears in the rail and the dropdown. A page's
+  // `group` must be one of these ids; its place inside the shelf follows its place in PAGES.
+  const GROUPS = [
+    {id: 'home', label: ''},
+    {id: 'skills', label: 'Skills'},
+    {id: 'gear', label: 'Gear and coin'},
+    {id: 'folk', label: 'Folk and critters'},
+    {id: 'world', label: 'Around the world'},
+    {id: 'making', label: 'Making things'},
+    {id: 'backstage', label: 'Backstage'},
+  ];
+  const LOCAL = {tools: 6001, panel: 6003};
+  function neighbour(port, path) {
+    return location.protocol + '//' + location.hostname + ':' + port + path;
+  }
+  const SIBLINGS = [
+    {href: neighbour(LOCAL.tools, '/'), label: 'World tools', icon: 'hub'},
+    {href: neighbour(LOCAL.tools, '/map-maker/'), label: 'Map painter', icon: 'map'},
+    {href: neighbour(LOCAL.tools, '/atlas/'), label: 'Live atlas', icon: 'atlas'},
+    {href: neighbour(LOCAL.panel, '/'), label: 'Launch panel', icon: 'panel'},
+  ];
+
+  function currentPage() {
+    let path = location.pathname;
+    try { path = decodeURIComponent(path); } catch { /* keep the raw path */ }
+    return PAGES.find((page) => page.match.test(path)) || PAGES[0];
+  }
+
+  function markLink(link, page) {
+    if (page !== currentPage()) return;
+    link.setAttribute('aria-current', 'page');
+  }
+
+  function railLink(item) {
+    const link = document.createElement('a');
+    link.href = item.href;
+    // data-tip, not title: the native title tooltip waits about a second; style.css shows this
+    // one on hover with no delay.
+    link.dataset.tip = item.label;
+    link.setAttribute('aria-label', item.label);
+    link.innerHTML = ICONS[item.icon];
+    markLink(link, item);
+    return link;
+  }
+
+  // One shelf = a labelled pill of round icon links.
+  function railShelf(label, items) {
+    const group = document.createElement('span');
+    group.className = 'gh-tool-rail-group';
+    if (label) {
+      const name = document.createElement('span');
+      name.className = 'gh-tool-rail-label';
+      name.setAttribute('aria-hidden', 'true');
+      name.textContent = label;
+      group.appendChild(name);
+    }
+    for (const item of items) group.appendChild(railLink(item));
+    return group;
+  }
+
+  function mountRail() {
+    if (document.querySelector('.gh-tool-rail')) return;
+    const header = document.querySelector('header');
+    if (!header) return;
+    const rail = document.createElement('nav');
+    rail.className = 'gh-tool-rail';
+    rail.setAttribute('aria-label', 'Wiki pages and Greenhaven pages');
+    for (const group of GROUPS) {
+      const items = PAGES.filter((page) => page.group === group.id);
+      if (items.length) rail.appendChild(railShelf(group.label, items));
+    }
+    if (SIBLINGS.length) {
+      const sep = document.createElement('span');
+      sep.className = 'gh-tool-rail-sep';
+      sep.setAttribute('aria-hidden', 'true');
+      rail.appendChild(sep);
+      rail.appendChild(railShelf('Workshop', SIBLINGS));
+    }
+    header.appendChild(rail);
+  }
+
+  // The hub drops its WIKI badge for the current page name plus a caret, and the dropdown lists the
+  // sibling pages. The <small> stays in the HTML so a copy without this script still reads "WIKI".
+  function mountJump() {
+    if (document.querySelector('.tool-jump')) return;
+    const header = document.querySelector('header');
+    const brand = header && header.querySelector('a.brand');
+    if (!brand) return;
+    const small = brand.querySelector('small');
+    if (small) small.remove();
+
+    const cluster = document.createElement('div');
+    cluster.className = 'brand-cluster';
+    const jump = document.createElement('details');
+    jump.className = 'tool-jump';
+    const summary = document.createElement('summary');
+    summary.textContent = currentPage().label;
+    summary.setAttribute('aria-label', 'Wiki pages. Current: ' + currentPage().label);
+    const nav = document.createElement('nav');
+    nav.setAttribute('aria-label', 'Wiki pages');
+    for (const group of GROUPS) {
+      const items = PAGES.filter((page) => page.group === group.id);
+      if (!items.length) continue;
+      if (group.label) {
+        const head = document.createElement('span');
+        head.className = 'tool-jump-head';
+        head.textContent = group.label;
+        nav.appendChild(head);
+      }
+      for (const page of items) {
+        const link = document.createElement('a');
+        link.href = page.href;
+        link.textContent = page.label;
+        markLink(link, page);
+        nav.appendChild(link);
+      }
+    }
+    if (SIBLINGS.length) {
+      const head = document.createElement('span');
+      head.className = 'tool-jump-head';
+      head.textContent = 'Greenhaven pages';
+      nav.appendChild(head);
+      for (const sibling of SIBLINGS) {
+        const link = document.createElement('a');
+        link.href = sibling.href;
+        link.textContent = sibling.label;
+        nav.appendChild(link);
+      }
+    }
+    jump.append(summary, nav);
+    brand.replaceWith(cluster);
+    cluster.append(brand, jump);
+
+    document.addEventListener('click', (event) => {
+      if (!jump.contains(event.target)) jump.open = false;
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') jump.open = false;
+    });
+  }
+
+  // Home page only: a soft search box above the topic cards that hides cards not matching what
+  // is typed. Plain text match over each card's title and blurb; nothing leaves the page.
+  function mountFinder() {
+    const grid = document.querySelector('main .grid');
+    if (!grid || document.querySelector('.finder') || !currentPage().match.test('/')) return;
+    const cards = [...grid.querySelectorAll('article.topic')];
+    const finder = document.createElement('label');
+    finder.className = 'finder';
+    finder.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor"/><path d="M10.4 10.4 14 14"/></svg>';
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.placeholder = 'Looking for something? Try fishing, pets, capes...';
+    input.setAttribute('aria-label', 'Filter wiki topics');
+    finder.appendChild(input);
+    const empty = document.createElement('p');
+    empty.className = 'finder-empty';
+    empty.textContent = 'Nothing here by that name yet - try another word.';
+    empty.hidden = true;
+    input.addEventListener('input', () => {
+      const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+      let shown = 0;
+      for (const card of cards) {
+        const text = card.textContent.toLowerCase();
+        card.hidden = !words.every((word) => text.includes(word));
+        if (!card.hidden) shown += 1;
+      }
+      empty.hidden = shown > 0;
+    });
+    grid.before(finder);
+    grid.after(empty);
+  }
+
+  // The newest Hearth Post issue, shown as the card at the top of the sidebar. Bump with each issue.
+  const LATEST_NEWS = {
+    href: '/news.html',
+    title: 'The Hearth Post, issue 1',
+    blurb: '23-24 Sep: the Gear Forge opens, Christmas comes early, hammers in the smithy.',
+  };
+  const SIDE_OPEN_KEY = 'gh-wiki-side-open';
+
+  // localStorage can throw (private windows, blocked site data); the sidebar works without it.
+  function readOpenGroups() {
+    try {
+      const ids = JSON.parse(localStorage.getItem(SIDE_OPEN_KEY) || 'null');
+      return Array.isArray(ids) ? ids : null;
+    } catch { return null; }
+  }
+  function writeOpenGroups(ids) {
+    try { localStorage.setItem(SIDE_OPEN_KEY, JSON.stringify(ids)); } catch { /* not saved */ }
+  }
+
+  function sideLink(item) {
+    const link = document.createElement('a');
+    link.className = 'side-link';
+    link.href = item.href;
+    link.innerHTML = ICONS[item.icon];
+    const text = document.createElement('span');
+    text.textContent = item.label;
+    link.appendChild(text);
+    markLink(link, item);
+    return link;
+  }
+
+  function sideGroup(id, label, items, open) {
+    const group = document.createElement('details');
+    group.className = 'side-group';
+    group.dataset.group = id;
+    group.open = open;
+    const summary = document.createElement('summary');
+    summary.textContent = label;
+    const count = document.createElement('span');
+    count.className = 'side-count';
+    count.textContent = String(items.length);
+    summary.appendChild(count);
+    group.appendChild(summary);
+    for (const item of items) group.appendChild(sideLink(item));
+    return group;
+  }
+
+  // "On this page": one link per h2 in the article, with a scroll spy marking the section in view.
+  function sideContents(main) {
+    const heads = [...main.querySelectorAll('.page h2')];
+    if (heads.length < 2) return null;
+    const box = document.createElement('details');
+    box.className = 'side-group side-toc';
+    box.open = true;
+    const summary = document.createElement('summary');
+    summary.textContent = 'On this page';
+    box.appendChild(summary);
+    const links = new Map();
+    for (const head of heads) {
+      if (!head.id) {
+        head.id = head.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+      }
+      const link = document.createElement('a');
+      link.className = 'side-link';
+      link.href = '#' + head.id;
+      link.textContent = head.textContent;
+      box.appendChild(link);
+      links.set(head, link);
+    }
+    if ('IntersectionObserver' in window) {
+      const spy = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          for (const link of links.values()) link.classList.remove('is-here');
+          links.get(entry.target).classList.add('is-here');
+        }
+      }, {rootMargin: '0px 0px -70% 0px'});
+      for (const head of heads) spy.observe(head);
+    }
+    return box;
+  }
+
+  // Left sidebar: latest news, a page finder, open/close-all controls, every page under its
+  // shelf name, the current article's contents, and the sibling Greenhaven pages. On narrow screens
+  // it becomes a drawer opened by the Contents button in the header.
+  function mountSidebar() {
+    const main = document.querySelector('body > main');
+    const header = document.querySelector('header');
+    if (!main || !header || document.querySelector('.wiki-side')) return;
+    const here = currentPage();
+    const remembered = readOpenGroups();
+
+    const side = document.createElement('aside');
+    side.className = 'wiki-side';
+    side.id = 'wiki-side';
+    side.setAttribute('aria-label', 'Wiki sidebar');
+
+    const news = document.createElement('a');
+    news.className = 'side-news';
+    news.href = LATEST_NEWS.href;
+    if (here.href === LATEST_NEWS.href) news.setAttribute('aria-current', 'page');
+    news.innerHTML = '<span class="side-news-kicker">Latest news</span>';
+    const newsTitle = document.createElement('b');
+    newsTitle.textContent = LATEST_NEWS.title;
+    const newsBlurb = document.createElement('span');
+    newsBlurb.textContent = LATEST_NEWS.blurb;
+    news.append(newsTitle, newsBlurb);
+    side.appendChild(news);
+
+    const contents = sideContents(main);
+    if (contents) side.appendChild(contents);
+
+    const find = document.createElement('label');
+    find.className = 'side-find';
+    find.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6"/><path d="M10.4 10.4 14 14"/></svg>';
+    const input = document.createElement('input');
+    input.type = 'search';
+    input.placeholder = 'Find a page';
+    input.setAttribute('aria-label', 'Find a wiki page');
+    find.appendChild(input);
+    side.appendChild(find);
+
+    const tools = document.createElement('div');
+    tools.className = 'side-tools';
+    const openAll = document.createElement('button');
+    openAll.type = 'button';
+    openAll.textContent = 'Open all';
+    const closeAll = document.createElement('button');
+    closeAll.type = 'button';
+    closeAll.textContent = 'Close all';
+    tools.append(openAll, closeAll);
+    side.appendChild(tools);
+
+    const nav = document.createElement('nav');
+    nav.className = 'side-nav';
+    nav.setAttribute('aria-label', 'All wiki pages');
+    const groups = [];
+    for (const group of GROUPS) {
+      const items = PAGES.filter((page) => page.group === group.id);
+      if (!items.length) continue;
+      if (!group.label) {
+        for (const item of items) nav.appendChild(sideLink(item));
+        continue;
+      }
+      const open = remembered ? remembered.includes(group.id) : here.group === group.id;
+      const box = sideGroup(group.id, group.label, items, open || here.group === group.id);
+      groups.push(box);
+      nav.appendChild(box);
+    }
+    if (SIBLINGS.length) {
+      const box = sideGroup('workshop', 'Workshop', SIBLINGS, remembered ? remembered.includes('workshop') : false);
+      groups.push(box);
+      nav.appendChild(box);
+    }
+    side.appendChild(nav);
+
+    const top = document.createElement('button');
+    top.type = 'button';
+    top.className = 'side-top';
+    top.textContent = 'Back to top';
+    top.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    side.appendChild(top);
+
+    const save = () => writeOpenGroups(groups.filter((box) => box.open).map((box) => box.dataset.group));
+    for (const box of groups) box.addEventListener('toggle', () => { if (!input.value) save(); });
+    openAll.addEventListener('click', () => { for (const box of groups) box.open = true; save(); });
+    closeAll.addEventListener('click', () => { for (const box of groups) box.open = false; save(); });
+
+    // Typing opens every shelf and hides what does not match; clearing restores the saved layout.
+    let before = null;
+    input.addEventListener('input', () => {
+      const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+      if (words.length && !before) before = groups.map((box) => box.open);
+      for (const link of nav.querySelectorAll('.side-link')) {
+        const text = link.textContent.toLowerCase();
+        link.hidden = !words.every((word) => text.includes(word));
+      }
+      groups.forEach((box, index) => {
+        const shown = box.querySelectorAll('.side-link:not([hidden])').length;
+        box.hidden = words.length > 0 && shown === 0;
+        box.open = words.length ? true : (before ? before[index] : box.open);
+      });
+      if (!words.length) before = null;
+    });
+
+    const shell = document.createElement('div');
+    shell.className = 'wiki-shell';
+    main.before(shell);
+    shell.append(side, main);
+    document.body.classList.add('has-side');
+
+    // Drawer toggle for narrow screens (hidden by CSS when the sidebar is docked).
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'side-toggle';
+    toggle.setAttribute('aria-controls', 'wiki-side');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.6 4h10.8M2.6 8h10.8M2.6 12h10.8"/></svg><span>Contents</span>';
+    const scrim = document.createElement('div');
+    scrim.className = 'side-scrim';
+    const setDrawer = (open) => {
+      document.body.classList.toggle('side-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setDrawer(!document.body.classList.contains('side-open')));
+    scrim.addEventListener('click', () => setDrawer(false));
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setDrawer(false); });
+    side.addEventListener('click', (event) => { if (event.target.closest('a')) setDrawer(false); });
+    const actions = header.querySelector('.actions');
+    if (actions) actions.prepend(toggle); else header.appendChild(toggle);
+    document.body.appendChild(scrim);
+  }
+
+  function mount() {
+    mountRail();
+    mountJump();
+    mountSidebar();
+    mountFinder();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', mount);
+  } else {
+    mount();
+  }
+})();
+
+const year = document.getElementById('year');
+if (year) year.textContent = String(new Date().getFullYear());

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music and Audio - Greenhaven Wiki</title>
+  <meta name="description" content="The six shipped songs, how the in-game music player works, and how the music maker composes them from a Python script into a WAV file.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Music and Audio</h1>
+      <p class="lede">Greenhaven's soundtrack is composed in code, rendered to WAV, and shipped beside the game. Six songs play across the menu, the world, and the music-maker workshop.</p>
+
+      <h2>The shipped songs</h2>
+      <table>
+        <thead>
+          <tr><th>Song</th><th>Where it plays</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Opening Fairy Village</td><td>The opening sequence and the boot menu.</td></tr>
+          <tr><td>Menu Greenhaven</td><td>The main menu backdrop loop.</td></tr>
+          <tr><td>Where the River Bends</td><td>The world's main theme - the shipping map.</td></tr>
+          <tr><td>Lanterns at Dusk</td><td>The evening bed - a slower, low-light variation.</td></tr>
+          <tr><td>Mosslight Waltz</td><td>A short waltz that plays in the mossy glade area.</td></tr>
+          <tr><td>Willowmere Lullaby</td><td>The lullaby theme - a very quiet, slow bed for the willow area.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The music player</h2>
+      <p>The in-game music player is a small window that lists every bundled song. It supports:</p>
+      <ul>
+        <li><strong>Real seek.</strong> Drag the playhead anywhere in the track and the song jumps to that second, not to a bar boundary.</li>
+        <li><strong>Volume rail.</strong> One slider for the player, independent of the master volume in <a href="/settings.html">Settings</a>.</li>
+        <li><strong>Live spectrum.</strong> A rolling bar display of what you are hearing right now, drawn from the audio sink every frame.</li>
+        <li><strong>Keyboard layer.</strong> Space plays or pauses, arrow keys seek a few seconds, and Page Up / Page Down change tracks. Nothing the player holds can steal a movement key while you are in the world.</li>
+      </ul>
+
+      <h2>How a song is made</h2>
+      <p>Every track is composed as a small Python script that reads a table of notes, tempo, and voice assignments, and renders a WAV with one of the workshop's synthesis engines. No external audio files or MIDI are involved; the source of a song is the script that generated it.</p>
+      <ul>
+        <li><strong>engine.py</strong> is the shared synthesis: an oscillator, a drum kit, and an ADSR envelope.</li>
+        <li><strong>samples.py</strong> defines reusable voices and patterns.</li>
+        <li><strong>songs.py</strong> holds the note tables and structure for each track.</li>
+        <li><strong>workshop.py</strong> is the driver: <code>python workshop.py &lt;song&gt;</code> renders one named song to WAV.</li>
+        <li><strong>make_*.py</strong> is one small script per song so re-rendering a single track does not touch the others.</li>
+      </ul>
+
+      <h2>Where the audio files live</h2>
+      <p>Every shipped WAV sits beside the game's other bundled art in <code>assets/audio/</code>. The installer packs them with the client, so the songs are available offline - a world server never plays audio to a client.</p>
+
+      <h2>Sound effects</h2>
+      <p>The rest of the game's sound is procedural. Menu blips, cast tones, footfalls, anvil rings, axe impacts and level-up chimes are all synthesised at runtime by the client, and each is a small function with a fixed envelope. Their volume lives on a separate SFX rail in <a href="/settings.html">Settings &gt; Audio</a> so a player can duck music and keep impacts loud.</p>
+
+      <h2>Related</h2>
+      <p>The audio volume rails, mute toggles and the mute-when-unfocused flag are all documented on <a href="/settings.html">Settings</a>. Music never interrupts a combat cue - the SFX rail is independent so a lullaby cannot cover a hit.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipment - Greenhaven Wiki</title>
+  <meta name="description" content="Equipment in Greenhaven: the twenty-slot paper doll, what is wearable today, armour values, and how worn gear draws on every avatar.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Equipment</h1>
+      <p class="lede">The Equipment tab is your paper doll: twenty named slots. Wear a piece and every player sees it on your avatar, drawn from the same shared registry the world validates.</p>
+
+      <h2>The twenty slots</h2>
+      <p>Every slot has a fixed id used on the wire and in saves, and a label used on the tab. Adding a slot is one new row; ids never renumber.</p>
+      <table>
+        <thead>
+          <tr><th>Slot</th><th>Label</th><th>Slot</th><th>Label</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Head</td><td>Head</td><td>Weapon</td><td>Weapon</td></tr>
+          <tr><td>Face</td><td>Face</td><td>OffHand</td><td>Off-hand</td></tr>
+          <tr><td>Neck</td><td>Neck</td><td>Hands</td><td>Hands</td></tr>
+          <tr><td>Shoulders</td><td>Shoulders</td><td>Tool</td><td>Skilling</td></tr>
+          <tr><td>Chest</td><td>Chest</td><td>RingLeft</td><td>Ring L</td></tr>
+          <tr><td>Back</td><td>Back (capes)</td><td>RingRight</td><td>Ring R</td></tr>
+          <tr><td>Wrists</td><td>Wrists</td><td>Earring</td><td>Earring</td></tr>
+          <tr><td>Waist</td><td>Waist</td><td>Trinket</td><td>Trinket</td></tr>
+          <tr><td>Legs</td><td>Legs</td><td>Ammo</td><td>Ammo</td></tr>
+          <tr><td>Feet</td><td>Feet</td><td>Pouch</td><td>Pouch</td></tr>
+        </tbody>
+      </table>
+      <p>The <strong>Back</strong> slot is the cape system today, not this registry. Capes ride on a separate field - see <a href="/capes.html">Capes</a>.</p>
+
+      <h2>What is wearable right now</h2>
+      <ul>
+        <li><strong>Bronze helm</strong> - Head, armour 2</li>
+        <li><strong>Bronze platebody</strong> - Chest, armour 6</li>
+        <li><strong>Bronze platelegs</strong> - Legs, armour 4</li>
+        <li><strong>Candy cane sword</strong> - Weapon, armour 0 (an admin gift: <code>/give &lt;you&gt; candy cane sword</code>)</li>
+        <li><strong>Bronze axe</strong> - Weapon or Tool, armour 0 (Smithing: hammer + bar + log)</li>
+        <li><strong>Bronze pickaxe</strong> - Weapon or Tool, armour 0 (Smithing: hammer + bar + log)</li>
+        <li><strong>Nutcracker hammer</strong> - Tool, armour 0 (a festive gift: does a hammer's job at the anvil and pays extra smithing XP)</li>
+        <li><strong>Santa hat</strong>, <strong>Festive jumper</strong>, <strong>Festive trousers</strong>, <strong>Elf boots</strong> - Head, Chest, Legs and Feet respectively (all admin gifts today, and all festive wear, not armour)</li>
+      </ul>
+      <p>The bronze armour pieces come from <a href="/smithing.html">Smithing</a>. Armour numbers are read by combat when hits resolve on the world; today they still shape your <a href="/combat.html">Combat</a> look and future defence rolls.</p>
+
+      <h2>The skilling-tool slot</h2>
+      <p>Both bronze tools double as weapons. You can <strong>wield</strong> one in the Weapon slot and fight with it, or <strong>hold</strong> it in the Tool slot (labelled <strong>Skilling</strong>) and free your weapon hand. A recipe that asks for a hammer is answered from either place - your bag or the tool slot - so the tool you carry is the tool that counts. Holding a tool takes it out of the bag, freeing one inventory slot. A good hold says "You ready the Hammer."</p>
+      <ul>
+        <li><strong>Bronze axe</strong> fights as an Axe (the hack move: an overhead chop, 1.25 tile reach, slower than a slash but a little harder).</li>
+        <li><strong>Bronze pickaxe</strong> fights as Blunt (the crush move: a short, even swing at 1.0 tile reach that trains Attack rather than Strength).</li>
+        <li>Anything you hold in the Tool slot is still a tool: a <strong>nutcracker hammer</strong> there does a plain hammer's job at the anvil and pays extra smithing XP on every recipe it covers.</li>
+      </ul>
+
+      <h2>How to wear and take off</h2>
+      <ul>
+        <li>Open the Skills sheet with <code>P</code> and go to the Inventory tab. A wearable row shows a Wear button.</li>
+        <li>One click moves the piece from bag to body. If the slot already held something, the old piece drops back into the bag in the same step - nothing is ever lost, and swapping is one click, not two.</li>
+        <li>The Equipment tab lists every slot with an icon and, for a filled slot, a Take off button. Your <strong>armour total</strong> (the sum of the pieces you wear) reads at the top.</li>
+      </ul>
+
+      <h2>What other players see</h2>
+      <p>Worn gear rides on the world's player snapshot in the same order the tab paints it - legs under the platebody, hands over the sleeves, helm over the body, held items on top. Every client draws the same outfit, and each piece uses its own overlay sheet aligned to the player pose. Take it off and it disappears from every viewer at once.</p>
+
+      <h2>Saved or not</h2>
+      <p>Your Equipment is saved with your character online - the world writes the slot id to item id map on every change, and the same map comes back on login. Single player keeps it in memory only.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

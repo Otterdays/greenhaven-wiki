@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Woodcutting - Greenhaven Wiki</title>
+  <meta name="description" content="Woodcutting in Greenhaven: tile IDs, level gates, XP per chop, chop range and cooldown rules for all nine cuttable trees.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SKILL</div>
+      <h1>Woodcutting</h1>
+      <p class="lede">Chop cuttable trees for woodcutting XP. Nine trees climb one per 10 levels, from the young oaks on the waking trail to the elderwood at level 80.</p>
+
+      <h2>The ladder</h2>
+      <p>Each tree is one map tile, and one shared registry - the same values in the online game, in Single player and in the painter - owns its level gate and its XP.</p>
+      <table>
+        <thead>
+          <tr><th>Tree</th><th>Tile ID</th><th>Level</th><th>XP per chop</th><th>Painter key</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Young oak</td>
+            <td>10</td>
+            <td>1</td>
+            <td>25</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Pine</td>
+            <td>25</td>
+            <td>10</td>
+            <td>40</td>
+            <td>J</td>
+          </tr>
+          <tr>
+            <td>Maple</td>
+            <td>26</td>
+            <td>20</td>
+            <td>60</td>
+            <td>K</td>
+          </tr>
+          <tr>
+            <td>Ancient oak</td>
+            <td>27</td>
+            <td>30</td>
+            <td>85</td>
+            <td>L</td>
+          </tr>
+          <tr>
+            <td>Yew</td>
+            <td>28</td>
+            <td>40</td>
+            <td>115</td>
+            <td>G</td>
+          </tr>
+          <tr>
+            <td>Willow</td>
+            <td>29</td>
+            <td>50</td>
+            <td>150</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>Redwood</td>
+            <td>30</td>
+            <td>60</td>
+            <td>190</td>
+            <td>T</td>
+          </tr>
+          <tr>
+            <td>Silverwood</td>
+            <td>31</td>
+            <td>70</td>
+            <td>235</td>
+            <td>Q</td>
+          </tr>
+          <tr>
+            <td>Elderwood</td>
+            <td>32</td>
+            <td>80</td>
+            <td>285</td>
+            <td>W</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Total XP sets your level. Each step costs 50 more XP than the step before, so level 2 arrives at 50 total XP, level 10 at 2250, and level 80 at 158000. The <a href="/experience.html">Experience</a> page has the full curve and the threshold table.</p>
+
+      <h2>How to chop</h2>
+      <ul>
+        <li>Click a cuttable tree near you. You must stand within 1.75 tiles of the trunk, or the game answers "Walk closer to harvest."</li>
+        <li>One chop per second on the shipping map. Clicking faster gets "Still working." and no XP - that second is shared with every other instant node, so you cannot chop, mine and dig three times a second.</li>
+        <li>Below the tree's level gate you get "Need woodcutting 40." (with that tree's number) and no XP.</li>
+        <li>A good chop reports "You chop the maple. +60 woodcutting. +1 Maple log" and your total is saved.</li>
+        <li>A depleted node refuses: "That node is empty for now."; walking off a channel mid-chop gets "Harvest interrupted."</li>
+      </ul>
+      <p>Online play is checked by the world server; Single player applies the same shared chop rules locally. A chop drops one log into your Inventory (the LOGS group), and every tree on the shipping map is infinite. With the Resource node tool, an author can give any tree a chop channel, a drop chance, a batch size and a respawn timer - the same node rules as rocks and fishing spots.</p>
+
+      <h2>Scenery trees</h2>
+      <p>Two tree tiles are decoration and refuse the axe. Any node can also be switched off per cell by an author (key <code>T</code>, the Resource node tool), which answers "This node is turned off.":</p>
+      <ul>
+        <li><strong>English oak</strong> (tile 3): "This oak is scenery. Place a Young oak to make it cuttable."</li>
+        <li><strong>White birch</strong> (tile 13): "This birch is scenery. It cannot be chopped."</li>
+      </ul>
+
+      <h2>See the ladder in game</h2>
+      <p>Press <code>P</code> during play to open the Skills sheet. The Woodcutting card shows your progress and lists the tree ladder, read straight from the same registry the chop rules use.</p>
+
+      <h2>Painter shortcuts</h2>
+      <p>Placing trees in the map painter? Each tree sits on one key:</p>
+      <ul>
+        <li>Young oak <code>-</code>, Pine <code>J</code>, Maple <code>K</code>, Ancient oak <code>L</code></li>
+        <li>Yew <code>G</code>, Willow <code>V</code>, Redwood <code>T</code>, Silverwood <code>Q</code>, Elderwood <code>W</code></li>
+      </ul>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

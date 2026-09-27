@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digging - Greenhaven Wiki</title>
+  <meta name="description" content="Digging in Greenhaven: sand and clay tiles, the dedicated counters, merchant goods, and why digging has no level of its own.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SKILL</div>
+      <h1>Digging</h1>
+      <p class="lede">Click a patch of sand or a mound of clay to dig it up. Sand and clay fill dedicated counters on your character sheet, and merchants buy and sell them by the unit.</p>
+
+      <h2>What you can dig</h2>
+      <p>Two tiles carry a diggable node, and each has one row in the shared dig registry:</p>
+      <table>
+        <thead>
+          <tr><th>Material</th><th>Tile ID</th><th>Walking</th><th>XP per dig</th><th>Drops</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sand</td><td>35</td><td>walkable</td><td>5</td><td>+1 Sand</td></tr>
+          <tr><td>Clay</td><td>36</td><td>blocks movement</td><td>8</td><td>+1 Clay</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How to dig</h2>
+      <ul>
+        <li>Click a sand or clay tile within 1.75 tiles of its centre - the same reach every other resource node uses. Too far gets "Walk closer to dig."</li>
+        <li>Digging is instant on the shipping map, so it shares the one-per-second pace with every other quick node ("Still working." if you click faster).</li>
+        <li>A good dig reports "You dig the sand. +5 digging. +1 Sand". Sand and clay do not sit in your Inventory - they have their own counters on the character sheet.</li>
+      </ul>
+
+      <h2>No level curve</h2>
+      <p>Digging is a skill pool, not a levelled skill. Digging XP accumulates so a future ladder can hang off it, but today no level reads that pool, no gate uses it, and it does not count toward your total level. See the <a href="/experience.html">Experience</a> page for the skills that do.</p>
+
+      <h2>Merchant goods</h2>
+      <p>Sand and clay are the two goods a <a href="/npcs.html">merchant</a> trades in today. Every stock row names one of them and lists what the merchant charges and what they pay per unit, with infinite or counted stock.</p>
+
+      <h2>Authoring digs</h2>
+      <p>Painters place sand and clay from their palette rows and tune a spot the same way any resource node is tuned (key <code>T</code>, the Resource node tool): XP per dig, chance, batch size, channel seconds and respawn. A dug clay mound with a respawn timer turns grey until it refills; sand, being walkable, stays visible but refuses the click while empty.</p>
+
+      <h2>Saved or not</h2>
+      <p>Online, the world saves your sand and clay counters and your digging XP with your character. Single player keeps them in memory only.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

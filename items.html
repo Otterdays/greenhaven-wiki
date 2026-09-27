@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Items - Greenhaven Wiki</title>
+  <meta name="description" content="The shared item registry: every item id, the seven families the inventory sorts them into, and where each drop or make actually comes from.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SYSTEM</div>
+      <h1>Items</h1>
+      <p class="lede">Everything you can pick up lives in one shared list, and one shared family rule sorts it. The game, the map painter and the panel read the same registry, so the item browser and the Inventory never disagree.</p>
+
+      <h2>The seven families</h2>
+      <p>Every item id sorts into one family. The family decides how the Inventory groups it, and whether it lists as a heading.</p>
+      <table>
+        <thead>
+          <tr><th>Family</th><th>Heading</th><th>What lands here</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Logs</td><td>LOGS</td><td>Every log that ends in <code>_log</code> (young oak, pine, maple, ancient oak, yew, willow, redwood, silverwood, elderwood).</td></tr>
+          <tr><td>OresAndGems</td><td>ORES AND GEMS</td><td>Every ore, gem, and coal the mines drop.</td></tr>
+          <tr><td>Fish</td><td>FISH</td><td>Every tier in the <a href="/fishing.html">fish ladder</a> (minnow through mooncale).</td></tr>
+          <tr><td>Gathered</td><td>(no heading)</td><td>Sand and clay from <a href="/digging.html">Digging</a>. They live in their own counters on the sheet, never grouped as materials.</td></tr>
+          <tr><td>Bars</td><td>BARS</td><td>Every smelted bar (<code>bronze_bar</code> today).</td></tr>
+          <tr><td>Tools</td><td>TOOLS</td><td>Any held tool: hammer, nutcracker hammer, bronze axe, bronze pickaxe.</td></tr>
+          <tr><td>Equipment</td><td>EQUIPMENT</td><td>Any wearable: bronze armour, the candy cane sword, the festive set.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The full list today</h2>
+      <p>Labels match the shared registry verbatim, so the game's chat line and the painter's browser read the same words.</p>
+      <div class="grid grid-2">
+        <div>
+          <h3>Chops</h3>
+          <p>Young oak log, Pine log, Maple log, Ancient oak log, Yew log, Willow log, Redwood log, Silverwood log, Elderwood log.</p>
+          <h3>Mines</h3>
+          <p>Stone, Copper ore, Tin ore, Iron ore, Coal, Silver ore, Gold ore, Ruby, Mithril ore, Emerald, Topaz, Sapphire, Adamantite ore, Amethyst, Orichalcum ore, Onyx, Opal, Diamond.</p>
+          <h3>Casts</h3>
+          <p>Minnow, Silverfin, Trout, Salmon, Lanternfish, Mooncale.</p>
+        </div>
+        <div>
+          <h3>Digs</h3>
+          <p>Sand, Clay.</p>
+          <h3>Mades</h3>
+          <p>Bronze bar, Hammer, Nutcracker hammer, Bronze axe, Bronze pickaxe, Bronze helm, Bronze platebody, Bronze platelegs.</p>
+          <h3>Gifts</h3>
+          <p>Candy cane sword, Santa hat, Festive jumper, Festive trousers, Elf boots. Given by an admin with <code>/give</code>; no in-world source yet.</p>
+        </div>
+      </div>
+
+      <h2>Every icon is one shared sheet</h2>
+      <p>The item icons are one hand-authored sprite sheet the client, the panel, the painter's Items panel and the wiki all read from. A new item's icon is one cell added to the sheet, not a new file.</p>
+
+      <h2>Where a drop or a make comes from</h2>
+      <ul>
+        <li><strong>Logs</strong> come from <a href="/woodcutting.html">Woodcutting</a> - one row in the tree registry per log.</li>
+        <li><strong>Ores and gems</strong> come from <a href="/mining.html">Mining</a> - one row in the rock registry per ore or gem.</li>
+        <li><strong>Fish</strong> come from <a href="/fishing.html">Fishing</a> - one row in the fish-tier registry.</li>
+        <li><strong>Sand and clay</strong> come from <a href="/digging.html">Digging</a>.</li>
+        <li><strong>Bars and tools</strong> come from <a href="/smithing.html">Smithing</a> at the furnace or anvil.</li>
+        <li><strong>Equipment</strong> comes from Smithing, or an admin gift.</li>
+      </ul>
+
+      <h2>Gift-only items</h2>
+      <p>A closed list marks items with no in-world source yet: the candy cane sword and the whole festive set (hat, jumper, trousers, boots). The map painter's item browser shows "Admin gift (/give)" as their source so a builder does not try to place a drop for them.</p>
+
+      <h2>Adding a new item</h2>
+      <p>One new row in the shared items registry plus a cell on the icon sheet. Family sorting is automatic (a suffix rule picks logs, and a small <code>item_family</code> function handles the rest). If the item is worn, one new <code>EQUIPMENT</code> row; if it fights, one <code>WEAPONS</code> row; if it crafts, one <code>RECIPES</code> row.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>
