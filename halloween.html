@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halloween - Greenhaven Wiki</title>
+  <meta name="description" content="The Halloween round: twenty-six spooky props, seven creatures and the Pumpkin King boss, four costumes, pumpkin and candy corn treats, two familiar pets, the Hallowmere stamps, pumpkin vine digging, trick-or-treat gifts, mob loot, and the glow and mood effects.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">CONTENT</div>
+      <h1>Halloween</h1>
+      <p class="lede">The Halloween round brings the spooky side of Greenhaven: twenty-six props, seven creatures and a boss, four costumes, two treats, two familiars, a diggable pumpkin vine ground, trick-or-treat gifts, mob loot drops, and a whole haunted town to place them in. Like the festive set, none of it is seasonal logic - a map simply places the props, a character simply wears the costumes, and the world simply spawns the mobs.</p>
+
+      <h2>Halloween props</h2>
+      <p>Twenty-six placeable tiles, all blocked single-cell scenery on the same market sheet as every other prop. Two of them - the cemetery gate and the giant cobweb - fill a 2 x 2 footprint. The lit pieces flicker and cast a soft halo (see <a href="#light">Glow and mood</a>).</p>
+      <table>
+        <thead>
+          <tr><th>Prop</th><th>Tile</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Jack-o'-lantern</td><td>162</td></tr>
+          <tr><td>Haunted house</td><td>163</td></tr>
+          <tr><td>Giant pumpkin</td><td>164</td></tr>
+          <tr><td>Witch cauldron</td><td>165</td></tr>
+          <tr><td>Crooked tombstone</td><td>166</td></tr>
+          <tr><td>Iron mausoleum</td><td>167</td></tr>
+          <tr><td>Dead tree</td><td>168</td></tr>
+          <tr><td>Skeleton</td><td>169</td></tr>
+          <tr><td>Ghost lantern post</td><td>170</td></tr>
+          <tr><td>Candy stall</td><td>171</td></tr>
+          <tr><td>Hay maze block</td><td>172</td></tr>
+          <tr><td>Coffin</td><td>173</td></tr>
+          <tr><td>Crow cage</td><td>174</td></tr>
+          <tr><td>Potion crate</td><td>175</td></tr>
+          <tr><td>Candy corn pile</td><td>176</td></tr>
+          <tr><td>Witch hat sign</td><td>177</td></tr>
+          <tr><td>Spider web post</td><td>178</td></tr>
+          <tr><td>Pumpkin stall</td><td>179</td></tr>
+          <tr><td>Pumpkin scarecrow</td><td>180</td></tr>
+          <tr><td>Gargoyle statue</td><td>181</td></tr>
+          <tr><td>Cemetery gate (2 x 2)</td><td>182</td></tr>
+          <tr><td>Witch altar</td><td>183</td></tr>
+          <tr><td>Fresh grave</td><td>184</td></tr>
+          <tr><td>Giant cobweb (2 x 2)</td><td>185</td></tr>
+          <tr><td>Skeleton hand</td><td>186</td></tr>
+          <tr><td>Pumpkin cart</td><td>187</td></tr>
+        </tbody>
+      </table>
+      <p>Tile 188 (the pumpkin vine ground) is the current <code>MAX_TILE</code> - the top of the whole tile range the painter offers.</p>
+
+      <h2>Pumpkin vines</h2>
+      <p>A new walkable ground tile (188) you can dig for pumpkins. Lay down pumpkin vine tiles in a patch, walk up to one, and dig: you get 1-2 pumpkins each time with a small chance of getting nothing. Pumpkins feed the <a href="#treats">witch cauldron</a> recipes for costumes and candy corn. The vine is a natural ground like sand or clay, so pieces can stand on it and it blends into neighbouring tiles.</p>
+
+      <h2>Creatures and the boss</h2>
+      <p>Seven new mobs are ready in the shared creature registry, from a shy cat to a scarecrow lord. None is placed in the world yet - a builder drops them from the map painter's <strong>Halloween</strong> character group. Combat is not on the wire yet, so these are authored and placeable, not yet roaming on their own.</p>
+      <table>
+        <thead>
+          <tr><th>Creature</th><th>Level</th><th>Health</th><th>Role</th><th>Style</th><th>Hostility</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Black Cat</td><td>1</td><td>6</td><td>Shy critter</td><td>melee</td><td>passive</td></tr>
+          <tr><td>Vampire Bat</td><td>3</td><td>16</td><td>Night flyer</td><td>melee</td><td>aggressive</td></tr>
+          <tr><td>Restless Ghost</td><td>8</td><td>60</td><td>Graveyard spirit</td><td>magic</td><td>aggressive</td></tr>
+          <tr><td>Gourdhulk</td><td>12</td><td>130</td><td>Pumpkin golem</td><td>melee</td><td>aggressive</td></tr>
+          <tr><td>Hex Witch</td><td>16</td><td>110</td><td>Coven caster</td><td>magic</td><td>aggressive</td></tr>
+          <tr><td>Moonhowl Werewolf</td><td>24</td><td>340</td><td>Night beast</td><td>melee</td><td>aggressive</td></tr>
+          <tr><td>Jack Hollowgourd</td><td>45</td><td>4,200</td><td>Pumpkin King (boss)</td><td>melee</td><td>aggressive</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>Black Cat</strong> - a small cat with a bow who watches you and slinks off if you get close.</li>
+        <li><strong>Vampire Bat</strong> - a palm-sized bat with red eyes that never lands; it roosts by day and drops at dusk.</li>
+        <li><strong>Restless Ghost</strong> - a wailing bedsheet ghost that drifts between the graves.</li>
+        <li><strong>Gourdhulk</strong> - a jack-o'-lantern grown to the size of a cart, with root arms and a grin lit from inside.</li>
+        <li><strong>Hex Witch</strong> - a green-skinned witch in a crooked hat who hexes from across the clearing.</li>
+        <li><strong>Moonhowl Werewolf</strong> - a hulking wolf that hunts the roads between the villages.</li>
+        <li><strong>Jack Hollowgourd, the Pumpkin King</strong> - the scarecrow lord of the pumpkin patch, with a carved grin, a crown of black thorns and a pitchfork. He is the fourth named boss; see <a href="/bosses.html">Bosses</a>.</li>
+      </ul>
+
+      <h2>Costumes</h2>
+      <p>Four wearable pieces, all brewed at the <strong>witch cauldron</strong> (tile 165) - a placeable crafting station like the anvil and the furnace. Stand within reach of one you have placed and its recipes are offered. The three head pieces are light armour; the lantern is carried in the weapon hand and is cosmetic - it fights as Unarmed and gives no light on its own.</p>
+      <ul>
+        <li><strong>Witch hat</strong> - Head, armour 1. A tall cone with a wide brim.</li>
+        <li><strong>Cat-ear hood</strong> - Head, armour 1. A black hood with two ears.</li>
+        <li><strong>Pumpkin helm</strong> - Head, armour 2. A glowing carved pumpkin you wear.</li>
+        <li><strong>Pumpkin lantern</strong> - Weapon hand, cosmetic. Carried, not swung.</li>
+      </ul>
+      <p>Make more like them in the <a href="/gear-forge.html">Gear Forge</a>. How wearing works is on <a href="/equipment.html">Equipment</a>.</p>
+
+      <h2>Treats</h2>
+      <ul>
+        <li><strong>Pumpkin</strong> - the raw ingredient. Trade it or cook it.</li>
+        <li><strong>Candy corn</strong> - a sweet you can eat ("Sweet, waxy and a little chalky. Somewhere a dentist smiles."). Six come from one pumpkin at the cauldron.</li>
+      </ul>
+      <p>Food items show an <strong>Eat</strong> button in the Inventory; pressing it uses one and prints the item's eating message. Both treats feed the costume recipes: pumpkins and candy corn are the inputs for every piece above. Full item list on <a href="/items.html">Items</a>.</p>
+
+      <h2>Familiars</h2>
+      <p>Two spooky pets join the <a href="/pets.html">Pets</a> roster, summoned from the Pets tab:</p>
+      <ul>
+        <li><strong>Black Cat familiar</strong> - a witch's cat with an orange bow. Pounces on your foes and keeps a small treat pouch.</li>
+        <li><strong>Vampire Bat familiar</strong> - a tiny bat that flutters at your shoulder, snatches coins and carries two things in its claws.</li>
+      </ul>
+      <p>Both familiars are <em>gift-only</em> today: an admin hands one out with <code>/give</code> or the panel, and there is no in-world source yet.</p>
+
+      <h2 id="light">Glow and mood</h2>
+      <p>The lit props - lanterns, candles, the cauldron, the scarecrow and the altar, and the haunted windows - flicker and cast soft light halos. Two new knobs in Settings &gt; Graphics &gt; Look turn the atmosphere up or down:</p>
+      <ul>
+        <li><strong>Glow</strong> - how bright the flicker and halos read.</li>
+        <li><strong>Mood</strong> - a full-screen look: Off, Vignette (default), Dusk or Haunted. Hiding the HUD (F10) keeps the mood up, so a screenshot still has the look.</li>
+      </ul>
+      <p>See <a href="/settings.html">Settings</a> for every graphics control.</p>
+
+      <h2>Spooky weather</h2>
+      <p>Over the six Halloween grounds (the graveyard dirt through foggy stone, tiles 156-160, plus the pumpkin vine at 188) the world gets its own atmosphere: drifting <strong>fog</strong> banks, rising green <strong>wisps</strong>, and a rare <strong>lightning</strong> flash followed a beat later by <strong>thunder</strong>. It only happens while you stand near that ground, so the rest of the map stays clear. Like every ambient effect it is per-player and unsynced, and <strong>Reduced motion</strong> turns the flash off. A builder tunes fog, wisps and storm in the map painter's Settings &gt; Halloween weather, in plain words.</p>
+
+      <h2>Trick-or-treat</h2>
+      <p>NPCs can now hand you a gift through a dialogue option. A builder sets a <strong>Gift</strong> item and quantity on any answer in the map painter's dialogue editor. When a player clicks that option, the world gives them the item. Check <strong>Once</strong> to limit it to one claim per character for the lifetime of that character - perfect for an event where every villager gives you candy the first time you visit. The claim is saved with the character, so logging out and back in does not reset it.</p>
+
+      <h2>Mob loot</h2>
+      <p>When you kill a monster, the world now rolls its <strong>loot table</strong> (authored in the mob stats) and gives you whatever drops. Each entry has an item, a min/max quantity, and a drop chance. You see a "You get: ..." message listing what landed. The Pumpkin King and other Halloween mobs can drop pumpkins, candy corn, or any other registered item - all data, no code change needed.</p>
+
+      <h2>Hallowmere and the stamps</h2>
+      <p>The Halloween town region ships with six stamps so a builder can lay down a spooky street in one click: the graveyard row, the pumpkin patch, the spooky festival green, the town gatehouse, the lit crossroads and the Halloween market row. Each shows a plain-language description in the stamp picker. How stamps work is on <a href="/map-maker.html">The Map Painter</a>.</p>
+
+      <h2>How this is built</h2>
+      <p>Nothing here needs seasonal code. A prop is one tile id on the market sheet. A costume is one <a href="/equipment.html">EQUIPMENT</a> row plus its worn art. A creature is one registry row, one stat row and one sprite sheet. A builder places them; the world reads the same numbers any other content uses. See <a href="/seasonal.html">Seasonal Content</a> for the same pattern on the festive side.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

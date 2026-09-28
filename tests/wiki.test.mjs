@@ -217,6 +217,7 @@ const PAGES = [
   {href: '/friends.html', file: 'friends.html', label: 'Friends'},
   {href: '/items.html', file: 'items.html', label: 'Items'},
   {href: '/seasonal.html', file: 'seasonal.html', label: 'Seasonal'},
+  {href: '/halloween.html', file: 'halloween.html', label: 'Halloween'},
   {href: '/character-forge.html', file: 'character-forge.html', label: 'Character Forge'},
   {href: '/gallery.html', file: 'gallery.html', label: 'Gallery'},
   {href: '/terrain.html', file: 'terrain.html', label: 'Terrain'},
@@ -711,6 +712,57 @@ test('seasonal table pins every festive tile id', async () => {
   assert.match(html, /gift-only/);
   assert.match(html, /href="\/equipment\.html"/);
   assert.match(html, /href="\/pets\.html"/);
+});
+
+test('halloween article pins every spooky tile id and names the roster', async () => {
+  const html = await readFile(path.join(root, 'halloween.html'), 'utf8');
+  const rows = tableRows(html);
+  // The 26 Halloween prop tiles, 162 (jack-o-lantern) through 187 (pumpkin cart).
+  const PROPS = [
+    ["Jack-o'-lantern", "162"],
+    ["Haunted house", "163"],
+    ["Giant pumpkin", "164"],
+    ["Witch cauldron", "165"],
+    ["Crooked tombstone", "166"],
+    ["Iron mausoleum", "167"],
+    ["Dead tree", "168"],
+    ["Skeleton", "169"],
+    ["Ghost lantern post", "170"],
+    ["Candy stall", "171"],
+    ["Hay maze block", "172"],
+    ["Coffin", "173"],
+    ["Crow cage", "174"],
+    ["Potion crate", "175"],
+    ["Candy corn pile", "176"],
+    ["Witch hat sign", "177"],
+    ["Spider web post", "178"],
+    ["Pumpkin stall", "179"],
+    ["Pumpkin scarecrow", "180"],
+    ["Gargoyle statue", "181"],
+    ["Cemetery gate (2 x 2)", "182"],
+    ["Witch altar", "183"],
+    ["Fresh grave", "184"],
+    ["Giant cobweb (2 x 2)", "185"],
+    ["Skeleton hand", "186"],
+    ["Pumpkin cart", "187"],
+  ];
+  for (const [name, tile] of PROPS) {
+    assert.deepEqual(rows.find((cells) => cells[0] === name), [name, tile], `row for ${name}`);
+  }
+  assert.match(html, /MAX_TILE/);
+  assert.match(html, /188/);
+  assert.match(html, /Pumpkin vine/i);
+  assert.match(html, /Trick-or-treat/);
+  assert.match(html, /Mob loot/);
+  assert.match(html, /loot table/);
+  for (const mob of ["Black Cat", "Vampire Bat", "Restless Ghost", "Gourdhulk", "Hex Witch", "Moonhowl Werewolf", "Jack Hollowgourd"]) {
+    assert.ok(html.includes(mob), `halloween page is missing ${mob}`);
+  }
+  assert.match(html, /Witch hat/);
+  assert.match(html, /Pumpkin helm/);
+  assert.match(html, /candy corn/i);
+  assert.match(html, /Hallowmere/);
+  assert.match(html, /href="\/bosses\.html"/);
 });
 
 test('character-forge article documents the parts, the CLI and the sheet', async () => {
