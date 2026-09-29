@@ -61,13 +61,13 @@
       <p>A new walkable ground tile (188) you can dig for pumpkins. Lay down pumpkin vine tiles in a patch, walk up to one, and dig: you get 1-2 pumpkins each time with a small chance of getting nothing. Pumpkins feed the <a href="#treats">witch cauldron</a> recipes for costumes and candy corn. The vine is a natural ground like sand or clay, so pieces can stand on it and it blends into neighbouring tiles.</p>
 
       <h2>Creatures and the boss</h2>
-      <p>Seven new mobs are ready in the shared creature registry, from a shy cat to a scarecrow lord. None is placed in the world yet - a builder drops them from the map painter's <strong>Halloween</strong> character group. Combat is not on the wire yet, so these are authored and placeable, not yet roaming on their own.</p>
+      <p>Seven new mobs are ready in the shared creature registry, from a scrappy cat to a scarecrow lord. Combat is live on the server, so a placed mob fights back and can be slain for loot; none are placed in the world yet - a builder drops them from the map painter's <strong>Halloween</strong> character group.</p>
       <table>
         <thead>
           <tr><th>Creature</th><th>Level</th><th>Health</th><th>Role</th><th>Style</th><th>Hostility</th></tr>
         </thead>
         <tbody>
-          <tr><td>Black Cat</td><td>1</td><td>6</td><td>Shy critter</td><td>melee</td><td>passive</td></tr>
+          <tr><td>Black Cat</td><td>2</td><td>14</td><td>Scrappy critter</td><td>melee</td><td>aggressive</td></tr>
           <tr><td>Vampire Bat</td><td>3</td><td>16</td><td>Night flyer</td><td>melee</td><td>aggressive</td></tr>
           <tr><td>Restless Ghost</td><td>8</td><td>60</td><td>Graveyard spirit</td><td>magic</td><td>aggressive</td></tr>
           <tr><td>Gourdhulk</td><td>12</td><td>130</td><td>Pumpkin golem</td><td>melee</td><td>aggressive</td></tr>
@@ -77,7 +77,7 @@
         </tbody>
       </table>
       <ul>
-        <li><strong>Black Cat</strong> - a small cat with a bow who watches you and slinks off if you get close.</li>
+        <li><strong>Black Cat</strong> - a small cat with a bow. It is feisty: it hisses and fights when you come near. Slay it for a low chance to gain a Black Cat familiar.</li>
         <li><strong>Vampire Bat</strong> - a palm-sized bat with red eyes that never lands; it roosts by day and drops at dusk.</li>
         <li><strong>Restless Ghost</strong> - a wailing bedsheet ghost that drifts between the graves.</li>
         <li><strong>Gourdhulk</strong> - a jack-o'-lantern grown to the size of a cart, with root arms and a grin lit from inside.</li>
@@ -109,7 +109,7 @@
         <li><strong>Black Cat familiar</strong> - a witch's cat with an orange bow. Pounces on your foes and keeps a small treat pouch.</li>
         <li><strong>Vampire Bat familiar</strong> - a tiny bat that flutters at your shoulder, snatches coins and carries two things in its claws.</li>
       </ul>
-      <p>Both familiars are <em>gift-only</em> today: an admin hands one out with <code>/give</code> or the panel, and there is no in-world source yet.</p>
+      <p>Both familiars now have an in-world source: kill the matching mob and it has a low chance to drop the pet (Black Cat mob 8%, Vampire Bat mob 6%). An admin can still hand one out with <code>/give</code> or the panel.</p>
 
       <h2 id="light">Glow and mood</h2>
       <p>The lit props - lanterns, candles, the cauldron, the scarecrow and the altar, and the haunted windows - flicker and cast soft light halos. Two new knobs in Settings &gt; Graphics &gt; Look turn the atmosphere up or down:</p>
