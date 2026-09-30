@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Items - Greenhaven Wiki</title>
-  <meta name="description" content="The shared item registry: every item id, the seven families the inventory sorts them into, and where each drop or make actually comes from.">
+  <meta name="description" content="The shared item registry: every item id, the eight families the inventory sorts them into, and where each drop or make actually comes from.">
   <link rel="stylesheet" href="/theme.css">
   <link rel="stylesheet" href="/style.css">
   <script src="/theme.js"></script>
@@ -20,13 +20,14 @@
       <h1>Items</h1>
       <p class="lede">Everything you can pick up lives in one shared list, and one shared family rule sorts it. The game, the map painter and the panel read the same registry, so the item browser and the Inventory never disagree.</p>
 
-      <h2>The seven families</h2>
+      <h2>The eight families</h2>
       <p>Every item id sorts into one family. The family decides how the Inventory groups it, and whether it lists as a heading.</p>
       <table>
         <thead>
           <tr><th>Family</th><th>Heading</th><th>What lands here</th></tr>
         </thead>
         <tbody>
+          <tr><td>Potions</td><td>POTIONS</td><td>Anything brewed in a bottle: an id ending in <code>_potion</code> or <code>_elixir</code> (Health potion, Mana potion, Golden elixir). This rule is checked first, before every other family.</td></tr>
           <tr><td>Logs</td><td>LOGS</td><td>Every log that ends in <code>_log</code> (young oak, pine, maple, ancient oak, yew, willow, redwood, silverwood, elderwood).</td></tr>
           <tr><td>OresAndGems</td><td>ORES AND GEMS</td><td>Every ore, gem, and coal the mines drop.</td></tr>
           <tr><td>Fish</td><td>FISH</td><td>Every tier in the <a href="/fishing.html">fish ladder</a> (minnow through mooncale).</td></tr>
@@ -53,13 +54,15 @@
           <p>Sand, Clay.</p>
           <h3>Mades</h3>
           <p>Bronze bar, Hammer, Nutcracker hammer, Bronze axe, Bronze pickaxe, Bronze helm, Bronze platebody, Bronze platelegs.</p>
+          <h3>Bottles</h3>
+          <p>Health potion, Mana potion, Golden elixir. Bought at a merchant, drunk from your bag.</p>
           <h3>Gifts</h3>
           <p>Candy cane sword, Santa hat, Festive jumper, Festive trousers, Elf boots. The festive clothes are stitched at a <a href="/smithing.html">tailor's booth</a>; the sword still comes from an admin with <code>/give</code>.</p>
         </div>
       </div>
 
       <h2>Every icon is one shared sheet</h2>
-      <p>The item icons are one hand-authored sprite sheet the client, the panel, the painter's Items panel and the wiki all read from. A new item's icon is one cell added to the sheet, not a new file.</p>
+      <p>The item icons are one generated sprite sheet the client, the panel, the painter's Items panel and the wiki all read from. Each item has a small gear spec listing its icon rows; one build step redraws the whole sheet, so the copy in the game and the copy in the browser can never drift apart.</p>
 
       <h2>Where a drop or a make comes from</h2>
       <ul>
@@ -69,13 +72,14 @@
         <li><strong>Sand and clay</strong> come from <a href="/digging.html">Digging</a>.</li>
         <li><strong>Bars and tools</strong> come from <a href="/smithing.html">Smithing</a> at the furnace or anvil.</li>
         <li><strong>Equipment</strong> comes from Smithing, or an admin gift.</li>
+        <li><strong>Potions</strong> come from a merchant's stall. There is no brewing recipe for them yet - the doses are built into the game.</li>
       </ul>
 
       <h2>Gift-only items</h2>
       <p>A closed list marks items with no in-world source yet: the candy cane sword and the whole festive set (hat, jumper, trousers, boots). The map painter's item browser shows "Admin gift (/give)" as their source so a builder does not try to place a drop for them.</p>
 
       <h2>Adding a new item</h2>
-      <p>One new row in the shared items registry plus a cell on the icon sheet. Family sorting is automatic (a suffix rule picks logs, and a small <code>item_family</code> function handles the rest). If the item is worn, one new <code>EQUIPMENT</code> row; if it fights, one <code>WEAPONS</code> row; if it crafts, one <code>RECIPES</code> row.</p>
+      <p>One new row in the shared items registry plus one gear spec holding its icon rows; the sheet is rebuilt from those specs, never hand-painted. Family sorting is automatic (a suffix rule picks potions and logs, and a small <code>item_family</code> function handles the rest). If the item is worn, one new <code>EQUIPMENT</code> row; if it fights, one <code>WEAPONS</code> row; if it crafts, one <code>RECIPES</code> row. A potion's dose is a <code>POTIONS</code> row, so it restores health or breath when drunk.</p>
     </article>
   </main>
   <footer>

@@ -29,7 +29,7 @@
       </ul>
 
       <h2>Shops</h2>
-      <p>A shop row is opened from an option marked "opens the shop" - not from a special talk. The shop counter draws one row per good with two prices and a stock line.</p>
+      <p>A shop row is opened from an option marked "opens the shop" - not from a special talk. The shop counter draws one row per good with two prices and a stock line, plus a <strong>quantity box</strong> above the shelves that says how many one press moves.</p>
       <table>
         <thead>
           <tr><th>Field</th><th>Meaning</th></tr>
@@ -44,14 +44,14 @@
       <p>A shop offers up to forty rows. A price cannot exceed 100,000 coins. Reach to trade is 2 tiles from the merchant's saved cell - a hair wider than a harvest reach.</p>
 
       <h2>What a merchant can trade</h2>
-      <p>Anything. A shop row names any item the game knows: logs, ore, gems, bars, fish, food, tools, weapons, armour, capes, and every item made in the Gear Forge. Sand and Clay are only two of them - dug from the ground (see <a href="/digging.html">Digging</a>) and taken back for coin. The painter's shop editor lists them all with a search box and category tabs - drag one onto the shelf or click it - so a stall is never fixed to a short list. Bought goods go into your Inventory like anything else.</p>
+      <p>Anything. A shop row names any item the game knows: logs, ore, gems, bars, fish, food, potions, tools, weapons, armour, capes, and every item made in the Gear Forge. Sand and Clay are only two of them - dug from the ground (see <a href="/digging.html">Digging</a>) and taken back for coin. The painter's shop editor lists them all with a search box and category tabs - drag one onto the shelf or click it - so a stall is never fixed to a short list. Bought goods go into your Inventory like anything else.</p>
 
       <h2>How a trade works</h2>
       <ol>
         <li>Walk within <strong>2 tiles</strong> of the merchant's saved cell (a hair wider than a harvest reach), and click them.</li>
         <li>Choose the option on their dialogue that opens the shop. The client sends a <strong>shop open</strong> ask, and the world answers with the merchant's current rows and remaining stock.</li>
         <li>The counter draws one row per good: the buy price, the sell price, and how many the merchant has left (or an infinity sign for a row set to infinite). A row at <strong>0 buy</strong> is not for sale; a row at <strong>0 sell</strong> is not bought.</li>
-        <li>Press <strong>Buy</strong>, <strong>x10</strong>, <strong>Sell</strong> or <strong>All</strong>. The client asks and the world answers with the same two things on every transaction: a <code>Skills</code> update (your coins and your bag both moved) and a plain <strong>Notice</strong> line - "Bought 1 Sand for 12 coins." or "Not enough coins." Buying lands one or ten at a time; selling lands one or your whole stack.</li>
+        <li>Press <strong>Buy</strong>, <strong>x10</strong>, <strong>Sell</strong> or <strong>All</strong>. The client asks and the world answers with the same two things on every transaction: a <code>Skills</code> update (your coins and your bag both moved) and a plain <strong>Notice</strong> line - "Bought 1 Sand for 12 coins." or "Not enough coins." <strong>Buy</strong> and <strong>Sell</strong> move the number in the quantity box; <strong>x10</strong> always lands ten; <strong>All</strong> always sells your whole stack. Click the box and type up to four digits (1 to 1,000); it resets to 1 whenever you walk up to a new merchant.</li>
         <li>A row that is not infinite counts down, and the world remembers what is left - even across a restart. It returns to its authored number when a map author changes that number in the painter. Infinite rows never change - the merchant always has another crate.</li>
       </ol>
 

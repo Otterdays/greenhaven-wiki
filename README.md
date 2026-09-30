@@ -22,7 +22,7 @@ A small static wiki for Greenhaven, built in the same pattern as the public porc
 | `crouch.html` | Crouch article (half speed, sprint veto, world-owned slowdown) |
 | `chat.html` | Chat and Commands article (glance / review / compose, /time /w /clear) |
 | `guilds.html` | Guilds and Friends article (names, tags, caps, whispers) |
-| `items.html` | Items article (the shared item registry and the seven families) |
+| `items.html` | Items article (the shared item registry and the eight families) |
 | `seasonal.html` | Seasonal Content article (Christmas props, festive set, Rudolph) |
 | `character-forge.html` | Character Forge article (the model maker and the agent CLI) |
 | `gallery.html` | Gallery article (bundled previews: brand, menu, characters, world) |
@@ -89,7 +89,7 @@ The capes article mirrors `CAPE_DEFS` (four rows), `Currency` (Coins vs Crystals
 
 The coins article mirrors `COIN_BAG_MAX` (100,000,000), `STARTER_COINS` (100), `CoinTier::floor` (Bronze / Silver 10,000 / Gold 100,001 / Platinum 1,000,001 / Diamond 10,000,001), `COIN_PICKUP_RANGE` (1.5), `COIN_OWNER_WAIT_MS` (2000) and `COIN_PILE_LIFE_MS` (180,000). Bands are operator-declared; change them together.
 
-The npcs article mirrors `Dialogue` / `DialogueNode` / `DialogueOption`, `Shop` / `ShopRow`, `GOODS` (sand, clay) and the caps `NPC_NAME_MAX`, `DIALOGUE_NODE_MAX`, `DIALOGUE_TEXT_MAX`, `DIALOGUE_OPTION_MAX`, `SHOP_ROW_MAX`, `PRICE_MAX`, `STOCK_MAX`, `STOCK_DEFAULT` and `TRADE_RANGE`. Every cap is enforced on the wire; move them together.
+The npcs article mirrors `Dialogue` / `DialogueNode` / `DialogueOption`, `Shop` / `ShopRow`, `good_kind` (any item id - there is no fixed goods list any more) and the caps `NPC_NAME_MAX`, `DIALOGUE_NODE_MAX`, `DIALOGUE_TEXT_MAX`, `DIALOGUE_OPTION_MAX`, `SHOP_ROW_MAX`, `PRICE_MAX`, `STOCK_MAX`, `STOCK_DEFAULT`, `TRADE_QTY_MAX` (1,000 - the shop's quantity box) and `TRADE_RANGE`. Every cap is enforced on the wire; move them together.
 
 The creatures article mirrors `assets/creatures.json` (kind, label, role, animation sheet) and `assets/mob-stats.json` (level, hp, attack, strength, defense, armor, respawn_secs, xp, hostility, style). The painter groups the same list into families. A new mob is one row in each file, plus its sheet.
 
@@ -101,7 +101,7 @@ The chat article mirrors the compose body cap (160 characters), `ClientMessage::
 
 The guilds article mirrors `GUILD_NAME_MIN` (3) / `GUILD_NAME_MAX` (24), `GUILD_TAG_MIN` (2) / `GUILD_TAG_MAX` (4), `GUILD_MEMBERS_MAX` (24), `GUILDS_PER_WORLD_MAX` (32) and `FRIENDS_MAX` (100) in the same shared file.
 
-The items article mirrors `ITEMS` (the closed item list) and the seven-row `ItemFamily` enum. Ids are permanent, so a new item is appended, never renumbered. The `item_family` suffix rule (a `_log` is always a Log) is the sort contract.
+The items article mirrors `ITEMS` (the item list, 52 built-ins today) and the eight-row `ItemFamily` enum. Ids are permanent, so a new item is appended, never renumbered. The `item_family` suffix rule (a `_potion` or `_elixir` is always a Potion, checked first, and a `_log` is always a Log) is the sort contract. The three built-in doses live in `POTIONS`, mirrored in the painter's `dist/map.js`.
 
 The seasonal article mirrors the festive slice of `MARKET_TILES` (Christmas tree 114 through Gingerbread house 119), the four `GIVEN_ONLY` festive wearables on `EQUIPMENT`, and the `TOOL_STANDINS` row that lets the Nutcracker hammer cover for the plain hammer at the anvil.
 

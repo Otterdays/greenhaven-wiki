@@ -693,13 +693,13 @@ test('wiki hub lists every round-four article', async () => {
 
 test('items article names every family and every group of ids', async () => {
   const html = await readFile(path.join(root, 'items.html'), 'utf8');
-  for (const family of ['LOGS', 'ORES AND GEMS', 'FISH', 'BARS', 'TOOLS', 'EQUIPMENT']) {
+  for (const family of ['LOGS', 'ORES AND GEMS', 'FISH', 'POTIONS', 'BARS', 'TOOLS', 'EQUIPMENT']) {
     assert.ok(html.includes(family), `items page is missing the ${family} heading`);
   }
-  for (const item of ['Young oak log', 'Elderwood log', 'Copper ore', 'Diamond', 'Minnow', 'Mooncale', 'Bronze bar', 'Hammer', 'Nutcracker hammer', 'Candy cane sword', 'Santa hat', 'Elf boots']) {
+  for (const item of ['Young oak log', 'Elderwood log', 'Copper ore', 'Diamond', 'Minnow', 'Mooncale', 'Bronze bar', 'Hammer', 'Nutcracker hammer', 'Candy cane sword', 'Santa hat', 'Elf boots', 'Health potion', 'Mana potion', 'Golden elixir']) {
     assert.ok(html.includes(item), `items page is missing ${item}`);
   }
-  assert.match(html, /seven families/);
+  assert.match(html, /eight families/);
   assert.match(html, /href="\/digging\.html"/);
   assert.match(html, /href="\/smithing\.html"/);
 });
@@ -1248,6 +1248,8 @@ test('npcs article names the shop reach, the trade flow, and stock counting', as
   assert.match(html, /counts down|counts down for this server session/);
   assert.match(html, /Bought 1 Sand/);
   assert.match(html, /Not enough coins\./);
+  assert.match(html, /quantity box/);
+  assert.match(html, /1 to 1,000/);
 });
 
 test('wiki hub lists every round-ten article', async () => {
