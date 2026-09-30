@@ -349,6 +349,7 @@ test('scenery refusals, chop range and the Skills key are documented', async () 
   assert.match(html, /White birch/);
   assert.match(html, /This oak is scenery\. Place a Young oak to make it cuttable\./);
   assert.match(html, /This birch is scenery\. It cannot be chopped\./);
+  assert.match(html, /Need an axe\./);
   assert.match(html, /1\.75 tiles/);
   assert.match(html, /Walk closer to harvest\./);
   assert.match(html, /Still working\./);
@@ -361,6 +362,7 @@ test('mine range, cooldown and the Skills key are documented', async () => {
   assert.match(html, /Walk closer to harvest\./);
   assert.match(html, /Still working\./);
   assert.match(html, /Need mining/);
+  assert.match(html, /Need a pickaxe\./);
   assert.match(html, /<code>P<\/code> during play/);
   assert.match(html, /Mining card/);
 });
