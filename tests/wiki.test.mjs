@@ -583,7 +583,10 @@ test('npcs article pins every shop and dialogue cap', async () => {
   assert.match(html, /24 characters/);
   assert.match(html, /240 characters/);
   assert.match(html, /up to 4 options/);
-  assert.match(html, /up to eight rows/);
+  assert.match(html, /up to forty rows/);
+  assert.doesNotMatch(html, /up to eight rows|Two goods exist/, 'a shop is not capped at eight rows nor fixed to two goods');
+  assert.match(html, /any item the game knows/, 'the shelf reaches every built-in and Gear Forge item');
+  assert.match(html, /hand you a gift/, 'dialogue gifts are documented next to the shop');
   assert.match(html, /100,000 coins/);
   assert.match(html, /9,999/);
   assert.match(html, /2 tiles/);
@@ -1243,8 +1246,8 @@ test('npcs article names the shop reach, the trade flow, and stock counting', as
   assert.match(html, /shop open|ShopOpen/);
   assert.match(html, /How a trade works/);
   assert.match(html, /counts down|counts down for this server session/);
-  assert.match(html, /You buy 1 sand/);
-  assert.match(html, /bag cap|not pay you into a pile/);
+  assert.match(html, /Bought 1 Sand/);
+  assert.match(html, /Not enough coins\./);
 });
 
 test('wiki hub lists every round-ten article', async () => {
