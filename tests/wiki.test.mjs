@@ -26,6 +26,7 @@ const TREES = [
   ['Redwood', '30', '60', '190', 'T'],
   ['Silverwood', '31', '70', '235', 'Q'],
   ['Elderwood', '32', '80', '285', 'W'],
+  ['Ghostwood', '197', '90', '340', 'click swatch'],
 ];
 
 // Rock, tile ID, level gate, XP per mine, painter key. Mirrors ROCK_KINDS in
@@ -38,6 +39,7 @@ const ROCKS = [
   ['Coal rock', '19', '20', '60', '/'],
   ['Silver rock', '64', '25', '72', 'click swatch'],
   ['Gold rock', '33', '30', '85', 'click swatch'],
+  ['Sulfur rock', '199', '35', '95', 'click swatch'],
   ['Ruby rock', '17', '40', '115', ','],
   ['Mithril rock', '65', '45', '132', 'click swatch'],
   ['Emerald rock', '20', '50', '150', '`'],
@@ -49,6 +51,8 @@ const ROCKS = [
   ['Onyx rock', '22', '80', '285', 'O'],
   ['Opal rock', '69', '85', '310', 'click swatch'],
   ['Diamond rock', '34', '90', '340', 'click swatch'],
+  ['Platinum rock', '200', '95', '370', 'click swatch'],
+  ['Moonstone rock', '201', '99', '400', 'click swatch'],
   ['Granite boulder', '77', '1', '30', 'click swatch'],
   ['Rock cluster', '78', '1', '20', 'click swatch'],
 ];
@@ -85,6 +89,8 @@ const FISHING_TIERS = [
   ['Salmon', '45', 'Salmon', '130', '4.0 s'],
   ['Lanternfish', '60', 'Lanternfish', '190', '4.5 s'],
   ['Mooncale', '80', 'Mooncale', '270', '5.0 s'],
+  ['Sunskimmer', '90', 'Sunskimmer', '360', '5.5 s'],
+  ['Dreadfin', '99', 'Dreadfin', '420', '6.0 s'],
 ];
 
 // Dig kinds and their XP. Mirrors DIG_KINDS in server-architecture/crates/shared/src/lib.rs.
@@ -313,12 +319,12 @@ test('wiki hub lists the stride article', async () => {
   assert.match(html, /Stride/);
 });
 
-test('woodcutting article exists and names all nine cuttable trees', async () => {
+test('woodcutting article exists and names all ten cuttable trees', async () => {
   const html = await readFile(path.join(root, 'woodcutting.html'), 'utf8');
   for (const [name] of TREES) assert.ok(html.includes(name), `missing tree ${name}`);
 });
 
-test('mining article exists and names all twenty rocks', async () => {
+test('mining article exists and names all rocks in the shared ladder', async () => {
   const html = await readFile(path.join(root, 'mining.html'), 'utf8');
   for (const [name] of ROCKS) assert.ok(html.includes(name), `missing rock ${name}`);
 });
@@ -373,7 +379,7 @@ test('wiki hub lists the fishing article', async () => {
   assert.match(html, /Fishing/);
 });
 
-test('fishing article exists and names all six tiers', async () => {
+test('fishing article exists and names all eight tiers', async () => {
   const html = await readFile(path.join(root, 'fishing.html'), 'utf8');
   for (const [tier] of FISHING_TIERS) assert.ok(html.includes(tier), `missing tier ${tier}`);
 });
