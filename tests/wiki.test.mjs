@@ -699,7 +699,7 @@ test('wiki hub lists every round-four article', async () => {
 
 test('items article names every family and every group of ids', async () => {
   const html = await readFile(path.join(root, 'items.html'), 'utf8');
-  for (const family of ['LOGS', 'ORES AND GEMS', 'FISH', 'POTIONS', 'BARS', 'TOOLS', 'EQUIPMENT']) {
+  for (const family of ['LOGS', 'ORES AND GEMS', 'FISHING', 'POTIONS', 'BARS', 'TOOLS', 'EQUIPMENT']) {
     assert.ok(html.includes(family), `items page is missing the ${family} heading`);
   }
   for (const item of ['Young oak log', 'Elderwood log', 'Copper ore', 'Diamond', 'Minnow', 'Mooncale', 'Bronze bar', 'Hammer', 'Nutcracker hammer', 'Candy cane sword', 'Santa hat', 'Elf boots', 'Health potion', 'Mana potion', 'Golden elixir']) {
