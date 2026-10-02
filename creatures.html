@@ -33,6 +33,10 @@
           <tr><th>Kind</th><th>Level</th><th>HP</th><th>Role</th><th>Style</th><th>Hostility</th></tr>
         </thead>
         <tbody>
+          <tr><td>Goblin</td><td>2</td><td>14</td><td>Raider</td><td>melee</td><td>aggressive</td></tr>
+          <tr><td>Skeleton</td><td>3</td><td>18</td><td>Undead</td><td>melee</td><td>aggressive</td></tr>
+          <tr><td>Zombie</td><td>3</td><td>24</td><td>Undead</td><td>melee</td><td>aggressive</td></tr>
+          <tr><td>Troll</td><td>4</td><td>34</td><td>Brute</td><td>melee</td><td>aggressive</td></tr>
           <tr><td>Giant rat</td><td>2</td><td>12</td><td>Vermin</td><td>melee</td><td>aggressive</td></tr>
           <tr><td>Wild boar</td><td>4</td><td>35</td><td>Forest beast</td><td>melee</td><td>neutral</td></tr>
           <tr><td>Grey wolf</td><td>6</td><td>50</td><td>Predator</td><td>melee</td><td>aggressive</td></tr>
@@ -47,7 +51,7 @@
       <p>The map painter groups every placeable creature into families (Wildlife, Waterfowl, Insects, Villagers, Merchants, Hostile mobs, and a separate Bosses section for the Thornmother, the Wyvern and the Barrow King). A boss lives in the same registry as everything else; only the paint group changes.</p>
 
       <h2>Wildlife, waterfowl and insects</h2>
-      <p>Not everything with legs is a fight. The registry carries the ducks, swans, ducklings, swanlings and fowl that float on water and turn to face where they swim; the butterflies, fireflies, ladybugs and grasshoppers; and the mammals - cow, deer, fox and the rest - that wander on their own clips. Every bird uses the shared water family so it floats on any water tile.</p>
+      <p>Not everything with legs is a fight. The registry carries the ducks, swans, ducklings, swanlings and fowl that float on water and turn to face where they swim; the butterflies, fireflies, ladybugs and grasshoppers; and the mammals - cow, deer, fox and the rest - that wander on their own clips. The <strong>cow</strong> is also a level-5 defensive world mob: it ambles near home, ignores you until you hit it, then fights back against you alone, and drops bones, meat (1-2) and a cowhide. Every bird uses the shared water family so it floats on any water tile.</p>
 
       <h2>Villagers, merchants and the king</h2>
       <p>Humanoids come from the same registry: the Merchant and the Historian, King Bramblejaw the Great, and the plain goblin / skeleton / zombie / troll set. Talk and shop are authored on the placement, not on the kind. See <a href="/npcs.html">NPCs and Shops</a>.</p>
@@ -68,6 +72,7 @@
       <p>A mob reads one of three postures: <em>aggressive</em> (attacks unprovoked), <em>neutral</em> (only fights back when hit first - the wild boar is this today), or <em>friendly</em> (never attacks). Villagers, wildlife and waterfowl are friendly.</p>
 
       <h2>Saved or not</h2>
+      <p>Every creature with a stat sheet drops <strong>bones</strong> when defeated (one each, set per creature under Mob stats); burying them trains <a href="/holy.html">Holy</a>.</p>
       <p>Mob positions and health are not saved. A restart returns every mob to its painted spot at full HP, and any mob that was defeated starts its respawn timer from zero.</p>
     </article>
   </main>

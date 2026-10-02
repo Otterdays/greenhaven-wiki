@@ -103,6 +103,12 @@
       <h2>The registry fingerprint</h2>
       <p>Both the client and the world read the same items file. On join the world sends its <strong>registry fingerprint</strong> - a short hash of every registry row - and a client whose file differs says so instead of pretending to name pieces it cannot see. Same fingerprint, same items on both sides; different, an honest "the world knows items I do not" notice.</p>
 
+      <h2>Fire and cooking fields</h2>
+      <p>The item form makes food and fire without touching a file. A food item has <strong>Heals (HP) when eaten</strong>. Tick <strong>Burns when lit as a fire</strong> on a log and set its Firemaking level, XP and burn seconds. A recipe can be <strong>made at</strong> a Fire or Stove (Cooking level), and a Fire recipe has <strong>Never burns from level</strong>. New item &gt; <strong>Cooked dish</strong> and <strong>Log (burns)</strong> start you with sensible values. See <a href="/cooking.html">Cooking</a> and <a href="/firemaking.html">Firemaking</a>.</p>
+
+      <h2>Bones and burying</h2>
+      <p>Tick <strong>Can be buried for Holy XP (bones)</strong> on a plain item and set its Holy level and XP per burial. The New item wizard has a <strong>Bones (bury)</strong> type. A player buries it from the Inventory with the <strong>Bury</strong> button; see <a href="/holy.html">Holy</a>. Add it to a creature as a drop under Mob stats in the model maker.</p>
+
       <h2>Related</h2>
       <p>Wearing and holding is documented on <a href="/equipment.html">Equipment</a>. The recipes that consume what you make live on <a href="/smithing.html">Smithing</a>. See also <a href="/character-forge.html">Character Forge</a> - the sister tool that paints the bodies the Gear Forge dresses - and <a href="/gui-first.html">The GUI-first Law</a> for why the Forge is a GUI at all.</p>
     </article>

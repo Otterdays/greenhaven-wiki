@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firemaking - Greenhaven Wiki</title>
+  <meta name="description" content="Firemaking in Greenhaven: flint and steel, lighting logs into fires, the ten-log ladder, burn times and the refusal texts.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <article class="page">
+      <div class="eyebrow">SKILL</div>
+      <h1>Firemaking</h1>
+      <p class="lede">Light a log with flint and steel and it becomes a fire for a while: you earn Firemaking XP, and anyone can cook on it. Ten logs, from young oak at level 1 to ghostwood at level 90.</p>
+
+      <h2>Getting flint and steel</h2>
+      <p>Flint and steel is a tool item you carry in the bag, like a hammer. It is smithed at an anvil at Smithing level 1 from 5 bronze bars (a hammer must be carried), and it is never used up. Shops can stock it too.</p>
+
+      <h2>Lighting a fire</h2>
+      <p>Open the Inventory (<code>P</code>), pick a log and press <strong>Light</strong>. The fire burns on the tile you are standing on: the log leaves the bag, the XP arrives, and the fire flickers and throws sparks until its time runs out. Online, everyone nearby sees it, and anyone can cook on it. A fire never blocks walking and does not survive a server restart.</p>
+      <ul>
+        <li>Open ground only: not on a doorway, archway, gate, ramp, wall, water or any prop.</li>
+        <li>One fire per tile, at most 3 of your own at once and 64 in a world.</li>
+        <li>A refusal costs nothing: the log stays in the bag.</li>
+      </ul>
+
+      <h2>The ladder</h2>
+      <p>One shared table owns every log's level gate, XP and burn time. The level is the level of the tree that drops it.</p>
+      <table>
+        <thead>
+          <tr><th>Log</th><th>Firemaking level</th><th>XP</th><th>Burns for (seconds)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Young oak log</td><td>1</td><td>40</td><td>60</td></tr>
+          <tr><td>Pine log</td><td>10</td><td>60</td><td>75</td></tr>
+          <tr><td>Maple log</td><td>20</td><td>90</td><td>90</td></tr>
+          <tr><td>Ancient oak log</td><td>30</td><td>120</td><td>105</td></tr>
+          <tr><td>Yew log</td><td>40</td><td>160</td><td>120</td></tr>
+          <tr><td>Willow log</td><td>50</td><td>200</td><td>135</td></tr>
+          <tr><td>Redwood log</td><td>60</td><td>250</td><td>150</td></tr>
+          <tr><td>Silverwood log</td><td>70</td><td>300</td><td>165</td></tr>
+          <tr><td>Elderwood log</td><td>80</td><td>360</td><td>180</td></tr>
+          <tr><td>Ghostwood log</td><td>90</td><td>420</td><td>200</td></tr>
+        </tbody>
+      </table>
+      <p>A new log made in the Gear Forge joins the ladder with its own numbers: tick "Burns when lit as a fire" on the item.</p>
+
+      <h2>What the game says</h2>
+      <ul>
+        <li>No flint and steel carried: "You need a flint and steel."</li>
+        <li>Below the level gate: "Need firemaking 10." (with that log's number).</li>
+        <li>Not a burnable item: "That will not burn."</li>
+        <li>Another fire on the tile: "There is already a fire here." At the caps: "You already have 3 fires burning." or "Too many fires are burning here."</li>
+        <li>Bad ground: "You cannot light a fire here."</li>
+      </ul>
+
+      <h2>The XP curve</h2>
+      <p>Firemaking runs on the same <code>50 x current level</code> curve as the other crafts, cap 99, and its level counts toward your total level. The <a href="/experience.html">Experience</a> page has the curve. Fish go on the fire in <a href="/cooking.html">Cooking</a>.</p>
+
+      <h2>Saved or not</h2>
+      <p>Online play saves your Firemaking XP with your character. Single player keeps it in memory only and drops it when you return to the menu.</p>
+    </article>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

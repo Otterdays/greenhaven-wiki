@@ -18,7 +18,7 @@
     <article class="page">
       <div class="eyebrow">SYSTEM</div>
       <h1>Terrain and Tiles</h1>
-      <p class="lede">Every tile in Greenhaven has an id from 0 to <code>MAX_TILE</code> (currently 212). Ids never renumber - a new tile is appended. Twelve families decide what each one looks like, whether you can walk on it, and which neighbours it joins.</p>
+      <p class="lede">Every tile in Greenhaven has an id from 0 to <code>MAX_TILE</code> (currently 213). Ids never renumber - a new tile is appended. Twelve families decide what each one looks like, whether you can walk on it, and which neighbours it joins.</p>
 
       <h2>The map itself</h2>
       <p>A map is a grid of one byte per cell, plus a matching height map, plus a handful of sidecars: nodes, signs, chests and campfires. A fresh map is bounded by <code>MAX_DIM</code> on each side so a hostile client cannot send a huge one.</p>
@@ -60,7 +60,7 @@
       <p>Everything in a "walkable" row above lets a foot through. Blocked tiles - trees, rocks, all props, walls, closed gates, hedges, fences - stop you at the tile edge with the shared <code>RADIUS</code> (0.24 tiles). Water is blocked to a wanderer, but every water-bird character (duck, swan, duckling, swanling, fowl) walks on it - the client and the world share the water family for exactly that test.</p>
 
       <h2>The full range today</h2>
-      <p>Tile 0 through tile 212, and the highest placeable is the geyser (212). Tiles 213 and up are reserved - a new prop or a new family appends there, never renumbers an old one.</p>
+      <p>Tile 0 through tile 213, and the highest placeable is the stove (213), a cooking station. Tiles 214 and up are reserved - a new prop or a new family appends there, never renumbers an old one.</p>
 
       <h2>Where a tile's meaning is set</h2>
       <p>All twelve families are one shared file the world, the client, the map painter and the atlas read from the same place. That is why the wiki's tile IDs match what the painter shows and what the world enforces.</p>

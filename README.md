@@ -11,6 +11,9 @@ A small static wiki for Greenhaven, built in the same pattern as the public porc
 | `mining.html` | Mining article (the twenty-rock ladder) |
 | `fishing.html` | Fishing article (the six-tier fish ladder, casts, empty spots) |
 | `smithing.html` | Smithing article (furnace and anvil stations, the bronze recipe ladder) |
+| `firemaking.html` | Firemaking article (flint and steel, the ten-log ladder, fire caps) |
+| `cooking.html` | Cooking article (fire, campfire and stove, the cooked fish ladder, burn chance) |
+| `holy.html` | Holy article (bones from every mob, burying for Holy XP, refusal texts) |
 | `combat.html` | Combat article (the six combat skills, long curve, styles, moves) |
 | `digging.html` | Digging article (sand and clay tiles, dedicated counters, no level curve) |
 | `equipment.html` | Equipment article (twenty-slot paper doll, bronze set, armour totals) |

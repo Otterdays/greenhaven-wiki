@@ -209,6 +209,9 @@ const PAGES = [
   {href: '/mining.html', file: 'mining.html', label: 'Mining'},
   {href: '/fishing.html', file: 'fishing.html', label: 'Fishing'},
   {href: '/smithing.html', file: 'smithing.html', label: 'Smithing'},
+  {href: '/firemaking.html', file: 'firemaking.html', label: 'Firemaking'},
+  {href: '/cooking.html', file: 'cooking.html', label: 'Cooking'},
+  {href: '/holy.html', file: 'holy.html', label: 'Holy'},
   {href: '/combat.html', file: 'combat.html', label: 'Combat'},
   {href: '/digging.html', file: 'digging.html', label: 'Digging'},
   {href: '/equipment.html', file: 'equipment.html', label: 'Equipment'},
@@ -442,7 +445,7 @@ test('experience article documents the curve and the cap', async () => {
   assert.match(html, /40 x current level/);
   assert.match(html, /href="\/smithing\.html"/);
   assert.match(html, /href="\/combat\.html"/);
-  assert.match(html, /fresh character reads <code>20<\/code>/);
+  assert.match(html, /fresh character reads <code>13<\/code>/);
 });
 
 test('experience table pins level, total XP and XP to next', async () => {
@@ -1558,4 +1561,50 @@ test('the Hearth Post newsletter tells the 23-24 September story and is linked f
   assert.match(news, /version 0\.1\.12|Version <b>0\.1\.12<\/b>/);
   assert.ok(hub.includes('href="/news.html"'), 'index.html does not link the newsletter');
   assert.match(hub, /class="home-news"/);
+});
+
+// [TRACE: DOCS/FIREMAKING_COOKING_RUNWAY.md] The two crafting articles mirror the shared burn table and the shipped cooked-fish rows.
+test('firemaking table mirrors BURNABLES row for row and cooking table mirrors the shipped cook rows', async () => {
+  const shared = await readFile(path.join(root, '..', 'server-architecture', 'crates', 'shared', 'src', 'lib.rs'), 'utf8');
+  const burn = [...shared.matchAll(/Burnable \{ item: "([a-z_]+)", level: (\d+), xp: (\d+), secs: (\d+) \}/g)].map((m) => m.slice(1));
+  assert.equal(burn.length, 10, 'ten logs burn');
+  const label = (id) => { const t = id.replace(/_/g, ' '); return t[0].toUpperCase() + t.slice(1); };
+  const fire = tableRows(await readFile(path.join(root, 'firemaking.html'), 'utf8'));
+  assert.deepEqual(fire, burn.map(([item, level, xp, secs]) => [label(item), level, xp, secs]));
+  const items = JSON.parse(await readFile(path.join(root, '..', 'assets', 'items.json'), 'utf8')).items;
+  const dishes = items.filter((e) => e.recipe?.station === 'fire' && e.id.startsWith('cooked_'));
+  assert.equal(dishes.length, 9, 'a cooked dish for each fish, plus cooked meat');
+  const cook = tableRows(await readFile(path.join(root, 'cooking.html'), 'utf8'));
+  assert.deepEqual(cook, dishes.map((e) => [label(e.recipe.inputs[0][0]), String(e.recipe.level), String(e.recipe.xp), String(e.recipe.burn_until), String(e.heal)]));
+});
+
+test('the cooking and firemaking pages state the rules the code enforces', async () => {
+  const fire = await readFile(path.join(root, 'firemaking.html'), 'utf8');
+  const cook = await readFile(path.join(root, 'cooking.html'), 'utf8');
+  for (const text of ['You need a flint and steel.', 'Need firemaking 10.', 'That will not burn.', 'There is already a fire here.', 'You cannot light a fire here.', '3 of your own', '64 in a world', '5 bronze bars']) {
+    assert.ok(fire.includes(text), `firemaking says "${text}"`);
+  }
+  for (const text of ['Need cooking 30.', 'You burn the trout.', 'half as often', 'tile 213', '50% of the time', 'Burnt fish', 'Cooked dish']) {
+    assert.ok(cook.includes(text), `cooking says "${text}"`);
+  }
+  const site = await readFile(path.join(root, 'site.js'), 'utf8');
+  assert.ok(site.includes("label: 'Firemaking'") && site.includes("label: 'Cooking'"), 'both are in the nav');
+  const hub = await readFile(path.join(root, 'index.html'), 'utf8');
+  assert.ok(hub.includes('href="/firemaking.html"') && hub.includes('href="/cooking.html"'), 'the hub lists both');
+});
+
+// [TRACE: DOCS/HOLY_RUNWAY.md] The Holy article mirrors the shipped bones row and the refusal texts in shared `bury`.
+test('holy page mirrors the shipped bones row and states the rules the code enforces', async () => {
+  const items = JSON.parse(await readFile(path.join(root, '..', 'assets', 'items.json'), 'utf8')).items;
+  const bones = items.find(item => item.id === 'bones');
+  assert.ok(bones && bones.bury, 'the shipped items.json makes bones buryable');
+  const html = await readFile(path.join(root, 'holy.html'), 'utf8');
+  assert.ok(html.includes(`<td>Bones</td><td>${bones.bury.level}</td><td>${bones.bury.xp}</td>`), 'the table row matches items.json');
+  for (const text of ['You have none to bury.', 'Need holy 3.', 'You cannot bury that.', '+15 Holy XP', '50 x current level']) {
+    assert.ok(html.includes(text), `holy says "${text}"`);
+  }
+  const mobs = JSON.parse(await readFile(path.join(root, '..', 'assets', 'mob-stats.json'), 'utf8')).mobs;
+  for (const [kind, sheet] of Object.entries(mobs)) assert.ok(sheet.loot.some(drop => drop.item === 'bones'), `${kind} drops bones`);
+  const site = await readFile(path.join(root, 'site.js'), 'utf8');
+  assert.ok(site.includes("label: 'Holy'"), 'Holy is in the nav');
 });
