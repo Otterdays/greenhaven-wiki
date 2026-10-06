@@ -772,6 +772,10 @@ test('halloween article pins every spooky tile id and names the roster', async (
   for (const mob of ["Black Cat", "Vampire Bat", "Restless Ghost", "Gourdhulk", "Hex Witch", "Moonhowl Werewolf", "Jack Hollowgourd"]) {
     assert.ok(html.includes(mob), `halloween page is missing ${mob}`);
   }
+  // The two seasonal townies and the moth: the page tells Boggs's story, so the names are pinned.
+  for (const townie of ["Boggs the Lamplighter", "Beadle Thwick the Third", "Wick", "Halloween townies"]) {
+    assert.ok(html.includes(townie), `halloween page is missing ${townie}`);
+  }
   assert.match(html, /Witch hat/);
   assert.match(html, /Pumpkin helm/);
   assert.match(html, /candy corn/i);
