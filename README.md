@@ -33,7 +33,7 @@ A small static wiki for Greenhaven, built in the same pattern as the public porc
 | `props.html` | Signs, Chests and Campfires article (the per-cell sidecar pattern) |
 | `first-person.html` | First Person article (F5 view, mouse look, living sky) |
 | `account.html` | Accounts and Characters article (world picker, register, login, save fields) |
-| `settings.html` | Settings article (five tabs, twelve rebinds, safe reset) |
+| `settings.html` | Settings article (five tabs, eleven rebinds, safe reset) |
 | `music.html` | Music and Audio article (six shipped songs, the music player, the Python workshop) |
 | `map-maker.html` | The Map Painter article (twelve tools, node panel, stamp ghost) |
 | `contributing.html` | Contributing to the Wiki article (source of truth, ASCII rule, tests) |

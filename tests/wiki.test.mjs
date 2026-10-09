@@ -894,7 +894,8 @@ test('settings article names every tab and every rebindable slot group', async (
   for (const tab of ['Video', 'Audio', 'Controls', 'Interface', 'Game']) {
     assert.match(html, new RegExp(`<h2>${tab}</h2>`), `settings page is missing the ${tab} tab`);
   }
-  assert.match(html, /Twelve rebindable keyboard slots/);
+  assert.match(html, /Eleven rebindable keyboard slots/);
+  assert.match(html, /F is reserved for Friends/);
   assert.match(html, /Alt\+Enter/);
   assert.match(html, /F5 is deliberately outside/);
   assert.match(html, /Reduced motion/);
