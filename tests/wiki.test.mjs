@@ -38,6 +38,7 @@ const ROCKS = [
   ['Iron rock', '18', '10', '45', '.'],
   ['Coal rock', '19', '20', '60', '/'],
   ['Silver rock', '64', '25', '72', 'click swatch'],
+  ['Nacre rock', '227', '28', '78', 'click swatch'],
   ['Gold rock', '33', '30', '85', 'click swatch'],
   ['Sulfur rock', '199', '35', '95', 'click swatch'],
   ['Ruby rock', '17', '40', '115', ','],
@@ -63,8 +64,12 @@ const RECIPES = [
   ['Bronze bar', 'Furnace', '1', '20'],
   ['Hammer', 'Furnace', '1', '25'],
   ['Bronze helm', 'Anvil', '1', '30'],
+  ['Bronze axe', 'Anvil', '2', '45'],
+  ['Bronze pickaxe', 'Anvil', '3', '70'],
   ['Bronze platelegs', 'Anvil', '4', '90'],
+  ['Crossbow', 'Anvil', '5', '90'],
   ['Bronze platebody', 'Anvil', '7', '150'],
+  ['Flint and steel', 'Anvil', '1', '60'],
 ];
 
 // Level, total XP. Mirrors combat_xp_for_level (the classic long curve) in
@@ -97,6 +102,11 @@ const FISHING_TIERS = [
 const DIGGABLE = [
   ['Sand', '35', 'walkable', '5', '+1 Sand'],
   ['Clay', '36', 'blocks movement', '8', '+1 Clay'],
+  ['Pumpkin vine', '188', 'walkable', '15', '+1-2 Pumpkin (85%)'],
+  ['Tilled soil', '231', 'walkable', '10', '+1 Turnip (85%)'],
+  ['Gravel pit', '203', 'walkable', '25', '+1 Flint (85%)'],
+  ['Peat bog', '204', 'walkable', '30', '+1-2 Peat (85%)'],
+  ['Bulb bed', '217', 'walkable', '12', '+1-2 Tulip bulb (80%)'],
 ];
 
 // Cape id, wallet, cost. Mirrors CAPE_DEFS in server-architecture/crates/shared/src/lib.rs.
@@ -629,6 +639,10 @@ test('creatures article names every hostile mob and both bosses', async () => {
   }
   const rows = tableRows(html);
   assert.deepEqual(rows.find((cells) => cells[0] === 'Barrow King'), ['Barrow King', '40', '3,200', 'Undead boss', 'magic', 'aggressive']);
+  for (const kind of ['Cave spider', 'Stone golem', 'Ancient wisp', 'Jack Hollowgourd', 'Vharkul the Glassborn']) {
+    assert.ok(html.includes(kind), `creatures page is missing ${kind}`);
+  }
+  assert.deepEqual(rows.find((cells) => cells[0] === 'Vharkul the Glassborn'), ['Vharkul the Glassborn', '50', '5,200', 'Obsidian dragon', 'melee', 'aggressive']);
   assert.match(html, /creature registry/);
   assert.match(html, /mob stat sheet/);
   assert.match(html, /href="\/combat\.html"/);

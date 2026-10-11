@@ -7,9 +7,9 @@ A small static wiki for Greenhaven, built in the same pattern as the public porc
 | File | Role |
 | --- | --- |
 | `index.html` | Hub listing the available topics |
-| `woodcutting.html` | Woodcutting article (the nine-tree ladder) |
-| `mining.html` | Mining article (the twenty-rock ladder) |
-| `fishing.html` | Fishing article (the six-tier fish ladder, casts, empty spots) |
+| `woodcutting.html` | Woodcutting article (the ten-tree ladder) |
+| `mining.html` | Mining article (the twenty-four-rock ladder) |
+| `fishing.html` | Fishing article (the eight-tier fish ladder, casts, rod and bait, empty spots) |
 | `smithing.html` | Smithing article (furnace and anvil stations, the bronze recipe ladder) |
 | `firemaking.html` | Firemaking article (flint and steel, the ten-log ladder, fire caps) |
 | `cooking.html` | Cooking article (fire, campfire and stove, the cooked fish ladder, burn chance) |
@@ -150,7 +150,7 @@ The gear-forge article documents the Gear Forge at `developers/map-maker/dist/ge
 
 The gui-first article documents the operator's Absolute 14 law: every content workflow is fully usable from a GUI. No raw-JSON text boxes, no "run a script to build", no code access for a builder. Scripts are engines behind buttons. Written in `AGENTS.md`, `CLAUDE.md` and `.cursor/rules/gui-first.mdc`.
 
-The admin-panel article documents the Greenhaven Panel at `developers/panel/`: the character search, the inspector drawer, the one give-or-take control that reaches `admin.rs::apply_gift` / `apply_take`, the wallet and pet cards, and the audit list. It shares its endpoint with the in-game `/give` command.
+The admin-panel article documents the Greenhaven Panel at `developers/panel/`: the Accounts search (by username or character name), the inspector drawer, the one give-or-take control that reaches `admin.rs::apply_gift` / `apply_take`, the wallet and pet cards, and the audit list. It shares its endpoint with the in-game `/give` command.
 
 The bosses article mirrors the boss rows in `assets/creatures.json` (Thornmother, Wyvern, Barrow King) and their stat lines in `assets/mob-stats.json`. A new boss is one row in each, plus its sprite sheet.
 

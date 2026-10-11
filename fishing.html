@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fishing - Greenhaven Wiki</title>
-  <meta name="description" content="Fishing in Greenhaven: the six-tier fish ladder, cast times, level gates, fishing XP and how fishing spots empty and refill.">
+  <meta name="description" content="Fishing in Greenhaven: the eight-tier fish ladder, cast times, level gates, fishing XP and how fishing spots empty and refill.">
   <link rel="stylesheet" href="/theme.css">
   <link rel="stylesheet" href="/style.css">
   <script src="/theme.js"></script>
@@ -18,7 +18,7 @@
     <article class="page">
       <div class="eyebrow">SKILL</div>
       <h1>Fishing</h1>
-      <p class="lede">Cast at fishing spots for fishing XP. Six tiers climb from the minnow at level 1 to the mooncale at level 80. A catch takes a few seconds of standing still.</p>
+      <p class="lede">Cast at fishing spots for fishing XP. Eight tiers climb from the minnow at level 1 to the dreadfin at level 99. A catch takes a few seconds of standing still.</p>
 
       <h2>The ladder</h2>
       <p>Each tier is a preset on the same fishing spot tile, and one shared registry - the same values in the online game, in Single player and in the painter - owns its level gate, its XP and its cast time.</p>
@@ -89,10 +89,11 @@
 
       <h2>How to fish</h2>
       <ul>
+        <li><strong>You need a fishing rod and bait.</strong> Casting without a rod answers "Need a fishing rod."; without bait, "Need fish bait." Every cast spends one Fish bait. Both are Gear Forge items a merchant can stock (see <a href="/items.html">Items</a>), and the Fisherman boots are a vanity wearable that goes with the kit.</li>
         <li>Click a fishing spot (tile 6) near you. Like every resource node, you must stand within 1.75 tiles, or the game answers "Walk closer to harvest."</li>
         <li>Below the tier's level gate you get "Need fishing 30." (with that tier's number) and no catch.</li>
         <li>A cast takes 2.5 to 5.0 seconds of standing still. Moving interrupts it: "Harvest interrupted." and nothing is caught.</li>
-        <li>A good cast reports "You fish the minnow. +20 fishing. +1 Minnow" and your total is saved. Catches land in the Inventory under FISH.</li>
+        <li>A good cast reports "You fish the minnow. +20 fishing. +1 Minnow" and your total is saved. Catches land in the Inventory under FISHING.</li>
       </ul>
       <p>Online play is checked by the world server; Single player applies the same shared cast rules locally. A spot tuned to no cast time falls back to the one-per-second instant pace shared with every other quick node ("Still working." if you click faster). The waterside card shows the spot's tier - name, level, XP and cast seconds - read straight from the same shared registry the cast rules use.</p>
 
