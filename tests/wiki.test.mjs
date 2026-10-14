@@ -27,6 +27,7 @@ const TREES = [
   ['Silverwood', '31', '70', '235', 'Q'],
   ['Elderwood', '32', '80', '285', 'W'],
   ['Ghostwood', '197', '90', '340', 'click swatch'],
+  ['Titanwood', '373', '95', '400', 'click swatch'],
 ];
 
 // Rock, tile ID, level gate, XP per mine, painter key. Mirrors ROCK_KINDS in
@@ -54,6 +55,12 @@ const ROCKS = [
   ['Diamond rock', '34', '90', '340', 'click swatch'],
   ['Platinum rock', '200', '95', '370', 'click swatch'],
   ['Moonstone rock', '201', '99', '400', 'click swatch'],
+  ['Lead rock', '367', '12', '40', 'click swatch'],
+  ['Zinc rock', '368', '14', '45', 'click swatch'],
+  ['Garnet rock', '369', '22', '60', 'click swatch'],
+  ['Peridot rock', '370', '26', '75', 'click swatch'],
+  ['Aquamarine rock', '371', '34', '90', 'click swatch'],
+  ['Citrine geode', '372', '40', '105', 'click swatch'],
   ['Granite boulder', '77', '1', '30', 'click swatch'],
   ['Rock cluster', '78', '1', '20', 'click swatch'],
 ];
@@ -90,10 +97,13 @@ const COMBAT_LEVELS = [
 const FISHING_TIERS = [
   ['Minnow', '1', 'Minnow', '20', '2.5 s'],
   ['Silverfin', '15', 'Silverfin', '45', '3.0 s'],
+  ['Glassfin', '25', 'Glassfin', '60', '3.2 s'],
   ['Trout', '30', 'Trout', '80', '3.5 s'],
   ['Salmon', '45', 'Salmon', '130', '4.0 s'],
   ['Lanternfish', '60', 'Lanternfish', '190', '4.5 s'],
+  ['Embergill', '68', 'Embergill', '175', '4.6 s'],
   ['Mooncale', '80', 'Mooncale', '270', '5.0 s'],
+  ['Stormray', '85', 'Stormray', '300', '5.3 s'],
   ['Sunskimmer', '90', 'Sunskimmer', '360', '5.5 s'],
   ['Dreadfin', '99', 'Dreadfin', '420', '6.0 s'],
 ];
@@ -332,7 +342,7 @@ test('wiki hub lists the stride article', async () => {
   assert.match(html, /Stride/);
 });
 
-test('woodcutting article exists and names all ten cuttable trees', async () => {
+test('woodcutting article exists and names all eleven cuttable trees', async () => {
   const html = await readFile(path.join(root, 'woodcutting.html'), 'utf8');
   for (const [name] of TREES) assert.ok(html.includes(name), `missing tree ${name}`);
 });
@@ -1586,13 +1596,13 @@ test('the Hearth Post newsletter tells the 23-24 September story and is linked f
 test('firemaking table mirrors BURNABLES row for row and cooking table mirrors the shipped cook rows', async () => {
   const shared = await readFile(path.join(root, '..', 'server-architecture', 'crates', 'shared', 'src', 'lib.rs'), 'utf8');
   const burn = [...shared.matchAll(/Burnable \{ item: "([a-z_]+)", level: (\d+), xp: (\d+), secs: (\d+) \}/g)].map((m) => m.slice(1));
-  assert.equal(burn.length, 10, 'ten logs burn');
+  assert.equal(burn.length, 11, 'eleven logs burn');
   const label = (id) => { const t = id.replace(/_/g, ' '); return t[0].toUpperCase() + t.slice(1); };
   const fire = tableRows(await readFile(path.join(root, 'firemaking.html'), 'utf8'));
   assert.deepEqual(fire, burn.map(([item, level, xp, secs]) => [label(item), level, xp, secs]));
   const items = JSON.parse(await readFile(path.join(root, '..', 'assets', 'items.json'), 'utf8')).items;
   const dishes = items.filter((e) => e.recipe?.station === 'fire' && e.id.startsWith('cooked_'));
-  assert.equal(dishes.length, 9, 'a cooked dish for each fish, plus cooked meat');
+  assert.equal(dishes.length, 12, 'a cooked dish for each fish, plus cooked meat');
   const cook = tableRows(await readFile(path.join(root, 'cooking.html'), 'utf8'));
   assert.deepEqual(cook, dishes.map((e) => [label(e.recipe.inputs[0][0]), String(e.recipe.level), String(e.recipe.xp), String(e.recipe.burn_until), String(e.heal)]));
 });
