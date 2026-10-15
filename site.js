@@ -70,65 +70,65 @@
     playersheet: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2.6" width="12" height="10.8" rx="0.8"/><path d="M2 6h12"/><path d="M4.8 3.6h1M7.4 3.6h1M4.8 8.4h6.4M4.8 10.6h4"/></svg>',
   };
   const PAGES = [
-    {href: '/', match: /^\/(index\.html)?$/, label: 'Wiki home', icon: 'home', group: 'home'},
-    {href: '/news.html', match: /^\/news\.html$/, label: 'The Hearth Post', icon: 'news', group: 'home'},
-    {href: '/woodcutting.html', match: /^\/woodcutting\.html$/, label: 'Woodcutting', icon: 'woodcutting', group: 'skills'},
-    {href: '/mining.html', match: /^\/mining\.html$/, label: 'Mining', icon: 'mining', group: 'skills'},
-    {href: '/fishing.html', match: /^\/fishing\.html$/, label: 'Fishing', icon: 'fishing', group: 'skills'},
-    {href: '/smithing.html', match: /^\/smithing\.html$/, label: 'Smithing', icon: 'smithing', group: 'skills'},
-    {href: '/firemaking.html', match: /^\/firemaking\.html$/, label: 'Firemaking', icon: 'smithing', group: 'skills'},
-    {href: '/cooking.html', match: /^\/cooking\.html$/, label: 'Cooking', icon: 'fishing', group: 'skills'},
-    {href: '/holy.html', match: /^\/holy\.html$/, label: 'Holy', icon: 'combat', group: 'skills'},
-    {href: '/combat.html', match: /^\/combat\.html$/, label: 'Combat', icon: 'combat', group: 'skills'},
-    {href: '/digging.html', match: /^\/digging\.html$/, label: 'Digging', icon: 'digging', group: 'skills'},
-    {href: '/stride.html', match: /^\/stride\.html$/, label: 'Stride', icon: 'stride', group: 'skills'},
-    {href: '/experience.html', match: /^\/experience\.html$/, label: 'Experience', icon: 'experience', group: 'skills'},
-    {href: '/equipment.html', match: /^\/equipment\.html$/, label: 'Equipment', icon: 'equipment', group: 'gear'},
-    {href: '/items.html', match: /^\/items\.html$/, label: 'Items', icon: 'items', group: 'gear'},
-    {href: '/capes.html', match: /^\/capes\.html$/, label: 'Capes', icon: 'capes', group: 'gear'},
-    {href: '/coins.html', match: /^\/coins\.html$/, label: 'Coins', icon: 'coins', group: 'gear'},
-    {href: '/monetization.html', match: /^\/monetization\.html$/, label: 'Crystal Store', icon: 'monetization', group: 'gear'},
-    {href: '/transmog.html', match: /^\/transmog\.html$/, label: 'Change Look', icon: 'transmog', group: 'gear'},
-    {href: '/npcs.html', match: /^\/npcs\.html$/, label: 'NPCs and Shops', icon: 'npcs', group: 'folk'},
-    {href: '/creatures.html', match: /^\/creatures\.html$/, label: 'Creatures', icon: 'creatures', group: 'folk'},
-    {href: '/bosses.html', match: /^\/bosses\.html$/, label: 'Bosses', icon: 'bosses', group: 'folk'},
-    {href: '/pets.html', match: /^\/pets\.html$/, label: 'Pets', icon: 'pets', group: 'folk'},
-    {href: '/chat.html', match: /^\/chat\.html$/, label: 'Chat', icon: 'chat', group: 'folk'},
-    {href: '/friends.html', match: /^\/friends\.html$/, label: 'Friends', icon: 'friends', group: 'folk'},
-    {href: '/guilds.html', match: /^\/guilds\.html$/, label: 'Guilds', icon: 'guilds', group: 'folk'},
-    {href: '/player-menu.html', match: /^\/player-menu\.html$/, label: 'Player Menu', icon: 'playermenu', group: 'folk'},
-    {href: '/shipping-map.html', match: /^\/shipping-map\.html$/, label: 'The Shipping Map', icon: 'shippingmap', group: 'world'},
-    {href: '/player-sheet.html', match: /^\/player-sheet\.html$/, label: 'Player Sheet', icon: 'playersheet', group: 'world'},
-    {href: '/crouch.html', match: /^\/crouch\.html$/, label: 'Crouch', icon: 'crouch', group: 'world'},
-    {href: '/first-person.html', match: /^\/first-person\.html$/, label: 'First Person', icon: 'firstperson', group: 'world'},
-    {href: '/wake-up.html', match: /^\/wake-up\.html$/, label: 'Wake-Up', icon: 'wakeup', group: 'world'},
-    {href: '/seasonal.html', match: /^\/seasonal\.html$/, label: 'Seasonal', icon: 'seasonal', group: 'world'},
-    {href: '/halloween.html', match: /^\/halloween\.html$/, label: 'Halloween', icon: 'halloween', group: 'world'},
-    {href: '/remis.html', match: /^\/remis\.html$/, label: 'Rots and Tots', icon: 'remis', group: 'world'},
-    {href: '/music.html', match: /^\/music\.html$/, label: 'Music', icon: 'music', group: 'world'},
-    {href: '/gallery.html', match: /^\/gallery\.html$/, label: 'Gallery', icon: 'gallery', group: 'world'},
-    {href: '/cursors.html', match: /^\/cursors\.html$/, label: 'Cursors', icon: 'cursors', group: 'world'},
-    {href: '/account.html', match: /^\/account\.html$/, label: 'Accounts', icon: 'account', group: 'backstage'},
-    {href: '/settings.html', match: /^\/settings\.html$/, label: 'Settings', icon: 'settings', group: 'backstage'},
-    {href: '/crash-codes.html', match: /^\/crash-codes\.html$/, label: 'Crash Codes', icon: 'crash', group: 'backstage'},
-    {href: '/builders.html', match: /^\/builders\.html$/, label: 'Builder Wiki', icon: 'forge', group: 'bhome'},
-    {href: '/map-maker.html', match: /^\/map-maker\.html$/, label: 'Map Painter', icon: 'painter', group: 'tools'},
-    {href: '/gear-forge.html', match: /^\/gear-forge\.html$/, label: 'Gear Forge', icon: 'gearforge', group: 'tools'},
-    {href: '/character-forge.html', match: /^\/character-forge\.html$/, label: 'Character Forge', icon: 'forge', group: 'tools'},
-    {href: '/atlas.html', match: /^\/atlas\.html$/, label: 'Live Atlas', icon: 'atlas', group: 'tools'},
-    {href: '/admin-panel.html', match: /^\/admin-panel\.html$/, label: 'Admin Panel', icon: 'adminpanel', group: 'tools'},
-    {href: '/terrain.html', match: /^\/terrain\.html$/, label: 'Terrain', icon: 'terrain', group: 'building'},
-    {href: '/floors-and-walls.html', match: /^\/floors-and-walls\.html$/, label: 'Floors and Walls', icon: 'floors', group: 'building'},
-    {href: '/wood-and-ramps.html', match: /^\/wood-and-ramps\.html$/, label: 'Wood and Ramps', icon: 'wood', group: 'building'},
-    {href: '/props.html', match: /^\/props\.html$/, label: 'Signs and Chests', icon: 'props', group: 'building'},
-    {href: '/props-packs.html', match: /^\/props-packs\.html$/, label: 'Prop Packs', icon: 'packs', group: 'building'},
-    {href: '/layers.html', match: /^\/layers\.html$/, label: 'Gear Layers', icon: 'layers', group: 'building'},
-    {href: '/gear-fx.html', match: /^\/gear-fx\.html$/, label: 'Gear Effects', icon: 'gearfx', group: 'building'},
-    {href: '/gui-first.html', match: /^\/gui-first\.html$/, label: 'GUI-first Law', icon: 'guifirst', group: 'house'},
-    {href: '/contributing.html', match: /^\/contributing\.html$/, label: 'Contributing', icon: 'contributing', group: 'house'},
-    {href: '/themes.html', match: /^\/themes\.html$/, label: 'Theme Packs', icon: 'themes', group: 'house'},
-    {href: '/worlds.html', match: /^\/worlds\.html$/, label: 'Worlds', icon: 'worlds', group: 'servers'},
-    {href: '/auth.html', match: /^\/auth\.html$/, label: 'Accounts and Passwords', icon: 'auth', group: 'servers'},
+    {href: 'index.html', match: /^\/(index\.html)?$/, label: 'Wiki home', icon: 'home', group: 'home'},
+    {href: 'news.html', match: /^\/news\.html$/, label: 'The Hearth Post', icon: 'news', group: 'home'},
+    {href: 'woodcutting.html', match: /^\/woodcutting\.html$/, label: 'Woodcutting', icon: 'woodcutting', group: 'skills'},
+    {href: 'mining.html', match: /^\/mining\.html$/, label: 'Mining', icon: 'mining', group: 'skills'},
+    {href: 'fishing.html', match: /^\/fishing\.html$/, label: 'Fishing', icon: 'fishing', group: 'skills'},
+    {href: 'smithing.html', match: /^\/smithing\.html$/, label: 'Smithing', icon: 'smithing', group: 'skills'},
+    {href: 'firemaking.html', match: /^\/firemaking\.html$/, label: 'Firemaking', icon: 'smithing', group: 'skills'},
+    {href: 'cooking.html', match: /^\/cooking\.html$/, label: 'Cooking', icon: 'fishing', group: 'skills'},
+    {href: 'holy.html', match: /^\/holy\.html$/, label: 'Holy', icon: 'combat', group: 'skills'},
+    {href: 'combat.html', match: /^\/combat\.html$/, label: 'Combat', icon: 'combat', group: 'skills'},
+    {href: 'digging.html', match: /^\/digging\.html$/, label: 'Digging', icon: 'digging', group: 'skills'},
+    {href: 'stride.html', match: /^\/stride\.html$/, label: 'Stride', icon: 'stride', group: 'skills'},
+    {href: 'experience.html', match: /^\/experience\.html$/, label: 'Experience', icon: 'experience', group: 'skills'},
+    {href: 'equipment.html', match: /^\/equipment\.html$/, label: 'Equipment', icon: 'equipment', group: 'gear'},
+    {href: 'items.html', match: /^\/items\.html$/, label: 'Items', icon: 'items', group: 'gear'},
+    {href: 'capes.html', match: /^\/capes\.html$/, label: 'Capes', icon: 'capes', group: 'gear'},
+    {href: 'coins.html', match: /^\/coins\.html$/, label: 'Coins', icon: 'coins', group: 'gear'},
+    {href: 'monetization.html', match: /^\/monetization\.html$/, label: 'Crystal Store', icon: 'monetization', group: 'gear'},
+    {href: 'transmog.html', match: /^\/transmog\.html$/, label: 'Change Look', icon: 'transmog', group: 'gear'},
+    {href: 'npcs.html', match: /^\/npcs\.html$/, label: 'NPCs and Shops', icon: 'npcs', group: 'folk'},
+    {href: 'creatures.html', match: /^\/creatures\.html$/, label: 'Creatures', icon: 'creatures', group: 'folk'},
+    {href: 'bosses.html', match: /^\/bosses\.html$/, label: 'Bosses', icon: 'bosses', group: 'folk'},
+    {href: 'pets.html', match: /^\/pets\.html$/, label: 'Pets', icon: 'pets', group: 'folk'},
+    {href: 'chat.html', match: /^\/chat\.html$/, label: 'Chat', icon: 'chat', group: 'folk'},
+    {href: 'friends.html', match: /^\/friends\.html$/, label: 'Friends', icon: 'friends', group: 'folk'},
+    {href: 'guilds.html', match: /^\/guilds\.html$/, label: 'Guilds', icon: 'guilds', group: 'folk'},
+    {href: 'player-menu.html', match: /^\/player-menu\.html$/, label: 'Player Menu', icon: 'playermenu', group: 'folk'},
+    {href: 'shipping-map.html', match: /^\/shipping-map\.html$/, label: 'The Shipping Map', icon: 'shippingmap', group: 'world'},
+    {href: 'player-sheet.html', match: /^\/player-sheet\.html$/, label: 'Player Sheet', icon: 'playersheet', group: 'world'},
+    {href: 'crouch.html', match: /^\/crouch\.html$/, label: 'Crouch', icon: 'crouch', group: 'world'},
+    {href: 'first-person.html', match: /^\/first-person\.html$/, label: 'First Person', icon: 'firstperson', group: 'world'},
+    {href: 'wake-up.html', match: /^\/wake-up\.html$/, label: 'Wake-Up', icon: 'wakeup', group: 'world'},
+    {href: 'seasonal.html', match: /^\/seasonal\.html$/, label: 'Seasonal', icon: 'seasonal', group: 'world'},
+    {href: 'halloween.html', match: /^\/halloween\.html$/, label: 'Halloween', icon: 'halloween', group: 'world'},
+    {href: 'remis.html', match: /^\/remis\.html$/, label: 'Rots and Tots', icon: 'remis', group: 'world'},
+    {href: 'music.html', match: /^\/music\.html$/, label: 'Music', icon: 'music', group: 'world'},
+    {href: 'gallery.html', match: /^\/gallery\.html$/, label: 'Gallery', icon: 'gallery', group: 'world'},
+    {href: 'cursors.html', match: /^\/cursors\.html$/, label: 'Cursors', icon: 'cursors', group: 'world'},
+    {href: 'account.html', match: /^\/account\.html$/, label: 'Accounts', icon: 'account', group: 'backstage'},
+    {href: 'settings.html', match: /^\/settings\.html$/, label: 'Settings', icon: 'settings', group: 'backstage'},
+    {href: 'crash-codes.html', match: /^\/crash-codes\.html$/, label: 'Crash Codes', icon: 'crash', group: 'backstage'},
+    {href: 'builders.html', match: /^\/builders\.html$/, label: 'Builder Wiki', icon: 'forge', group: 'bhome'},
+    {href: 'map-maker.html', match: /^\/map-maker\.html$/, label: 'Map Painter', icon: 'painter', group: 'tools'},
+    {href: 'gear-forge.html', match: /^\/gear-forge\.html$/, label: 'Gear Forge', icon: 'gearforge', group: 'tools'},
+    {href: 'character-forge.html', match: /^\/character-forge\.html$/, label: 'Character Forge', icon: 'forge', group: 'tools'},
+    {href: 'atlas.html', match: /^\/atlas\.html$/, label: 'Live Atlas', icon: 'atlas', group: 'tools'},
+    {href: 'admin-panel.html', match: /^\/admin-panel\.html$/, label: 'Admin Panel', icon: 'adminpanel', group: 'tools'},
+    {href: 'terrain.html', match: /^\/terrain\.html$/, label: 'Terrain', icon: 'terrain', group: 'building'},
+    {href: 'floors-and-walls.html', match: /^\/floors-and-walls\.html$/, label: 'Floors and Walls', icon: 'floors', group: 'building'},
+    {href: 'wood-and-ramps.html', match: /^\/wood-and-ramps\.html$/, label: 'Wood and Ramps', icon: 'wood', group: 'building'},
+    {href: 'props.html', match: /^\/props\.html$/, label: 'Signs and Chests', icon: 'props', group: 'building'},
+    {href: 'props-packs.html', match: /^\/props-packs\.html$/, label: 'Prop Packs', icon: 'packs', group: 'building'},
+    {href: 'layers.html', match: /^\/layers\.html$/, label: 'Gear Layers', icon: 'layers', group: 'building'},
+    {href: 'gear-fx.html', match: /^\/gear-fx\.html$/, label: 'Gear Effects', icon: 'gearfx', group: 'building'},
+    {href: 'gui-first.html', match: /^\/gui-first\.html$/, label: 'GUI-first Law', icon: 'guifirst', group: 'house'},
+    {href: 'contributing.html', match: /^\/contributing\.html$/, label: 'Contributing', icon: 'contributing', group: 'house'},
+    {href: 'themes.html', match: /^\/themes\.html$/, label: 'Theme Packs', icon: 'themes', group: 'house'},
+    {href: 'worlds.html', match: /^\/worlds\.html$/, label: 'Worlds', icon: 'worlds', group: 'servers'},
+    {href: 'auth.html', match: /^\/auth\.html$/, label: 'Accounts and Passwords', icon: 'auth', group: 'servers'},
   ];
   // Shelf order and the friendly name each shelf wears in the rail and the dropdown. A page's
   // `group` must be one of these ids; its place inside the shelf follows its place in PAGES.
@@ -159,7 +159,9 @@
   function currentPage() {
     let path = location.pathname;
     try { path = decodeURIComponent(path); } catch { /* keep the raw path */ }
-    return PAGES.find((page) => page.match.test(path)) || PAGES[0];
+    // Strip the base path so matches work on GitHub Pages (/greenhaven-wiki/x.html -> /x.html)
+    const local = '/' + path.split('/').pop();
+    return PAGES.find((page) => page.match.test(local)) || PAGES[0];
   }
 
   // The wiki is two books on one shelf: the player wiki and the Builder Wiki. Chrome only ever
@@ -173,7 +175,7 @@
     return GROUPS.filter((group) => !!group.builders === builders);
   }
   function crossPage() {
-    return onBuilders() ? PAGES[0] : PAGES.find((page) => page.href === '/builders.html');
+    return onBuilders() ? PAGES[0] : PAGES.find((page) => page.href === 'builders.html');
   }
 
   function markLink(link, page) {
@@ -344,7 +346,7 @@
 
   // The newest Hearth Post issue, shown as the card at the top of the sidebar. Bump with each issue.
   const LATEST_NEWS = {
-    href: '/news.html',
+    href: 'news.html',
     title: 'The Hearth Post, issue 2',
     blurb: 'Version 0.1.14: monsters fight back, day and night, Halloween moves in.',
   };
@@ -618,7 +620,7 @@
     crumbs.setAttribute('aria-label', 'Breadcrumb');
     tint(crumbs, here.group);
     const home = document.createElement('a');
-    home.href = onBuilders() ? '/builders.html' : '/';
+    home.href = onBuilders() ? 'builders.html' : 'index.html';
     home.textContent = onBuilders() ? 'Builder Wiki' : 'Wiki home';
     const shelf = document.createElement('span');
     shelf.textContent = shelfOf(here).label;

@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Friends - Greenhaven Wiki</title>
   <meta name="description" content="The friends panel with live presence, a row menu for whisper and remove, wheel scrolling, and the /friend and /unfriend chat commands.">
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <a class="brand" href="index.html" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
     <div class="actions"></div>
   </header>
   <main>
@@ -47,23 +47,23 @@
           <tr><td>/unfriend &lt;name&gt;</td><td>Removes a character from the list. Anyone on the list resolves - offline too.</td></tr>
         </tbody>
       </table>
-      <p>A miss (a name that does not resolve, or one already on the list) answers with a plain line on the status strip, not a chat message. See <a href="/chat.html">Chat and Commands</a> for the rest of the slash commands.</p>
+      <p>A miss (a name that does not resolve, or one already on the list) answers with a plain line on the status strip, not a chat message. See <a href="chat.html">Chat and Commands</a> for the rest of the slash commands.</p>
 
       <h2>Reachable</h2>
       <p>A friend is <strong>reachable</strong> when they are online somewhere in your world list - you can whisper them even if they are on another world. An offline friend is on the panel but greyed out, and Whisper is hidden on their row.</p>
 
       <h2>How a friend rides the wire</h2>
       <p>Every friend row is keyed on the character's id, not their display name - two accounts can share a name, but only one owns a given id. The world answers a client's list request with the current roster; opening the panel is one cheap read, and the panel stays honest after a name change.</p>
-      <p>Adding or removing is throttled per account, so a hostile client cannot spam the database. See <a href="/guilds.html">Guilds and Friends</a> for the caps.</p>
+      <p>Adding or removing is throttled per account, so a hostile client cannot spam the database. See <a href="guilds.html">Guilds and Friends</a> for the caps.</p>
 
       <h2>Related</h2>
-      <p>Whispers and the rest of the slash commands live on <a href="/chat.html">Chat and Commands</a>. The shared account and per-world state that keep a friend list the same on every world live on <a href="/worlds.html">Worlds and Multi-world</a>. Guild membership is on <a href="/guilds.html">Guilds and Friends</a>.</p>
+      <p>Whispers and the rest of the slash commands live on <a href="chat.html">Chat and Commands</a>. The shared account and per-world state that keep a friend list the same on every world live on <a href="worlds.html">Worlds and Multi-world</a>. Guild membership is on <a href="guilds.html">Guilds and Friends</a>.</p>
     </article>
   </main>
   <footer>
     <span>Greenhaven wiki - a local world</span>
     <span>(c) <span id="year">2026</span> Greenhaven</span>
   </footer>
-  <script src="/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

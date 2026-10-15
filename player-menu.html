@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Player Menu - Greenhaven Wiki</title>
   <meta name="description" content="Right-click a wanderer to open a small popup: whisper them, or add (or remove) them as a friend. The same menu opens from a row in the friends panel.">
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1.4 9.6 6h4.7L10.6 9.1 12.2 14 8 11.2 3.8 14l1.6-4.9L1.7 6h4.7z"/></svg></span> GREENHAVEN <small>WIKI</small></a>
+    <a class="brand" href="index.html" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 1.4 9.6 6h4.7L10.6 9.1 12.2 14 8 11.2 3.8 14l1.6-4.9L1.7 6h4.7z"/></svg></span> GREENHAVEN <small>WIKI</small></a>
     <div class="actions"></div>
   </header>
   <main>
@@ -34,7 +34,7 @@
         </thead>
         <tbody>
           <tr><td>Whisper</td><td>Opens the chat compose line with <code>/w &lt;name&gt; </code> already typed. A whisper is one line, private to you and the target - the rest of the world does not see it. The button hides when the target is offline (they are not <em>reachable</em>).</td></tr>
-          <tr><td>Add friend</td><td>Puts the character on your friend list. The list has one entry per account, capped at 100 (see <a href="/friends.html">Friends</a>).</td></tr>
+          <tr><td>Add friend</td><td>Puts the character on your friend list. The list has one entry per account, capped at 100 (see <a href="friends.html">Friends</a>).</td></tr>
           <tr><td>Remove friend</td><td>Takes them back off the list. The button replaces <em>Add friend</em> on anyone already on it.</td></tr>
         </tbody>
       </table>
@@ -54,13 +54,13 @@
       <p>Any new row on this menu is one new client-side action and one new wire message that the world already validates. The popup is designed to grow - inspect a player, request a party, view their guild - as those systems land.</p>
 
       <h2>Related</h2>
-      <p>Friend list rules, caps, and the live-presence repaint are on <a href="/friends.html">Friends</a>. The chat compose line and the whisper command are on <a href="/chat.html">Chat and Commands</a>. The <a href="/guilds.html">Guild Board</a> uses a similar modal shape.</p>
+      <p>Friend list rules, caps, and the live-presence repaint are on <a href="friends.html">Friends</a>. The chat compose line and the whisper command are on <a href="chat.html">Chat and Commands</a>. The <a href="guilds.html">Guild Board</a> uses a similar modal shape.</p>
     </article>
   </main>
   <footer>
     <span>Greenhaven wiki - a local world</span>
     <span>(c) <span id="year">2026</span> Greenhaven</span>
   </footer>
-  <script src="/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

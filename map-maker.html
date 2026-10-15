@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Map Painter - Greenhaven Wiki</title>
   <meta name="description" content="The twelve painter tools, the tile palette, the resource-node panel, and how a painted map becomes what the world loads.">
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <a class="brand" href="index.html" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
     <div class="actions"></div>
   </header>
   <main>
@@ -49,19 +49,19 @@
       <p>Every harvestable tile - tree, rock, sand, clay, fishing spot - carries a "family tile plus a per-cell override" pair. The Resource node tool (key T) opens a panel that shows the tile's defaults and lets you override any subset. A field you do not touch stays at the family default, so an author tunes the one number they care about and the rest of the file does not churn. Turn a node off entirely with a checkbox to make it pure scenery - the game then answers "This node is turned off."</p>
 
       <h2>Signs, chests and campfires</h2>
-      <p>The painter's Hand tool also edits the three sidecar tiles. Click a signpost and a text panel opens (up to 120 ASCII characters, newlines allowed). Click a chest and a single "usable" toggle appears. Click a campfire and the size picker cycles. Full rules live on <a href="/props.html">Signs, Chests and Campfires</a>.</p>
+      <p>The painter's Hand tool also edits the three sidecar tiles. Click a signpost and a text panel opens (up to 120 ASCII characters, newlines allowed). Click a chest and a single "usable" toggle appears. Click a campfire and the size picker cycles. Full rules live on <a href="props.html">Signs, Chests and Campfires</a>.</p>
 
       <h2>How a painted map becomes the world's map</h2>
       <p>The painter writes the same JSON a world reads at boot: tiles, height map, spawn, respawn, characters, nodes, signs, chests and campfire sizes. The tool has one export path and one import path so a file the painter saves is byte-for-byte the file the world loads. There is no separate "publish" step - a map that paints is a map that ships.</p>
 
       <h2>Related</h2>
-      <p>See <a href="/terrain.html">Terrain and Tiles</a> for the tile families and their link rules. See <a href="/mining.html">Mining</a>, <a href="/woodcutting.html">Woodcutting</a>, <a href="/fishing.html">Fishing</a> and <a href="/digging.html">Digging</a> for what the resource-node panel can tune. See <a href="/npcs.html">NPCs and Shops</a> for the character the NPC tool drops.</p>
+      <p>See <a href="terrain.html">Terrain and Tiles</a> for the tile families and their link rules. See <a href="mining.html">Mining</a>, <a href="woodcutting.html">Woodcutting</a>, <a href="fishing.html">Fishing</a> and <a href="digging.html">Digging</a> for what the resource-node panel can tune. See <a href="npcs.html">NPCs and Shops</a> for the character the NPC tool drops.</p>
     </article>
   </main>
   <footer>
     <span>Greenhaven wiki - a local world</span>
     <span>(c) <span id="year">2026</span> Greenhaven</span>
   </footer>
-  <script src="/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

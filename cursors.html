@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cursors - Greenhaven Wiki</title>
   <meta name="description" content="Greenhaven ships three in-game cursors, each authored as a JSON model with its own hand-painted frames. This page explains the Cursor Maker that builds them.">
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <a class="brand" href="index.html" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
     <div class="actions"></div>
   </header>
   <main>
@@ -26,18 +26,18 @@
           <tr><th>Cursor</th><th>Feel</th></tr>
         </thead>
         <tbody>
-          <tr><td>Classic Arrow</td><td>A plain, high-contrast pointer. The safe default on any <a href="/themes.html">theme pack</a>.</td></tr>
+          <tr><td>Classic Arrow</td><td>A plain, high-contrast pointer. The safe default on any <a href="themes.html">theme pack</a>.</td></tr>
           <tr><td>Dot Pointer</td><td>A minimal dot with a soft ring. Reads small on a busy field.</td></tr>
           <tr><td>Twig Ladybug</td><td>A little twig with a red-and-black ladybug sitting on it. The most Greenhaven of the three.</td></tr>
         </tbody>
       </table>
-      <p>A preview of the Twig Ladybug ships on the <a href="/gallery.html">Gallery</a> so you can see the art at real size.</p>
+      <p>A preview of the Twig Ladybug ships on the <a href="gallery.html">Gallery</a> so you can see the art at real size.</p>
 
       <h2>How a cursor is made</h2>
       <p>Each cursor is a small JSON model in the same shape as a character sheet: a size, a hotspot, and a table of pixel runs. A dedicated Cursor Maker tool sits beside the map painter and the model maker - it opens the JSON, shows a live preview, and writes the file back. Nothing in the game reads a raw PNG at runtime; the client synthesises the cursor texture from the JSON so it stays crisp at any cursor scale.</p>
 
       <h2>Picking and sizing</h2>
-      <p>Cursor choice and cursor size both live in <a href="/settings.html">Settings &gt; Controls</a>. The size is a plain scale - Normal keeps the authored pixel size - and applies to the custom cursor the game forces on, so a large cursor stays large on every window resolution.</p>
+      <p>Cursor choice and cursor size both live in <a href="settings.html">Settings &gt; Controls</a>. The size is a plain scale - Normal keeps the authored pixel size - and applies to the custom cursor the game forces on, so a large cursor stays large on every window resolution.</p>
 
       <h2>Why a custom cursor at all</h2>
       <p>Three reasons: consistency across Windows, macOS, Linux and the web; a hotspot that matches the art (a ladybug's head, not a stock arrow's tip); and no white-on-white moment when a player on a dark theme moves over a light panel. Once the client owns the cursor, every theme pack repaints cleanly.</p>
@@ -50,6 +50,6 @@
     <span>Greenhaven wiki - a local world</span>
     <span>(c) <span id="year">2026</span> Greenhaven</span>
   </footer>
-  <script src="/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

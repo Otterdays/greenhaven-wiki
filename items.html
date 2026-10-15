@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Items - Greenhaven Wiki</title>
   <meta name="description" content="The shared item registry: every item id, the eight families the inventory sorts them into, and where each drop or make actually comes from.">
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <a class="brand" href="index.html" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
     <div class="actions"></div>
   </header>
   <main>
@@ -30,8 +30,8 @@
           <tr><td>Potions</td><td>POTIONS</td><td>Anything brewed in a bottle: an id ending in <code>_potion</code> or <code>_elixir</code> (Health potion, Mana potion, Golden elixir). This rule is checked first, before every other family.</td></tr>
           <tr><td>Logs</td><td>LOGS</td><td>Every log that ends in <code>_log</code> (young oak, pine, maple, ancient oak, yew, willow, redwood, silverwood, elderwood).</td></tr>
           <tr><td>OresAndGems</td><td>ORES AND GEMS</td><td>Every ore, gem, and coal the mines drop, plus anything with no family rule of its own (bones, meat, cowhide, pumpkin, candy corn, nacre and the like).</td></tr>
-          <tr><td>Fishing</td><td>FISHING</td><td>Everything from the <a href="/fishing.html">fish ladder</a> (minnow through dreadfin), plus the <code>fishing_rod</code>, the <code>fish_bait</code> a cast spends, and the <code>fisherman_boots</code> vanity wear - one small section for the whole trade. Cooked dishes and <code>burnt_fish</code> (see <a href="/cooking.html">Cooking</a>) sort here too.</td></tr>
-          <tr><td>Gathered</td><td>(no heading)</td><td>Sand, clay, flint, peat, tulip bulb, turnip, turnip seed and wheat sheaf, the farmed and dug basics from <a href="/digging.html">Digging</a>. They sit in your bag as ordinary items.</td></tr>
+          <tr><td>Fishing</td><td>FISHING</td><td>Everything from the <a href="fishing.html">fish ladder</a> (minnow through dreadfin), plus the <code>fishing_rod</code>, the <code>fish_bait</code> a cast spends, and the <code>fisherman_boots</code> vanity wear - one small section for the whole trade. Cooked dishes and <code>burnt_fish</code> (see <a href="cooking.html">Cooking</a>) sort here too.</td></tr>
+          <tr><td>Gathered</td><td>(no heading)</td><td>Sand, clay, flint, peat, tulip bulb, turnip, turnip seed and wheat sheaf, the farmed and dug basics from <a href="digging.html">Digging</a>. They sit in your bag as ordinary items.</td></tr>
           <tr><td>Bars</td><td>BARS</td><td>Every smelted bar (<code>bronze_bar</code> today).</td></tr>
           <tr><td>Tools</td><td>TOOLS</td><td>Any held tool: hammer, nutcracker hammer, bronze axe, bronze pickaxe, flint and steel, pitchfork, fishing rod.</td></tr>
           <tr><td>Equipment</td><td>EQUIPMENT</td><td>Any wearable: bronze armour, the festive and Halloween costumes, and every weapon.</td></tr>
@@ -39,29 +39,29 @@
       </table>
 
       <h2>The full list today</h2>
-      <p>Labels match the registry verbatim, so the game's chat line and the painter's browser read the same words. Some items are built into the game; the rest are made in the <a href="/gear-forge.html">Gear Forge</a> and live in the shared item data.</p>
+      <p>Labels match the registry verbatim, so the game's chat line and the painter's browser read the same words. Some items are built into the game; the rest are made in the <a href="gear-forge.html">Gear Forge</a> and live in the shared item data.</p>
       <div class="grid grid-2">
         <div>
           <h3>Chops</h3>
-          <p>Young oak log, Pine log, Maple log, Ancient oak log, Yew log, Willow log, Redwood log, Silverwood log, Elderwood log, Ghostwood log, Titanwood log. See <a href="/woodcutting.html">Woodcutting</a>.</p>
+          <p>Young oak log, Pine log, Maple log, Ancient oak log, Yew log, Willow log, Redwood log, Silverwood log, Elderwood log, Ghostwood log, Titanwood log. See <a href="woodcutting.html">Woodcutting</a>.</p>
           <h3>Mines</h3>
-          <p>Stone, Copper ore, Tin ore, Iron ore, Coal, Silver ore, Nacre, Gold ore, Sulfur ore, Ruby, Mithril ore, Emerald, Topaz, Sapphire, Adamantite ore, Amethyst, Orichalcum ore, Onyx, Opal, Diamond, Platinum ore, Moonstone, Lead ore, Zinc ore, Garnet, Peridot, Aquamarine, Citrine, Jade, Obsidian, Starmetal ore, Stardust, Runite ore, Dragonstone, Zircon, Tanzanite, Bloodstone, Sunstone, plus Jingle ore and Halloween ore. See <a href="/mining.html">Mining</a>.</p>
+          <p>Stone, Copper ore, Tin ore, Iron ore, Coal, Silver ore, Nacre, Gold ore, Sulfur ore, Ruby, Mithril ore, Emerald, Topaz, Sapphire, Adamantite ore, Amethyst, Orichalcum ore, Onyx, Opal, Diamond, Platinum ore, Moonstone, Lead ore, Zinc ore, Garnet, Peridot, Aquamarine, Citrine, Jade, Obsidian, Starmetal ore, Stardust, Runite ore, Dragonstone, Zircon, Tanzanite, Bloodstone, Sunstone, plus Jingle ore and Halloween ore. See <a href="mining.html">Mining</a>.</p>
           <h3>Casts</h3>
-          <p>Minnow, Silverfin, Glassfin, Trout, Salmon, Lanternfish, Embergill, Mooncale, Stormray, Sunskimmer, Dreadfin. A cast also spends Fish bait. See <a href="/fishing.html">Fishing</a>.</p>
+          <p>Minnow, Silverfin, Glassfin, Trout, Salmon, Lanternfish, Embergill, Mooncale, Stormray, Sunskimmer, Dreadfin. A cast also spends Fish bait. See <a href="fishing.html">Fishing</a>.</p>
           <h3>Digs and farm</h3>
-          <p>Sand, Clay, Pumpkin, Turnip, Flint, Peat, Tulip bulb, plus Turnip seed and Wheat sheaf. See <a href="/digging.html">Digging</a>.</p>
+          <p>Sand, Clay, Pumpkin, Turnip, Flint, Peat, Tulip bulb, plus Turnip seed and Wheat sheaf. See <a href="digging.html">Digging</a>.</p>
           <h3>Drops</h3>
-          <p>Bones (every mob; bury them for <a href="/holy.html">Holy</a>), Meat and Cowhide (the cow).</p>
+          <p>Bones (every mob; bury them for <a href="holy.html">Holy</a>), Meat and Cowhide (the cow).</p>
         </div>
         <div>
           <h3>Mades</h3>
-          <p>Bronze bar, Copper bar, Tin bar, Iron bar, Steel bar, Silver bar, Gold bar, Mithril bar, Adamantite bar, Orichalcum bar, Platinum bar, Hammer, Bronze helm, Bronze platebody, Bronze platelegs, Bronze axe, Bronze pickaxe, Crossbow, Flint and steel, Candy corn. See <a href="/smithing.html">Smithing</a>.</p>
+          <p>Bronze bar, Copper bar, Tin bar, Iron bar, Steel bar, Silver bar, Gold bar, Mithril bar, Adamantite bar, Orichalcum bar, Platinum bar, Hammer, Bronze helm, Bronze platebody, Bronze platelegs, Bronze axe, Bronze pickaxe, Crossbow, Flint and steel, Candy corn. See <a href="smithing.html">Smithing</a>.</p>
           <h3>Cooked</h3>
-          <p>One dish per fish and one for meat (Cooked minnow, Cooked silverfin, Cooked trout, Cooked salmon, Cooked lanternfish, Cooked mooncale, Cooked sunskimmer, Cooked dreadfin, Cooked glassfin, Cooked embergill, Cooked stormray, Cooked meat), Roasted bulb, and the Burnt fish a bad cook leaves. Eat them from the bag to heal. See <a href="/cooking.html">Cooking</a>.</p>
+          <p>One dish per fish and one for meat (Cooked minnow, Cooked silverfin, Cooked trout, Cooked salmon, Cooked lanternfish, Cooked mooncale, Cooked sunskimmer, Cooked dreadfin, Cooked glassfin, Cooked embergill, Cooked stormray, Cooked meat), Roasted bulb, and the Burnt fish a bad cook leaves. Eat them from the bag to heal. See <a href="cooking.html">Cooking</a>.</p>
           <h3>Tools</h3>
-          <p>Hammer, Nutcracker hammer, Bronze axe, Bronze pickaxe, Flint and steel, Fishing rod, Pitchfork. See <a href="/equipment.html">Equipment</a>.</p>
+          <p>Hammer, Nutcracker hammer, Bronze axe, Bronze pickaxe, Flint and steel, Fishing rod, Pitchfork. See <a href="equipment.html">Equipment</a>.</p>
           <h3>Weapons</h3>
-          <p>Beginner dagger, Beginner staff, Beginner shortbow, Crossbow, Candy cane sword, Pumpkin lantern, plus the axe and pickaxe above. Numbers on <a href="/equipment.html">Equipment</a>.</p>
+          <p>Beginner dagger, Beginner staff, Beginner shortbow, Crossbow, Candy cane sword, Pumpkin lantern, plus the axe and pickaxe above. Numbers on <a href="equipment.html">Equipment</a>.</p>
           <h3>Wearables</h3>
           <p>Bronze helm, Bronze platebody, Bronze platelegs, Santa hat, Festive jumper, Festive trousers, Elf boots, Witch hat, Cat-ear hood, Pumpkin helm, Fisherman boots.</p>
           <h3>Bottles</h3>
@@ -74,12 +74,12 @@
 
       <h2>Where a drop or a make comes from</h2>
       <ul>
-        <li><strong>Logs</strong> come from <a href="/woodcutting.html">Woodcutting</a> - one row in the tree registry per log.</li>
-        <li><strong>Ores and gems</strong> come from <a href="/mining.html">Mining</a> - one row in the rock registry per ore or gem.</li>
-        <li><strong>Fish</strong> come from <a href="/fishing.html">Fishing</a> - one row in the fish-tier registry.</li>
-        <li><strong>Sand, clay, pumpkins, turnips, flint, peat and bulbs</strong> come from <a href="/digging.html">Digging</a>. <strong>Bones, meat and cowhide</strong> are mob drops (<a href="/creatures.html">Creatures</a>).</li>
-        <li><strong>Bars, tools and the crossbow</strong> come from <a href="/smithing.html">Smithing</a> at the furnace or anvil. <strong>Costumes</strong> are stitched at the Tailor's booth, and candy corn is brewed at the witch cauldron.</li>
-        <li><strong>Cooked dishes</strong> come from <a href="/cooking.html">Cooking</a>, and fires from a log and <a href="/firemaking.html">Firemaking</a>.</li>
+        <li><strong>Logs</strong> come from <a href="woodcutting.html">Woodcutting</a> - one row in the tree registry per log.</li>
+        <li><strong>Ores and gems</strong> come from <a href="mining.html">Mining</a> - one row in the rock registry per ore or gem.</li>
+        <li><strong>Fish</strong> come from <a href="fishing.html">Fishing</a> - one row in the fish-tier registry.</li>
+        <li><strong>Sand, clay, pumpkins, turnips, flint, peat and bulbs</strong> come from <a href="digging.html">Digging</a>. <strong>Bones, meat and cowhide</strong> are mob drops (<a href="creatures.html">Creatures</a>).</li>
+        <li><strong>Bars, tools and the crossbow</strong> come from <a href="smithing.html">Smithing</a> at the furnace or anvil. <strong>Costumes</strong> are stitched at the Tailor's booth, and candy corn is brewed at the witch cauldron.</li>
+        <li><strong>Cooked dishes</strong> come from <a href="cooking.html">Cooking</a>, and fires from a log and <a href="firemaking.html">Firemaking</a>.</li>
         <li><strong>The Beginner weapons</strong> are handed out by the Tutor, an NPC a builder places.</li>
         <li><strong>Potions, the fishing rod, bait and boots</strong> come from a merchant's stall that stocks them. There is no brewing recipe for potions yet - the doses are built into the game.</li>
       </ul>
@@ -88,13 +88,13 @@
       <p>A closed list marks items with no in-world source yet: the candy cane sword and the nutcracker hammer. The map painter's item browser shows "Admin gift (/give)" as their source so a builder does not try to place a drop for them. (The festive clothes used to be on this list; they are stitched at the Tailor's booth now.)</p>
 
       <h2>Adding a new item</h2>
-      <p>Make it in the <a href="/gear-forge.html">Gear Forge</a>: name, family, icon, what it wears as, whether it is a weapon, a food, a log that burns or bones that bury, and its recipe. It lands in the shared item data and reaches a running game without a rebuild. Built-in items are one row in the shared items registry plus one gear spec holding the icon rows; the sheet is rebuilt from those specs, never hand-painted. Family sorting is automatic (a suffix rule picks potions and logs, and a small <code>item_family</code> function handles the rest). If the item is worn, one new <code>EQUIPMENT</code> row; if it fights, one <code>WEAPONS</code> row; if it crafts, one <code>RECIPES</code> row. A potion's dose is a <code>POTIONS</code> row, so it restores health or breath when drunk.</p>
+      <p>Make it in the <a href="gear-forge.html">Gear Forge</a>: name, family, icon, what it wears as, whether it is a weapon, a food, a log that burns or bones that bury, and its recipe. It lands in the shared item data and reaches a running game without a rebuild. Built-in items are one row in the shared items registry plus one gear spec holding the icon rows; the sheet is rebuilt from those specs, never hand-painted. Family sorting is automatic (a suffix rule picks potions and logs, and a small <code>item_family</code> function handles the rest). If the item is worn, one new <code>EQUIPMENT</code> row; if it fights, one <code>WEAPONS</code> row; if it crafts, one <code>RECIPES</code> row. A potion's dose is a <code>POTIONS</code> row, so it restores health or breath when drunk.</p>
     </article>
   </main>
   <footer>
     <span>Greenhaven wiki - a local world</span>
     <span>(c) <span id="year">2026</span> Greenhaven</span>
   </footer>
-  <script src="/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Guilds and Friends - Greenhaven Wiki</title>
   <meta name="description" content="Social in Greenhaven: guild names, tags, member caps, per-world limits, and the friend list that whispers from the player panel.">
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <a class="brand" href="index.html" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
     <div class="actions"></div>
   </header>
   <main>
     <article class="page">
       <div class="eyebrow">SYSTEM</div>
       <h1>Guilds and Friends</h1>
-      <p class="lede">A guild is a small, named group with a short crest in front of every member's name. A friend list is a per-account set you can whisper from - documented on its own page, <a href="/friends.html">Friends</a>. Both live on the world server, and both have tight bounds.</p>
+      <p class="lede">A guild is a small, named group with a short crest in front of every member's name. A friend list is a per-account set you can whisper from - documented on its own page, <a href="friends.html">Friends</a>. Both live on the world server, and both have tight bounds.</p>
 
       <h2>Guild names</h2>
       <ul>
@@ -59,7 +59,7 @@
       <p><strong>Leave</strong> puts you back in the guildless state, and the tag comes off your name. A world rewrites the roster for every viewer the same tick. If you are the last member out, the guild <strong>disbands</strong> - the row disappears and its tag is freed for someone else to reuse.</p>
 
       <h2>Requests are not built yet</h2>
-      <p>There is no invitation, request, or accept step for a guild today - you either found one (you are the owner) or you join one you see on the board. The same is true of <a href="/friends.html">friends</a>: adding a friend is one-way. The board is designed so a request flow can be added later without renaming anything.</p>
+      <p>There is no invitation, request, or accept step for a guild today - you either found one (you are the owner) or you join one you see on the board. The same is true of <a href="friends.html">friends</a>: adding a friend is one-way. The board is designed so a request flow can be added later without renaming anything.</p>
 
       <h2>Throttle</h2>
       <p>Creating, joining and leaving are throttled to one per connection per second, because each accepted change writes the database. A held click does not queue a hundred changes; the world answers the second, third, and fourth within the same second with a plain refusal.</p>
@@ -68,10 +68,10 @@
       <p>The world owns the tag. When a chat or whisper line leaves the server, it looks up the sender's guild and prefixes the tag - never the client's word. A player who has just joined a guild starts showing the new tag on their next line, and a player who has just been welcomed into the world (before their guild id arrives) never inherits a tag by accident.</p>
 
       <h2>Whispers</h2>
-      <p>A whisper is one line of chat sent only to the sender and one named target. Same <strong>160 character</strong> cap as public chat, same control-character strip, same guild tag on both sides. See <a href="/chat.html">Chat and Commands</a> for the syntax, and <a href="/friends.html">Friends</a> for opening a whisper from the panel's row menu.</p>
+      <p>A whisper is one line of chat sent only to the sender and one named target. Same <strong>160 character</strong> cap as public chat, same control-character strip, same guild tag on both sides. See <a href="chat.html">Chat and Commands</a> for the syntax, and <a href="friends.html">Friends</a> for opening a whisper from the panel's row menu.</p>
 
       <h2>Friends</h2>
-      <p>Every account keeps a friend list of up to 100 characters, keyed by character id (not by display name, because two accounts can share one name). The world answers a client's friend request with the current list, so opening it is cheap and stays honest after a name change. Adding and removing a friend is throttled per account so a hostile client cannot spam the database. The panel, live presence, and the /friend and /unfriend commands have their own page: <a href="/friends.html">Friends</a>.</p>
+      <p>Every account keeps a friend list of up to 100 characters, keyed by character id (not by display name, because two accounts can share one name). The world answers a client's friend request with the current list, so opening it is cheap and stays honest after a name change. Adding and removing a friend is throttled per account so a hostile client cannot spam the database. The panel, live presence, and the /friend and /unfriend commands have their own page: <a href="friends.html">Friends</a>.</p>
 
       <h2>Saved or not</h2>
       <p>Guild membership, the guild list, and every friend edge are saved with the world database. They survive a restart and follow the character, not the running client.</p>
@@ -81,6 +81,6 @@
     <span>Greenhaven wiki - a local world</span>
     <span>(c) <span id="year">2026</span> Greenhaven</span>
   </footer>
-  <script src="/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

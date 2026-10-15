@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gear Forge - Greenhaven Wiki</title>
   <meta name="description" content="The Gear Forge is the item authoring tool. Every icon, held overlay and worn piece in Greenhaven is a data row the Forge paints - no code, no JSON, one click to make a new axe, sword or hammer.">
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/style.css">
-  <script src="/theme.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
 </head>
 <body>
   <header>
-    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <a class="brand" href="index.html" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
     <div class="actions"></div>
   </header>
   <main>
@@ -89,7 +89,7 @@
       <p>Once one tier is right, <strong>Forge a set</strong> remakes a whole set in a different tier in one dialog. Names, scaled armour, power and accuracy, harder recipes, ingredients that follow the set, and icons recoloured through a small palette the designer can tune. New colours you introduce join the shared icon palette. What used to be an axe at bronze comes out as an axe at iron, steel, silver, or adamantite - same art path, one save per tier.</p>
 
       <h2>Effects, engraved and glowing</h2>
-      <p>The <strong>Effects</strong> panel picks what a piece does when it swings: a colour trail on the arc, a hit pop, sparks, a soft dust, or a glow on the sprite itself. Every effect is one row on a shared <code>assets/gear-fx.json</code>; the client reloads the file live, so an effect change is on screen within a second of Save. Two <strong>trims</strong> exist for the head of a weapon: an engraved pattern on the blade, or a rim light on the haunches. See <a href="/gear-fx.html">Gear Effects</a>.</p>
+      <p>The <strong>Effects</strong> panel picks what a piece does when it swings: a colour trail on the arc, a hit pop, sparks, a soft dust, or a glow on the sprite itself. Every effect is one row on a shared <code>assets/gear-fx.json</code>; the client reloads the file live, so an effect change is on screen within a second of Save. Two <strong>trims</strong> exist for the head of a weapon: an engraved pattern on the blade, or a rim light on the haunches. See <a href="gear-fx.html">Gear Effects</a>.</p>
 
       <h2>Per-frame touch-ups and ghosts</h2>
       <p><strong>Touch up this frame</strong> opens the small overlay for the exact pose the preview is on, and the tool checks on save that no stale touch-up is left behind on a frame the item no longer has. <strong>Ghost of saved</strong> paints the last save as a transparent overlay so a change reads at a glance, and <strong>Before / after</strong> puts the previous render next to the new one on the same pose.</p>
@@ -98,25 +98,25 @@
       <p>The Gear Forge can delete an item and bring it back later - the row keeps its id, only its look and rules are hidden while deleted. One lint rule guards small pieces (gloves, a belt, a mask, an amulet, an earring): a piece that paints nothing over a body frame is flagged so it never ships as a phantom wearable.</p>
 
       <h2>An item preview in the panel</h2>
-      <p>The <a href="/admin-panel.html">Admin Panel</a>'s Give box shows a small preview of any item you are about to hand out - the icon at real size and, when the item is worn, a preview of it drawn on the character it fits. An operator sees what they are about to give.</p>
+      <p>The <a href="admin-panel.html">Admin Panel</a>'s Give box shows a small preview of any item you are about to hand out - the icon at real size and, when the item is worn, a preview of it drawn on the character it fits. An operator sees what they are about to give.</p>
 
       <h2>The registry fingerprint</h2>
       <p>Both the client and the world read the same items file. On join the world sends its <strong>registry fingerprint</strong> - a short hash of every registry row - and a client whose file differs says so instead of pretending to name pieces it cannot see. Same fingerprint, same items on both sides; different, an honest "the world knows items I do not" notice.</p>
 
       <h2>Fire and cooking fields</h2>
-      <p>The item form makes food and fire without touching a file. A food item has <strong>Heals (HP) when eaten</strong>. Tick <strong>Burns when lit as a fire</strong> on a log and set its Firemaking level, XP and burn seconds. A recipe can be <strong>made at</strong> a Fire or Stove (Cooking level), and a Fire recipe has <strong>Never burns from level</strong>. New item &gt; <strong>Cooked dish</strong> and <strong>Log (burns)</strong> start you with sensible values. See <a href="/cooking.html">Cooking</a> and <a href="/firemaking.html">Firemaking</a>.</p>
+      <p>The item form makes food and fire without touching a file. A food item has <strong>Heals (HP) when eaten</strong>. Tick <strong>Burns when lit as a fire</strong> on a log and set its Firemaking level, XP and burn seconds. A recipe can be <strong>made at</strong> a Fire or Stove (Cooking level), and a Fire recipe has <strong>Never burns from level</strong>. New item &gt; <strong>Cooked dish</strong> and <strong>Log (burns)</strong> start you with sensible values. See <a href="cooking.html">Cooking</a> and <a href="firemaking.html">Firemaking</a>.</p>
 
       <h2>Bones and burying</h2>
-      <p>Tick <strong>Can be buried for Holy XP (bones)</strong> on a plain item and set its Holy level and XP per burial. The New item wizard has a <strong>Bones (bury)</strong> type. A player buries it from the Inventory with the <strong>Bury</strong> button; see <a href="/holy.html">Holy</a>. Add it to a creature as a drop under Mob stats in the model maker.</p>
+      <p>Tick <strong>Can be buried for Holy XP (bones)</strong> on a plain item and set its Holy level and XP per burial. The New item wizard has a <strong>Bones (bury)</strong> type. A player buries it from the Inventory with the <strong>Bury</strong> button; see <a href="holy.html">Holy</a>. Add it to a creature as a drop under Mob stats in the model maker.</p>
 
       <h2>Related</h2>
-      <p>Wearing and holding is documented on <a href="/equipment.html">Equipment</a>. The recipes that consume what you make live on <a href="/smithing.html">Smithing</a>. See also <a href="/character-forge.html">Character Forge</a> - the sister tool that paints the bodies the Gear Forge dresses - and <a href="/gui-first.html">The GUI-first Law</a> for why the Forge is a GUI at all.</p>
+      <p>Wearing and holding is documented on <a href="equipment.html">Equipment</a>. The recipes that consume what you make live on <a href="smithing.html">Smithing</a>. See also <a href="character-forge.html">Character Forge</a> - the sister tool that paints the bodies the Gear Forge dresses - and <a href="gui-first.html">The GUI-first Law</a> for why the Forge is a GUI at all.</p>
     </article>
   </main>
   <footer>
     <span>Greenhaven wiki - a local world</span>
     <span>(c) <span id="year">2026</span> Greenhaven</span>
   </footer>
-  <script src="/site.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

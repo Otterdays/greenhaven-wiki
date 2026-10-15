@@ -238,65 +238,65 @@ const PAINTER_TOOLS = [
 // list, so every page in this folder must appear here and there. Same class names as the tools hub
 // (.brand-cluster, .tool-jump, .gh-tool-rail) so developers/theme/theme.css styles the rail here too.
 const PAGES = [
-  {href: '/', file: 'index.html', label: 'Wiki home'},
-  {href: '/news.html', file: 'news.html', label: 'The Hearth Post'},
-  {href: '/woodcutting.html', file: 'woodcutting.html', label: 'Woodcutting'},
-  {href: '/mining.html', file: 'mining.html', label: 'Mining'},
-  {href: '/fishing.html', file: 'fishing.html', label: 'Fishing'},
-  {href: '/smithing.html', file: 'smithing.html', label: 'Smithing'},
-  {href: '/firemaking.html', file: 'firemaking.html', label: 'Firemaking'},
-  {href: '/cooking.html', file: 'cooking.html', label: 'Cooking'},
-  {href: '/holy.html', file: 'holy.html', label: 'Holy'},
-  {href: '/combat.html', file: 'combat.html', label: 'Combat'},
-  {href: '/digging.html', file: 'digging.html', label: 'Digging'},
-  {href: '/equipment.html', file: 'equipment.html', label: 'Equipment'},
-  {href: '/capes.html', file: 'capes.html', label: 'Capes'},
-  {href: '/coins.html', file: 'coins.html', label: 'Coins'},
-  {href: '/npcs.html', file: 'npcs.html', label: 'NPCs and Shops'},
-  {href: '/creatures.html', file: 'creatures.html', label: 'Creatures'},
-  {href: '/pets.html', file: 'pets.html', label: 'Pets'},
-  {href: '/crouch.html', file: 'crouch.html', label: 'Crouch'},
-  {href: '/chat.html', file: 'chat.html', label: 'Chat'},
-  {href: '/guilds.html', file: 'guilds.html', label: 'Guilds'},
-  {href: '/friends.html', file: 'friends.html', label: 'Friends'},
-  {href: '/items.html', file: 'items.html', label: 'Items'},
-  {href: '/seasonal.html', file: 'seasonal.html', label: 'Seasonal'},
-  {href: '/halloween.html', file: 'halloween.html', label: 'Halloween'},
-  {href: '/character-forge.html', file: 'character-forge.html', label: 'Character Forge'},
-  {href: '/gallery.html', file: 'gallery.html', label: 'Gallery'},
-  {href: '/terrain.html', file: 'terrain.html', label: 'Terrain'},
-  {href: '/props.html', file: 'props.html', label: 'Signs and Chests'},
-  {href: '/first-person.html', file: 'first-person.html', label: 'First Person'},
-  {href: '/account.html', file: 'account.html', label: 'Accounts'},
-  {href: '/settings.html', file: 'settings.html', label: 'Settings'},
-  {href: '/music.html', file: 'music.html', label: 'Music'},
-  {href: '/map-maker.html', file: 'map-maker.html', label: 'Map Painter'},
-  {href: '/contributing.html', file: 'contributing.html', label: 'Contributing'},
-  {href: '/crash-codes.html', file: 'crash-codes.html', label: 'Crash Codes'},
-  {href: '/themes.html', file: 'themes.html', label: 'Theme Packs'},
-  {href: '/wake-up.html', file: 'wake-up.html', label: 'Wake-Up'},
-  {href: '/cursors.html', file: 'cursors.html', label: 'Cursors'},
-  {href: '/remis.html', file: 'remis.html', label: 'Rots and Tots'},
-  {href: '/monetization.html', file: 'monetization.html', label: 'Crystal Store'},
-  {href: '/props-packs.html', file: 'props-packs.html', label: 'Prop Packs'},
-  {href: '/wood-and-ramps.html', file: 'wood-and-ramps.html', label: 'Wood and Ramps'},
-  {href: '/atlas.html', file: 'atlas.html', label: 'Live Atlas'},
-  {href: '/floors-and-walls.html', file: 'floors-and-walls.html', label: 'Floors and Walls'},
-  {href: '/gear-forge.html', file: 'gear-forge.html', label: 'Gear Forge'},
-  {href: '/gui-first.html', file: 'gui-first.html', label: 'GUI-first Law'},
-  {href: '/admin-panel.html', file: 'admin-panel.html', label: 'Admin Panel'},
-  {href: '/bosses.html', file: 'bosses.html', label: 'Bosses'},
-  {href: '/layers.html', file: 'layers.html', label: 'Gear Layers'},
-  {href: '/transmog.html', file: 'transmog.html', label: 'Change Look'},
-  {href: '/gear-fx.html', file: 'gear-fx.html', label: 'Gear Effects'},
-  {href: '/player-menu.html', file: 'player-menu.html', label: 'Player Menu'},
-  {href: '/player-sheet.html', file: 'player-sheet.html', label: 'Player Sheet'},
-  {href: '/worlds.html', file: 'worlds.html', label: 'Worlds'},
-  {href: '/shipping-map.html', file: 'shipping-map.html', label: 'The Shipping Map'},
-  {href: '/auth.html', file: 'auth.html', label: 'Accounts and Passwords'},
-  {href: '/stride.html', file: 'stride.html', label: 'Stride'},
-  {href: '/experience.html', file: 'experience.html', label: 'Experience'},
-  {href: '/builders.html', file: 'builders.html', label: 'Builder Wiki'},
+  {href: 'index.html', file: 'index.html', label: 'Wiki home'},
+  {href: 'news.html', file: 'news.html', label: 'The Hearth Post'},
+  {href: 'woodcutting.html', file: 'woodcutting.html', label: 'Woodcutting'},
+  {href: 'mining.html', file: 'mining.html', label: 'Mining'},
+  {href: 'fishing.html', file: 'fishing.html', label: 'Fishing'},
+  {href: 'smithing.html', file: 'smithing.html', label: 'Smithing'},
+  {href: 'firemaking.html', file: 'firemaking.html', label: 'Firemaking'},
+  {href: 'cooking.html', file: 'cooking.html', label: 'Cooking'},
+  {href: 'holy.html', file: 'holy.html', label: 'Holy'},
+  {href: 'combat.html', file: 'combat.html', label: 'Combat'},
+  {href: 'digging.html', file: 'digging.html', label: 'Digging'},
+  {href: 'equipment.html', file: 'equipment.html', label: 'Equipment'},
+  {href: 'capes.html', file: 'capes.html', label: 'Capes'},
+  {href: 'coins.html', file: 'coins.html', label: 'Coins'},
+  {href: 'npcs.html', file: 'npcs.html', label: 'NPCs and Shops'},
+  {href: 'creatures.html', file: 'creatures.html', label: 'Creatures'},
+  {href: 'pets.html', file: 'pets.html', label: 'Pets'},
+  {href: 'crouch.html', file: 'crouch.html', label: 'Crouch'},
+  {href: 'chat.html', file: 'chat.html', label: 'Chat'},
+  {href: 'guilds.html', file: 'guilds.html', label: 'Guilds'},
+  {href: 'friends.html', file: 'friends.html', label: 'Friends'},
+  {href: 'items.html', file: 'items.html', label: 'Items'},
+  {href: 'seasonal.html', file: 'seasonal.html', label: 'Seasonal'},
+  {href: 'halloween.html', file: 'halloween.html', label: 'Halloween'},
+  {href: 'character-forge.html', file: 'character-forge.html', label: 'Character Forge'},
+  {href: 'gallery.html', file: 'gallery.html', label: 'Gallery'},
+  {href: 'terrain.html', file: 'terrain.html', label: 'Terrain'},
+  {href: 'props.html', file: 'props.html', label: 'Signs and Chests'},
+  {href: 'first-person.html', file: 'first-person.html', label: 'First Person'},
+  {href: 'account.html', file: 'account.html', label: 'Accounts'},
+  {href: 'settings.html', file: 'settings.html', label: 'Settings'},
+  {href: 'music.html', file: 'music.html', label: 'Music'},
+  {href: 'map-maker.html', file: 'map-maker.html', label: 'Map Painter'},
+  {href: 'contributing.html', file: 'contributing.html', label: 'Contributing'},
+  {href: 'crash-codes.html', file: 'crash-codes.html', label: 'Crash Codes'},
+  {href: 'themes.html', file: 'themes.html', label: 'Theme Packs'},
+  {href: 'wake-up.html', file: 'wake-up.html', label: 'Wake-Up'},
+  {href: 'cursors.html', file: 'cursors.html', label: 'Cursors'},
+  {href: 'remis.html', file: 'remis.html', label: 'Rots and Tots'},
+  {href: 'monetization.html', file: 'monetization.html', label: 'Crystal Store'},
+  {href: 'props-packs.html', file: 'props-packs.html', label: 'Prop Packs'},
+  {href: 'wood-and-ramps.html', file: 'wood-and-ramps.html', label: 'Wood and Ramps'},
+  {href: 'atlas.html', file: 'atlas.html', label: 'Live Atlas'},
+  {href: 'floors-and-walls.html', file: 'floors-and-walls.html', label: 'Floors and Walls'},
+  {href: 'gear-forge.html', file: 'gear-forge.html', label: 'Gear Forge'},
+  {href: 'gui-first.html', file: 'gui-first.html', label: 'GUI-first Law'},
+  {href: 'admin-panel.html', file: 'admin-panel.html', label: 'Admin Panel'},
+  {href: 'bosses.html', file: 'bosses.html', label: 'Bosses'},
+  {href: 'layers.html', file: 'layers.html', label: 'Gear Layers'},
+  {href: 'transmog.html', file: 'transmog.html', label: 'Change Look'},
+  {href: 'gear-fx.html', file: 'gear-fx.html', label: 'Gear Effects'},
+  {href: 'player-menu.html', file: 'player-menu.html', label: 'Player Menu'},
+  {href: 'player-sheet.html', file: 'player-sheet.html', label: 'Player Sheet'},
+  {href: 'worlds.html', file: 'worlds.html', label: 'Worlds'},
+  {href: 'shipping-map.html', file: 'shipping-map.html', label: 'The Shipping Map'},
+  {href: 'auth.html', file: 'auth.html', label: 'Accounts and Passwords'},
+  {href: 'stride.html', file: 'stride.html', label: 'Stride'},
+  {href: 'experience.html', file: 'experience.html', label: 'Experience'},
+  {href: 'builders.html', file: 'builders.html', label: 'Builder Wiki'},
 ];
 
 // Sibling local pages the private wiki header reaches. Label, default band slot, path.
@@ -342,19 +342,19 @@ const STRIDE_LEVELS = [
 
 test('wiki hub lists the woodcutting article', async () => {
   const html = await hubPages();
-  assert.match(html, /href="\/woodcutting\.html"/);
+  assert.match(html, /href="woodcutting\.html"/);
   assert.match(html, /Woodcutting/);
 });
 
 test('wiki hub lists the mining article', async () => {
   const html = await hubPages();
-  assert.match(html, /href="\/mining\.html"/);
+  assert.match(html, /href="mining\.html"/);
   assert.match(html, /Mining/);
 });
 
 test('wiki hub lists the stride article', async () => {
   const html = await hubPages();
-  assert.match(html, /href="\/stride\.html"/);
+  assert.match(html, /href="stride\.html"/);
   assert.match(html, /Stride/);
 });
 
@@ -414,7 +414,7 @@ test('mine range, cooldown and the Skills key are documented', async () => {
 
 test('wiki hub lists the fishing article', async () => {
   const html = await hubPages();
-  assert.match(html, /href="\/fishing\.html"/);
+  assert.match(html, /href="fishing\.html"/);
   assert.match(html, /Fishing/);
 });
 
@@ -441,7 +441,7 @@ test('fishing cast rules and empty spots are documented', async () => {
   assert.match(html, /Someone got there first\./);
   assert.match(html, /<code>P<\/code> during play/);
   assert.match(html, /Fishing card/);
-  assert.match(html, /href="\/experience\.html"/);
+  assert.match(html, /href="experience\.html"/);
 });
 
 test('stride article documents Dust Lungs sprint rules', async () => {
@@ -467,7 +467,7 @@ test('stride table pins level, total XP and XP to next', async () => {
 
 test('wiki hub lists the experience article', async () => {
   const html = await hubPages();
-  assert.match(html, /href="\/experience\.html"/);
+  assert.match(html, /href="experience\.html"/);
   assert.match(html, /Experience/);
 });
 
@@ -477,10 +477,10 @@ test('experience article documents the curve and the cap', async () => {
   assert.match(html, /25 x level x \(level - 1\)/);
   assert.match(html, /cap is level 99/);
   assert.match(html, /Wanderer level/);
-  assert.match(html, /href="\/stride\.html"/);
+  assert.match(html, /href="stride\.html"/);
   assert.match(html, /40 x current level/);
-  assert.match(html, /href="\/smithing\.html"/);
-  assert.match(html, /href="\/combat\.html"/);
+  assert.match(html, /href="smithing\.html"/);
+  assert.match(html, /href="combat\.html"/);
   assert.match(html, /fresh character reads <code>13<\/code>/);
 });
 
@@ -510,9 +510,9 @@ test('experience article reuses the shared rock XP values', async () => {
 
 test('wiki hub lists the smithing and combat articles', async () => {
   const html = await hubPages();
-  assert.match(html, /href="\/smithing\.html"/);
+  assert.match(html, /href="smithing\.html"/);
   assert.match(html, /Smithing/);
-  assert.match(html, /href="\/combat\.html"/);
+  assert.match(html, /href="combat\.html"/);
   assert.match(html, /Combat/);
 });
 
@@ -548,7 +548,7 @@ test('smithing station rules and refusals are documented', async () => {
   assert.match(html, /Need smithing/);
   assert.match(html, /You need a hammer\./);
   assert.match(html, /You smelt a Bronze bar\./);
-  assert.match(html, /href="\/experience\.html"/);
+  assert.match(html, /href="experience\.html"/);
 });
 
 test('combat table pins the classic long curve checkpoints', async () => {
@@ -573,12 +573,12 @@ test('combat article documents the six skills, styles and what ships', async () 
   assert.match(html, /punch/);
   assert.match(html, /slash/);
   assert.match(html, /combat level 3/);
-  assert.match(html, /href="\/experience\.html"/);
+  assert.match(html, /href="experience\.html"/);
 });
 
 test('wiki hub lists every new article', async () => {
   const html = await hubPages();
-  for (const href of ['/digging.html', '/equipment.html', '/capes.html', '/coins.html', '/npcs.html']) {
+  for (const href of ['digging.html', 'equipment.html', 'capes.html', 'coins.html', 'npcs.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -590,8 +590,8 @@ test('digging table pins tile, walkability and XP per dig', async () => {
     assert.deepEqual(rows.find((cells) => cells[0] === name), [name, tile, walk, xp, drop], `row for ${name}`);
   }
   assert.match(html, /Walk closer to dig\./);
-  assert.match(html, /href="\/experience\.html"/);
-  assert.match(html, /href="\/npcs\.html"/);
+  assert.match(html, /href="experience\.html"/);
+  assert.match(html, /href="npcs\.html"/);
 });
 
 test('equipment article names the twenty slots and the bronze set', async () => {
@@ -603,8 +603,8 @@ test('equipment article names the twenty slots and the bronze set', async () => 
     assert.ok(html.includes(piece), `equipment page is missing ${piece}`);
   }
   assert.match(html, /armour total/);
-  assert.match(html, /href="\/smithing\.html"/);
-  assert.match(html, /href="\/capes\.html"/);
+  assert.match(html, /href="smithing\.html"/);
+  assert.match(html, /href="capes\.html"/);
 });
 
 test('capes table pins id, wallet and cost', async () => {
@@ -618,7 +618,7 @@ test('capes table pins id, wallet and cost', async () => {
   assert.match(html, /DEBUG/);
   assert.match(html, /Coins/);
   assert.match(html, /Crystals/);
-  assert.match(html, /href="\/coins\.html"/);
+  assert.match(html, /href="coins\.html"/);
 });
 
 test('coins article pins every tier and every honest rule', async () => {
@@ -632,7 +632,7 @@ test('coins article pins every tier and every honest rule', async () => {
   assert.match(html, /1\.5 tiles/);
   assert.match(html, /2 seconds/);
   assert.match(html, /3 minutes/);
-  assert.match(html, /href="\/capes\.html"/);
+  assert.match(html, /href="capes\.html"/);
 });
 
 test('npcs article pins every shop and dialogue cap', async () => {
@@ -649,7 +649,7 @@ test('npcs article pins every shop and dialogue cap', async () => {
   assert.match(html, /2 tiles/);
   assert.match(html, /Sand/);
   assert.match(html, /Clay/);
-  assert.match(html, /href="\/digging\.html"/);
+  assert.match(html, /href="digging\.html"/);
 });
 
 test('cross-links every new article from at least one existing page', async () => {
@@ -657,15 +657,15 @@ test('cross-links every new article from at least one existing page', async () =
     readFile(path.join(root, 'experience.html'), 'utf8'),
     readFile(path.join(root, 'mining.html'), 'utf8'),
   ]);
-  assert.match(exp, /href="\/digging\.html"/);
-  assert.match(exp, /href="\/capes\.html"/);
-  assert.match(exp, /href="\/equipment\.html"/);
-  assert.match(mining, /href="\/digging\.html"/);
+  assert.match(exp, /href="digging\.html"/);
+  assert.match(exp, /href="capes\.html"/);
+  assert.match(exp, /href="equipment\.html"/);
+  assert.match(mining, /href="digging\.html"/);
 });
 
 test('wiki hub lists every round-three article', async () => {
   const html = await hubPages();
-  for (const href of ['/creatures.html', '/pets.html', '/crouch.html', '/chat.html', '/guilds.html']) {
+  for (const href of ['creatures.html', 'pets.html', 'crouch.html', 'chat.html', 'guilds.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -683,8 +683,8 @@ test('creatures article names every hostile mob and both bosses', async () => {
   assert.deepEqual(rows.find((cells) => cells[0] === 'Vharkul the Glassborn'), ['Vharkul the Glassborn', '50', '5,200', 'Obsidian dragon', 'melee', 'aggressive']);
   assert.match(html, /creature registry/);
   assert.match(html, /mob stat sheet/);
-  assert.match(html, /href="\/combat\.html"/);
-  assert.match(html, /href="\/npcs\.html"/);
+  assert.match(html, /href="combat\.html"/);
+  assert.match(html, /href="npcs\.html"/);
 });
 
 test('pets article pins Rudolph and the pet curve', async () => {
@@ -696,7 +696,7 @@ test('pets article pins Rudolph and the pet curve', async () => {
   assert.match(html, /4 XP per point of damage/);
   assert.match(html, /4\.5 tiles per second/);
   assert.match(html, /gift-only/);
-  assert.match(html, /href="\/combat\.html"/);
+  assert.match(html, /href="combat\.html"/);
 });
 
 test('crouch article documents half speed and the sprint veto', async () => {
@@ -706,8 +706,8 @@ test('crouch article documents half speed and the sprint veto', async () => {
   assert.match(html, /half of walk/);
   assert.match(html, /no Stride XP|Stride XP: none/);
   assert.match(html, /vetoed/);
-  assert.match(html, /href="\/stride\.html"/);
-  assert.match(html, /href="\/capes\.html"/);
+  assert.match(html, /href="stride\.html"/);
+  assert.match(html, /href="capes\.html"/);
 });
 
 test('chat article documents every shape and command', async () => {
@@ -721,7 +721,7 @@ test('chat article documents every shape and command', async () => {
   assert.match(html, /\/clear/);
   assert.match(html, /\[LNTN\] Ranger/);
   assert.match(html, /\/give /);
-  assert.match(html, /href="\/guilds\.html"/);
+  assert.match(html, /href="guilds\.html"/);
 });
 
 test('guilds article pins every social cap', async () => {
@@ -732,7 +732,7 @@ test('guilds article pins every social cap', async () => {
   assert.match(html, /Guilds per world<\/td><td>32<\/td>/);
   assert.match(html, /Friends per account<\/td><td>100<\/td>/);
   assert.match(html, /160 character/);
-  assert.match(html, /href="\/chat\.html"/);
+  assert.match(html, /href="chat\.html"/);
 });
 
 test('equipment article names the bronze tools and the festive set', async () => {
@@ -747,7 +747,7 @@ test('equipment article names the bronze tools and the festive set', async () =>
 
 test('wiki hub lists every round-four article', async () => {
   const html = await hubPages();
-  for (const href of ['/items.html', '/seasonal.html', '/character-forge.html', '/gallery.html']) {
+  for (const href of ['items.html', 'seasonal.html', 'character-forge.html', 'gallery.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -761,8 +761,8 @@ test('items article names every family and every group of ids', async () => {
     assert.ok(html.includes(item), `items page is missing ${item}`);
   }
   assert.match(html, /eight families/);
-  assert.match(html, /href="\/digging\.html"/);
-  assert.match(html, /href="\/smithing\.html"/);
+  assert.match(html, /href="digging\.html"/);
+  assert.match(html, /href="smithing\.html"/);
 });
 
 test('seasonal table pins every festive tile id', async () => {
@@ -776,8 +776,8 @@ test('seasonal table pins every festive tile id', async () => {
     assert.ok(html.includes(piece), `seasonal page is missing ${piece}`);
   }
   assert.match(html, /gift-only/);
-  assert.match(html, /href="\/equipment\.html"/);
-  assert.match(html, /href="\/pets\.html"/);
+  assert.match(html, /href="equipment\.html"/);
+  assert.match(html, /href="pets\.html"/);
 });
 
 test('halloween article pins every spooky tile id and names the roster', async () => {
@@ -832,7 +832,7 @@ test('halloween article pins every spooky tile id and names the roster', async (
   assert.match(html, /Pumpkin helm/);
   assert.match(html, /candy corn/i);
   assert.match(html, /Hallowmere/);
-  assert.match(html, /href="\/bosses\.html"/);
+  assert.match(html, /href="bosses\.html"/);
 });
 
 test('character-forge article documents the parts, the CLI and the sheet', async () => {
@@ -844,9 +844,9 @@ test('character-forge article documents the parts, the CLI and the sheet', async
   assert.match(html, /Frame inspection/);
   assert.match(html, /--new-kind/);
   assert.match(html, /assets\/models\//);
-  assert.match(html, /href="\/equipment\.html"/);
-  assert.match(html, /href="\/capes\.html"/);
-  assert.match(html, /href="\/creatures\.html"/);
+  assert.match(html, /href="equipment\.html"/);
+  assert.match(html, /href="capes\.html"/);
+  assert.match(html, /href="creatures\.html"/);
 });
 
 test('gallery embeds the game art and nothing off-site', async () => {
@@ -854,8 +854,8 @@ test('gallery embeds the game art and nothing off-site', async () => {
   const srcs = [...html.matchAll(/<img src="([^"]+)"/g)].map((m) => m[1]);
   assert.ok(srcs.length >= 10, `expected at least 10 gallery images, saw ${srcs.length}`);
   for (const src of srcs) {
-    assert.ok(src.startsWith('/assets/'), `gallery image must live under /assets/, got ${src}`);
-    const file = path.join(root, src.replace(/^\//, ''));
+    assert.ok(src.startsWith('assets/'), `gallery image must live under assets/, got ${src}`);
+    const file = path.join(root, src);
     await assert.doesNotReject(readFile(file), `missing gallery asset ${src}`);
   }
   // Alt text must be present on every image so a screen reader still reads the page.
@@ -868,8 +868,8 @@ test('every wiki <img> resolves to a file inside the wiki folder', async () => {
     const html = await readFile(path.join(root, page.file), 'utf8');
     for (const match of html.matchAll(/<img src="([^"]+)"/g)) {
       const src = match[1];
-      assert.ok(src.startsWith('/assets/'), `${page.file} embeds a non-local image src: ${src}`);
-      const file = path.join(root, src.replace(/^\//, ''));
+      assert.ok(src.startsWith('assets/'), `${page.file} embeds a non-local image src: ${src}`);
+      const file = path.join(root, src);
       await assert.doesNotReject(readFile(file), `${page.file} references a missing asset ${src}`);
     }
   }
@@ -877,7 +877,7 @@ test('every wiki <img> resolves to a file inside the wiki folder', async () => {
 
 test('wiki hub lists every round-five article', async () => {
   const html = await hubPages();
-  for (const href of ['/terrain.html', '/props.html', '/first-person.html', '/account.html']) {
+  for (const href of ['terrain.html', 'props.html', 'first-person.html', 'account.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -891,7 +891,7 @@ test('terrain article names every family and every key tile constant', async () 
   assert.match(html, /MAX_HEIGHT<\/code> \(3\)/);
   assert.match(html, /RADIUS<\/code> \(0\.24/);
   assert.match(html, /twelve families/);
-  assert.match(html, /href="\/mining\.html"/);
+  assert.match(html, /href="mining\.html"/);
 });
 
 test('props article names all three sidecar tiles and their defaults', async () => {
@@ -903,7 +903,7 @@ test('props article names all three sidecar tiles and their defaults', async () 
   assert.match(html, /The letters have worn away\./);
   assert.match(html, /usable: true/);
   assert.match(html, /sidecar/);
-  assert.match(html, /href="\/terrain\.html"/);
+  assert.match(html, /href="terrain\.html"/);
 });
 
 test('first-person article documents the toggle, the projection and the sky', async () => {
@@ -916,7 +916,7 @@ test('first-person article documents the toggle, the projection and the sky', as
   assert.match(html, /star motes/);
   assert.match(html, /Reduced motion/);
   assert.match(html, /session-only/);
-  assert.match(html, /href="\/terrain\.html"/);
+  assert.match(html, /href="terrain\.html"/);
 });
 
 test('account article documents the whole path from the menu to a save row', async () => {
@@ -929,14 +929,14 @@ test('account article documents the whole path from the menu to a save row', asy
   assert.match(html, /wss:\/\//);
   assert.match(html, /save_version/);
   assert.match(html, /total level/);
-  assert.match(html, /href="\/experience\.html"/);
-  assert.match(html, /href="\/coins\.html"/);
-  assert.match(html, /href="\/character-forge\.html"/);
+  assert.match(html, /href="experience\.html"/);
+  assert.match(html, /href="coins\.html"/);
+  assert.match(html, /href="character-forge\.html"/);
 });
 
 test('wiki hub lists every round-six article', async () => {
   const html = await hubPages();
-  for (const href of ['/settings.html', '/music.html', '/map-maker.html', '/contributing.html']) {
+  for (const href of ['settings.html', 'music.html', 'map-maker.html', 'contributing.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -952,8 +952,8 @@ test('settings article names every tab and every rebindable slot group', async (
   assert.match(html, /F5 is deliberately outside/);
   assert.match(html, /Reduced motion/);
   assert.match(html, /safe reset|Safe reset/);
-  assert.match(html, /href="\/first-person\.html"/);
-  assert.match(html, /href="\/experience\.html"/);
+  assert.match(html, /href="first-person\.html"/);
+  assert.match(html, /href="experience\.html"/);
 });
 
 test('music article lists every shipped song', async () => {
@@ -964,7 +964,7 @@ test('music article lists every shipped song', async () => {
   assert.match(html, /Real seek/);
   assert.match(html, /Live spectrum/);
   assert.match(html, /workshop\.py/);
-  assert.match(html, /href="\/settings\.html"/);
+  assert.match(html, /href="settings\.html"/);
 });
 
 test('map-maker table pins every painter tool to its hotkey', async () => {
@@ -976,8 +976,8 @@ test('map-maker table pins every painter tool to its hotkey', async () => {
   }
   assert.match(html, /resource-node|Resource node/);
   assert.match(html, /stamp|Stamp/);
-  assert.match(html, /href="\/terrain\.html"/);
-  assert.match(html, /href="\/props\.html"/);
+  assert.match(html, /href="terrain\.html"/);
+  assert.match(html, /href="props\.html"/);
 });
 
 test('contributing article states every contract the tests enforce', async () => {
@@ -996,7 +996,7 @@ test('contributing article states every contract the tests enforce', async () =>
 
 test('wiki hub lists every round-seven article', async () => {
   const html = await hubPages();
-  for (const href of ['/themes.html', '/wake-up.html', '/cursors.html', '/remis.html']) {
+  for (const href of ['themes.html', 'wake-up.html', 'cursors.html', 'remis.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -1024,8 +1024,8 @@ test('wake-up article pins the timing, the mote count and the settings', async (
   assert.match(html, /3\.2 s/);
   assert.match(html, /Reduced motion/);
   assert.match(html, /WAKE_SECS/);
-  assert.match(html, /href="\/settings\.html"/);
-  assert.match(html, /href="\/gallery\.html"/);
+  assert.match(html, /href="settings\.html"/);
+  assert.match(html, /href="gallery\.html"/);
 });
 
 test('cursors article names all three shipped cursors', async () => {
@@ -1035,9 +1035,9 @@ test('cursors article names all three shipped cursors', async () => {
   }
   assert.match(html, /Cursor Maker/);
   assert.match(html, /hotspot/);
-  assert.match(html, /href="\/gallery\.html"/);
-  assert.match(html, /href="\/settings\.html"/);
-  assert.match(html, /href="\/themes\.html"/);
+  assert.match(html, /href="gallery\.html"/);
+  assert.match(html, /href="settings\.html"/);
+  assert.match(html, /href="themes\.html"/);
 });
 
 test('remis table pins every rot rarity, cost and income', async () => {
@@ -1055,7 +1055,7 @@ test('remis table pins every rot rarity, cost and income', async () => {
 
 test('wiki hub lists every round-eight article', async () => {
   const html = await hubPages();
-  for (const href of ['/monetization.html', '/props-packs.html', '/wood-and-ramps.html', '/atlas.html', '/floors-and-walls.html']) {
+  for (const href of ['monetization.html', 'props-packs.html', 'wood-and-ramps.html', 'atlas.html', 'floors-and-walls.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -1069,8 +1069,8 @@ test('monetization article names the wallets, the packs and the honest limits', 
   for (const line of ['No pay-to-win', 'No loot boxes', 'No real-money trading']) assert.ok(html.includes(line), `monetization page missing ${line}`);
   assert.match(html, /payment-provider webhook|payment provider/);
   assert.match(html, /DEBUG/);
-  assert.match(html, /href="\/capes\.html"/);
-  assert.match(html, /href="\/coins\.html"/);
+  assert.match(html, /href="capes\.html"/);
+  assert.match(html, /href="coins\.html"/);
 });
 
 test('props-packs article names the market, home, camp and festive tiles', async () => {
@@ -1086,8 +1086,8 @@ test('props-packs article names the market, home, camp and festive tiles', async
   }
   assert.match(html, /Twenty-nine props|29 props/);
   assert.match(html, /station_at/);
-  assert.match(html, /href="\/seasonal\.html"/);
-  assert.match(html, /href="\/smithing\.html"/);
+  assert.match(html, /href="seasonal\.html"/);
+  assert.match(html, /href="smithing\.html"/);
 });
 
 test('wood-and-ramps article names every bridge tile and the height ceiling', async () => {
@@ -1100,8 +1100,8 @@ test('wood-and-ramps article names every bridge tile and the height ceiling', as
   assert.match(html, /Four directions/);
   assert.match(html, /MAX_HEIGHT<\/code>, which is 3/);
   assert.match(html, /no jump key/);
-  assert.match(html, /href="\/terrain\.html"/);
-  assert.match(html, /href="\/map-maker\.html"/);
+  assert.match(html, /href="terrain\.html"/);
+  assert.match(html, /href="map-maker\.html"/);
 });
 
 test('atlas article is read-only and reaches the world snapshot', async () => {
@@ -1110,8 +1110,8 @@ test('atlas article is read-only and reaches the world snapshot', async () => {
   assert.match(html, /Depletion/);
   assert.match(html, /Player dots/);
   assert.match(html, /Height shading/);
-  assert.match(html, /href="\/map-maker\.html"/);
-  assert.match(html, /href="\/terrain\.html"/);
+  assert.match(html, /href="map-maker\.html"/);
+  assert.match(html, /href="terrain\.html"/);
 });
 
 test('floors-and-walls article names every link family and every ground', async () => {
@@ -1130,12 +1130,12 @@ test('floors-and-walls article names every link family and every ground', async 
   }
   assert.match(html, /wall-link/);
   assert.match(html, /fence-family|fence family/);
-  assert.match(html, /href="\/terrain\.html"/);
+  assert.match(html, /href="terrain\.html"/);
 });
 
 test('wiki hub lists every round-nine article', async () => {
   const html = await hubPages();
-  for (const href of ['/gear-forge.html', '/gui-first.html', '/admin-panel.html', '/bosses.html']) {
+  for (const href of ['gear-forge.html', 'gui-first.html', 'admin-panel.html', 'bosses.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -1153,10 +1153,10 @@ test('gear-forge article names the three looks, the parts, and the synthesiser',
   assert.match(html, /seeded PRNG/);
   assert.match(html, /24 distinct candidates|24 /);
   assert.match(html, /assets\/gear\/parts\.json/);
-  assert.match(html, /href="\/equipment\.html"/);
-  assert.match(html, /href="\/smithing\.html"/);
-  assert.match(html, /href="\/character-forge\.html"/);
-  assert.match(html, /href="\/gui-first\.html"/);
+  assert.match(html, /href="equipment\.html"/);
+  assert.match(html, /href="smithing\.html"/);
+  assert.match(html, /href="character-forge\.html"/);
+  assert.match(html, /href="gui-first\.html"/);
 });
 
 test('gui-first article states the rule and its exclusions', async () => {
@@ -1167,7 +1167,7 @@ test('gui-first article states the rule and its exclusions', async () => {
   assert.match(html, /Typing a name/);
   assert.match(html, /CLI is an .*additional.* path/);
   assert.match(html, /Music maker/);
-  assert.match(html, /href="\/gear-forge\.html"/);
+  assert.match(html, /href="gear-forge\.html"/);
 });
 
 test('admin-panel article names the give / take surface and its audit', async () => {
@@ -1180,9 +1180,9 @@ test('admin-panel article names the give / take surface and its audit', async ()
   assert.match(html, /ban/);
   assert.match(html, /audit/i);
   assert.match(html, /\/give /);
-  assert.match(html, /href="\/coins\.html"/);
-  assert.match(html, /href="\/chat\.html"/);
-  assert.match(html, /href="\/pets\.html"/);
+  assert.match(html, /href="coins\.html"/);
+  assert.match(html, /href="chat\.html"/);
+  assert.match(html, /href="pets\.html"/);
 });
 
 test('bosses article names all three bosses and pins the Barrow King stats', async () => {
@@ -1198,8 +1198,8 @@ test('bosses article names all three bosses and pins the Barrow King stats', asy
   assert.match(html, /6 tiles/);
   assert.match(html, /2,700 seconds/);
   assert.match(html, /18,000/);
-  assert.match(html, /href="\/combat\.html"/);
-  assert.match(html, /href="\/creatures\.html"/);
+  assert.match(html, /href="combat\.html"/);
+  assert.match(html, /href="creatures\.html"/);
 });
 
 test('equipment article reflects the Skilling tool label', async () => {
@@ -1211,7 +1211,7 @@ test('equipment article reflects the Skilling tool label', async () => {
 
 test('wiki hub lists every round-twelve article', async () => {
   const html = await hubPages();
-  for (const href of ['/transmog.html', '/gear-fx.html']) {
+  for (const href of ['transmog.html', 'gear-fx.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -1225,8 +1225,8 @@ test('transmog article names the Change look controls and the storage rule', asy
   assert.match(html, /Back.*cape|cape.*Back/);
   assert.match(html, /Tool slot|tool slot|<strong>Tool<\/strong> slot/);
   assert.match(html, /registry fingerprint/);
-  assert.match(html, /href="\/equipment\.html"/);
-  assert.match(html, /href="\/layers\.html"/);
+  assert.match(html, /href="equipment\.html"/);
+  assert.match(html, /href="layers\.html"/);
 });
 
 test('gear-fx article names every effect kind and the live file', async () => {
@@ -1241,8 +1241,8 @@ test('gear-fx article names every effect kind and the live file', async () => {
   assert.match(html, /Touch up this frame/);
   assert.match(html, /engraved/);
   assert.match(html, /glowing/);
-  assert.match(html, /href="\/gear-forge\.html"/);
-  assert.match(html, /href="\/layers\.html"/);
+  assert.match(html, /href="gear-forge\.html"/);
+  assert.match(html, /href="layers\.html"/);
 });
 
 test('gear-forge article covers the deferred batches (effects, delete, panel preview, fingerprint)', async () => {
@@ -1252,13 +1252,13 @@ test('gear-forge article covers the deferred batches (effects, delete, panel pre
   assert.match(html, /Delete, bring back/);
   assert.match(html, /An item preview in the panel/);
   assert.match(html, /The registry fingerprint/);
-  assert.match(html, /href="\/gear-fx\.html"/);
-  assert.match(html, /href="\/admin-panel\.html"/);
+  assert.match(html, /href="gear-fx\.html"/);
+  assert.match(html, /href="admin-panel\.html"/);
 });
 
 test('wiki hub lists every round-thirteen article', async () => {
   const html = await hubPages();
-  for (const href of ['/player-menu.html', '/player-sheet.html']) {
+  for (const href of ['player-menu.html', 'player-sheet.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -1273,8 +1273,8 @@ test('player-menu article names the popup buttons and the fixed F bind', async (
   assert.match(html, /not.*modal|light popup/);
   assert.match(html, /one-way|Requests are not built yet/);
   assert.match(html, /fixed bind/);
-  assert.match(html, /href="\/friends\.html"/);
-  assert.match(html, /href="\/chat\.html"/);
+  assert.match(html, /href="friends\.html"/);
+  assert.match(html, /href="chat\.html"/);
 });
 
 test('player-sheet article names every tab and its bind', async () => {
@@ -1289,9 +1289,9 @@ test('player-sheet article names every tab and its bind', async () => {
   assert.match(html, /coin bag|coin card/);
   assert.match(html, /hidden Shop tab/);
   assert.match(html, /Escape/);
-  assert.match(html, /href="\/equipment\.html"/);
-  assert.match(html, /href="\/capes\.html"/);
-  assert.match(html, /href="\/pets\.html"/);
+  assert.match(html, /href="equipment\.html"/);
+  assert.match(html, /href="capes\.html"/);
+  assert.match(html, /href="pets\.html"/);
 });
 
 test('guilds article names the board, founding and joining', async () => {
@@ -1320,7 +1320,7 @@ test('npcs article names the shop reach, the trade flow, and stock counting', as
 
 test('wiki hub lists every round-ten article', async () => {
   const html = await hubPages();
-  for (const href of ['/layers.html', '/worlds.html', '/shipping-map.html', '/auth.html']) {
+  for (const href of ['layers.html', 'worlds.html', 'shipping-map.html', 'auth.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -1343,8 +1343,8 @@ test('layers article walks the twenty-layer paint order', async () => {
   }
   assert.match(html, /last and top-most/);
   assert.match(html, /cape system/);
-  assert.match(html, /href="\/equipment\.html"/);
-  assert.match(html, /href="\/capes\.html"/);
+  assert.match(html, /href="equipment\.html"/);
+  assert.match(html, /href="capes\.html"/);
 });
 
 test('worlds article names the shared and per-world state', async () => {
@@ -1355,8 +1355,8 @@ test('worlds article names the shared and per-world state', async () => {
   assert.match(html, /optimistic locking/);
   assert.match(html, /world A|one world at a time/);
   assert.match(html, /cross-world|Cross-world/);
-  assert.match(html, /href="\/account\.html"/);
-  assert.match(html, /href="\/chat\.html"/);
+  assert.match(html, /href="account\.html"/);
+  assert.match(html, /href="chat\.html"/);
 });
 
 test('shipping-map article names the map and its districts', async () => {
@@ -1369,8 +1369,8 @@ test('shipping-map article names the map and its districts', async () => {
   }
   assert.match(html, /anvil<\/strong> \(tile 101\)/);
   assert.match(html, /furnace<\/strong> \(tile 113\)/);
-  assert.match(html, /href="\/props-packs\.html"/);
-  assert.match(html, /href="\/terrain\.html"/);
+  assert.match(html, /href="props-packs\.html"/);
+  assert.match(html, /href="terrain\.html"/);
 });
 
 test('auth article names the hash, the token, and the remember-me limits', async () => {
@@ -1383,13 +1383,13 @@ test('auth article names the hash, the token, and the remember-me limits', async
   assert.match(html, /username is not taken/);
   assert.match(html, /only thing remembered is a name|remembers the <em>username<\/em>/);
   assert.match(html, /is_admin|Staff rank/);
-  assert.match(html, /href="\/account\.html"/);
-  assert.match(html, /href="\/worlds\.html"/);
+  assert.match(html, /href="account\.html"/);
+  assert.match(html, /href="worlds\.html"/);
 });
 
 test('wiki hub lists every round-eleven article', async () => {
   const html = await hubPages();
-  for (const href of ['/friends.html', '/crash-codes.html']) {
+  for (const href of ['friends.html', 'crash-codes.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
 });
@@ -1407,8 +1407,8 @@ test('friends article names live presence, the row menu and the two commands', a
   assert.match(html, /\/unfriend /);
   assert.match(html, /reachable/);
   assert.match(html, /throttled/);
-  assert.match(html, /href="\/chat\.html"/);
-  assert.match(html, /href="\/guilds\.html"/);
+  assert.match(html, /href="chat\.html"/);
+  assert.match(html, /href="guilds\.html"/);
 });
 
 test('crash-codes article names every GH-xxx code', async () => {
@@ -1422,17 +1422,17 @@ test('crash-codes article names every GH-xxx code', async () => {
   assert.match(html, /greenhaven-panic\.txt/);
   assert.match(html, /stable strings, never renumbered/);
   assert.match(html, /Ctrl\+C/);
-  assert.match(html, /href="\/account\.html"/);
+  assert.match(html, /href="account\.html"/);
 });
 
 test('wiki pages load the shared tool chrome before their own styles', async () => {
   for (const file of PAGES.map((page) => page.file)) {
     const html = await readFile(path.join(root, file), 'utf8');
-    const theme = html.indexOf('href="/theme.css"');
-    const own = html.indexOf('href="/style.css"');
-    assert.ok(theme > -1, `${file} does not load /theme.css`);
-    assert.ok(own > theme, `${file} must load /theme.css before /style.css`);
-    assert.match(html, /<script src="\/theme\.js"><\/script>/, `${file} does not load /theme.js`);
+    const theme = html.indexOf('href="theme.css"');
+    const own = html.indexOf('href="style.css"');
+    assert.ok(theme > -1, `${file} does not load theme.css`);
+    assert.ok(own > theme, `${file} must load theme.css before style.css`);
+    assert.match(html, /<script src="theme\.js"><\/script>/, `${file} does not load theme.js`);
   }
 });
 
@@ -1468,7 +1468,7 @@ test('wiki styles consume the shared theme tokens instead of a fixed palette', a
 test('every wiki page header carries the hub chrome mounts', async () => {
   for (const page of PAGES) {
     const html = await readFile(path.join(root, page.file), 'utf8');
-    assert.match(html, /<a class="brand" href="\/"/, `${page.file} has no brand link`);
+    assert.match(html, /<a class="brand" href="index\.html"/, `${page.file} has no brand link`);
     assert.match(html, /class="brand-icon"[^>]*>\s*<svg/, `${page.file} has no SVG brand icon`);
     assert.match(html, /<div class="actions"><\/div>/, `${page.file} has no actions mount for the theme picker`);
     assert.doesNotMatch(html, /nav-toggle|id="site-nav"/, `${page.file} still carries the old text nav`);
@@ -1589,7 +1589,7 @@ test('wiki sidebar lists every page by shelf with a finder, contents and the lat
   assert.match(js, /function mountSidebar\(\)/);
   assert.match(js, /side\.className = 'wiki-side';/);
   assert.match(js, /shell\.className = 'wiki-shell';/);
-  assert.match(js, /href: '\/news\.html',\s*title: 'The Hearth Post, issue 2'/);
+  assert.match(js, /href: 'news\.html',\s*title: 'The Hearth Post, issue 2'/);
   assert.match(js, /summary\.textContent = 'On this page';/);
   assert.match(js, /input\.placeholder = 'Find a page';/);
   assert.match(js, /openAll\.textContent = 'Open all';/);
@@ -1616,7 +1616,7 @@ test('the Hearth Post newsletter tells the 23-24 September story and is linked f
   assert.match(news, /<b>1,371<\/b><span>tests passing<\/span>/);
   assert.match(news, /728 Rust, 627 Node and 16 Python/);
   assert.match(news, /version 0\.1\.12|Version <b>0\.1\.12<\/b>/);
-  assert.ok(hub.includes('href="/news.html"'), 'index.html does not link the newsletter');
+  assert.ok(hub.includes('href="news.html"'), 'index.html does not link the newsletter');
   assert.match(hub, /class="home-news"/);
 });
 
@@ -1658,7 +1658,7 @@ test('the cooking and firemaking pages state the rules the code enforces', async
   const site = await readFile(path.join(root, 'site.js'), 'utf8');
   assert.ok(site.includes("label: 'Firemaking'") && site.includes("label: 'Cooking'"), 'both are in the nav');
   const hub = await readFile(path.join(root, 'index.html'), 'utf8');
-  assert.ok(hub.includes('href="/firemaking.html"') && hub.includes('href="/cooking.html"'), 'the hub lists both');
+  assert.ok(hub.includes('href="firemaking.html"') && hub.includes('href="cooking.html"'), 'the hub lists both');
 });
 
 // [TRACE: DOCS/HOLY_RUNWAY.md] The Holy article mirrors the shipped bones row and the refusal texts in shared `bury`.
@@ -1758,7 +1758,7 @@ test('the player wiki and the Builder Wiki each list their own shelves and nothi
     }
   }
   const home = await readFile(path.join(root, 'index.html'), 'utf8');
-  assert.match(home, /<a class="builders-band" href="\/builders\.html">/);
+  assert.match(home, /<a class="builders-band" href="builders\.html">/);
   assert.match(home, /class="home-news"/);
   // One tab on the top bar crosses between the books; chrome shows only the current book's shelves.
   assert.match(js, /text\.textContent = onBuilders\(\) \? 'Player wiki' : 'For builders';/);
