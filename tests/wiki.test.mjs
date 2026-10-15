@@ -74,6 +74,10 @@ const ROCKS = [
   ['Obsidian rock', '384', '45', '132', 'click swatch'],
   ['Jade rock', '385', '35', '95', 'click swatch'],
   ['Meteorite', '386', '75', '260', 'click swatch'],
+  ['Tanzanite rock', '387', '52', '158', 'click swatch'],
+  ['Zircon rock', '388', '32', '90', 'click swatch'],
+  ['Bloodstone rock', '389', '67', '222', 'click swatch'],
+  ['Sunstone rock', '390', '77', '272', 'click swatch'],
 ];
 
 // Make, station, level gate, XP per make. Mirrors RECIPES in
@@ -531,7 +535,7 @@ test('smithing lists every furnace bar and items lists every mined drop', async 
     assert.match(smith, new RegExp(`<td>${name}</td>\\s*<td>Furnace</td>\\s*<td>${level}</td>\\s*<td>${xp}</td>`), name);
     assert.ok(items.includes(name), `items lists ${name}`);
   }
-  for (const drop of ['Lead ore', 'Zinc ore', 'Garnet', 'Peridot', 'Aquamarine', 'Citrine', 'Jade', 'Obsidian', 'Starmetal ore', 'Stardust', 'Runite ore', 'Dragonstone']) {
+  for (const drop of ['Lead ore', 'Zinc ore', 'Garnet', 'Peridot', 'Aquamarine', 'Citrine', 'Jade', 'Obsidian', 'Starmetal ore', 'Stardust', 'Runite ore', 'Dragonstone', 'Zircon', 'Tanzanite', 'Bloodstone', 'Sunstone', 'Cooked salmon', 'Cooked stormray']) {
     assert.ok(items.includes(drop), `items lists ${drop}`);
   }
 });
@@ -1639,7 +1643,7 @@ test('firemaking table mirrors BURNABLES row for row and cooking table mirrors t
   const dishes = items.filter((e) => e.recipe?.station === 'fire' && e.id.startsWith('cooked_'));
   assert.equal(dishes.length, 12, 'a cooked dish for each fish, plus cooked meat');
   const cook = tableRows(await readFile(path.join(root, 'cooking.html'), 'utf8'));
-  assert.deepEqual(cook, dishes.map((e) => [label(e.recipe.inputs[0][0]), String(e.recipe.level), String(e.recipe.xp), String(e.recipe.burn_until), String(e.heal)]));
+  assert.deepEqual(cook, dishes.map((e) => [label(e.recipe.inputs[0][0]), String(e.recipe.level), String(e.recipe.xp), String(e.recipe.burn_until), String(e.heal), e.label]));
 });
 
 test('the cooking and firemaking pages state the rules the code enforces', async () => {
