@@ -63,6 +63,8 @@ const ROCKS = [
   ['Citrine geode', '372', '35', '95', 'click swatch'],
   ['Granite boulder', '77', '1', '30', 'click swatch'],
   ['Rock cluster', '78', '1', '20', 'click swatch'],
+  ['Jingle rock', '155', '1', '1', 'click swatch'],
+  ['Halloween rock', '190', '1', '1', 'click swatch'],
 ];
 
 // Make, station, level gate, XP per make. Mirrors RECIPES in
@@ -1636,4 +1638,38 @@ test('holy page mirrors the shipped bones row and states the rules the code enfo
   for (const [kind, sheet] of Object.entries(mobs)) assert.ok(sheet.loot.some(drop => drop.item === 'bones'), `${kind} drops bones`);
   const site = await readFile(path.join(root, 'site.js'), 'utf8');
   assert.ok(site.includes("label: 'Holy'"), 'Holy is in the nav');
+});
+
+// Fish, level gate, XP per catch. Mirrors FISHING_TIERS in shared lib.rs.
+const FISH_XP = [
+  ['Minnow', '1', '20'],
+  ['Silverfin', '15', '45'],
+  ['Glassfin', '25', '60'],
+  ['Trout', '30', '80'],
+  ['Salmon', '45', '130'],
+  ['Lanternfish', '60', '190'],
+  ['Embergill', '68', '175'],
+  ['Mooncale', '80', '270'],
+  ['Stormray', '85', '300'],
+  ['Sunskimmer', '90', '360'],
+  ['Dreadfin', '99', '420'],
+];
+
+// Dig spot, XP per dig. Mirrors DIG_KINDS in shared lib.rs.
+const DIG_XP = [
+  ['Sand', '5'],
+  ['Clay', '8'],
+  ['Pumpkin vine', '15'],
+  ['Gravel pit', '25'],
+  ['Peat bog', '30'],
+  ['Bulb bed', '12'],
+  ['Tilled soil', '10'],
+];
+
+test('experience article lists every fishing tier and dig spot with its XP', async () => {
+  const html = await readFile(path.join(root, 'experience.html'), 'utf8');
+  const rows = tableRows(html);
+  for (const row of [...FISH_XP, ...DIG_XP]) {
+    assert.deepEqual(rows.find((cells) => cells[0] === row[0]), row, `row for ${row[0]}`);
+  }
 });
