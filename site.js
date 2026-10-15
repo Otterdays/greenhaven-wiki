@@ -345,8 +345,8 @@
   // The newest Hearth Post issue, shown as the card at the top of the sidebar. Bump with each issue.
   const LATEST_NEWS = {
     href: '/news.html',
-    title: 'The Hearth Post, issue 1',
-    blurb: '23-24 Sep: the Gear Forge opens, Christmas comes early, hammers in the smithy.',
+    title: 'The Hearth Post, issue 2',
+    blurb: 'Version 0.1.14: monsters fight back, day and night, Halloween moves in.',
   };
   const SIDE_OPEN_KEY = 'gh-wiki-side-open';
 

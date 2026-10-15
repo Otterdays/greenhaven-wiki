@@ -69,6 +69,11 @@ const ROCKS = [
   ['Rock cluster', '78', '1', '20', 'click swatch'],
   ['Jingle rock', '155', '1', '1', 'click swatch'],
   ['Halloween rock', '190', '1', '1', 'click swatch'],
+  ['Runite rock', '382', '85', '310', 'click swatch'],
+  ['Dragonstone rock', '383', '85', '320', 'click swatch'],
+  ['Obsidian rock', '384', '45', '132', 'click swatch'],
+  ['Jade rock', '385', '35', '95', 'click swatch'],
+  ['Meteorite', '386', '75', '260', 'click swatch'],
 ];
 
 // Make, station, level gate, XP per make. Mirrors RECIPES in
@@ -516,6 +521,18 @@ test('smithing table pins make, station, level gate and XP per make', async () =
     const row = rows.find((cells) => cells[0] === name);
     assert.ok(row, `row for ${name}`);
     assert.deepEqual(row.slice(0, 4), [name, station, level, xp], `row for ${name}`);
+  }
+});
+
+test('smithing lists every furnace bar and items lists every mined drop', async () => {
+  const smith = await readFile(path.join(root, 'smithing.html'), 'utf8');
+  const items = await readFile(path.join(root, 'items.html'), 'utf8');
+  for (const [name, level, xp] of [['Copper bar', '1', '15'], ['Tin bar', '1', '15'], ['Iron bar', '10', '40'], ['Steel bar', '15', '60'], ['Silver bar', '20', '70'], ['Gold bar', '30', '90'], ['Mithril bar', '40', '120'], ['Adamantite bar', '50', '160'], ['Orichalcum bar', '60', '200'], ['Platinum bar', '70', '240']]) {
+    assert.match(smith, new RegExp(`<td>${name}</td>\\s*<td>Furnace</td>\\s*<td>${level}</td>\\s*<td>${xp}</td>`), name);
+    assert.ok(items.includes(name), `items lists ${name}`);
+  }
+  for (const drop of ['Lead ore', 'Zinc ore', 'Garnet', 'Peridot', 'Aquamarine', 'Citrine', 'Jade', 'Obsidian', 'Starmetal ore', 'Stardust', 'Runite ore', 'Dragonstone']) {
+    assert.ok(items.includes(drop), `items lists ${drop}`);
   }
 });
 
@@ -1568,7 +1585,7 @@ test('wiki sidebar lists every page by shelf with a finder, contents and the lat
   assert.match(js, /function mountSidebar\(\)/);
   assert.match(js, /side\.className = 'wiki-side';/);
   assert.match(js, /shell\.className = 'wiki-shell';/);
-  assert.match(js, /href: '\/news\.html',\s*title: 'The Hearth Post, issue 1'/);
+  assert.match(js, /href: '\/news\.html',\s*title: 'The Hearth Post, issue 2'/);
   assert.match(js, /summary\.textContent = 'On this page';/);
   assert.match(js, /input\.placeholder = 'Find a page';/);
   assert.match(js, /openAll\.textContent = 'Open all';/);
@@ -1597,6 +1614,17 @@ test('the Hearth Post newsletter tells the 23-24 September story and is linked f
   assert.match(news, /version 0\.1\.12|Version <b>0\.1\.12<\/b>/);
   assert.ok(hub.includes('href="/news.html"'), 'index.html does not link the newsletter');
   assert.match(hub, /class="home-news"/);
+});
+
+test('the Hearth Post issue 2 covers version 0.1.14 and leads the page', async () => {
+  const news = await readFile(path.join(root, 'news.html'), 'utf8');
+  assert.match(news, /Issue 2 - version 0\.1\.14/);
+  assert.ok(news.indexOf('Issue 2') < news.indexOf('Issue 1'), 'issue 2 must sit above the archived issue 1');
+  for (const story of ['combat-0114', 'bestiary-0114', 'halloween-0114', 'daynight-0114', 'skills-0114', 'you-0114', 'social-0114', 'builders-0114', 'workshop-0114']) {
+    assert.match(news, new RegExp(`class="story[^"]*" id="${story}"`), `news.html is missing the ${story} story`);
+  }
+  // Pinned to the count of 0.1.14 CHANGELOG headings dated 2026-09-26 to 2026-10-15.
+  assert.match(news, /<b>299<\/b><span>changes logged<\/span>/);
 });
 
 // [TRACE: DOCS/FIREMAKING_COOKING_RUNWAY.md] The two crafting articles mirror the shared burn table and the shipped cooked-fish rows.
