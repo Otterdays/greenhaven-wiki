@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Builder Wiki - Greenhaven Wiki</title>
+  <meta name="description" content="Notes for the people who make Greenhaven: the tools, tile and gear families, house rules and servers.">
+  <link rel="stylesheet" href="/theme.css">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Greenhaven wiki"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M13.4 2.6C7.8 2.4 3.4 4.8 3.4 9.4c0 1.2.3 2.2.9 3L2.8 13.9l.9.9 1.5-1.5c.8.6 1.8.9 3 .9 4.6 0 6.2-4.6 5.2-11.6z"/></svg></span> Greenhaven <small>wiki</small></a>
+    <div class="actions"></div>
+  </header>
+  <main>
+    <section class="page hero home-head builders-head">
+      <h1>Builder Wiki</h1>
+      <p class="lede">Notes for the people who make Greenhaven: the tools, the tile and gear families, the house rules and the servers. Players start at the <a href="/">wiki home</a>.</p>
+      <nav class="shelf-jump" aria-label="Shelves">
+        <a href="#tools" data-shelf="tools">Builder tools</a>
+        <a href="#building" data-shelf="building">World building</a>
+        <a href="#house" data-shelf="house">House rules</a>
+        <a href="#servers" data-shelf="servers">Servers</a>
+      </nav>
+    </section>
+    <div class="catalog">
+      <section class="shelf" id="tools">
+        <div class="shelf-title"><h2>Builder tools</h2><p class="shelf-note">The tools that make Greenhaven: the painter, the forges, the atlas and the admin panel.</p></div>
+        <ul class="index">
+          <li><a href="/map-maker.html"><b>The Map Painter</b><span class="index-blurb">Twelve tools, a 120-tile palette, and one export path a world reads at boot.</span></a></li>
+          <li><a href="/gear-forge.html"><b>Gear Forge</b><span class="index-blurb">The item authoring tool: parts library, seeded synthesiser, dressing any humanoid, held swings and worn layers.</span></a></li>
+          <li><a href="/character-forge.html"><b>Character Forge</b><span class="index-blurb">The model maker's part-based character editor, its "describe it" path, and the agent CLI.</span></a></li>
+          <li><a href="/atlas.html"><b>Live Atlas</b><span class="index-blurb">A read-only view of a running world: tile grid, node depletion, and every player walking around now.</span></a></li>
+          <li><a href="/admin-panel.html"><b>The Admin Panel</b><span class="index-blurb">Search characters, give and take items, capes, pets and wallets, kick and ban, and read the audit log.</span></a></li>
+        </ul>
+      </section>
+      <section class="shelf" id="building">
+        <div class="shelf-title"><h2>World building</h2><p class="shelf-note">Tile families, props, heights and worn-gear layers, as the painter and the Gear Forge use them.</p></div>
+        <ul class="index">
+          <li><a href="/terrain.html"><b>Terrain and Tiles</b><span class="index-blurb">All twelve tile families, the height map, and what each family means for walking and joining.</span></a></li>
+          <li><a href="/floors-and-walls.html"><b>Floors, Walls and Crafted Grounds</b><span class="index-blurb">Cobblestone walls and doorways, interior floors, the twelve crafted grounds, and the fence family.</span></a></li>
+          <li><a href="/wood-and-ramps.html"><b>Wood, Ramps and Height</b><span class="index-blurb">Boardwalk, dock, corduroy and ramp: the deck joins, the four rise directions, and the height map.</span></a></li>
+          <li><a href="/props.html"><b>Signs, Chests and Campfires</b><span class="index-blurb">The three tiles that carry per-cell authorship in a sidecar.</span></a></li>
+          <li><a href="/props-packs.html"><b>Prop Packs</b><span class="index-blurb">Twenty-nine scenery props: market and yard, home and green, camp furniture, and the festive pack.</span></a></li>
+          <li><a href="/layers.html"><b>Worn Gear Layers</b><span class="index-blurb">The twenty-layer paint order a helm, a platebody, a cape and a sword all follow.</span></a></li>
+          <li><a href="/gear-fx.html"><b>Gear Effects</b><span class="index-blurb">Glow, swing trail, hit pop, sparks and dust on any piece - authored in the Gear Forge, reloaded live by the client.</span></a></li>
+        </ul>
+      </section>
+      <section class="shelf" id="house">
+        <div class="shelf-title"><h2>House rules</h2><p class="shelf-note">How content and pages are made here, and the rules every change follows.</p></div>
+        <ul class="index">
+          <li><a href="/gui-first.html"><b>The GUI-first Law</b><span class="index-blurb">Every content workflow must be usable from a GUI. No JSON, no scripts, no "open the code to add a row".</span></a></li>
+          <li><a href="/contributing.html"><b>Contributing to the Wiki</b><span class="index-blurb">How every page is written: source of truth, ASCII rules, one-list chrome, and the tests.</span></a></li>
+          <li><a href="/themes.html"><b>Theme Packs</b><span class="index-blurb">Fifty-nine colour packs across every tool and the wiki, plus the contrast gate that keeps them readable.</span></a></li>
+        </ul>
+      </section>
+      <section class="shelf" id="servers">
+        <div class="shelf-title"><h2>Servers</h2><p class="shelf-note">Worlds, saves and sign-in under the hood.</p></div>
+        <ul class="index">
+          <li><a href="/worlds.html"><b>Worlds and Multi-world</b><span class="index-blurb">How many worlds run on one database, and how a character's save lock keeps them apart.</span></a></li>
+          <li><a href="/auth.html"><b>Accounts, Passwords and Sessions</b><span class="index-blurb">Argon2id, session tokens, and what "Remember me" actually remembers on the login card.</span></a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <span>Greenhaven wiki - a local world</span>
+    <span>(c) <span id="year">2026</span> Greenhaven</span>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

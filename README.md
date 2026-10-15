@@ -6,7 +6,9 @@ A small static wiki for Greenhaven, built in the same pattern as the public porc
 
 | File | Role |
 | --- | --- |
-| `index.html` | Hub listing the available topics |
+| `index.html` | Player wiki home: search plus every player page listed under its shelf |
+| `builders.html` | Builder Wiki home: the tool, world-building, house-rule and server pages, reached from the For builders tab |
+| `PRODUCT.md` | Product record: who the wiki is for and the player / builder split |
 | `woodcutting.html` | Woodcutting article (the ten-tree ladder) |
 | `mining.html` | Mining article (the twenty-four-rock ladder) |
 | `fishing.html` | Fishing article (the eight-tier fish ladder, casts, rod and bait, empty spots) |

@@ -81,53 +81,54 @@
     {href: '/holy.html', match: /^\/holy\.html$/, label: 'Holy', icon: 'combat', group: 'skills'},
     {href: '/combat.html', match: /^\/combat\.html$/, label: 'Combat', icon: 'combat', group: 'skills'},
     {href: '/digging.html', match: /^\/digging\.html$/, label: 'Digging', icon: 'digging', group: 'skills'},
-    {href: '/equipment.html', match: /^\/equipment\.html$/, label: 'Equipment', icon: 'equipment', group: 'gear'},
-    {href: '/capes.html', match: /^\/capes\.html$/, label: 'Capes', icon: 'capes', group: 'gear'},
-    {href: '/coins.html', match: /^\/coins\.html$/, label: 'Coins', icon: 'coins', group: 'gear'},
-    {href: '/npcs.html', match: /^\/npcs\.html$/, label: 'NPCs and Shops', icon: 'npcs', group: 'folk'},
-    {href: '/creatures.html', match: /^\/creatures\.html$/, label: 'Creatures', icon: 'creatures', group: 'folk'},
-    {href: '/pets.html', match: /^\/pets\.html$/, label: 'Pets', icon: 'pets', group: 'folk'},
-    {href: '/crouch.html', match: /^\/crouch\.html$/, label: 'Crouch', icon: 'crouch', group: 'world'},
-    {href: '/chat.html', match: /^\/chat\.html$/, label: 'Chat', icon: 'chat', group: 'folk'},
-    {href: '/guilds.html', match: /^\/guilds\.html$/, label: 'Guilds', icon: 'guilds', group: 'folk'},
-    {href: '/friends.html', match: /^\/friends\.html$/, label: 'Friends', icon: 'friends', group: 'folk'},
-    {href: '/player-menu.html', match: /^\/player-menu\.html$/, label: 'Player Menu', icon: 'playermenu', group: 'folk'},
-    {href: '/player-sheet.html', match: /^\/player-sheet\.html$/, label: 'Player Sheet', icon: 'playersheet', group: 'world'},
-    {href: '/items.html', match: /^\/items\.html$/, label: 'Items', icon: 'items', group: 'gear'},
-    {href: '/seasonal.html', match: /^\/seasonal\.html$/, label: 'Seasonal', icon: 'seasonal', group: 'world'},
-    {href: '/halloween.html', match: /^\/halloween\.html$/, label: 'Halloween', icon: 'halloween', group: 'world'},
-    {href: '/character-forge.html', match: /^\/character-forge\.html$/, label: 'Character Forge', icon: 'forge', group: 'making'},
-    {href: '/gallery.html', match: /^\/gallery\.html$/, label: 'Gallery', icon: 'gallery', group: 'making'},
-    {href: '/terrain.html', match: /^\/terrain\.html$/, label: 'Terrain', icon: 'terrain', group: 'world'},
-    {href: '/props.html', match: /^\/props\.html$/, label: 'Signs and Chests', icon: 'props', group: 'world'},
-    {href: '/first-person.html', match: /^\/first-person\.html$/, label: 'First Person', icon: 'firstperson', group: 'world'},
-    {href: '/account.html', match: /^\/account\.html$/, label: 'Accounts', icon: 'account', group: 'backstage'},
-    {href: '/settings.html', match: /^\/settings\.html$/, label: 'Settings', icon: 'settings', group: 'backstage'},
-    {href: '/music.html', match: /^\/music\.html$/, label: 'Music', icon: 'music', group: 'making'},
-    {href: '/map-maker.html', match: /^\/map-maker\.html$/, label: 'Map Painter', icon: 'painter', group: 'making'},
-    {href: '/contributing.html', match: /^\/contributing\.html$/, label: 'Contributing', icon: 'contributing', group: 'making'},
-    {href: '/crash-codes.html', match: /^\/crash-codes\.html$/, label: 'Crash Codes', icon: 'crash', group: 'backstage'},
-    {href: '/themes.html', match: /^\/themes\.html$/, label: 'Theme Packs', icon: 'themes', group: 'making'},
-    {href: '/wake-up.html', match: /^\/wake-up\.html$/, label: 'Wake-Up', icon: 'wakeup', group: 'world'},
-    {href: '/cursors.html', match: /^\/cursors\.html$/, label: 'Cursors', icon: 'cursors', group: 'making'},
-    {href: '/remis.html', match: /^\/remis\.html$/, label: 'Rots and Tots', icon: 'remis', group: 'world'},
-    {href: '/monetization.html', match: /^\/monetization\.html$/, label: 'Crystal Store', icon: 'monetization', group: 'gear'},
-    {href: '/props-packs.html', match: /^\/props-packs\.html$/, label: 'Prop Packs', icon: 'packs', group: 'world'},
-    {href: '/wood-and-ramps.html', match: /^\/wood-and-ramps\.html$/, label: 'Wood and Ramps', icon: 'wood', group: 'world'},
-    {href: '/atlas.html', match: /^\/atlas\.html$/, label: 'Live Atlas', icon: 'atlas', group: 'making'},
-    {href: '/floors-and-walls.html', match: /^\/floors-and-walls\.html$/, label: 'Floors and Walls', icon: 'floors', group: 'world'},
-    {href: '/gear-forge.html', match: /^\/gear-forge\.html$/, label: 'Gear Forge', icon: 'gearforge', group: 'gear'},
-    {href: '/gui-first.html', match: /^\/gui-first\.html$/, label: 'GUI-first Law', icon: 'guifirst', group: 'making'},
-    {href: '/admin-panel.html', match: /^\/admin-panel\.html$/, label: 'Admin Panel', icon: 'adminpanel', group: 'backstage'},
-    {href: '/bosses.html', match: /^\/bosses\.html$/, label: 'Bosses', icon: 'bosses', group: 'folk'},
-    {href: '/layers.html', match: /^\/layers\.html$/, label: 'Gear Layers', icon: 'layers', group: 'gear'},
-    {href: '/transmog.html', match: /^\/transmog\.html$/, label: 'Change Look', icon: 'transmog', group: 'gear'},
-    {href: '/gear-fx.html', match: /^\/gear-fx\.html$/, label: 'Gear Effects', icon: 'gearfx', group: 'gear'},
-    {href: '/worlds.html', match: /^\/worlds\.html$/, label: 'Worlds', icon: 'worlds', group: 'world'},
-    {href: '/shipping-map.html', match: /^\/shipping-map\.html$/, label: 'The Shipping Map', icon: 'shippingmap', group: 'world'},
-    {href: '/auth.html', match: /^\/auth\.html$/, label: 'Accounts and Passwords', icon: 'auth', group: 'backstage'},
     {href: '/stride.html', match: /^\/stride\.html$/, label: 'Stride', icon: 'stride', group: 'skills'},
     {href: '/experience.html', match: /^\/experience\.html$/, label: 'Experience', icon: 'experience', group: 'skills'},
+    {href: '/equipment.html', match: /^\/equipment\.html$/, label: 'Equipment', icon: 'equipment', group: 'gear'},
+    {href: '/items.html', match: /^\/items\.html$/, label: 'Items', icon: 'items', group: 'gear'},
+    {href: '/capes.html', match: /^\/capes\.html$/, label: 'Capes', icon: 'capes', group: 'gear'},
+    {href: '/coins.html', match: /^\/coins\.html$/, label: 'Coins', icon: 'coins', group: 'gear'},
+    {href: '/monetization.html', match: /^\/monetization\.html$/, label: 'Crystal Store', icon: 'monetization', group: 'gear'},
+    {href: '/transmog.html', match: /^\/transmog\.html$/, label: 'Change Look', icon: 'transmog', group: 'gear'},
+    {href: '/npcs.html', match: /^\/npcs\.html$/, label: 'NPCs and Shops', icon: 'npcs', group: 'folk'},
+    {href: '/creatures.html', match: /^\/creatures\.html$/, label: 'Creatures', icon: 'creatures', group: 'folk'},
+    {href: '/bosses.html', match: /^\/bosses\.html$/, label: 'Bosses', icon: 'bosses', group: 'folk'},
+    {href: '/pets.html', match: /^\/pets\.html$/, label: 'Pets', icon: 'pets', group: 'folk'},
+    {href: '/chat.html', match: /^\/chat\.html$/, label: 'Chat', icon: 'chat', group: 'folk'},
+    {href: '/friends.html', match: /^\/friends\.html$/, label: 'Friends', icon: 'friends', group: 'folk'},
+    {href: '/guilds.html', match: /^\/guilds\.html$/, label: 'Guilds', icon: 'guilds', group: 'folk'},
+    {href: '/player-menu.html', match: /^\/player-menu\.html$/, label: 'Player Menu', icon: 'playermenu', group: 'folk'},
+    {href: '/shipping-map.html', match: /^\/shipping-map\.html$/, label: 'The Shipping Map', icon: 'shippingmap', group: 'world'},
+    {href: '/player-sheet.html', match: /^\/player-sheet\.html$/, label: 'Player Sheet', icon: 'playersheet', group: 'world'},
+    {href: '/crouch.html', match: /^\/crouch\.html$/, label: 'Crouch', icon: 'crouch', group: 'world'},
+    {href: '/first-person.html', match: /^\/first-person\.html$/, label: 'First Person', icon: 'firstperson', group: 'world'},
+    {href: '/wake-up.html', match: /^\/wake-up\.html$/, label: 'Wake-Up', icon: 'wakeup', group: 'world'},
+    {href: '/seasonal.html', match: /^\/seasonal\.html$/, label: 'Seasonal', icon: 'seasonal', group: 'world'},
+    {href: '/halloween.html', match: /^\/halloween\.html$/, label: 'Halloween', icon: 'halloween', group: 'world'},
+    {href: '/remis.html', match: /^\/remis\.html$/, label: 'Rots and Tots', icon: 'remis', group: 'world'},
+    {href: '/music.html', match: /^\/music\.html$/, label: 'Music', icon: 'music', group: 'world'},
+    {href: '/gallery.html', match: /^\/gallery\.html$/, label: 'Gallery', icon: 'gallery', group: 'world'},
+    {href: '/cursors.html', match: /^\/cursors\.html$/, label: 'Cursors', icon: 'cursors', group: 'world'},
+    {href: '/account.html', match: /^\/account\.html$/, label: 'Accounts', icon: 'account', group: 'backstage'},
+    {href: '/settings.html', match: /^\/settings\.html$/, label: 'Settings', icon: 'settings', group: 'backstage'},
+    {href: '/crash-codes.html', match: /^\/crash-codes\.html$/, label: 'Crash Codes', icon: 'crash', group: 'backstage'},
+    {href: '/builders.html', match: /^\/builders\.html$/, label: 'Builder Wiki', icon: 'forge', group: 'bhome'},
+    {href: '/map-maker.html', match: /^\/map-maker\.html$/, label: 'Map Painter', icon: 'painter', group: 'tools'},
+    {href: '/gear-forge.html', match: /^\/gear-forge\.html$/, label: 'Gear Forge', icon: 'gearforge', group: 'tools'},
+    {href: '/character-forge.html', match: /^\/character-forge\.html$/, label: 'Character Forge', icon: 'forge', group: 'tools'},
+    {href: '/atlas.html', match: /^\/atlas\.html$/, label: 'Live Atlas', icon: 'atlas', group: 'tools'},
+    {href: '/admin-panel.html', match: /^\/admin-panel\.html$/, label: 'Admin Panel', icon: 'adminpanel', group: 'tools'},
+    {href: '/terrain.html', match: /^\/terrain\.html$/, label: 'Terrain', icon: 'terrain', group: 'building'},
+    {href: '/floors-and-walls.html', match: /^\/floors-and-walls\.html$/, label: 'Floors and Walls', icon: 'floors', group: 'building'},
+    {href: '/wood-and-ramps.html', match: /^\/wood-and-ramps\.html$/, label: 'Wood and Ramps', icon: 'wood', group: 'building'},
+    {href: '/props.html', match: /^\/props\.html$/, label: 'Signs and Chests', icon: 'props', group: 'building'},
+    {href: '/props-packs.html', match: /^\/props-packs\.html$/, label: 'Prop Packs', icon: 'packs', group: 'building'},
+    {href: '/layers.html', match: /^\/layers\.html$/, label: 'Gear Layers', icon: 'layers', group: 'building'},
+    {href: '/gear-fx.html', match: /^\/gear-fx\.html$/, label: 'Gear Effects', icon: 'gearfx', group: 'building'},
+    {href: '/gui-first.html', match: /^\/gui-first\.html$/, label: 'GUI-first Law', icon: 'guifirst', group: 'house'},
+    {href: '/contributing.html', match: /^\/contributing\.html$/, label: 'Contributing', icon: 'contributing', group: 'house'},
+    {href: '/themes.html', match: /^\/themes\.html$/, label: 'Theme Packs', icon: 'themes', group: 'house'},
+    {href: '/worlds.html', match: /^\/worlds\.html$/, label: 'Worlds', icon: 'worlds', group: 'servers'},
+    {href: '/auth.html', match: /^\/auth\.html$/, label: 'Accounts and Passwords', icon: 'auth', group: 'servers'},
   ];
   // Shelf order and the friendly name each shelf wears in the rail and the dropdown. A page's
   // `group` must be one of these ids; its place inside the shelf follows its place in PAGES.
@@ -137,8 +138,12 @@
     {id: 'gear', label: 'Gear and coin'},
     {id: 'folk', label: 'Folk and critters'},
     {id: 'world', label: 'Around the world'},
-    {id: 'making', label: 'Making things'},
-    {id: 'backstage', label: 'Backstage'},
+    {id: 'backstage', label: 'Account and help'},
+    {id: 'bhome', label: '', builders: true},
+    {id: 'tools', label: 'Builder tools', builders: true},
+    {id: 'building', label: 'World building', builders: true},
+    {id: 'house', label: 'House rules', builders: true},
+    {id: 'servers', label: 'Servers', builders: true},
   ];
   const LOCAL = {tools: 6001, panel: 6003};
   function neighbour(port, path) {
@@ -155,6 +160,20 @@
     let path = location.pathname;
     try { path = decodeURIComponent(path); } catch { /* keep the raw path */ }
     return PAGES.find((page) => page.match.test(path)) || PAGES[0];
+  }
+
+  // The wiki is two books on one shelf: the player wiki and the Builder Wiki. Chrome only ever
+  // shows the shelves of the book you are in, plus one link across to the other.
+  function onBuilders() {
+    const group = GROUPS.find((item) => item.id === currentPage().group);
+    return !!(group && group.builders);
+  }
+  function sideGroups() {
+    const builders = onBuilders();
+    return GROUPS.filter((group) => !!group.builders === builders);
+  }
+  function crossPage() {
+    return onBuilders() ? PAGES[0] : PAGES.find((page) => page.href === '/builders.html');
   }
 
   function markLink(link, page) {
@@ -196,7 +215,7 @@
     const rail = document.createElement('nav');
     rail.className = 'gh-tool-rail';
     rail.setAttribute('aria-label', 'Wiki pages and Greenhaven pages');
-    for (const group of GROUPS) {
+    for (const group of sideGroups()) {
       const items = PAGES.filter((page) => page.group === group.id);
       if (items.length) rail.appendChild(railShelf(group.label, items));
     }
@@ -229,7 +248,7 @@
     summary.setAttribute('aria-label', 'Wiki pages. Current: ' + currentPage().label);
     const nav = document.createElement('nav');
     nav.setAttribute('aria-label', 'Wiki pages');
-    for (const group of GROUPS) {
+    for (const group of sideGroups()) {
       const items = PAGES.filter((page) => page.group === group.id);
       if (!items.length) continue;
       if (group.label) {
@@ -246,6 +265,11 @@
         nav.appendChild(link);
       }
     }
+    const cross = document.createElement('a');
+    cross.className = 'tool-jump-cross';
+    cross.href = crossPage().href;
+    cross.textContent = onBuilders() ? 'Back to the player wiki' : 'Open the Builder Wiki';
+    nav.appendChild(cross);
     if (SIBLINGS.length) {
       const head = document.createElement('span');
       head.className = 'tool-jump-head';
@@ -270,36 +294,52 @@
     });
   }
 
-  // Home page only: a soft search box above the topic cards that hides cards not matching what
-  // is typed. Plain text match over each card's title and blurb; nothing leaves the page.
+  // Catalog pages (wiki home, Builder Wiki): a search box in the head that filters the shelf index
+  // as you type, hiding shelves with no match. Plain text match over each entry's title and blurb;
+  // Enter opens the first match. Nothing leaves the page.
   function mountFinder() {
-    const grid = document.querySelector('main .grid');
-    if (!grid || document.querySelector('.finder') || !currentPage().match.test('/')) return;
-    const cards = [...grid.querySelectorAll('article.topic')];
+    const catalog = document.querySelector('main .catalog');
+    const head = document.querySelector('main .home-head');
+    if (!catalog || !head || document.querySelector('.finder')) return;
+    const entries = [...catalog.querySelectorAll('.index li')];
+    const shelves = [...catalog.querySelectorAll('.shelf')];
     const finder = document.createElement('label');
     finder.className = 'finder';
     finder.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor"/><path d="M10.4 10.4 14 14"/></svg>';
     const input = document.createElement('input');
     input.type = 'search';
-    input.placeholder = 'Looking for something? Try fishing, pets, capes...';
-    input.setAttribute('aria-label', 'Filter wiki topics');
+    input.placeholder = onBuilders() ? 'Search builder pages: painter, tiles, forge...' : 'Search the wiki: fishing, pets, capes...';
+    input.setAttribute('aria-label', 'Search wiki topics');
     finder.appendChild(input);
     const empty = document.createElement('p');
     empty.className = 'finder-empty';
     empty.textContent = 'Nothing here by that name yet - try another word.';
     empty.hidden = true;
-    input.addEventListener('input', () => {
+    const filter = () => {
       const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
       let shown = 0;
-      for (const card of cards) {
-        const text = card.textContent.toLowerCase();
-        card.hidden = !words.every((word) => text.includes(word));
-        if (!card.hidden) shown += 1;
+      for (const entry of entries) {
+        const text = entry.textContent.toLowerCase();
+        entry.hidden = !words.every((word) => text.includes(word));
+        if (!entry.hidden) shown += 1;
       }
+      for (const shelf of shelves) shelf.hidden = !shelf.querySelector('.index li:not([hidden])');
       empty.hidden = shown > 0;
+      catalog.classList.toggle('is-filtered', words.length > 0);
+    };
+    input.addEventListener('input', filter);
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        const first = catalog.querySelector('.index li:not([hidden]) a');
+        if (first && input.value.trim()) location.href = first.href;
+      } else if (event.key === 'Escape' && input.value) {
+        input.value = '';
+        filter();
+      }
     });
-    grid.before(finder);
-    grid.after(empty);
+    const lede = head.querySelector('.lede');
+    (lede || head.firstElementChild).after(finder);
+    catalog.prepend(empty);
   }
 
   // The newest Hearth Post issue, shown as the card at the top of the sidebar. Bump with each issue.
@@ -439,11 +479,15 @@
     nav.className = 'side-nav';
     nav.setAttribute('aria-label', 'All wiki pages');
     const groups = [];
-    for (const group of GROUPS) {
+    for (const group of sideGroups()) {
       const items = PAGES.filter((page) => page.group === group.id);
       if (!items.length) continue;
       if (!group.label) {
         for (const item of items) nav.appendChild(sideLink(item));
+        const cross = sideLink(crossPage());
+        cross.classList.add('side-cross');
+        cross.querySelector('span').textContent = onBuilders() ? 'Back to the player wiki' : 'Builder Wiki';
+        nav.appendChild(cross);
         continue;
       }
       const open = remembered ? remembered.includes(group.id) : here.group === group.id;
@@ -515,9 +559,12 @@
     document.body.appendChild(scrim);
   }
 
-  // Each shelf wears its own hue on cards, crumbs and the pager. style.css mixes --shelf into the
-  // active theme's panel and ink, so the tint stays readable in light and dark alike.
-  const SHELF_HUE = {home: '#5a8a3a', skills: '#4f9a4a', gear: '#c08a2a', folk: '#c45a6a', world: '#3a86b8', making: '#8a5ac0', backstage: '#6a7a88'};
+  // Each shelf wears its own hue on the catalog, crumbs and the pager. style.css mixes --shelf into
+  // the active theme's panel and ink, so the tint stays readable in light and dark alike.
+  const SHELF_HUE = {
+    home: '#5a8a3a', skills: '#4f9a4a', gear: '#c08a2a', folk: '#c45a6a', world: '#3a86b8', backstage: '#6a7a88',
+    bhome: '#8a5ac0', tools: '#8a5ac0', building: '#b0703a', house: '#3a8a86', servers: '#6a7a88',
+  };
   function shelfOf(page) {
     return GROUPS.find((group) => group.id === page.group);
   }
@@ -525,84 +572,41 @@
     if (SHELF_HUE[id]) el.style.setProperty('--shelf', SHELF_HUE[id]);
   }
   function isArticle() {
-    return currentPage().group !== 'home' && !!document.querySelector('main > article.page');
+    return !!shelfOf(currentPage()).label && !!document.querySelector('main > article.page');
   }
 
-  // Home cards: an icon chip and the shelf name above each title, tinted by shelf.
-  function decorateCards() {
-    for (const card of document.querySelectorAll('main article.topic')) {
-      if (card.querySelector('.topic-top')) continue;
-      const link = card.querySelector('h2 a');
-      const page = link && PAGES.find((item) => item.href === link.getAttribute('href'));
-      if (!page) { card.classList.add('topic-plain'); continue; }
-      tint(card, page.group);
-      const top = document.createElement('div');
-      top.className = 'topic-top';
-      top.innerHTML = '<span class="topic-icon">' + ICONS[page.icon] + '</span>';
-      const tag = document.createElement('span');
-      tag.className = 'topic-shelf';
-      tag.textContent = shelfOf(page).label || 'News';
-      top.appendChild(tag);
-      card.prepend(top);
+  // Catalog pages: tint each shelf and its jump chip, and put the page's own icon on every entry.
+  function decorateIndex() {
+    for (const chip of document.querySelectorAll('.shelf-jump a[data-shelf]')) tint(chip, chip.dataset.shelf);
+    for (const shelf of document.querySelectorAll('main .catalog .shelf')) {
+      tint(shelf, shelf.id);
+      for (const link of shelf.querySelectorAll('.index a')) {
+        if (link.querySelector('.index-icon')) continue;
+        const page = PAGES.find((item) => item.href === link.getAttribute('href'));
+        if (!page) continue;
+        const icon = document.createElement('span');
+        icon.className = 'index-icon';
+        icon.innerHTML = ICONS[page.icon];
+        link.prepend(icon);
+      }
     }
   }
 
-  // Home only: a count of what the wiki holds in the hero, then one door per shelf under the
-  // featured cards with its first pages listed, like the portal boxes of an old encyclopedia.
-  function mountShelves() {
-    const grid = document.querySelector('main .grid');
-    if (!grid || document.querySelector('.shelves') || !currentPage().match.test('/')) return;
-    const shelves = GROUPS.filter((group) => group.label);
-    const hero = document.querySelector('main .hero');
-    if (hero) {
-      const facts = document.createElement('p');
-      facts.className = 'hero-facts';
-      facts.innerHTML = '<span><b>' + (PAGES.length - 1) + '</b> pages</span><span><b>' + shelves.length + '</b> shelves</span><span><b>1</b> world</span>';
-      hero.appendChild(facts);
-    }
-    const section = document.createElement('section');
-    section.className = 'shelves';
-    section.setAttribute('aria-label', 'Browse by shelf');
-    section.innerHTML = '<h2 class="shelves-title">Browse by shelf</h2>';
-    const list = document.createElement('div');
-    list.className = 'shelves-grid';
-    for (const group of shelves) {
-      const items = PAGES.filter((page) => page.group === group.id);
-      if (!items.length) continue;
-      const door = document.createElement('div');
-      door.className = 'shelf-door';
-      tint(door, group.id);
-      const head = document.createElement('div');
-      head.className = 'shelf-head';
-      head.innerHTML = '<span class="topic-icon">' + ICONS[items[0].icon] + '</span>';
-      const name = document.createElement('b');
-      name.textContent = group.label;
-      const count = document.createElement('span');
-      count.className = 'shelf-count';
-      count.textContent = items.length + (items.length === 1 ? ' page' : ' pages');
-      head.append(name, count);
-      const links = document.createElement('ul');
-      for (const item of items.slice(0, 6)) {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = item.href;
-        a.textContent = item.label;
-        li.appendChild(a);
-        links.appendChild(li);
-      }
-      door.append(head, links);
-      if (items.length > 6) {
-        const more = document.createElement('a');
-        more.className = 'shelf-more';
-        more.href = items[6].href;
-        more.textContent = 'and ' + (items.length - 6) + ' more';
-        door.appendChild(more);
-      }
-      list.appendChild(door);
-    }
-    section.appendChild(list);
-    const empty = document.querySelector('.finder-empty');
-    (empty || grid).after(section);
+  // One tab on the top bar crosses between the two books: "For builders" on the player wiki,
+  // "Player wiki" on the Builder Wiki.
+  function mountWikiSwitch() {
+    const actions = document.querySelector('header .actions');
+    if (!actions || document.querySelector('.wiki-switch')) return;
+    const target = crossPage();
+    const link = document.createElement('a');
+    link.className = 'wiki-switch';
+    link.href = target.href;
+    link.innerHTML = ICONS[onBuilders() ? 'home' : 'forge'];
+    const text = document.createElement('span');
+    text.textContent = onBuilders() ? 'Player wiki' : 'For builders';
+    link.appendChild(text);
+    if (onBuilders()) link.classList.add('is-builders');
+    actions.prepend(link);
   }
 
   // Articles: "Wiki home / Shelf / Page" above the eyebrow.
@@ -614,8 +618,8 @@
     crumbs.setAttribute('aria-label', 'Breadcrumb');
     tint(crumbs, here.group);
     const home = document.createElement('a');
-    home.href = '/';
-    home.textContent = 'Wiki home';
+    home.href = onBuilders() ? '/builders.html' : '/';
+    home.textContent = onBuilders() ? 'Builder Wiki' : 'Wiki home';
     const shelf = document.createElement('span');
     shelf.textContent = shelfOf(here).label;
     const page = document.createElement('span');
@@ -711,7 +715,7 @@
     const nav = document.createElement('nav');
     nav.className = 'foot-shelves';
     nav.setAttribute('aria-label', 'Shelves');
-    for (const group of GROUPS) {
+    for (const group of sideGroups()) {
       const first = PAGES.find((page) => page.group === group.id);
       if (!group.label || !first) continue;
       const a = document.createElement('a');
@@ -727,9 +731,9 @@
     mountRail();
     mountJump();
     mountSidebar();
+    mountWikiSwitch();
     mountFinder();
-    decorateCards();
-    mountShelves();
+    decorateIndex();
     mountCrumbs();
     mountAnchors();
     mountPager();

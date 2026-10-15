@@ -14,6 +14,10 @@ const tableRows = (html) =>
     .map((match) => [...match[1].matchAll(/<td>([^<]*)<\/td>/g)].map((cell) => cell[1].trim()))
     .filter((cells) => cells.length > 0);
 
+// The two catalog pages: the player wiki home and the Builder Wiki. Every article is listed on one.
+const hubPages = async () =>
+  (await readFile(path.join(root, 'index.html'), 'utf8')) + (await readFile(path.join(root, 'builders.html'), 'utf8'));
+
 // Tree, tile ID, level gate, XP per chop, painter key. Mirrors TREE_KINDS in
 // server-architecture/crates/shared/src/lib.rs (cuttable entries only).
 const TREES = [
@@ -283,6 +287,7 @@ const PAGES = [
   {href: '/auth.html', file: 'auth.html', label: 'Accounts and Passwords'},
   {href: '/stride.html', file: 'stride.html', label: 'Stride'},
   {href: '/experience.html', file: 'experience.html', label: 'Experience'},
+  {href: '/builders.html', file: 'builders.html', label: 'Builder Wiki'},
 ];
 
 // Sibling local pages the private wiki header reaches. Label, default band slot, path.
@@ -327,19 +332,19 @@ const STRIDE_LEVELS = [
 ];
 
 test('wiki hub lists the woodcutting article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   assert.match(html, /href="\/woodcutting\.html"/);
   assert.match(html, /Woodcutting/);
 });
 
 test('wiki hub lists the mining article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   assert.match(html, /href="\/mining\.html"/);
   assert.match(html, /Mining/);
 });
 
 test('wiki hub lists the stride article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   assert.match(html, /href="\/stride\.html"/);
   assert.match(html, /Stride/);
 });
@@ -399,7 +404,7 @@ test('mine range, cooldown and the Skills key are documented', async () => {
 });
 
 test('wiki hub lists the fishing article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   assert.match(html, /href="\/fishing\.html"/);
   assert.match(html, /Fishing/);
 });
@@ -452,7 +457,7 @@ test('stride table pins level, total XP and XP to next', async () => {
 });
 
 test('wiki hub lists the experience article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   assert.match(html, /href="\/experience\.html"/);
   assert.match(html, /Experience/);
 });
@@ -495,7 +500,7 @@ test('experience article reuses the shared rock XP values', async () => {
 });
 
 test('wiki hub lists the smithing and combat articles', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   assert.match(html, /href="\/smithing\.html"/);
   assert.match(html, /Smithing/);
   assert.match(html, /href="\/combat\.html"/);
@@ -551,7 +556,7 @@ test('combat article documents the six skills, styles and what ships', async () 
 });
 
 test('wiki hub lists every new article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/digging.html', '/equipment.html', '/capes.html', '/coins.html', '/npcs.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -638,7 +643,7 @@ test('cross-links every new article from at least one existing page', async () =
 });
 
 test('wiki hub lists every round-three article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/creatures.html', '/pets.html', '/crouch.html', '/chat.html', '/guilds.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -720,7 +725,7 @@ test('equipment article names the bronze tools and the festive set', async () =>
 });
 
 test('wiki hub lists every round-four article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/items.html', '/seasonal.html', '/character-forge.html', '/gallery.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -850,7 +855,7 @@ test('every wiki <img> resolves to a file inside the wiki folder', async () => {
 });
 
 test('wiki hub lists every round-five article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/terrain.html', '/props.html', '/first-person.html', '/account.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -909,7 +914,7 @@ test('account article documents the whole path from the menu to a save row', asy
 });
 
 test('wiki hub lists every round-six article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/settings.html', '/music.html', '/map-maker.html', '/contributing.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -969,7 +974,7 @@ test('contributing article states every contract the tests enforce', async () =>
 });
 
 test('wiki hub lists every round-seven article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/themes.html', '/wake-up.html', '/cursors.html', '/remis.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -1028,7 +1033,7 @@ test('remis table pins every rot rarity, cost and income', async () => {
 });
 
 test('wiki hub lists every round-eight article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/monetization.html', '/props-packs.html', '/wood-and-ramps.html', '/atlas.html', '/floors-and-walls.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -1108,7 +1113,7 @@ test('floors-and-walls article names every link family and every ground', async 
 });
 
 test('wiki hub lists every round-nine article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/gear-forge.html', '/gui-first.html', '/admin-panel.html', '/bosses.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -1184,7 +1189,7 @@ test('equipment article reflects the Skilling tool label', async () => {
 });
 
 test('wiki hub lists every round-twelve article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/transmog.html', '/gear-fx.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -1231,7 +1236,7 @@ test('gear-forge article covers the deferred batches (effects, delete, panel pre
 });
 
 test('wiki hub lists every round-thirteen article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/player-menu.html', '/player-sheet.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -1293,7 +1298,7 @@ test('npcs article names the shop reach, the trade flow, and stock counting', as
 });
 
 test('wiki hub lists every round-ten article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/layers.html', '/worlds.html', '/shipping-map.html', '/auth.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -1362,7 +1367,7 @@ test('auth article names the hash, the token, and the remember-me limits', async
 });
 
 test('wiki hub lists every round-eleven article', async () => {
-  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const html = await hubPages();
   for (const href of ['/friends.html', '/crash-codes.html']) {
     assert.ok(html.includes(`href="${href}"`), `index.html is missing ${href}`);
   }
@@ -1674,32 +1679,64 @@ test('experience article lists every fishing tier and dig spot with its XP', asy
   }
 });
 
-// [TRACE: DOCS/SCRATCHPAD.md] Redesign 2026-10-15: varied page furniture built by site.js from PAGES and
+// [TRACE: DOCS/SCRATCHPAD.md] Redesign 2026-10-15: page furniture built by site.js from PAGES and
 // GROUPS (so a new article gets it for free), styled in style.css from theme tokens plus a shelf hue.
-test('wiki redesign mounts crumbs, pager, shelves, hero and the shelf-tinted cards', async () => {
-  const [js, css, hub] = await Promise.all([
+test('wiki articles mount crumbs, anchors, pager, reading line and footer shelves', async () => {
+  const [js, css] = await Promise.all([
     readFile(path.join(root, 'site.js'), 'utf8'),
     readFile(path.join(root, 'style.css'), 'utf8'),
-    readFile(path.join(root, 'index.html'), 'utf8'),
   ]);
-  for (const fn of ['decorateCards', 'mountShelves', 'mountCrumbs', 'mountAnchors', 'mountPager', 'mountProgress', 'mountFooter']) {
+  for (const fn of ['mountWikiSwitch', 'mountFinder', 'decorateIndex', 'mountCrumbs', 'mountAnchors', 'mountPager', 'mountProgress', 'mountFooter']) {
     assert.ok(js.includes(`function ${fn}() {`), `site.js has no ${fn}`);
     assert.ok(js.includes(`\n    ${fn}();\n`), `mount() does not call ${fn}`);
   }
   // Every shelf has a hue, and the hue is only ever mixed with theme tokens.
-  for (const group of js.matchAll(/\{id: '(\w+)', label: '[^']*'\}/g)) {
+  for (const group of js.matchAll(/\{id: '(\w+)', label: '[^']*'(, builders: true)?\}/g)) {
     assert.match(js, new RegExp(`${group[1]}: '#[0-9a-f]{6}'`), `shelf ${group[1]} has no SHELF_HUE`);
   }
   assert.match(css, /html\[data-theme-mode=light\] body\{--paper:/);
   assert.match(css, /main>article\.page\{[^}]*background:var\(--paper\)/);
-  for (const cls of ['.crumbs{', '.anchor{', '.pager{', '.pager-steps{', '.pager-shelf{', '.shelves-grid{', '.shelf-door{', '.topic-icon{', '.topic-shelf{', '.read-progress{', '.foot-shelves{', '.hero-facts{']) {
+  for (const cls of ['.crumbs{', '.anchor{', '.pager{', '.pager-steps{', '.pager-shelf{', '.read-progress{', '.foot-shelves{']) {
     assert.ok(css.includes(cls), `style.css does not style ${cls}`);
   }
-  // The hero paints the bundled menu art; no off-site image.
-  assert.match(hub, /<section class="page hero">/);
-  assert.match(css, /url\("\/assets\/menu-backdrop\.png"\)/);
-  await readFile(path.join(root, 'assets', 'menu-backdrop.png'));
   // Separators and anchors are ASCII text, never glyphs.
   assert.match(css, /\.crumbs>\*\+\*::before\{content:"\/"/);
   assert.match(js, /anchor\.textContent = '#';/);
+});
+
+// [TRACE: greenhaven-wiki/PRODUCT.md] Players own the main wiki; builder pages live in the Builder
+// Wiki, one tab away. The two catalogs list every page exactly once, shelf by shelf, in PAGES order.
+test('the player wiki and the Builder Wiki each list their own shelves and nothing else', async () => {
+  const js = await readFile(path.join(root, 'site.js'), 'utf8');
+  const groups = [...js.matchAll(/\{id: '(\w+)', label: '([^']*)'(, builders: true)?\}/g)]
+    .map((m) => ({id: m[1], label: m[2], builders: !!m[3]}));
+  const pages = [...js.matchAll(/\{href: '([^']+)', match: [^}]*group: '(\w+)'\}/g)].map((m) => ({href: m[1], group: m[2]}));
+  assert.ok(groups.some((g) => g.builders) && groups.some((g) => !g.builders), 'both books have shelves');
+  for (const [file, builders] of [['index.html', false], ['builders.html', true]]) {
+    const html = await readFile(path.join(root, file), 'utf8');
+    assert.match(html, /<section class="page hero home-head[^"]*">/, `${file} has no catalog head`);
+    assert.doesNotMatch(html, /class="eyebrow"|article class="topic"/, `${file} keeps the old card grid`);
+    const shelves = [...html.matchAll(/<section class="shelf" id="(\w+)">([\s\S]*?)<\/section>/g)];
+    const expected = groups.filter((g) => g.builders === builders && g.label);
+    assert.deepEqual(shelves.map((m) => m[1]), expected.map((g) => g.id), `${file} shelf order`);
+    for (const [, id, body] of shelves) {
+      const listed = [...body.matchAll(/<li><a href="([^"]+)"><b>[^<]+<\/b><span class="index-blurb">[^<]+<\/span><\/a><\/li>/g)].map((m) => m[1]);
+      assert.deepEqual(listed, pages.filter((p) => p.group === id).map((p) => p.href), `${file} shelf ${id} lists its pages in order`);
+      assert.match(html, new RegExp(`<a href="#${id}" data-shelf="${id}">`), `${file} has no jump chip for ${id}`);
+    }
+  }
+  const home = await readFile(path.join(root, 'index.html'), 'utf8');
+  assert.match(home, /<a class="builders-band" href="\/builders\.html">/);
+  assert.match(home, /class="home-news"/);
+  // One tab on the top bar crosses between the books; chrome shows only the current book's shelves.
+  assert.match(js, /text\.textContent = onBuilders\(\) \? 'Player wiki' : 'For builders';/);
+  assert.match(js, /return GROUPS\.filter\(\(group\) => !!group\.builders === builders\);/);
+  assert.equal((js.match(/for \(const group of sideGroups\(\)\)/g) || []).length, 4, 'rail, jump, sidebar and footer follow the current book');
+  const css = await readFile(path.join(root, 'style.css'), 'utf8');
+  for (const cls of ['.shelf-jump{', '.shelf-title{', '.index{', '.index-icon{', '.index-blurb{', '.builders-band{', '.wiki-switch{']) {
+    assert.ok(css.includes(cls), `style.css does not style ${cls}`);
+  }
+  // The heads paint bundled game art; nothing off-site.
+  assert.match(css, /--hero-art:url\("\/assets\/menu-backdrop\.png"\)/);
+  assert.match(css, /--hero-art:url\("\/assets\/map-coa-style\.png"\)/);
 });
