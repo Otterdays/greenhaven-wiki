@@ -1146,7 +1146,7 @@ test('admin-panel article names the give / take surface and its audit', async ()
   const html = await readFile(path.join(root, 'admin-panel.html'), 'utf8');
   assert.match(html, /Search and inspect/);
   assert.match(html, /Give or take|Give-or-take|Give \+?or\+? Take/);
-  assert.match(html, /Make admin/);
+  assert.match(html, /Make admin|Rank/);
   assert.match(html, /kick a player|kick/);
   assert.match(html, /teleport/);
   assert.match(html, /ban/);
@@ -1354,7 +1354,7 @@ test('auth article names the hash, the token, and the remember-me limits', async
   assert.match(html, /It never emails a password/);
   assert.match(html, /username is not taken/);
   assert.match(html, /only thing remembered is a name|remembers the <em>username<\/em>/);
-  assert.match(html, /is_admin/);
+  assert.match(html, /is_admin|Staff rank/);
   assert.match(html, /href="\/account\.html"/);
   assert.match(html, /href="\/worlds\.html"/);
 });

@@ -69,7 +69,7 @@
       </ul>
 
       <h2>Bans and admin flags</h2>
-      <p>Two more flags ride on the account row - <code>is_admin</code> and the ban list. A ban reaches both the account and any character it owns, so a banned account cannot just create a new character. An admin flag is checked per command, so revoking one takes effect on the next thing the account tries to say.</p>
+      <p>The ban list rides on the account row (the old <code>is_admin</code> flag is history). A ban reaches both the account and any character it owns, so a banned account cannot just create a new character. Staff rank is per character and checked per command, so a change takes effect on the next thing the character tries to do.</p>
 
       <h2>Where the flow lives</h2>
       <p>The world owns every step of this - hashing, minting a session token, comparing, revoking. The client never hashes anything and never stores a password. See <a href="/admin-panel.html">The Admin Panel</a> for how a session ends up in a browser.</p>
