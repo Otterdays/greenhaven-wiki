@@ -1673,3 +1673,33 @@ test('experience article lists every fishing tier and dig spot with its XP', asy
     assert.deepEqual(rows.find((cells) => cells[0] === row[0]), row, `row for ${row[0]}`);
   }
 });
+
+// [TRACE: DOCS/SCRATCHPAD.md] Redesign 2026-10-15: varied page furniture built by site.js from PAGES and
+// GROUPS (so a new article gets it for free), styled in style.css from theme tokens plus a shelf hue.
+test('wiki redesign mounts crumbs, pager, shelves, hero and the shelf-tinted cards', async () => {
+  const [js, css, hub] = await Promise.all([
+    readFile(path.join(root, 'site.js'), 'utf8'),
+    readFile(path.join(root, 'style.css'), 'utf8'),
+    readFile(path.join(root, 'index.html'), 'utf8'),
+  ]);
+  for (const fn of ['decorateCards', 'mountShelves', 'mountCrumbs', 'mountAnchors', 'mountPager', 'mountProgress', 'mountFooter']) {
+    assert.ok(js.includes(`function ${fn}() {`), `site.js has no ${fn}`);
+    assert.ok(js.includes(`\n    ${fn}();\n`), `mount() does not call ${fn}`);
+  }
+  // Every shelf has a hue, and the hue is only ever mixed with theme tokens.
+  for (const group of js.matchAll(/\{id: '(\w+)', label: '[^']*'\}/g)) {
+    assert.match(js, new RegExp(`${group[1]}: '#[0-9a-f]{6}'`), `shelf ${group[1]} has no SHELF_HUE`);
+  }
+  assert.match(css, /html\[data-theme-mode=light\] body\{--paper:/);
+  assert.match(css, /main>article\.page\{[^}]*background:var\(--paper\)/);
+  for (const cls of ['.crumbs{', '.anchor{', '.pager{', '.pager-steps{', '.pager-shelf{', '.shelves-grid{', '.shelf-door{', '.topic-icon{', '.topic-shelf{', '.read-progress{', '.foot-shelves{', '.hero-facts{']) {
+    assert.ok(css.includes(cls), `style.css does not style ${cls}`);
+  }
+  // The hero paints the bundled menu art; no off-site image.
+  assert.match(hub, /<section class="page hero">/);
+  assert.match(css, /url\("\/assets\/menu-backdrop\.png"\)/);
+  await readFile(path.join(root, 'assets', 'menu-backdrop.png'));
+  // Separators and anchors are ASCII text, never glyphs.
+  assert.match(css, /\.crumbs>\*\+\*::before\{content:"\/"/);
+  assert.match(js, /anchor\.textContent = '#';/);
+});

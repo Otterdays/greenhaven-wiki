@@ -515,11 +515,226 @@
     document.body.appendChild(scrim);
   }
 
+  // Each shelf wears its own hue on cards, crumbs and the pager. style.css mixes --shelf into the
+  // active theme's panel and ink, so the tint stays readable in light and dark alike.
+  const SHELF_HUE = {home: '#5a8a3a', skills: '#4f9a4a', gear: '#c08a2a', folk: '#c45a6a', world: '#3a86b8', making: '#8a5ac0', backstage: '#6a7a88'};
+  function shelfOf(page) {
+    return GROUPS.find((group) => group.id === page.group);
+  }
+  function tint(el, id) {
+    if (SHELF_HUE[id]) el.style.setProperty('--shelf', SHELF_HUE[id]);
+  }
+  function isArticle() {
+    return currentPage().group !== 'home' && !!document.querySelector('main > article.page');
+  }
+
+  // Home cards: an icon chip and the shelf name above each title, tinted by shelf.
+  function decorateCards() {
+    for (const card of document.querySelectorAll('main article.topic')) {
+      if (card.querySelector('.topic-top')) continue;
+      const link = card.querySelector('h2 a');
+      const page = link && PAGES.find((item) => item.href === link.getAttribute('href'));
+      if (!page) { card.classList.add('topic-plain'); continue; }
+      tint(card, page.group);
+      const top = document.createElement('div');
+      top.className = 'topic-top';
+      top.innerHTML = '<span class="topic-icon">' + ICONS[page.icon] + '</span>';
+      const tag = document.createElement('span');
+      tag.className = 'topic-shelf';
+      tag.textContent = shelfOf(page).label || 'News';
+      top.appendChild(tag);
+      card.prepend(top);
+    }
+  }
+
+  // Home only: a count of what the wiki holds in the hero, then one door per shelf under the
+  // featured cards with its first pages listed, like the portal boxes of an old encyclopedia.
+  function mountShelves() {
+    const grid = document.querySelector('main .grid');
+    if (!grid || document.querySelector('.shelves') || !currentPage().match.test('/')) return;
+    const shelves = GROUPS.filter((group) => group.label);
+    const hero = document.querySelector('main .hero');
+    if (hero) {
+      const facts = document.createElement('p');
+      facts.className = 'hero-facts';
+      facts.innerHTML = '<span><b>' + (PAGES.length - 1) + '</b> pages</span><span><b>' + shelves.length + '</b> shelves</span><span><b>1</b> world</span>';
+      hero.appendChild(facts);
+    }
+    const section = document.createElement('section');
+    section.className = 'shelves';
+    section.setAttribute('aria-label', 'Browse by shelf');
+    section.innerHTML = '<h2 class="shelves-title">Browse by shelf</h2>';
+    const list = document.createElement('div');
+    list.className = 'shelves-grid';
+    for (const group of shelves) {
+      const items = PAGES.filter((page) => page.group === group.id);
+      if (!items.length) continue;
+      const door = document.createElement('div');
+      door.className = 'shelf-door';
+      tint(door, group.id);
+      const head = document.createElement('div');
+      head.className = 'shelf-head';
+      head.innerHTML = '<span class="topic-icon">' + ICONS[items[0].icon] + '</span>';
+      const name = document.createElement('b');
+      name.textContent = group.label;
+      const count = document.createElement('span');
+      count.className = 'shelf-count';
+      count.textContent = items.length + (items.length === 1 ? ' page' : ' pages');
+      head.append(name, count);
+      const links = document.createElement('ul');
+      for (const item of items.slice(0, 6)) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.href;
+        a.textContent = item.label;
+        li.appendChild(a);
+        links.appendChild(li);
+      }
+      door.append(head, links);
+      if (items.length > 6) {
+        const more = document.createElement('a');
+        more.className = 'shelf-more';
+        more.href = items[6].href;
+        more.textContent = 'and ' + (items.length - 6) + ' more';
+        door.appendChild(more);
+      }
+      list.appendChild(door);
+    }
+    section.appendChild(list);
+    const empty = document.querySelector('.finder-empty');
+    (empty || grid).after(section);
+  }
+
+  // Articles: "Wiki home / Shelf / Page" above the eyebrow.
+  function mountCrumbs() {
+    if (!isArticle() || document.querySelector('.crumbs')) return;
+    const here = currentPage();
+    const crumbs = document.createElement('nav');
+    crumbs.className = 'crumbs';
+    crumbs.setAttribute('aria-label', 'Breadcrumb');
+    tint(crumbs, here.group);
+    const home = document.createElement('a');
+    home.href = '/';
+    home.textContent = 'Wiki home';
+    const shelf = document.createElement('span');
+    shelf.textContent = shelfOf(here).label;
+    const page = document.createElement('span');
+    page.setAttribute('aria-current', 'page');
+    page.textContent = here.label;
+    crumbs.append(home, shelf, page);
+    document.querySelector('main > article.page').prepend(crumbs);
+  }
+
+  // A quiet # beside each section heading, shown on hover, so a section can be linked directly.
+  function mountAnchors() {
+    if (!isArticle()) return;
+    for (const head of document.querySelectorAll('main .page h2, main .page h3')) {
+      if (head.querySelector('.anchor') || head.closest('.pager')) continue;
+      if (!head.id) head.id = head.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+      const anchor = document.createElement('a');
+      anchor.className = 'anchor';
+      anchor.href = '#' + head.id;
+      anchor.setAttribute('aria-label', 'Link to this section');
+      anchor.textContent = '#';
+      head.appendChild(anchor);
+    }
+  }
+
+  // Article foot: previous / next page on the same shelf, then the rest of the shelf as chips.
+  function mountPager() {
+    if (!isArticle() || document.querySelector('.pager')) return;
+    const here = currentPage();
+    const shelf = PAGES.filter((page) => page.group === here.group);
+    const at = shelf.indexOf(here);
+    const pager = document.createElement('nav');
+    pager.className = 'pager';
+    pager.setAttribute('aria-label', 'More on this shelf');
+    tint(pager, here.group);
+    const steps = document.createElement('div');
+    steps.className = 'pager-steps';
+    const step = (page, kind) => {
+      const a = document.createElement('a');
+      a.className = 'pager-link pager-' + kind;
+      a.href = page.href;
+      a.innerHTML = '<span class="pager-kicker">' + (kind === 'prev' ? 'Previous' : 'Next') + '</span>';
+      const b = document.createElement('b');
+      b.textContent = page.label;
+      a.appendChild(b);
+      steps.appendChild(a);
+    };
+    if (at > 0) step(shelf[at - 1], 'prev');
+    if (at < shelf.length - 1) step(shelf[at + 1], 'next');
+    if (steps.children.length) pager.appendChild(steps);
+    const others = shelf.filter((page) => page !== here);
+    if (others.length) {
+      const more = document.createElement('div');
+      more.className = 'pager-shelf';
+      const title = document.createElement('span');
+      title.className = 'pager-shelf-title';
+      title.textContent = 'More in ' + shelfOf(here).label;
+      more.appendChild(title);
+      for (const page of others) {
+        const chip = document.createElement('a');
+        chip.href = page.href;
+        chip.innerHTML = ICONS[page.icon];
+        chip.appendChild(document.createTextNode(page.label));
+        more.appendChild(chip);
+      }
+      pager.appendChild(more);
+    }
+    document.querySelector('main > article.page').appendChild(pager);
+  }
+
+  // A thin accent line along the top edge that fills as an article is read.
+  function mountProgress() {
+    if (!isArticle() || document.querySelector('.read-progress')) return;
+    const bar = document.createElement('div');
+    bar.className = 'read-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    let queued = false;
+    const paint = () => {
+      queued = false;
+      const room = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (room > 0 ? Math.min(1, window.scrollY / room) : 1) + ')';
+    };
+    window.addEventListener('scroll', () => {
+      if (!queued) { queued = true; requestAnimationFrame(paint); }
+    }, {passive: true});
+    paint();
+  }
+
+  // Footer: one link per shelf ahead of the credit line.
+  function mountFooter() {
+    const footer = document.querySelector('body > footer');
+    if (!footer || footer.querySelector('.foot-shelves')) return;
+    const nav = document.createElement('nav');
+    nav.className = 'foot-shelves';
+    nav.setAttribute('aria-label', 'Shelves');
+    for (const group of GROUPS) {
+      const first = PAGES.find((page) => page.group === group.id);
+      if (!group.label || !first) continue;
+      const a = document.createElement('a');
+      a.href = first.href;
+      a.textContent = group.label;
+      tint(a, group.id);
+      nav.appendChild(a);
+    }
+    footer.prepend(nav);
+  }
+
   function mount() {
     mountRail();
     mountJump();
     mountSidebar();
     mountFinder();
+    decorateCards();
+    mountShelves();
+    mountCrumbs();
+    mountAnchors();
+    mountPager();
+    mountProgress();
+    mountFooter();
   }
 
   if (document.readyState === 'loading') {

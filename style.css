@@ -63,8 +63,9 @@ main{padding:0 7vw 80px}
 .eyebrow::first-letter{text-transform:uppercase}
 .page{max-width:780px;padding-top:40px}
 .page h1{font-family:var(--serif);font-size:46px;font-weight:600;letter-spacing:-.4px;line-height:1.1;margin:14px 0 16px;color:var(--ink-strong)}
-.page h2{font-family:var(--serif);font-size:25px;font-weight:600;margin:40px 0 10px;color:var(--ink-strong)}
-.page h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:28px 0 8px}
+.page h2{position:relative;font-family:var(--serif);font-size:26px;font-weight:600;margin:44px 0 12px;padding-bottom:9px;color:var(--ink-strong);border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.page h3{position:relative;font-family:var(--serif);font-size:19px;font-weight:600;margin:28px 0 8px;color:var(--ink-strong);scroll-margin-top:20px}
+.page strong{color:var(--ink-strong);font-weight:700}
 .page p,.page li{color:var(--muted);line-height:1.8}
 .page ul{padding-left:1.2rem}
 .page li::marker{color:var(--muted-accent)}
@@ -74,7 +75,8 @@ th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
 tr:last-child td{border-bottom:0}
 th{color:var(--muted-accent);font-size:12.5px;font-weight:700;background:color-mix(in srgb,var(--accent) 6%,transparent)}
 td{color:var(--muted)}td:first-child{color:var(--ink)}
-tbody tr:hover td{background:color-mix(in srgb,var(--accent) 4%,transparent)}
+tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--ink) 3%,transparent)}
+tbody tr:hover td{background:color-mix(in srgb,var(--accent) 7%,transparent)}
 code{font-family:Consolas,'Cascadia Mono',monospace;font-size:.88em;color:var(--accent-soft);background:color-mix(in srgb,var(--accent) 8%,transparent);padding:1px 6px;border-radius:6px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;margin-top:12px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:12px}
@@ -184,7 +186,7 @@ article.topic[hidden]{display:none}
   .story{padding:20px}
 }
 
-footer{padding:34px 7vw 40px;color:var(--muted);font-size:13.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px dashed color-mix(in srgb,var(--line) 80%,transparent);font-style:italic}
+footer{margin-top:20px;padding:30px 7vw 36px;color:var(--muted);font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:14px 12px;flex-wrap:wrap;background:var(--header);border-top:1px solid var(--line);font-style:italic}
 @media(max-width:900px){
   .grid-2{grid-template-columns:1fr}
   header>.gh-tool-rail{max-width:100%}
@@ -199,7 +201,99 @@ footer{padding:34px 7vw 40px;color:var(--muted);font-size:13.5px;display:flex;ju
   .page h1{font-size:36px}
   main,footer{padding-left:6vw;padding-right:6vw}
 }
+/* Paper and shelf colour. Articles and cards sit on a sheet a step brighter than the page in light
+   modes and on the panel colour in dark ones. --shelf is set inline by site.js (SHELF_HUE) and is
+   only ever mixed with theme tokens, so every theme keeps its own contrast. */
+body{--paper:var(--panel)}
+html[data-theme-mode=light] body{--paper:color-mix(in srgb,var(--panel) 35%,#fff)}
+
+/* Article sheet: a bound page on the desk, like a printed field guide. */
+main>article.page{max-width:860px;margin-top:30px;padding:30px 48px 40px;background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 1px 0 color-mix(in srgb,var(--line) 60%,transparent),0 22px 44px -28px var(--shadow)}
+main>article.page.news{max-width:1000px}
+main>article.page>.lede::first-letter{float:left;font-family:var(--serif);font-size:3.5em;line-height:.8;font-weight:600;color:var(--accent);padding:9px 10px 0 0}
+
+/* Breadcrumb above the eyebrow (site.js mountCrumbs). */
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted);margin:0 0 16px}
+.crumbs>*+*::before{content:"/";margin:0 9px;color:var(--line);font-weight:400}
+.crumbs a{color:var(--muted)}
+.crumbs a:hover{color:var(--accent)}
+.crumbs span:nth-child(2){font-weight:700;color:color-mix(in srgb,var(--shelf,var(--accent)) 70%,var(--ink))}
+.crumbs [aria-current]{color:var(--ink)}
+
+/* Section links (site.js mountAnchors): a # that shows on hover. */
+.anchor{margin-left:10px;font-family:var(--round);font-size:.7em;font-weight:700;color:var(--muted-accent);opacity:0;transition:opacity .12s}
+.page h2:hover .anchor,.page h3:hover .anchor,.anchor:focus-visible{opacity:1}
+.anchor:hover{color:var(--accent);text-decoration:none}
+
+/* Home hero: the menu painting behind a soft paper wash, text on the bright side. */
+.page.hero{position:relative;max-width:none;margin-top:30px;padding:54px 48px 40px;border-radius:26px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(90deg,color-mix(in srgb,var(--paper) 97%,transparent) 0%,color-mix(in srgb,var(--paper) 90%,transparent) 40%,color-mix(in srgb,var(--paper) 25%,transparent) 68%,transparent 86%),url("/assets/menu-backdrop.png") 70% 45%/cover no-repeat;box-shadow:0 26px 52px -32px var(--shadow)}
+.page.hero>*{position:relative;max-width:560px}
+.page.hero h1{font-size:56px;margin-top:16px}
+.page.hero .home-news{margin-bottom:0}
+.hero-facts{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.hero-facts span{padding:6px 14px;border-radius:999px;font-size:13.5px;color:var(--muted);background:color-mix(in srgb,var(--paper) 88%,transparent);border:1px solid var(--line)}
+.hero-facts b{font-family:var(--serif);font-size:16px;color:var(--accent);margin-right:5px}
+.hero~.finder{margin-top:30px}
+
+/* Topic cards: shelf stripe, icon chip and shelf tag (site.js decorateCards). */
+article.topic{background:var(--paper);overflow:hidden}
+article.topic::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--shelf,var(--accent));opacity:.7}
+article.topic:hover{border-color:color-mix(in srgb,var(--shelf,var(--accent)) 50%,var(--line))}
+article.topic h2 a{color:var(--ink-strong)}
+article.topic:hover h2 a{color:color-mix(in srgb,var(--shelf,var(--accent)) 70%,var(--ink))}
+.topic-top{display:flex;align-items:center;gap:10px;margin:0 0 14px}
+.topic-icon{display:inline-grid;place-items:center;flex:none;width:34px;height:34px;border-radius:11px;background:color-mix(in srgb,var(--shelf,var(--accent)) 16%,var(--paper));color:color-mix(in srgb,var(--shelf,var(--accent)) 75%,var(--ink))}
+.topic-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.topic-icon svg circle{fill:currentColor;stroke:none}
+.topic-shelf{font-size:12px;font-weight:700;color:color-mix(in srgb,var(--shelf,var(--accent)) 70%,var(--ink));background:color-mix(in srgb,var(--shelf,var(--accent)) 10%,transparent);padding:3px 10px;border-radius:999px}
+article.topic.topic-plain{background:transparent;border-style:dashed}
+article.topic.topic-plain::before{display:none}
+article.topic.topic-plain:hover{transform:none;box-shadow:none}
+
+/* Browse by shelf: one door per shelf under the cards (site.js mountShelves). */
+.shelves{margin:54px 0 0}
+.shelves-title{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--ink-strong);margin:0;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.shelves-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:20px}
+.shelf-door{display:flex;flex-direction:column;gap:12px;padding:18px 20px;border-radius:var(--radius);background:linear-gradient(170deg,color-mix(in srgb,var(--shelf) 10%,var(--paper)),var(--paper) 60%);border:1px solid color-mix(in srgb,var(--shelf) 22%,var(--line))}
+.shelf-head{display:flex;align-items:center;gap:10px}
+.shelf-head b{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink-strong)}
+.shelf-count{margin-left:auto;font-size:12px;color:var(--muted)}
+.shelf-door ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}
+.shelf-door li a{display:block;padding:3px 0;font-size:14px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shelf-door li a:hover{color:color-mix(in srgb,var(--shelf) 70%,var(--ink))}
+.shelf-more{font-size:13px;font-style:italic;color:var(--muted-accent)}
+
+/* Article foot: previous / next on the shelf, then the shelf as chips (site.js mountPager). */
+.pager{display:flex;flex-direction:column;gap:20px;margin:50px 0 0;padding-top:26px;border-top:1px solid var(--line)}
+.pager-steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pager-link{display:flex;flex-direction:column;gap:3px;padding:14px 18px;border-radius:16px;background:var(--panel);border:1px solid var(--line);transition:border-color .12s,transform .12s}
+.pager-link:hover{text-decoration:none;transform:translateY(-2px);border-color:color-mix(in srgb,var(--shelf,var(--accent)) 55%,var(--line))}
+.pager-next{grid-column:2;text-align:right}
+.pager-kicker{font-size:12.5px;color:var(--muted)}
+.pager-link b{font-family:var(--serif);font-size:18px;font-weight:600;color:color-mix(in srgb,var(--shelf,var(--accent)) 65%,var(--ink))}
+.pager-shelf{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.pager-shelf-title{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--muted-accent);margin-right:4px}
+.pager-shelf a{display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 9px;border-radius:999px;font-size:13px;color:var(--ink);background:color-mix(in srgb,var(--shelf,var(--accent)) 8%,transparent);border:1px solid color-mix(in srgb,var(--shelf,var(--accent)) 20%,var(--line))}
+.pager-shelf a:hover{text-decoration:none;background:color-mix(in srgb,var(--shelf,var(--accent)) 16%,transparent)}
+.pager-shelf a svg{width:13px;height:13px;fill:none;stroke:color-mix(in srgb,var(--shelf,var(--accent)) 75%,var(--ink));stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pager-shelf a svg circle{fill:color-mix(in srgb,var(--shelf,var(--accent)) 75%,var(--ink));stroke:none}
+
+/* Reading line along the top edge (site.js mountProgress). */
+.read-progress{position:fixed;left:0;right:0;top:0;height:3px;z-index:90;background:linear-gradient(90deg,var(--accent),var(--muted-accent));transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+
+/* Footer shelves (site.js mountFooter). */
+.foot-shelves{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 20px;padding-bottom:16px;border-bottom:1px solid var(--line);font-style:normal}
+.foot-shelves a{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:15px;color:var(--ink)}
+.foot-shelves a::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--shelf,var(--accent))}
+
+@media(max-width:760px){
+  main>article.page{padding:22px 20px 28px;border-radius:18px}
+  .page.hero{padding:32px 22px 26px;background:linear-gradient(180deg,color-mix(in srgb,var(--paper) 92%,transparent),color-mix(in srgb,var(--paper) 84%,transparent)),url("/assets/menu-backdrop.png") 60% 40%/cover no-repeat}
+  .page.hero h1{font-size:38px}
+  .pager-steps{grid-template-columns:1fr}
+  .pager-next{grid-column:auto}
+}
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important}
-  article.topic:hover,header>.gh-tool-rail a:hover{transform:none}
+  article.topic:hover,header>.gh-tool-rail a:hover,.pager-link:hover{transform:none}
 }
