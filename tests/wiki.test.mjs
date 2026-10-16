@@ -1769,6 +1769,16 @@ test('the player wiki and the Builder Wiki each list their own shelves and nothi
     assert.ok(css.includes(cls), `style.css does not style ${cls}`);
   }
   // The heads paint bundled game art; nothing off-site.
-  assert.match(css, /--hero-art:url\("\/assets\/menu-backdrop\.png"\)/);
-  assert.match(css, /--hero-art:url\("\/assets\/map-coa-style\.png"\)/);
+  assert.match(css, /--hero-art:url\("assets\/menu-backdrop\.png"\)/);
+  assert.match(css, /--hero-art:url\("assets\/map-coa-style\.png"\)/);
+});
+
+// GitHub Pages serves the wiki under /greenhaven-wiki/, so a root-absolute asset 404s there.
+test('wiki images and the favicon resolve under a GitHub Pages subpath', async () => {
+  const css = await readFile(path.join(root, 'style.css'), 'utf8');
+  assert.doesNotMatch(css, /url\(["']?\//, 'style.css has a root-absolute url()');
+  for (const file of (await readdir(root)).filter((f) => f.endsWith('.html'))) {
+    const html = await readFile(path.join(root, file), 'utf8');
+    assert.match(html, /<link rel="icon" href="favicon\.svg"/, `${file} has no relative favicon link`);
+  }
 });

@@ -3072,7 +3072,7 @@ html.gh-theme-anim *::after {
   stroke-linejoin: round;
 }
 .gh-tool-rail a svg circle { fill: currentColor; stroke: none; }
-.gh-tool-rail a[href="/"] svg { fill: currentColor; stroke: none; }
+.gh-tool-rail a[href="/"] svg, .gh-tool-rail a[href="index.html"] svg { fill: currentColor; stroke: none; }
 .gh-tool-rail a:hover {
   color: var(--ink-strong);
   border-color: var(--accent);
